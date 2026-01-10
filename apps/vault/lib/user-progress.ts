@@ -24,7 +24,7 @@ const INITIAL_PROGRESS: UserProgress = {
 }
 
 export async function getUserProgress(): Promise<UserProgress> {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) return INITIAL_PROGRESS
 
     try {
@@ -36,7 +36,7 @@ export async function getUserProgress(): Promise<UserProgress> {
 }
 
 export async function setPlayerRole(role: PlayerRole) {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) throw new Error('Unauthorized')
 
     const progress = await getUserProgress()
@@ -58,7 +58,7 @@ export async function setPlayerRole(role: PlayerRole) {
 }
 
 export async function incrementReadCount(currentPath: string) {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) return
 
     const progress = await getUserProgress()
@@ -108,7 +108,7 @@ export async function incrementReadCount(currentPath: string) {
 }
 
 export async function incrementSearchCount() {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) return
 
     const progress = await getUserProgress()
@@ -134,7 +134,7 @@ export async function incrementSearchCount() {
 }
 
 export async function resetUserProgress() {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) throw new Error('Unauthorized')
 
     await clerkClient.users.updateUserMetadata(userId, {
