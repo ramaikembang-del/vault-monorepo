@@ -68,9 +68,29 @@ export function generateGraphData() {
 
             let targetId = target;
 
-            // Basic check: if target isn't an absolute path, maybe we just link it
-            // Force graph is forgiving with missing targets (just creates a node usually), 
-            // but let's try to be cleaner.
+            // Normalization Logic:
+            // 1. If target includes 'biz/', strip it to match our relative IDs (since we scan content/biz)
+            if (targetId.startsWith('biz/')) {
+                const potentialId = targetId.replace('biz/', '');
+                if (idMap.has(potentialId)) {
+                    targetId = potentialId;
+                }
+            }
+
+            // 2. If the target is NOT found in our ID map, checking if it might be a partial match or just skip it
+            // ensuring we don't create links to non-existent nodes which crashes d3-force
+            if (!idMap.has(targetId)) {
+                // Try finding a node that ends with this target (lazy matching for filenames)
+                const matchedId = Array.from(idMap.keys()).find(id => id.endsWith(targetId) || id.endsWith(targetId + '/index'));
+                if (matchedId) {
+                    targetId = matchedId;
+                } else {
+                    // If still not found, we skip adding this link to avoid "node not found" errors
+                    // or we could add a "ghost" node, but for now skipping is safer for stability.
+                    console.warn(`Skipping broken link: [[${target}]] in ${sourceSlug}`);
+                    continue;
+                }
+            }
 
             links.push({
                 source: sourceSlug,
