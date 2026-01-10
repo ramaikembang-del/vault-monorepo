@@ -14,12 +14,19 @@ import {
 } from '@/components/ui/command'
 import { Calculator, Calendar, CreditCard, Settings, User, Rocket, Box, LayoutDashboard, FileText } from 'lucide-react'
 import { useSearch } from '@/hooks/useSearch'
+import { incrementReadCount } from '@/lib/user-progress'
 
 export function CommandMenu() {
     const [open, setOpen] = React.useState(false)
     const [query, setQuery] = React.useState('')
     const router = useRouter()
     const { search, status } = useSearch()
+
+    const handleSearchSelect = async (nodeId: string) => {
+        setOpen(false)
+        await incrementReadCount(`/biz/${nodeId}`)
+        router.push(`/biz/${nodeId}`)
+    }
 
     // Toggle Command Menu with Ctrl+K
     React.useEffect(() => {
@@ -56,7 +63,7 @@ export function CommandMenu() {
                 {query.length > 0 && (
                     <CommandGroup heading="Search Results">
                         {searchResults.map((node: any) => (
-                            <CommandItem key={node.id} onSelect={() => runCommand(() => router.push(`/biz/${node.id}`))}>
+                            <CommandItem key={node.id} onSelect={() => handleSearchSelect(node.id)}>
                                 <FileText className="mr-2 h-4 w-4" />
                                 <span>{node.name}</span>
                                 <span className="ml-auto text-xs text-muted-foreground">{node.group}</span>

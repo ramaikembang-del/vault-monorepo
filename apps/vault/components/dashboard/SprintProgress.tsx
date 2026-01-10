@@ -32,7 +32,11 @@ const SPRINT_DATA = [
 ]
 
 export function SprintProgress() {
-    const currentDay = 9 // Hardcoded for Demo, could be calculated
+    // Current Day calculation based on Sprint 1 Start (Jan 1, 2026)
+    const START_DATE = new Date('2026-01-01T00:00:00')
+    const NOW = new Date()
+    const diffTime = Math.abs(NOW.getTime() - START_DATE.getTime())
+    const currentDay = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1
 
     return (
         <Card className="border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
