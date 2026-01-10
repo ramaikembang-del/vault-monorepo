@@ -17,21 +17,33 @@ interface MermaidProps {
 export function Mermaid({ chart }: MermaidProps) {
     const ref = useRef<HTMLDivElement>(null)
     const [svg, setSvg] = useState<string>('')
+    const [id] = useState(() => `mermaid-${Math.random().toString(36).substring(2, 11)}`)
 
     useEffect(() => {
+        let isMounted = true;
         const renderChart = async () => {
-            if (ref.current && chart) {
-                try {
-                    const { svg } = await mermaid.render(`mermaid-${Math.random().toString(36).substr(2, 9)}`, chart)
-                    setSvg(svg)
-                } catch (error) {
-                    console.error('Mermaid rendering failed:', error)
-                }
-            }
-        }
+            if (!chart || !ref.current) return;
 
-        renderChart()
-    }, [chart])
+            try {
+                // Clear previous SVG for a clean render
+                if (isMounted) setSvg('');
+
+                const { svg } = await mermaid.render(id, chart);
+                if (isMounted) {
+                    setSvg(svg);
+                }
+            } catch (error) {
+                console.error('Mermaid rendering failed:', error);
+            }
+        };
+
+        // Small delay to ensure DOM is ready and prevent race conditions during rapid updates
+        const timer = setTimeout(renderChart, 50);
+        return () => {
+            isMounted = false;
+            clearTimeout(timer);
+        };
+    }, [chart, id]);
 
     return (
         <div className="my-6 flex justify-center overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900/30 p-4">

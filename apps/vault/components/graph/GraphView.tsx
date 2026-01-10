@@ -22,16 +22,6 @@ export default function GraphView() {
         setActiveNode(node);
     };
 
-    useEffect(() => {
-        setIsMounted(true);
-        fetch('/api/graph')
-            .then(res => res.json())
-            .then(data => setGraphData(data))
-            .catch(err => console.error(err));
-    }, []);
-
-    if (!isMounted) return <div className="h-[500px] w-full bg-muted animate-pulse rounded-lg flex items-center justify-center text-muted-foreground">Loading Graph...</div>;
-
     const nodeSize = React.useCallback((node: any) => {
         const connectionWeight = (node.links?.length || 0) * 1.5;
         const readStatus = node.unread ? 3 : 1;
@@ -56,6 +46,16 @@ export default function GraphView() {
                 '#10b981';
         ctx.fill();
     }, [hoveredNode, nodeSize]);
+
+    useEffect(() => {
+        setIsMounted(true);
+        fetch('/api/graph')
+            .then(res => res.json())
+            .then(data => setGraphData(data))
+            .catch(err => console.error(err));
+    }, []);
+
+    if (!isMounted) return <div className="h-[500px] w-full bg-muted animate-pulse rounded-lg flex items-center justify-center text-muted-foreground">Loading Graph...</div>;
 
     return (
         <div className="h-[500px] w-full border border-zinc-800 rounded-lg overflow-hidden bg-zinc-950 relative">
