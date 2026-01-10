@@ -21,11 +21,13 @@ export const metadata: Metadata = {
   description: "Internal platform for Clario's strategy docs and R&D",
 };
 
+import { CommandMenu } from '@/components/search/CommandMenu'
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
@@ -34,10 +36,11 @@ export default function RootLayout({
         >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
+            <CommandMenu />
             {children}
             <StudioTuner />
           </ThemeProvider>
