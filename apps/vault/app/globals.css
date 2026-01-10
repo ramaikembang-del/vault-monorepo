@@ -35,51 +35,97 @@
     --radius: 0.5rem;
 
     /* --- Navbar Config Store (Source of Truth) --- */
+    /* All visual settings are now hardware-aware and tunable via Studio Tuner */
 
     /* Desktop Mode (Default) */
     --nav-collapsed-width-desktop: 60px;
     --nav-expanded-width-desktop: 260px;
     --nav-direction-desktop: column;
-    --nav-top-desktop: 50%;
-    --nav-bottom-desktop: auto;
+    --nav-top-desktop: auto;
+    --nav-bottom-desktop: 24px;
     --nav-left-desktop: 16px;
     --nav-right-desktop: auto;
-    --nav-transform-desktop: translateY(-50%);
-    --nav-logo-mb-desktop: 1px;
+    --nav-transform-desktop: none;
+    --nav-logo-mb-desktop: 16px;
     --nav-logo-mr-desktop: 0px;
     --nav-tabs-section-margin-desktop: 0px;
     --nav-padding-desktop: 6px;
+    --nav-icon-size-desktop: 21px;
+    --nav-font-size-desktop: 14px;
+    --nav-padding-x-desktop: 10px;
+    --nav-padding-y-desktop: 0px;
+    --nav-logo-icon-box-desktop: 45px;
+    --nav-logo-text-size-desktop: 14px;
+    --nav-logo-pt-desktop: 0px;
+    --nav-logo-pl-desktop: 1px;
+    --nav-transform-origin-desktop: center;
+    --nav-extras-gap-desktop: 0px;
+    --nav-theme-padding-x-desktop: 11px;
+    --nav-theme-padding-y-desktop: 6px;
+    --nav-profile-padding-x-desktop: 0px;
+    --nav-profile-padding-y-desktop: 6px;
+    --nav-label-margin-desktop: 12px;
+    --nav-profile-text-size-desktop: 14px;
 
-    /* Tablet Mode (Width < 1024px) */
+    /* Tablet Mode (Dock fit content) */
     --nav-collapsed-width-tablet: auto;
-    /* Dock fit content */
     --nav-expanded-width-tablet: auto;
-    --nav-direction-tablet: row;
+    --nav-direction-tablet: column;
     --nav-top-tablet: auto;
     --nav-bottom-tablet: 24px;
-    --nav-left-tablet: 50%;
+    --nav-left-tablet: 16px;
     --nav-right-tablet: auto;
-    --nav-transform-tablet: translateX(-50%);
+    --nav-transform-tablet: none;
     --nav-logo-mb-tablet: 0px;
     --nav-logo-mr-tablet: 16px;
     --nav-tabs-section-margin-tablet: 0px;
     --nav-padding-tablet: 6px;
+    --nav-icon-size-tablet: 21px;
+    --nav-font-size-tablet: 14px;
+    --nav-padding-x-tablet: 10px;
+    --nav-padding-y-tablet: 0px;
+    --nav-logo-icon-box-tablet: 45px;
+    --nav-logo-text-size-tablet: 14px;
+    --nav-logo-pt-tablet: 0px;
+    --nav-logo-pl-tablet: 1px;
+    --nav-transform-origin-tablet: bottom left;
+    --nav-extras-gap-tablet: 0px;
+    --nav-theme-padding-x-tablet: 11px;
+    --nav-theme-padding-y-tablet: 6px;
+    --nav-profile-padding-x-tablet: 0px;
+    --nav-profile-padding-y-tablet: 6px;
+    --nav-label-margin-tablet: 12px;
+    --nav-profile-text-size-tablet: 14px;
 
-    /* Mobile Mode (Width < 640px) */
+    /* Mobile Mode (Tighter on mobile) */
     --nav-collapsed-width-mobile: auto;
     --nav-expanded-width-mobile: auto;
-    --nav-direction-mobile: row;
+    --nav-direction-mobile: column;
     --nav-top-mobile: auto;
-    --nav-bottom-mobile: 16px;
-    --nav-left-mobile: 50%;
+    --nav-bottom-mobile: 24px;
+    --nav-left-mobile: 16px;
     --nav-right-mobile: auto;
-    --nav-transform-mobile: translateX(-50%);
+    --nav-transform-mobile: none;
     --nav-logo-mb-mobile: 0px;
     --nav-logo-mr-mobile: 8px;
     --nav-tabs-section-margin-mobile: 0px;
-    /* Tighter on mobile */
     --nav-padding-mobile: 4px;
-    /* Tighter padding */
+    --nav-icon-size-mobile: 21px;
+    --nav-font-size-mobile: 14px;
+    --nav-padding-x-mobile: 10px;
+    --nav-padding-y-mobile: 0px;
+    --nav-logo-icon-box-mobile: 45px;
+    --nav-logo-text-size-mobile: 14px;
+    --nav-logo-pt-mobile: 0px;
+    --nav-logo-pl-mobile: 1px;
+    --nav-transform-origin-mobile: bottom left;
+    --nav-extras-gap-mobile: 0px;
+    --nav-theme-padding-x-mobile: 11px;
+    --nav-theme-padding-y-mobile: 6px;
+    --nav-profile-padding-x-mobile: 0px;
+    --nav-profile-padding-y-mobile: 6px;
+    --nav-label-margin-mobile: 12px;
+    --nav-profile-text-size-mobile: 14px;
 
     /* --- Active Variables (Used by Component) --- */
     /* Defaults to Desktop values initially */
@@ -95,30 +141,35 @@
     --nav-logo-mr: var(--nav-logo-mr-desktop);
     --nav-tabs-section-margin: var(--nav-tabs-section-margin-desktop);
     --nav-padding: var(--nav-padding-desktop);
+    --nav-icon-size: var(--nav-icon-size-desktop);
+    --nav-font-size: var(--nav-font-size-desktop);
+    --nav-padding-x: var(--nav-padding-x-desktop);
+    --nav-padding-y: var(--nav-padding-y-desktop);
+    --nav-logo-icon-box: var(--nav-logo-icon-box-desktop);
+    --nav-logo-text-size: var(--nav-logo-text-size-desktop);
+    --nav-logo-pt: var(--nav-logo-pt-desktop);
+    --nav-logo-pl: var(--nav-logo-pl-desktop);
+    --nav-transform-origin: var(--nav-transform-origin-desktop);
+    --nav-extras-gap: var(--nav-extras-gap-desktop);
+    --nav-theme-padding-x: var(--nav-theme-padding-x-desktop);
+    --nav-theme-padding-y: var(--nav-theme-padding-y-desktop);
+    --nav-profile-padding-x: var(--nav-profile-padding-x-desktop);
+    --nav-profile-padding-y: var(--nav-profile-padding-y-desktop);
+    --nav-label-margin: var(--nav-label-margin-desktop);
+    --nav-profile-text-size: var(--nav-profile-text-size-desktop);
 
-    /* Shared Variables (All Modes) */
+    /* Shared Defaults (Static or Desktop Initial) */
     --nav-item-height: 45px;
-    --nav-padding-x: 10px;
-    --nav-padding-y: 0px;
     --nav-radius: 20px;
-    --nav-radius-tl: 18px;
-    --nav-radius-tr: 18px;
-    --nav-radius-bl: 18px;
-    --nav-radius-br: 18px;
     --nav-gap: 0px;
     --nav-icon-box: 44px;
-    --nav-icon-size: 21px;
-    --nav-font-size: 14px;
     --nav-font-weight: 500;
-    --nav-logo-icon-box: 45px;
-    --nav-logo-icon-size: 21px;
-    --nav-logo-text-size: 14px;
-    --nav-logo-pt: 0px;
-    --nav-logo-pl: 1px;
     --nav-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     --nav-bg-opacity: 0.4;
     --nav-border-width: 1px;
     --nav-blur: 12px;
+
+
 
     /* Navigation Tabs */
     --nav-tab-radius: 12px;
@@ -128,15 +179,9 @@
     --nav-tab-hover-opacity: 0.9;
 
     /* Additional Elements */
-    --nav-profile-text-size: 14px;
     --nav-profile-avatar-size: 32px;
     --nav-theme-icon-size: 20px;
     --nav-theme-button-size: 40px;
-    --nav-extras-gap: 0px;
-    --nav-theme-padding-x: 11px;
-    --nav-theme-padding-y: 6px;
-    --nav-profile-padding-x: 0px;
-    --nav-profile-padding-y: 6px;
 
     --nav-transition-speed: 300ms;
     --nav-anim-type: tween;
@@ -320,6 +365,32 @@
 
     /* Navbar Note: We DO NOT force navbar direction here anymore.
        Narrow desktop windows (Mouse) should keep the Sidebar (Column) layout. */
+    --nav-collapsed-width: var(--nav-collapsed-width-tablet);
+    --nav-direction: var(--nav-direction-tablet);
+
+    /* Enforce Bottom-Left Anchor (Tablet Position) for Upward Animation */
+    --nav-top: var(--nav-top-tablet);
+    --nav-bottom: var(--nav-bottom-tablet);
+    --nav-left: var(--nav-left-tablet);
+    --nav-transform: var(--nav-transform-tablet);
+
+    /* Full Mapping for Tablet */
+    --nav-icon-size: var(--nav-icon-size-tablet);
+    --nav-font-size: var(--nav-font-size-tablet);
+    --nav-padding-x: var(--nav-padding-x-tablet);
+    --nav-padding-y: var(--nav-padding-y-tablet);
+    --nav-logo-icon-box: var(--nav-logo-icon-box-tablet);
+    --nav-logo-text-size: var(--nav-logo-text-size-tablet);
+    --nav-logo-pt: var(--nav-logo-pt-tablet);
+    --nav-logo-pl: var(--nav-logo-pl-tablet);
+    --nav-transform-origin: var(--nav-transform-origin-tablet);
+    --nav-extras-gap: var(--nav-extras-gap-tablet);
+    --nav-theme-padding-x: var(--nav-theme-padding-x-tablet);
+    --nav-theme-padding-y: var(--nav-theme-padding-y-tablet);
+    --nav-profile-padding-x: var(--nav-profile-padding-x-tablet);
+    --nav-profile-padding-y: var(--nav-profile-padding-y-tablet);
+    --nav-label-margin: var(--nav-label-margin-tablet);
+    --nav-profile-text-size: var(--nav-profile-text-size-tablet);
   }
 }
 
@@ -330,39 +401,9 @@
     --page-padding-y: var(--page-padding-y-mobile);
     --page-section-gap: var(--page-section-gap-mobile);
     --page-max-width: var(--page-max-width-mobile);
-  }
-}
 
-
-/* 2. Navbar Layout (Input + Orientation Matrix)
-   Navigation ergonomics depend on HOW you hold/use the device. */
-
-/* TOUCH DEVICES (Tablets, Phones, Hybrids) -> Bottom Dock (Row) */
-@media (pointer: coarse) {
-  :root {
-    /* Force Row Layout for easier thumb access */
-    --nav-direction: var(--nav-direction-tablet);
-    /* Row */
-    --nav-collapsed-width: var(--nav-collapsed-width-tablet);
-    --nav-expanded-width: var(--nav-expanded-width-tablet);
-    --nav-top: var(--nav-top-tablet);
-    --nav-bottom: var(--nav-bottom-tablet);
-    --nav-left: var(--nav-left-tablet);
-    --nav-right: var(--nav-right-tablet);
-    --nav-transform: var(--nav-transform-tablet);
-    --nav-logo-mb: var(--nav-logo-mb-tablet);
-    --nav-logo-mr: var(--nav-logo-mr-tablet);
-    --nav-tabs-section-margin: var(--nav-tabs-section-margin-tablet);
-    --nav-padding: var(--nav-padding-tablet);
-  }
-}
-
-/* MOBILE SCREENS (Any Input) -> Bottom Dock (Row)
-   Even if using a mouse, a screen this small needs the vertical space. */
-@media (max-width: 640px) {
-  :root {
+    /* Full Mapping for Mobile */
     --nav-direction: var(--nav-direction-mobile);
-    /* Row */
     --nav-collapsed-width: var(--nav-collapsed-width-mobile);
     --nav-expanded-width: var(--nav-expanded-width-mobile);
     --nav-top: var(--nav-top-mobile);
@@ -374,5 +415,58 @@
     --nav-logo-mr: var(--nav-logo-mr-mobile);
     --nav-tabs-section-margin: var(--nav-tabs-section-margin-mobile);
     --nav-padding: var(--nav-padding-mobile);
+    --nav-icon-size: var(--nav-icon-size-mobile);
+    --nav-font-size: var(--nav-font-size-mobile);
+    --nav-padding-x: var(--nav-padding-x-mobile);
+    --nav-padding-y: var(--nav-padding-y-mobile);
+    --nav-logo-icon-box: var(--nav-logo-icon-box-mobile);
+    --nav-logo-text-size: var(--nav-logo-text-size-mobile);
+    --nav-logo-pt: var(--nav-logo-pt-mobile);
+    --nav-logo-pl: var(--nav-logo-pl-mobile);
+    --nav-transform-origin: var(--nav-transform-origin-mobile);
+    --nav-extras-gap: var(--nav-extras-gap-mobile);
+    --nav-theme-padding-x: var(--nav-theme-padding-x-mobile);
+    --nav-theme-padding-y: var(--nav-theme-padding-y-mobile);
+    --nav-profile-padding-x: var(--nav-profile-padding-x-mobile);
+    --nav-profile-padding-y: var(--nav-profile-padding-y-mobile);
+    --nav-label-margin: var(--nav-label-margin-mobile);
+    --nav-profile-text-size: var(--nav-profile-text-size-mobile);
+  }
+}
+
+/* 2. Navbar Layout (Input + Orientation Matrix)
+   Navigation ergonomics depend on HOW you hold/use the device. */
+
+/* TOUCH DEVICES (Tablets, Phones, Hybrids) -> Bottom Dock (Column/Row based on config) */
+@media (pointer: coarse) {
+  :root {
+    --nav-direction: var(--nav-direction-tablet);
+    --nav-collapsed-width: var(--nav-collapsed-width-tablet);
+    --nav-expanded-width: var(--nav-expanded-width-tablet);
+    --nav-top: var(--nav-top-tablet);
+    --nav-bottom: var(--nav-bottom-tablet);
+    --nav-left: var(--nav-left-tablet);
+    --nav-right: var(--nav-right-tablet);
+    --nav-transform: var(--nav-transform-tablet);
+    --nav-logo-mb: var(--nav-logo-mb-tablet);
+    --nav-logo-mr: var(--nav-logo-mr-tablet);
+    --nav-tabs-section-margin: var(--nav-tabs-section-margin-tablet);
+    --nav-padding: var(--nav-padding-tablet);
+    --nav-icon-size: var(--nav-icon-size-tablet);
+    --nav-font-size: var(--nav-font-size-tablet);
+    --nav-padding-x: var(--nav-padding-x-tablet);
+    --nav-padding-y: var(--nav-padding-y-tablet);
+    --nav-logo-icon-box: var(--nav-logo-icon-box-tablet);
+    --nav-logo-text-size: var(--nav-logo-text-size-tablet);
+    --nav-logo-pt: var(--nav-logo-pt-tablet);
+    --nav-logo-pl: var(--nav-logo-pl-tablet);
+    --nav-transform-origin: var(--nav-transform-origin-tablet);
+    --nav-extras-gap: var(--nav-extras-gap-tablet);
+    --nav-theme-padding-x: var(--nav-theme-padding-x-tablet);
+    --nav-theme-padding-y: var(--nav-theme-padding-y-tablet);
+    --nav-profile-padding-x: var(--nav-profile-padding-x-tablet);
+    --nav-profile-padding-y: var(--nav-profile-padding-y-tablet);
+    --nav-label-margin: var(--nav-label-margin-tablet);
+    --nav-profile-text-size: var(--nav-profile-text-size-tablet);
   }
 }

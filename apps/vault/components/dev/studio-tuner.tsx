@@ -20,7 +20,23 @@ const RESPONSIVE_NAV_KEYS = [
     "--nav-logo-mb",
     "--nav-logo-mr",
     "--nav-padding",
-    "--nav-tabs-section-margin"
+    "--nav-tabs-section-margin",
+    "--nav-icon-size",
+    "--nav-font-size",
+    "--nav-padding-x",
+    "--nav-padding-y",
+    "--nav-logo-icon-box",
+    "--nav-logo-text-size",
+    "--nav-logo-pt",
+    "--nav-logo-pl",
+    "--nav-transform-origin",
+    "--nav-extras-gap",
+    "--nav-theme-padding-x",
+    "--nav-theme-padding-y",
+    "--nav-profile-padding-x",
+    "--nav-profile-padding-y",
+    "--nav-label-margin",
+    "--nav-profile-text-size"
 ];
 
 const NAVBAR_DEFAULTS: Record<string, string> = {
@@ -31,40 +47,72 @@ const NAVBAR_DEFAULTS: Record<string, string> = {
     "--nav-logo-mb-desktop": "16px",
     "--nav-logo-mr-desktop": "0px",
     "--nav-tabs-section-margin-desktop": "0px",
-    "--nav-top-desktop": "50%",
-    "--nav-bottom-desktop": "auto",
+    "--nav-top-desktop": "auto",
+    "--nav-bottom-desktop": "24px",
     "--nav-left-desktop": "16px",
     "--nav-right-desktop": "auto",
-    "--nav-transform-desktop": "translateY(-50%)",
+    "--nav-transform-desktop": "none",
     "--nav-padding-desktop": "6px",
 
     // Tablet Defaults (Dock)
     "--nav-collapsed-width-tablet": "auto",
     "--nav-expanded-width-tablet": "auto",
-    "--nav-direction-tablet": "row",
+    "--nav-direction-tablet": "column",
     "--nav-logo-mb-tablet": "0px",
     "--nav-logo-mr-tablet": "16px",
     "--nav-tabs-section-margin-tablet": "0px",
     "--nav-top-tablet": "auto",
     "--nav-bottom-tablet": "24px",
-    "--nav-left-tablet": "50%",
+    "--nav-left-tablet": "16px",
     "--nav-right-tablet": "auto",
-    "--nav-transform-tablet": "translateX(-50%)",
+    "--nav-transform-tablet": "none",
     "--nav-padding-tablet": "6px",
+    "--nav-icon-size-tablet": "21px",
+    "--nav-font-size-tablet": "14px",
+    "--nav-padding-x-tablet": "10px",
+    "--nav-padding-y-tablet": "0px",
+    "--nav-logo-icon-box-tablet": "45px",
+    "--nav-logo-text-size-tablet": "14px",
+    "--nav-logo-pt-tablet": "0px",
+    "--nav-logo-pl-tablet": "1px",
+    "--nav-transform-origin-tablet": "bottom left",
+    "--nav-extras-gap-tablet": "0px",
+    "--nav-theme-padding-x-tablet": "11px",
+    "--nav-theme-padding-y-tablet": "6px",
+    "--nav-profile-padding-x-tablet": "0px",
+    "--nav-profile-padding-y-tablet": "6px",
+    "--nav-label-margin-tablet": "12px",
+    "--nav-profile-text-size-tablet": "14px",
 
-    // Mobile Defaults (Left Sidebar)
-    "--nav-collapsed-width-mobile": "60px",
-    "--nav-expanded-width-mobile": "260px",
+    // Mobile Defaults (Dock)
+    "--nav-collapsed-width-mobile": "auto",
+    "--nav-expanded-width-mobile": "auto",
     "--nav-direction-mobile": "column",
-    "--nav-logo-mb-mobile": "16px",
-    "--nav-logo-mr-mobile": "0px",
+    "--nav-logo-mb-mobile": "0px",
+    "--nav-logo-mr-mobile": "8px",
     "--nav-tabs-section-margin-mobile": "0px",
-    "--nav-top-mobile": "16px",
-    "--nav-bottom-mobile": "auto",
+    "--nav-top-mobile": "auto",
+    "--nav-bottom-mobile": "24px",
     "--nav-left-mobile": "16px",
     "--nav-right-mobile": "auto",
     "--nav-transform-mobile": "none",
-    "--nav-padding-mobile": "6px",
+    "--nav-padding-mobile": "4px",
+    "--nav-icon-size-mobile": "21px",
+    "--nav-font-size-mobile": "14px",
+    "--nav-padding-x-mobile": "10px",
+    "--nav-padding-y-mobile": "0px",
+    "--nav-logo-icon-box-mobile": "45px",
+    "--nav-logo-text-size-mobile": "14px",
+    "--nav-logo-pt-mobile": "0px",
+    "--nav-logo-pl-mobile": "1px",
+    "--nav-transform-origin-mobile": "bottom left",
+    "--nav-extras-gap-mobile": "0px",
+    "--nav-theme-padding-x-mobile": "11px",
+    "--nav-theme-padding-y-mobile": "6px",
+    "--nav-profile-padding-x-mobile": "0px",
+    "--nav-profile-padding-y-mobile": "6px",
+    "--nav-label-margin-mobile": "12px",
+    "--nav-profile-text-size-mobile": "14px",
 
     // Shared Defaults
     "--nav-item-height": "44px",
@@ -264,6 +312,15 @@ export function StudioTuner() {
                 if (saved) {
                     const { navbar, page } = JSON.parse(saved);
                     if (navbar) {
+                        // Auto-migrate legacy tablet defaults (Center -> Bottom-Left)
+                        if (navbar["--nav-top-tablet"] === "50%") {
+                            navbar["--nav-top-tablet"] = "auto";
+                            navbar["--nav-bottom-tablet"] = "24px";
+                            navbar["--nav-left-tablet"] = "16px";
+                            navbar["--nav-transform-tablet"] = "none";
+                            console.log("🛠️ Migrated legacy tablet positioning to Bottom-Left");
+                        }
+
                         setNavConfig(prev => ({ ...prev, ...navbar }));
                         // Only apply to DOM if value differs from current CSS
                         Object.entries(navbar).forEach(([key, val]) => {
@@ -340,6 +397,9 @@ export function StudioTuner() {
                 --page-max-width: ${pageConfig[`--page-max-width-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-max-width-${globalDeviceMode}`]} !important;
             }
         `;
+
+        // Force DynamicNavbar to re-read computed styles
+        window.dispatchEvent(new Event('resize'));
 
         return () => {
             // Cleanup on unmount
@@ -668,6 +728,7 @@ export function StudioTuner() {
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Spacing</div>
                                         <Input label="Outer Padding" value={getNavValue("--nav-padding")} onChange={(v) => updateNavValue("--nav-padding", v)} />
                                         <Input label="Tab Spacing" value={getNavValue("--nav-gap")} onChange={(v) => updateNavValue("--nav-gap", v)} />
+                                        <Input label="Transf Origin" value={getNavValue("--nav-transform-origin")} onChange={(v) => updateNavValue("--nav-transform-origin", v)} options={["center", "bottom left", "bottom center", "top left"]} />
                                         <div className="h-px bg-border my-2" />
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Visual Style</div>
                                         <Input label="Corner Radius" value={getNavValue("--nav-radius")} onChange={(v) => updateNavValue("--nav-radius", v)} />
@@ -710,6 +771,7 @@ export function StudioTuner() {
                                         <Input label="Logo Margin Right" value={getNavValue("--nav-logo-mr")} onChange={(v) => updateNavValue("--nav-logo-mr", v)} />
                                         <Input label="Logo Offset Top" value={getNavValue("--nav-logo-pt")} onChange={(v) => updateNavValue("--nav-logo-pt", v)} />
                                         <Input label="Logo Offset Left" value={getNavValue("--nav-logo-pl")} onChange={(v) => updateNavValue("--nav-logo-pl", v)} />
+                                        <Input label="Label Margin" value={getNavValue("--nav-label-margin")} onChange={(v) => updateNavValue("--nav-label-margin", v)} />
                                     </Section>
 
                                     {/* 3️⃣ Navigation Tabs */}
@@ -725,6 +787,7 @@ export function StudioTuner() {
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Spacing</div>
                                         <Input label="Tab Padding X" value={getNavValue("--nav-padding-x")} onChange={(v) => updateNavValue("--nav-padding-x", v)} />
                                         <Input label="Tab Padding Y" value={getNavValue("--nav-padding-y")} onChange={(v) => updateNavValue("--nav-padding-y", v)} />
+                                        <Input label="Label Margin" value={getNavValue("--nav-label-margin")} onChange={(v) => updateNavValue("--nav-label-margin", v)} />
                                         <Input label="Tabs Margin (Exp)" value={getNavValue("--nav-tabs-section-margin")} onChange={(v) => updateNavValue("--nav-tabs-section-margin", v)} />
                                         <div className="h-px bg-border my-2" />
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Visual Effects</div>

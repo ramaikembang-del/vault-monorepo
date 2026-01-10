@@ -33,6 +33,7 @@ export function DynamicNavbar() {
     // --- Mode Detection ---
     const [isCompact, setIsCompact] = useState(false); // Layout: Width < 1024px
     const [isTouch, setIsTouch] = useState(false);     // Interaction: Touch capabilities
+    const [isDesktopPortrait, setIsDesktopPortrait] = useState(false); // Narrow Desktop (Mouse + Compact)
 
     // Alias for backward compatibility with existing layout logic
     const isMobile = isCompact;
@@ -63,6 +64,7 @@ export function DynamicNavbar() {
             setIsCompact(compact);
             setIsTouch(touch);
             setIsRowOrientation(isRow);
+            setIsDesktopPortrait(compact && !touch && !isRow);
         };
         console.log('🎯 Running initial mode detection');
         checkModes();
@@ -73,9 +75,13 @@ export function DynamicNavbar() {
     // Derived Expansion State
     // Row Orientation (horizontal): Click-to-expand for all devices
     // Column Orientation (vertical): Hover on desktop, click on touch
+    // Mobile Unification: On touch, expand immediately (labels) on click.
     const isExpanded = isRowOrientation
-        ? isOpen  // Row: Always click-to-expand
-        : (isTouch ? isOpen : isHovered); // Column: Touch click, desktop hover
+        ? isOpen
+        : (isTouch ? isOpen : (isDesktopPortrait ? (isOpen && isHovered) : isHovered));
+
+    // Anchor check for "Dock" style (Bottom-Left + Upward)
+    const isDockView = isCompact && !isRowOrientation;
 
     // --- Animation Config ---
     const [animConfig, setAnimConfig] = useState({
@@ -121,7 +127,6 @@ export function DynamicNavbar() {
                 }
             `}</style>
             <motion.div
-                layout={mounted ? true : false}
                 initial={{ opacity: 0 }}
                 animate={{
                     opacity: mounted ? 1 : 0,
@@ -139,10 +144,10 @@ export function DynamicNavbar() {
                 className={cn(
                     "fixed flex overflow-hidden cursor-default border-border",
                     "pointer-events-auto",
-                    (isTouch || isRowOrientation) && "cursor-pointer",
+                    (isTouch || isRowOrientation || isDesktopPortrait) && "cursor-pointer",
                     isExpanded ? "items-start" : "items-start"
                 )}
-                onClick={() => (isTouch || isRowOrientation) && setIsOpen(!isOpen)}
+                onClick={() => (isTouch || isRowOrientation || isDesktopPortrait) && setIsOpen(!isOpen)}
                 style={{
                     flexDirection: "var(--nav-direction)" as any,
                     // width handled by animate prop
@@ -151,6 +156,7 @@ export function DynamicNavbar() {
                     top: "var(--nav-top)",
                     bottom: "var(--nav-bottom)",
                     transform: "var(--nav-transform)",
+                    transformOrigin: "var(--nav-transform-origin)" as any,
                     zIndex: "var(--nav-z-index)",
                     backdropFilter: `blur(var(--nav-blur))`,
                     backgroundColor: `hsl(var(--card) / var(--nav-bg-opacity))`,
@@ -164,34 +170,7 @@ export function DynamicNavbar() {
                     transition: mounted ? undefined : 'none' // Suppress hydration flash
                 }}
             >
-                {/* Burger Menu Button (Mobile Column Only, When Collapsed) */}
-                {isMobile && !isRowOrientation && !isExpanded && (
-                    <button
-                        onClick={() => setIsOpen(true)}
-                        className="flex items-center justify-center rounded-lg hover:bg-accent transition-colors mb-2"
-                        style={{
-                            minHeight: '44px',
-                            minWidth: '44px',
-                            width: 'var(--nav-icon-box)',
-                            height: 'var(--nav-icon-box)'
-                        }}
-                        aria-label="Open menu"
-                    >
-                        <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                        >
-                            <line x1="3" y1="6" x2="21" y2="6" />
-                            <line x1="3" y1="12" x2="21" y2="12" />
-                            <line x1="3" y1="18" x2="21" y2="18" />
-                        </svg>
-                    </button>
-                )}
+
 
                 {/* Brand Icon (Always visible) */}
                 <div
@@ -203,7 +182,8 @@ export function DynamicNavbar() {
                         paddingLeft: "var(--nav-logo-pl)"
                     }}
                 >
-                    <div
+                    <motion.div
+                        layout
                         className="flex shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm"
                         style={{ height: "var(--nav-logo-icon-box)", width: "var(--nav-logo-icon-box)" }}
                     >
@@ -214,7 +194,7 @@ export function DynamicNavbar() {
                         >
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
-                    </div>
+                    </motion.div>
 
                     <AnimatePresence>
                         {isExpanded && !isRowOrientation && (
@@ -222,8 +202,8 @@ export function DynamicNavbar() {
                                 initial={{ opacity: 0, width: 0 }}
                                 animate={{ opacity: 1, width: "auto" }}
                                 exit={{ opacity: 0, width: 0 }}
-                                className="whitespace-nowrap font-bold text-foreground overflow-hidden ml-4"
-                                style={{ fontSize: "var(--nav-logo-text-size)" }}
+                                className="whitespace-nowrap font-bold text-foreground overflow-hidden"
+                                style={{ fontSize: "var(--nav-logo-text-size)", marginLeft: "var(--nav-label-margin)" }}
                             >
                                 Clario Vault
                             </motion.span>
@@ -232,208 +212,230 @@ export function DynamicNavbar() {
                 </div>
 
                 {/* Navigation Items - Hidden when mobile collapsed */}
-                {(!isMobile || isExpanded) && (
-                    <div
-                        className="flex flex-col gap-1 w-full flex-1 pointer-events-auto"
-                        style={{
-                            flexDirection: "inherit",
-                            marginTop: !isRowOrientation && isExpanded ? "var(--nav-tabs-section-margin)" : undefined,
-                            marginLeft: isRowOrientation ? "var(--nav-tabs-section-margin)" : undefined
-                        }}
-                    >
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.path}
-                                href={item.path}
+                {
+                    (!isMobile || isExpanded || (isDesktopPortrait && isOpen)) && (
+                        <div
+                            className="flex flex-col gap-1 w-full flex-1 pointer-events-auto"
+                            style={{
+                                flexDirection: "inherit",
+                                marginTop: !isRowOrientation && (isExpanded || (isDesktopPortrait && isOpen)) ? "var(--nav-tabs-section-margin)" : undefined,
+                                marginLeft: isRowOrientation ? "var(--nav-tabs-section-margin)" : undefined
+                            }}
+                        >
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.path}
+                                    href={item.path}
+                                    className={cn(
+                                        "relative flex items-center justify-start w-full group transition-all",
+                                        isActive(item.path)
+                                            ? "text-primary-foreground"
+                                            : "text-muted-foreground hover:text-foreground"
+                                    )}
+                                    style={{
+                                        height: "var(--nav-item-height)",
+                                        paddingLeft: "var(--nav-padding-x)",
+                                        paddingRight: "var(--nav-padding-x)",
+                                        paddingTop: "var(--nav-padding-y)",
+                                        paddingBottom: "var(--nav-padding-y)",
+                                        borderRadius: "var(--nav-tab-radius)",
+                                        fontWeight: "var(--nav-font-weight)",
+                                        opacity: isActive(item.path) ? 1 : "var(--nav-tab-inactive-opacity)",
+                                        "--hover-scale": "var(--nav-tab-hover-scale)",
+                                        "--hover-opacity": "var(--nav-tab-hover-opacity)"
+                                    } as React.CSSProperties}
+                                >
+                                    {isActive(item.path) && (
+                                        <motion.div
+                                            layoutId="nav-active"
+                                            className="absolute inset-0 bg-primary -z-10"
+                                            style={{
+                                                borderRadius: "var(--nav-tab-radius)",
+                                                opacity: "var(--nav-tab-active-bg-opacity)"
+                                            }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        />
+                                    )}
+
+                                    {/* Hover Effect for Inactive Items */}
+                                    {!isActive(item.path) && (
+                                        <div className="absolute inset-0 bg-muted/50 opacity-0 group-hover:opacity-100 transition-opacity -z-10"
+                                            style={{ borderRadius: "var(--nav-tab-radius)" }}
+                                        />
+                                    )}
+
+                                    <motion.div layout style={{ width: 24, display: "flex", justifyContent: "center", flexShrink: 0 }}>
+                                        <NavIcon icon={item.icon} style={{ width: "var(--nav-icon-size)", height: "var(--nav-icon-size)" }} />
+                                    </motion.div>
+
+                                    <AnimatePresence>
+                                        {isExpanded && !isRowOrientation && (
+                                            <motion.span
+                                                initial={{ opacity: 0, width: 0 }}
+                                                animate={{ opacity: 1, width: "auto" }}
+                                                exit={{ opacity: 0, width: 0 }}
+                                                className="whitespace-nowrap overflow-hidden"
+                                                style={{ fontSize: "var(--nav-font-size)", marginLeft: "var(--nav-label-margin)" }}
+                                            >
+                                                {item.label}
+                                            </motion.span>
+                                        )}
+                                    </AnimatePresence>
+                                </Link>
+                            ))}
+                        </div>
+                    )
+                }
+
+                {/* User UserButton (Bottom) */}
+                <AnimatePresence>
+                    {(!isMobile || isExpanded || (isDesktopPortrait && isOpen)) && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0, overflow: "hidden" }}
+                            animate={{ opacity: 1, height: "auto", overflow: "visible" }}
+                            exit={{ opacity: 0, height: 0, overflow: "hidden" }}
+                            transition={{ duration: 0.2 }}
+                            className={cn(
+                                "mt-auto w-full pt-2 flex flex-col gap-1 pointer-events-auto",
+                                !isMobile && "border-t border-border" // Standard border for desktop
+                            )}
+                            style={(!isDockView && isMobile)
+                                ? { paddingTop: 0, marginTop: 0, flexDirection: "inherit", width: "auto", borderTop: "none" }
+                                : {}
+                            }
+                        >
+                            {/* Theme Toggle */}
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setTheme(theme === "dark" ? "light" : "dark");
+                                }}
                                 className={cn(
-                                    "relative flex items-center justify-start w-full group transition-all",
-                                    isActive(item.path)
-                                        ? "text-primary-foreground"
-                                        : "text-muted-foreground hover:text-foreground"
+                                    "flex justify-start hover:bg-muted/50",
+                                    (!isDockView && isMobile) ? "w-auto" : "w-full"
                                 )}
                                 style={{
                                     height: "var(--nav-item-height)",
-                                    paddingLeft: "var(--nav-padding-x)",
-                                    paddingRight: "var(--nav-padding-x)",
-                                    paddingTop: "var(--nav-padding-y)",
-                                    paddingBottom: "var(--nav-padding-y)",
-                                    borderRadius: "var(--nav-tab-radius)",
-                                    fontWeight: "var(--nav-font-weight)",
-                                    opacity: isActive(item.path) ? 1 : "var(--nav-tab-inactive-opacity)",
-                                    "--hover-scale": "var(--nav-tab-hover-scale)",
-                                    "--hover-opacity": "var(--nav-tab-hover-opacity)"
-                                } as React.CSSProperties}
+                                    width: (!isDockView && isMobile) ? "var(--nav-item-height)" : "100%",
+                                    paddingLeft: "var(--nav-theme-padding-x)",
+                                    paddingRight: "var(--nav-theme-padding-x)",
+                                    paddingTop: "var(--nav-theme-padding-y)",
+                                    paddingBottom: "var(--nav-theme-padding-y)",
+                                    marginBottom: "var(--nav-extras-gap)",
+                                    borderRadius: "var(--nav-tab-radius)"
+                                }}
                             >
-                                {isActive(item.path) && (
-                                    <motion.div
-                                        layoutId="nav-active"
-                                        className="absolute inset-0 bg-primary -z-10"
-                                        style={{
-                                            borderRadius: "var(--nav-tab-radius)",
-                                            opacity: "var(--nav-tab-active-bg-opacity)"
-                                        }}
-                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                    />
-                                )}
-
-                                {/* Hover Effect for Inactive Items */}
-                                {!isActive(item.path) && (
-                                    <div className="absolute inset-0 bg-muted/50 opacity-0 group-hover:opacity-100 transition-opacity -z-10"
-                                        style={{ borderRadius: "var(--nav-tab-radius)" }}
-                                    />
-                                )}
-
-                                <div style={{ width: 24, display: "flex", justifyContent: "center", flexShrink: 0 }}>
-                                    <NavIcon icon={item.icon} style={{ width: "var(--nav-icon-size)", height: "var(--nav-icon-size)" }} />
-                                </div>
+                                <motion.div
+                                    layout
+                                    className="relative shrink-0 flex items-center justify-center"
+                                    style={{ height: "var(--nav-icon-box)", width: 24 }}
+                                >
+                                    <NavIcon icon={Sun} className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 absolute" style={{ width: "var(--nav-theme-icon-size)", height: "var(--nav-theme-icon-size)" }} />
+                                    <NavIcon icon={Moon} className="rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 absolute" style={{ width: "var(--nav-theme-icon-size)", height: "var(--nav-theme-icon-size)" }} />
+                                </motion.div>
 
                                 <AnimatePresence>
-                                    {isExpanded && !isRowOrientation && (
-                                        <motion.span
+                                    {isExpanded && (!isMobile || isDesktopPortrait) && (
+                                        <motion.div
                                             initial={{ opacity: 0, width: 0 }}
                                             animate={{ opacity: 1, width: "auto" }}
                                             exit={{ opacity: 0, width: 0 }}
-                                            className="whitespace-nowrap overflow-hidden ml-3"
-                                            style={{ fontSize: "var(--nav-font-size)" }}
+                                            className="flex flex-1 items-center overflow-hidden whitespace-nowrap font-medium"
+                                            style={{ fontSize: "var(--nav-font-size)", marginLeft: "var(--nav-label-margin)" }}
                                         >
-                                            {item.label}
-                                        </motion.span>
+                                            <span>Toggle Theme</span>
+                                        </motion.div>
                                     )}
                                 </AnimatePresence>
-                            </Link>
-                        ))}
-                    </div>
-                )}
+                            </Button>
 
-                {/* User UserButton (Bottom) */}
-                <div
-                    className={cn(
-                        "mt-auto w-full pt-2 flex flex-col gap-1 pointer-events-auto",
-                        !isMobile && "border-t border-border" // Standard border for desktop
-                    )}
-                    style={isMobile
-                        ? { paddingTop: 0, marginTop: 0, flexDirection: "inherit", width: "auto", borderTop: "none" }
-                        : {}
-                    }
-                >
-                    {/* Theme Toggle */}
-                    {(!isMobile || isExpanded) && (
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className={cn(
-                                "flex justify-start hover:bg-accent",
-                                isMobile ? "w-auto" : "w-full"
-                            )}
-                            style={{
-                                height: "var(--nav-theme-button-size)",
-                                width: isMobile ? "var(--nav-theme-button-size)" : "100%",
-                                paddingLeft: "var(--nav-theme-padding-x)",
-                                paddingRight: "var(--nav-theme-padding-x)",
-                                paddingTop: "var(--nav-theme-padding-y)",
-                                paddingBottom: "var(--nav-theme-padding-y)",
-                                marginBottom: "var(--nav-extras-gap)"
-                            }}
-                        >
+                            {/* User Profile */}
                             <div
-                                className="relative shrink-0 flex items-center justify-center"
-                                style={{ height: "var(--nav-icon-box)", width: 24 }}
-                            >
-                                <NavIcon icon={Sun} className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 absolute" style={{ width: "var(--nav-theme-icon-size)", height: "var(--nav-theme-icon-size)" }} />
-                                <NavIcon icon={Moon} className="rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 absolute" style={{ width: "var(--nav-theme-icon-size)", height: "var(--nav-theme-icon-size)" }} />
-                            </div>
-
-                            <AnimatePresence>
-                                {isExpanded && !isMobile && (
-                                    <motion.div
-                                        initial={{ opacity: 0, width: 0 }}
-                                        animate={{ opacity: 1, width: "auto" }}
-                                        exit={{ opacity: 0, width: 0 }}
-                                        className="flex flex-1 items-center overflow-hidden whitespace-nowrap font-medium ml-3"
-                                        style={{ fontSize: "var(--nav-font-size)" }}
-                                    >
-                                        <span>Toggle Theme</span>
-                                    </motion.div>
+                                className={cn(
+                                    "group relative flex items-center transition-all hover:bg-muted/50 cursor-pointer",
+                                    (!isDockView && isMobile) ? "w-auto" : "w-full"
                                 )}
-                            </AnimatePresence>
-                        </Button>
-                    )}
-
-                    {/* User Profile */}
-                    {(!isMobile || isExpanded) && (
-                        <div
-                            className={cn(
-                                "group relative flex items-center transition-all hover:bg-accent cursor-pointer rounded-md",
-                                isMobile ? "w-auto" : "w-full"
-                            )}
-                            style={{
-                                height: "var(--nav-item-height)",
-                                width: isMobile ? "var(--nav-item-height)" : "100%",
-                                paddingLeft: "var(--nav-profile-padding-x)",
-                                paddingRight: "var(--nav-profile-padding-x)",
-                                paddingTop: "var(--nav-profile-padding-y)",
-                                paddingBottom: "var(--nav-profile-padding-y)",
-                                minHeight: "var(--nav-item-height)" // Prevent collapse during UserButton load
-                            }}
-                        >
-                            <div
-                                className="flex shrink-0 items-center justify-center"
                                 style={{
-                                    height: "var(--nav-icon-box)",
-                                    width: "var(--nav-icon-box)",
-                                    minHeight: "var(--nav-icon-box)", // Reserve space during load
-                                    minWidth: "var(--nav-icon-box)"
+                                    height: "var(--nav-item-height)",
+                                    width: (!isDockView && isMobile) ? "var(--nav-item-height)" : "100%",
+                                    paddingLeft: "var(--nav-padding-x)",
+                                    paddingRight: "var(--nav-padding-x)",
+                                    paddingTop: "var(--nav-profile-padding-y)",
+                                    paddingBottom: "var(--nav-profile-padding-y)",
+                                    borderRadius: "var(--nav-tab-radius)",
+                                    minHeight: "var(--nav-item-height)" // Prevent collapse during UserButton load
+                                }}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    // Prevent double-trigger if clicking the actual button
+                                    if ((e.target as Element).closest('button')) return;
+
+                                    // Programmatically click the Clerk UserButton trigger
+                                    const button = e.currentTarget.querySelector('button');
+                                    if (button) button.click();
                                 }}
                             >
-                                <UserButton
-                                    afterSignOutUrl="/sign-in"
-                                    appearance={{
-                                        elements: {
-                                            rootBox: {
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                width: '100%',
-                                                height: '100%'
-                                            },
-                                            userButtonTrigger: {
-                                                padding: 0,
-                                                minHeight: 0,
-                                                lineHeight: 0,
-                                                height: 'auto',
-                                                width: 'auto',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center'
-                                            },
-                                            avatarBox: {
-                                                width: "var(--nav-profile-avatar-size)",
-                                                height: "var(--nav-profile-avatar-size)",
-                                                minWidth: "var(--nav-profile-avatar-size)",
-                                                minHeight: "var(--nav-profile-avatar-size)"
-                                            }
-                                        }
+                                <motion.div
+                                    layout
+                                    className="flex shrink-0 items-center justify-center"
+                                    style={{
+                                        height: "var(--nav-icon-box)",
+                                        width: 24,
+                                        minHeight: "var(--nav-icon-box)", // Reserve space during load
+                                        minWidth: 24
                                     }}
-                                />
+                                >
+                                    <UserButton
+                                        afterSignOutUrl="/sign-in"
+                                        appearance={{
+                                            elements: {
+                                                rootBox: {
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    width: '100%',
+                                                    height: '100%'
+                                                },
+                                                userButtonTrigger: {
+                                                    padding: 0,
+                                                    minHeight: 0,
+                                                    lineHeight: 0,
+                                                    height: 'auto',
+                                                    width: 'auto',
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center'
+                                                },
+                                                avatarBox: {
+                                                    width: "var(--nav-profile-avatar-size)",
+                                                    height: "var(--nav-profile-avatar-size)",
+                                                    minWidth: "var(--nav-profile-avatar-size)",
+                                                    minHeight: "var(--nav-profile-avatar-size)"
+                                                }
+                                            }
+                                        }}
+                                    />
+                                </motion.div>
+                                <AnimatePresence>
+                                    {isExpanded && (!isMobile || isDesktopPortrait) && (
+                                        <motion.div
+                                            initial={{ opacity: 0, width: 0 }}
+                                            animate={{ opacity: 1, width: "auto" }}
+                                            exit={{ opacity: 0, width: 0 }}
+                                            className="flex flex-1 items-center overflow-hidden whitespace-nowrap font-medium"
+                                            style={{ fontSize: "var(--nav-profile-text-size)", marginLeft: "var(--nav-label-margin)" }}
+                                        >
+                                            <span>Account</span>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
-                            <AnimatePresence>
-                                {isExpanded && !isMobile && (
-                                    <motion.div
-                                        initial={{ opacity: 0, width: 0 }}
-                                        animate={{ opacity: 1, width: "auto" }}
-                                        exit={{ opacity: 0, width: 0 }}
-                                        className="flex flex-1 items-center overflow-hidden whitespace-nowrap font-medium ml-[9px]"
-                                        style={{ fontSize: "var(--nav-profile-text-size)" }}
-                                    >
-                                        <span>Account</span>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
+                        </motion.div>
                     )}
-                </div>
-            </motion.div>
-        </div>
+                </AnimatePresence>
+            </motion.div >
+        </div >
     );
 }
