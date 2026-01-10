@@ -109,6 +109,8 @@ export function DynamicNavbar() {
         { label: "Admin Panel", path: "/admin", icon: Settings },
     ];
 
+    if (!mounted) return null;
+
     return (
         <div className={mounted ? undefined : "no-transitions"}>
             <style jsx>{`
