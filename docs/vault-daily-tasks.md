@@ -117,12 +117,13 @@ This is your daily actionable checklist. Check items off as you go.
   - [x] **Verification**: Created `content/biz/strategy/mermaid-test.md`
 
 ### Day 12-13: Achievements
-- [ ] **Define Achievements**
-  - [ ] Create `config/achievements.ts` (List of 10 badges)
-- [ ] **Build UI**
-  - [ ] `components/gamification/AchievementList.tsx`
-- [ ] **Hook Up Logic**
-  - [ ] On Doc View -> Increment Count -> Check Unlock
+- [x] **Define Achievements**
+  - [x] Create `config/achievements.ts` (Expanded to 24 badges)
+- [x] **Build UI**
+  - [x] `components/gamification/AchievementList.tsx`
+- [x] **Hook Up Logic**
+  - [x] On Doc View -> Increment Count -> Check Unlock
+  - [x] Added "Reset Progress" for verification
 
 ---
 

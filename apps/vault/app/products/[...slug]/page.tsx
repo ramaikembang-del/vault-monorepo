@@ -6,6 +6,8 @@ import remarkGfm from 'remark-gfm'
 import { EventTracker } from '@/components/gamification/EventTracker'
 
 import { Mermaid } from '@/components/mdx/Mermaid'
+import { Tooltip } from '@/components/ui/Tooltip'
+import { HoverPreview } from '@/components/ui/HoverPreview'
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
     const { slug } = params
@@ -23,6 +25,20 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                 return <Mermaid chart={children} />
             }
             return <code {...props} />
+        },
+        Tooltip,
+        // Wrap links with HoverPreview if they are internal
+        a: (props: any) => {
+            const { href, children } = props
+            const isInternal = href?.startsWith('/') || href?.startsWith('.')
+            if (isInternal) {
+                return (
+                    <HoverPreview title={String(children)} category="Product Spec">
+                        <a {...props} className="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30 underline-offset-4" />
+                    </HoverPreview>
+                )
+            }
+            return <a {...props} target="_blank" rel="noopener noreferrer" />
         }
     }
 
