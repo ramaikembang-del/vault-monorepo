@@ -59,16 +59,39 @@ This is your daily actionable checklist. Check items off as you go.
 
 ---
 
-## 📊 Sprint 1: Dashboard & Gamification (Days 6-11)
+## � Sprint 2: Intelligent Search (Days 6-7)
 
-### Day 6: Clerk Metadata Setup
+### Day 6: Command K Interface
+- [x] **Install CMDK**
+  - [x] `npm install cmdk`
+- [x] **Build Command Menu**
+  - [x] Create `components/search/CommandMenu.tsx`
+  - [x] Add `useEffect` for `Ctrl+K` shortcut
+  - [x] Implement search logic (filter local routes/data)
+  - [x] Add global provider layout
+
+### Day 7: Search Logic Integration
+- [x] **Install Fuse.js**
+  - [x] `npm install fuse.js`
+- [x] **Build Search Index**
+  - [x] Create `lib/search/search-index.ts` to fetch graph data (Created `hooks/useSearch.ts` instead)
+  - [x] Configure Fuse options (fuzzy search settings)
+- [x] **Connect to UI**
+  - [x] Update `CommandMenu.tsx` to search nodes asynchronously
+  - [x] Render results dynamically
+
+---
+
+## �📊 Sprint 3: Dashboard & Gamification (Days 8-13)
+
+### Day 8: Clerk Metadata Setup
 - [ ] **Define Schema**
   - [ ] Go to Clerk Dashboard -> User -> Metadata
   - [ ] Add `achievements`, `readCount`, `sprintProgress`
 - [ ] **Create API Helper**
   - [ ] `apps/vault/lib/user-progress.ts` (fetch/update metadata)
 
-### Day 7-8: Mission Control UI
+### Day 9-10: Mission Control UI
 - [ ] **Install Charts**
   - [ ] `npm install recharts`
 - [ ] **Build Widgets**
@@ -77,14 +100,14 @@ This is your daily actionable checklist. Check items off as you go.
 - [ ] **Assemble Page**
   - [ ] `apps/vault/app/(dashboard)/page.tsx`
 
-### Day 9: Product Portfolio
+### Day 11: Product Portfolio
 - [ ] **Install Mermaid**
   - [ ] `npm install mermaid`
 - [ ] **Create Diagram Component**
   - [ ] `components/dashboard/PortfolioMap.tsx`
   - [ ] Hardcode V1 diagram definition string
 
-### Day 10-11: Achievements
+### Day 12-13: Achievements
 - [ ] **Define Achievements**
   - [ ] Create `config/achievements.ts` (List of 10 badges)
 - [ ] **Build UI**
@@ -96,7 +119,7 @@ This is your daily actionable checklist. Check items off as you go.
 
 ## 🚀 Sprint 1: Landing (Day 12-14)
 
-### Day 12: Polish
+### Day 14: Polish
 - [ ] **Hover Previews**
   - [ ] Setup `@radix-ui/react-hover-card`
   - [ ] Add to Graph Nodes
@@ -104,13 +127,13 @@ This is your daily actionable checklist. Check items off as you go.
   - [ ] Setup `@radix-ui/react-tooltip`
   - [ ] Add "Why This Matters" to 5 key pages
 
-### Day 13: Testing
+### Day 15: Testing
 - [ ] **Manual Walkthrough**
   - [ ] User enters -> Dashboard -> Click Graph -> Open Note -> Read Doc -> Achievement Unlock
 - [ ] **Mobile Check**
   - [ ] Verify Navbar works on phone
 
-### Day 14: Launch
+### Day 16: Launch
 - [ ] **Deploy**
   - [ ] Push to main
   - [ ] Check Vercel build
