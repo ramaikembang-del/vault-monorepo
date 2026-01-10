@@ -2,149 +2,43 @@
 
 This is your daily actionable checklist. Check items off as you go.
 
-## 🏗️ Sprint 0: Core Foundation (Days 1-2)
+## 📦 Sprint 1: Core Foundation & MVP (Day 1)
 
-### Day 1: Scaffolding Routes
-- [x] **Install MDX Libraries**
-  - [x] `npm install next-mdx-remote shiki rehype-slug gray-matter`
-  - [x] `npm install lucide-react` (Already installed)
-- [x] **Create Biz Lab Route**
-  - [x] Create `apps/vault/app/biz/layout.tsx` (Sidebar Layout)
-  - [x] Create `apps/vault/app/biz/[[...slug]]/page.tsx` (MDX Renderer)
-  - [x] Create `apps/vault/lib/mdx.ts` (Content Fetcher)
-  - [x] **Verify:** Navigate to `localhost:3000/biz` (should show empty docs page)
-- [x] **Create Products Lab Route**
-  - [x] Create `apps/vault/app/products/layout.tsx`
-  - [x] Create `apps/vault/app/products/page.tsx` (Experiment Grid)
-  - [x] Create `apps/vault/app/products/experiments/folder` (Throwaway zone)
+### Day 1: Build & Launch Core Experience
+- [x] **Foundation & Scaffolding**
+  - [x] Next.js/MDX Routes (`/biz` & `/products`)
+  - [x] Unified Navigation & Sidebars
+  - [x] Clerk Auth & Symlink Content Integration
+- [x] **Knowledge Graph 2.0**
+  - [x] Force-directed graph engine
+  - [x] Dynamic node extraction & click navigation
+  - [x] Draggable Floating Notes
+- [x] **Intelligence & Search**
+  - [x] Command K (CMDK) Global Search
+  - [x] Fuse.js fuzzy matching on graph data
+- [x] **Mission Control & Gamification**
+  - [x] User Progress logic (XP/Levels/Stats)
+  - [x] Personal Tracker & Sprint Progress widgets
+  - [x] Mermaid-powered Product Portfolio Map
+  - [x] 24 Milestone Achievements & Gallery UI
+  - [x] Debug "Reset Progress" tool
 
-### Day 2: Unified Navigation
-- [x] **Update Top Navbar** (`dynamic-navbar.tsx`)
-  - [x] Add Tabs: `Products` | `Biz` | `Admin`
-  - [x] Implement active state logic
-- [x] **Setup Content Routes (Symlink)**
-  - [x] Create directory: `apps/vault/content`
-  - [x] **Symlink External Repo:** Route your docs repo to `apps/vault/content/biz`
-  - [x] *Windows CMD:* `mklink /J "apps\vault\content\biz" "C:\Users\Adeandza Haqia\Desktop\Clario\biz"`
-  - [x] Test MDX rendering with real content
-
----
-
-## 📦 Sprint 1: Knowledge Graph (Days 3-5)
-
-### Day 3: Graph Engine
-- [x] **Install Graph Libs**
-  - [x] `npm install react-force-graph-2d`
-- [x] **Data Extraction Script**
-  - [x] Create `apps/vault/lib/graph/extract-nodes.ts`
-  - [x] Implement recursive file scan of `/content/biz`
-  - [x] Parse frontmatter for `tags` and `links`
-  - [x] Output: `graph-data.json`
-
-### Day 4: Graph Visualization
-- [x] **Build Component**
-  - [x] Create `components/graph/GraphView.tsx`
-  - [x] **Connect Data**: Wire up `graph-data.json` to the view
-  - [x] Render nodes (Strategy=Blue, Product=Orange)
-- [x] **Interactions**
-  - [x] Add `onNodeClick` handler (Navigate to doc)
-  - [x] Implement Zoom/Pan controls (Built-in)
-
-### Day 5: Floating Notes
-- [x] **Install Dragging**
-  - [x] `npm install react-draggable framer-motion`
-- [x] **Build UI**
-  - [x] Create `components/graph/FloatingNote.tsx` (Draggable Card)
-  - [x] Connect Graph click -> Open Note overlay
+- [x] **High-Fidelity Polish**
+  - [x] Radix UI Hover Previews (Graph & Links)
+  - [x] "Why This Matters" Contextual Tooltips
+  - [x] MDX Test Suite (`polish-test.md`)
 
 ---
 
-## � Sprint 2: Intelligent Search (Days 6-7)
+## 🚀 Sprint 2: Quality & Deployment (Day 2)
 
-### Day 6: Command K Interface
-- [x] **Install CMDK**
-  - [x] `npm install cmdk`
-- [x] **Build Command Menu**
-  - [x] Create `components/search/CommandMenu.tsx`
-  - [x] Add `useEffect` for `Ctrl+K` shortcut
-  - [x] Implement search logic (filter local routes/data)
-  - [x] Add global provider layout
-
-### Day 7: Search Logic Integration
-- [x] **Install Fuse.js**
-  - [x] `npm install fuse.js`
-- [x] **Build Search Index**
-  - [x] Create `lib/search/search-index.ts` to fetch graph data (Created `hooks/useSearch.ts` instead)
-  - [x] Configure Fuse options (fuzzy search settings)
-- [x] **Connect to UI**
-  - [x] Update `CommandMenu.tsx` to search nodes asynchronously
-  - [x] Render results dynamically
-
----
-
-## �📊 Sprint 3: Dashboard & Gamification (Days 8-13)
-
-### Day 8: Clerk Metadata Setup
-- [x] **Define Schema**
-  - [x] Go to Clerk Dashboard -> User -> Metadata (Types defined in `types/user.ts`)
-  - [x] Add `achievements`, `readCount`, `sprintProgress`
-- [x] **Create API Helper**
-  - [x] `apps/vault/lib/user-progress.ts` (fetch/update metadata)
-- [x] **Gamification Strategy**
-  - [x] Create `gamification_design.md`
-  - [x] Implement `RoleSelection` modal
-  - [x] Integrate `GamificationCheck` in Dashboard Layout
-
-### Day 9-10: Mission Control UI
-- [x] **Install Charts**
-  - [x] `npm install recharts`
-- [x] **Build Widgets**
-  - [x] `components/dashboard/SprintProgress.tsx` (Company Timeline)
-  - [x] `components/dashboard/PersonalTracker.tsx` (XP, Level, Badges)
-- [x] **Assemble Page**
-  - [x] `apps/vault/app/(dashboard)/page.tsx` (Grid Layout)
-- [x] **Data Integration (Deep)**
-  - [x] Connect XP bar to live events (Read/Search)
-  - [x] Dynamic Sprint calculations
-
-### Day 11: Product Portfolio
-- [x] **Install Mermaid**
-  - [x] `npm install mermaid`
-- [x] **Create Diagram Component**
-  - [x] `components/mdx/Mermaid.tsx`
-- [x] **MDX Integration**
-  - [x] Integrate into `biz` and `products` pages
-  - [x] **Verification**: Created `content/biz/strategy/mermaid-test.md`
-
-### Day 12-13: Achievements
-- [x] **Define Achievements**
-  - [x] Create `config/achievements.ts` (Expanded to 24 badges)
-- [x] **Build UI**
-  - [x] `components/gamification/AchievementList.tsx`
-- [x] **Hook Up Logic**
-  - [x] On Doc View -> Increment Count -> Check Unlock
-  - [x] Added "Reset Progress" for verification
-
----
-
-## 🚀 Sprint 1: Landing (Day 12-14)
-
-### Day 14: Polish
-- [ ] **Hover Previews**
-  - [ ] Setup `@radix-ui/react-hover-card`
-  - [ ] Add to Graph Nodes
-- [ ] **Tooltips**
-  - [ ] Setup `@radix-ui/react-tooltip`
-  - [ ] Add "Why This Matters" to 5 key pages
-
-### Day 15: Testing
+### Day 2: Verification & Launch
 - [ ] **Manual Walkthrough**
   - [ ] User enters -> Dashboard -> Click Graph -> Open Note -> Read Doc -> Achievement Unlock
-- [ ] **Mobile Check**
+- [ ] **Mobile & Performance Check**
   - [ ] Verify Navbar works on phone
-
-### Day 16: Launch
-- [ ] **Deploy**
+  - [ ] Final `npm run build` audit
+- [ ] **Launch**
   - [ ] Push to main
   - [ ] Check Vercel build
 - [ ] **Celebrate** 🎉
