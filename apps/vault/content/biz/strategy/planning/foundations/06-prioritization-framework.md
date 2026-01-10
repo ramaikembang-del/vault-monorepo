@@ -1,3 +1,19 @@
+---
+title: "Integrated Prioritization Framework"
+readTime: 25
+status: "stable"
+criticalFor: ["sprint-2", "product-strategy"]
+relatedDocs:
+  - "planning/foundations/05-gate-framework.md"
+  - "execution/03-consolidated-financial-strategy.md"
+keyTakeaways:
+  - "Validation Value > Revenue Velocity for early sprints"
+  - "Parallel builds enabled by AI-coding (Sequence C)"
+whyItMatters: |
+  This isn't just a list; it's the 'Recipe' for our evolution. It determines 
+  how we transform from a research vault into a Decision Intelligence Engine.
+---
+
 # Integrated Prioritization Framework
 **A Tool for Deriving Optimal Development Sequences**
 

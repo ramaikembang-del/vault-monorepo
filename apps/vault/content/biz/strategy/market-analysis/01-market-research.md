@@ -1,3 +1,20 @@
+---
+title: "Market Research - F&B Analytics Space (Indonesia)"
+readTime: 20
+status: "reviewed"
+criticalFor: ["sprint-1", "sales"]
+relatedDocs:
+  - "market-analysis/02-market-segmentation.md"
+  - "market-analysis/07-value-proposition.md"
+keyTakeaways:
+  - "TAM confirmed at 100k modern F&B businesses"
+  - "Payback period target is <30 days"
+whyItMatters: |
+  This research validates the market opportunity for Power BI-based analytics 
+  solutions targeting Indonesian F&B businesses. It is the foundation for our 
+  revenue projections and pricing strategy.
+---
+
 # Market Research - F&B Analytics Space (Indonesia)
 
 **Research Focus:** Business Intelligence & Analytics Tools for Indonesian F&B Industry

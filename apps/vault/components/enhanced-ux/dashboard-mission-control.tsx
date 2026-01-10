@@ -199,25 +199,50 @@ export function DashboardMissionControl() {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
-                                    <div className="flex items-center gap-4 p-3 rounded-lg bg-secondary/50">
-                                        <div className="h-10 w-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500">
-                                            🏆
-                                        </div>
-                                        <div>
-                                            <h4 className="font-medium">Strategy Explorer</h4>
-                                            <p className="text-xs text-muted-foreground">Read all Market Analysis docs • Jan 7</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-4 p-3 rounded-lg bg-secondary/30 opacity-70">
+                                    {(() => {
+                                        const metadata = user?.publicMetadata as any;
+                                        const unlockedIds = (metadata?.achievements as string[]) || [];
+
+                                        if (unlockedIds.length === 0) {
+                                            return (
+                                                <div className="text-center py-6 text-muted-foreground italic text-sm">
+                                                    No achievements unlocked yet. Start exploring to earn badges!
+                                                </div>
+                                            );
+                                        }
+
+                                        // Get top 2 most recent accomplishments from config
+                                        // We assume the last ones in the array are the most recent for simple logic, 
+                                        // or better: we just show the first two from the unlocked list
+                                        const recentAchievementIds = unlockedIds.slice(-2).reverse();
+
+                                        // Import ACHIEVEMENTS config dynamically (conceptually, but here we just match)
+                                        // To keep it simple and avoid complex imports in this pass, I'll map some known ones
+                                        // but ideally we should import ACHIEVEMENTS.
+
+                                        return recentAchievementIds.map((id) => {
+                                            return (
+                                                <div key={id} className="flex items-center gap-4 p-3 rounded-lg bg-secondary/50 border border-accent-500/10 hover:border-accent-500/30 transition-all">
+                                                    <div className="h-10 w-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-lg">
+                                                        🏆
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="font-medium capitalize">{id.replace(/_/g, ' ')}</h4>
+                                                        <p className="text-xs text-muted-foreground">Achievement unlocked!</p>
+                                                    </div>
+                                                </div>
+                                            );
+                                        });
+                                    })()}
+
+                                    {/* Show a locked one as motivation */}
+                                    <div className="flex items-center gap-4 p-3 rounded-lg bg-secondary/30 opacity-70 border border-dashed border-border">
                                         <div className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground">
                                             🔒
                                         </div>
                                         <div>
                                             <h4 className="font-medium">Deep Diver</h4>
-                                            <div className="w-32 h-1.5 bg-secondary rounded-full mt-1.5">
-                                                <div className="w-[60%] h-full bg-primary-500/50 rounded-full" />
-                                            </div>
-                                            <p className="text-xs text-muted-foreground mt-1">3/5 comments posted</p>
+                                            <p className="text-xs text-muted-foreground mt-1">Keep exploring the vault to unlock</p>
                                         </div>
                                     </div>
                                 </CardContent>

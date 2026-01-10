@@ -1,5 +1,21 @@
+---
+title: "Indonesian F&B Cultural Context"
+readTime: 15
+status: "reviewed"
+criticalFor: ["sprint-1", "product-design"]
+relatedDocs:
+  - "market-analysis/02-market-segmentation.md"
+  - "market-analysis/04-user-personas.md"
+keyTakeaways:
+  - "WhatsApp is the primary business OS"
+  - "Trust is built through community validation (Paguyuban)"
+whyItMatters: |
+  This isn't just cultural trivia. 80% of our target customers use WhatsApp for 
+  ALL business communication. If we build email-first UX, we FAIL. This context 
+  directly shapes our product UX and sales process.
+---
+
 # Indonesian F&B Cultural Context
-**The Silent Barriers & Strategic Adaptations**
 
 > **Core Insight**: Technology adoption in Indonesian F&B is shaped by social dynamics, trust patterns, and cultural expectations - not just functionality.
 > **Strategy**: Shift from "Disruptive Growth" (Silicon Valley) to **"Adjacent Stability"** (Local reality).

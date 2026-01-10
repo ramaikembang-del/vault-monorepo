@@ -2,7 +2,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { FloatingNote } from './FloatingNote'
 
@@ -18,6 +18,10 @@ export default function GraphView() {
     const [hoveredNode, setHoveredNode] = useState<any>(null);
     const router = useRouter();
 
+    const handleNodeClick = (node: any) => {
+        setActiveNode(node);
+    };
+
     useEffect(() => {
         setIsMounted(true);
         fetch('/api/graph')
@@ -28,11 +32,30 @@ export default function GraphView() {
 
     if (!isMounted) return <div className="h-[500px] w-full bg-muted animate-pulse rounded-lg flex items-center justify-center text-muted-foreground">Loading Graph...</div>;
 
-    const nodeSize = (node: any) => {
+    const nodeSize = React.useCallback((node: any) => {
         const connectionWeight = (node.links?.length || 0) * 1.5;
         const readStatus = node.unread ? 3 : 1;
         return Math.max(5, Math.min(20, connectionWeight + readStatus));
-    };
+    }, []);
+
+    const nodeCanvasObject = React.useCallback((node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+        const size = nodeSize(node);
+        const isHovered = hoveredNode?.id === node.id;
+
+        if (isHovered) {
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, size + 4, 0, 2 * Math.PI);
+            ctx.fillStyle = 'rgba(251, 191, 36, 0.2)';
+            ctx.fill();
+        }
+
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, size, 0, 2 * Math.PI);
+        ctx.fillStyle = (node as any).group?.toLowerCase() === 'strategy' ? '#3b82f6' :
+            (node as any).group?.toLowerCase() === 'products' ? '#f97316' :
+                '#10b981';
+        ctx.fill();
+    }, [hoveredNode, nodeSize]);
 
     return (
         <div className="h-[500px] w-full border border-zinc-800 rounded-lg overflow-hidden bg-zinc-950 relative">
@@ -51,24 +74,7 @@ export default function GraphView() {
                 backgroundColor="var(--graph-bg)"
                 onNodeClick={handleNodeClick}
                 onNodeHover={(node) => setHoveredNode(node)}
-                nodeCanvasObject={(node, ctx, globalScale) => {
-                    const size = nodeSize(node);
-                    const isHovered = hoveredNode?.id === node.id;
-
-                    if (isHovered) {
-                        ctx.beginPath();
-                        ctx.arc(node.x, node.y, size + 4, 0, 2 * Math.PI);
-                        ctx.fillStyle = 'rgba(251, 191, 36, 0.2)';
-                        ctx.fill();
-                    }
-
-                    ctx.beginPath();
-                    ctx.arc(node.x, node.y, size, 0, 2 * Math.PI);
-                    ctx.fillStyle = (node as any).group?.toLowerCase() === 'strategy' ? '#3b82f6' :
-                        (node as any).group?.toLowerCase() === 'products' ? '#f97316' :
-                            '#10b981';
-                    ctx.fill();
-                }}
+                nodeCanvasObject={nodeCanvasObject}
             />
 
             {/* Premium Hover Preview Overlay */}

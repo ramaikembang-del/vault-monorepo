@@ -17,7 +17,10 @@ export function Tooltip({ term, definition, children }: TooltipProps) {
         <TooltipPrimitive.Provider delayDuration={200}>
             <TooltipPrimitive.Root>
                 <TooltipPrimitive.Trigger asChild>
-                    <span className="inline-flex items-center gap-1 cursor-help border-b border-dotted border-blue-500/50 text-blue-400 hover:text-blue-300 transition-colors">
+                    <span
+                        tabIndex={0}
+                        className="inline-flex items-center gap-1 cursor-help border-b border-dotted border-blue-500/50 text-blue-400 hover:text-blue-300 transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500/50 rounded-sm"
+                    >
                         {children || term}
                         <HelpCircle size={10} className="opacity-50" />
                     </span>

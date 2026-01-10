@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 };
 
 import { CommandMenu } from '@/components/search/CommandMenu'
+import { AchievementNotifier } from '@/components/gamification/AchievementNotifier'
 
 export default function RootLayout({
   children,
@@ -41,6 +42,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <CommandMenu />
+            <AchievementNotifier />
             {children}
             <StudioTuner />
           </ThemeProvider>

@@ -1,4 +1,4 @@
-import { getMDXContent } from '@/lib/mdx'
+import { getMDXContent, getMetadataByPath } from '@/lib/mdx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 import remarkWikiLink from 'remark-wiki-link'
@@ -31,9 +31,20 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         a: (props: any) => {
             const { href, children } = props
             const isInternal = href?.startsWith('/') || href?.startsWith('.')
+
             if (isInternal) {
+                // Fetch metadata for the linked document
+                // Note: In a production app, we might want to cache this or use a more efficient way
+                const metadata = getMetadataByPath(href);
+
                 return (
-                    <HoverPreview title={String(children)} category="Document">
+                    <HoverPreview
+                        title={metadata?.title || String(children)}
+                        category="Document"
+                        excerpt={metadata?.excerpt}
+                        readTime={metadata?.readTime}
+                        status={metadata?.status}
+                    >
                         <a {...props} className="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30 underline-offset-4" />
                     </HoverPreview>
                 )

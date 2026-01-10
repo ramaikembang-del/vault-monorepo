@@ -1,3 +1,19 @@
+---
+title: "Value Proposition Canvas"
+readTime: 12
+status: "stable"
+criticalFor: ["sprint-1", "marketing"]
+relatedDocs:
+  - "market-analysis/01-market-research.md"
+  - "market-analysis/04-user-personas.md"
+keyTakeaways:
+  - "Winning hook: Save 4 hours/week on Excel"
+  - "Position as 'Guardian' rather than just growth"
+whyItMatters: |
+  This document defines our competitive edge. In a crowded market, our 
+  'Safety-First' approach for Indonesian F&B ensures high conversion.
+---
+
 # Value Proposition Canvas
 
 > **Core Thesis**: We sell stability for Mikro, transformation for Kecil.
@@ -605,8 +621,6 @@ Value = (100 hrs Ã— Rp 50k/hr) = Rp 5 Jt
  + (Sleep at night Ã— Priceless) = ∞
  -----------------------------------------
  Rp 0 (free tier)
-
-Value/Price = ∞
 ```
 
 **That's why they'll never churn.**

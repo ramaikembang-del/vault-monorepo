@@ -1,3 +1,19 @@
+---
+title: "OKR Framework"
+readTime: 8
+status: "reviewed"
+criticalFor: ["sprint-1", "operations"]
+relatedDocs:
+  - "frameworks/01-vision-mission.md"
+  - "frameworks/03-pillar-to-phase-mapping.md"
+keyTakeaways:
+  - "70% achievement = Success"
+  - "Quantitative metrics for every Objective"
+whyItMatters: |
+  OKRs align the team towards common goals. Without this framework, 
+  velocity remains high but direction may become fragmented.
+---
+
 # OKR Framework
 
 **Last Updated:** 2025-12-27
