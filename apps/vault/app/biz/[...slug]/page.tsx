@@ -5,6 +5,8 @@ import remarkWikiLink from 'remark-wiki-link'
 import remarkGfm from 'remark-gfm'
 import { EventTracker } from '@/components/gamification/EventTracker'
 
+import { Mermaid } from '@/components/mdx/Mermaid'
+
 export default async function Page({ params }: { params: { slug: string[] } }) {
     const { slug } = params
     const fullPath = `/biz/${slug.join('/')}`
@@ -12,6 +14,16 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
     if (!data) {
         return notFound()
+    }
+
+    const components = {
+        code: (props: any) => {
+            const { className, children } = props
+            if (className === 'language-mermaid') {
+                return <Mermaid chart={children} />
+            }
+            return <code {...props} />
+        }
     }
 
     const mdxOptions = {
@@ -29,7 +41,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             <EventTracker path={fullPath} />
             <h1>{data.frontmatter.title || data.slug}</h1>
             {/* @ts-expect-error Async Server Component */}
-            <MDXRemote source={data.content} options={{ mdxOptions }} />
+            <MDXRemote source={data.content} options={{ mdxOptions }} components={components} />
         </article>
     )
 }
