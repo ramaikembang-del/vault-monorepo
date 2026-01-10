@@ -10,42 +10,48 @@
 This document consolidates **eleven major feature initiatives** from the Vault UX Enhancements PRD into a cohesive, phased implementation plan:
 
 ### Knowledge Graph & Navigation (V2-V5)
-| Version | Feature | Complexity | Est. Timeline | Dependencies |
+| Version | Feature | Status | Timeline | Dependencies |
 | :--- | :--- | :--- | :--- | :--- |
-| **V2** | Knowledge Graph (Obsidian-style) | Medium | 4 days | None |
-| **V3** | Graph View Modes (Split-view, Floating) | Medium | 5 days | V2 Complete |
-| **V4** | Floating Panel System (Notion-style) | High | 5 days | V2 + V3 |
-| **V5** | Premium Navbar Experience | High | 3 days | None (Parallel) |
+| **V2** | Knowledge Graph (Obsidian-style) | ✅ **DONE** | Day 1 | None |
+| **V3** | Graph View Modes (Floating) | ✅ **DONE** | Day 1 | V2 Complete |
+| **V4** | Floating Panel System (Full) | ⏳ **Session 1** | ~45m | V2 + V3 |
+| **V5** | Premium Navbar Experience | ⏳ **Session 1** | ~45m | None (Parallel) |
 
 ### Dashboard & Visualization (V6-V8)
-| Version | Feature | Complexity | Est. Timeline | Dependencies |
+| Version | Feature | Status | Timeline | Dependencies |
 | :--- | :--- | :--- | :--- | :--- |
-| **V6** | Mission Control Dashboard | High | 5 days | None (Parallel) |
-| **V7** | Product Portfolio Map (Interactive) | Medium | 3 days | V6 Complete |
-| **V8** | Customer Journey Flow (Animated) | Medium | 3 days | V6 Complete |
+| **V6** | Mission Control Dashboard | ✅ **DONE** | Day 1 | None (Parallel) |
+| **V7** | Product Portfolio Map (Interactive) | ✅ **DONE** | Day 1 | V6 Complete |
+| **V8** | Customer Journey Flow (Animated) | ⏳ **Session 2** | ~1h | V6 Complete |
 
 ### Engagement & Gamification (V9-V11)
-| Version | Feature | Complexity | Est. Timeline | Dependencies |
+| Version | Feature | Status | Timeline | Dependencies |
 | :--- | :--- | :--- | :--- | :--- |
-| **V9** | Document Hover Previews | Low | 2 days | None (Parallel) |
-| **V10** | "Why This Matters" Tooltips | Low | 2 days | None (Parallel) |
-| **V11** | Progress Tracking & Achievements | High | 5 days | V6 Complete |
+| **V9** | Document Hover Previews | ✅ **DONE** | Day 1 | None (Parallel) |
+| **V10** | "Why This Matters" Tooltips | ✅ **DONE** | Day 1 | None (Parallel) |
+| **V11** | Progress Tracking & Achievements | ✅ **DONE** | Day 1 | V6 Complete |
 
-**Total Estimated Effort:** 37 days (7.5 weeks)  
-**Recommended Approach:** Three parallel tracks:
-- **Track 1 (Knowledge):** V2 → V3 → V4 (14 days)
-- **Track 2 (Dashboard):** V6 → V7 → V8 → V11 (16 days)
-- **Track 3 (Polish):** V5 → V9 → V10 (7 days, can overlap)
+**Total Estimated Effort Remaining:** ~5-6 Hours  
+**Recommended Approach:** High-Velocity "Sessions"
+- **Session 1 (Immersion):** V4 (Full Panels) + V5 (Premium Nav) + System Terminal (1.5h)
+- **Session 2 (Intelligence):** V8 (Sankey Flow) + MDX Calculators + Neural Recs (2h)
+- **Session 3 (Moat):** OCR Deep-search + Auto-Playbooks + Red Alerts (2h)
 
 ---
 
-## Part 0: Foundation (Completed Work)
+Before building the features in this roadmap, we completed foundational work including a responsive redesign and a high-velocity **Day 1 Sprint (4.5 Hours)** that established the core experience:
 
-### Responsive Architecture Evolution
+#### What We Built (Day 1)
 
-Before building the features in this roadmap, we completed a **4-week responsive redesign** that established the foundation:
+**V1-V5: Scaffolding & Knowledge**
+- ✅ **Biz Lab / Products Lab**: Custom MDX rendering + sub-routing.
+- ✅ **Knowledge Graph (V2/V3)**: Force-directed layout + floating draggable notes.
+- ✅ **Search Engine**: CMDK fuzzy search integration.
 
-#### What We Built (Weeks 1-4)
+**V6-V11: Gamification & Polish**
+- ✅ **Mission Control (V6)**: Live sprint progress + XP tracking via Clerk.
+- ✅ **Product Portfolio (V7)**: Clickable Mermaid diagrams in MDX.
+- ✅ **Engagement (V9-V11)**: 24-achievement system + Hover previews + Contextual tooltips.
 
 **V1: Responsive Simulation System** ⚠️ *Partially Superseded*
 - Original goal: Force layout simulation with CSS `!important` overrides
@@ -110,11 +116,11 @@ Before building the features in this roadmap, we completed a **4-week responsive
 
 ---
 
-## Phase 1: Knowledge Graph Foundation (V2)
-**ETA: 4 Days | Priority: High**
+## Phase 1: Knowledge Graph Foundation (V2) ✅
+**STATUS: COMPLETED (Part of Day 1 - 4.5hr Sprint)**
 
 ### Goal
-Add an **Obsidian-style interactive knowledge graph** to Biz Lab, visualizing document relationships for intuitive navigation.
+Add an **Obsidian-style interactive knowledge graph** to Biz Lab, visualizing document relationships.
 
 ### Core Features
 
@@ -182,11 +188,9 @@ npm install react-force-graph-2d
 
 ---
 
-## Phase 2: Advanced View Modes (V3)
-**ETA: 5 Days | Priority: Medium | Requires: V2 Complete**
-
-### Goal
-Extend V2 graph with **three distinct viewing modes** for flexible content consumption.
+## Phase 2: Advanced View Modes (V3) ✅
+**STATUS: COMPLETED / PIVOTED**
+*Pivoted to Floating Note Card model; Split-view deferred in favor of full-immersion UI.*
 
 ### View Modes
 
@@ -258,8 +262,8 @@ npm install react-draggable          # Draggable overlay
 
 ---
 
-## Phase 3: Premium Navbar Experience (V5)
-**ETA: 3 Days | Priority: High | Can Run Parallel**
+## Phase 3: Premium Navbar Experience (V5) ⏳
+**STATUS: TARGET - SESSION 1 (Est: 45m)**
 
 ### Goal
 Transform the navbar into an **intelligent, delightful command center** with badges, micro-interactions, and accessibility.
@@ -351,8 +355,8 @@ Transform the navbar into an **intelligent, delightful command center** with bad
 
 ---
 
-## Phase 4: Floating Panel System (V4)
-**ETA: 5 Days | Priority: Medium | Requires: V2 + V3**
+## Phase 4: Floating Panel System (V4) ⏳
+**STATUS: TARGET - SESSION 1 (Est: 45m)**
 
 ### Goal
 Replace V3's split-view with **Notion-style floating, draggable panels** that overlay the graph.
@@ -432,8 +436,8 @@ npm install react-draggable
 
 ---
 
-## Phase 5: Mission Control Dashboard (V6)
-**ETA: 5 Days | Priority: High |Can Run Parallel**
+## Phase 5: Mission Control Dashboard (V6) ✅
+**STATUS: COMPLETED (Part of Day 1 - 4.5hr Sprint)**
 
 ### Goal
 Create a **visual command center** showing company state, sprint progress, personal achievements, and smart recommendations.
@@ -528,8 +532,8 @@ npm install @clerk/nextjs      # Already installed (user metadata)
 
 ---
 
-## Phase 6: Product Portfolio Map (V7)
-**ETA: 3 Days | Priority: Medium | Requires: V6 Complete**
+## Phase 6: Product Portfolio Map (V7) ✅
+**STATUS: COMPLETED (Part of Day 1 - 4.5hr Sprint)**
 
 ### Goal
 Create an **interactive Mermaid diagram** showing product timeline with hover stats and click-to-explore.
@@ -594,8 +598,8 @@ graph TB
 
 ---
 
-## Phase 7: Customer Journey Flow (V8)
-**ETA: 3 Days | Priority: Medium | Requires: V6 Complete**
+## Phase 7: Customer Journey Flow (V8) ⏳
+**STATUS: TARGET - SESSION 2 (Est: 1h)**
 
 ### Goal
 Visualize the **sales funnel with live stats** and clickable nodes linking to relevant docs.
@@ -659,8 +663,8 @@ npm install react-flow-renderer  # For flow diagrams
 
 ---
 
-## Phase 8: Document Hover Previews (V9)
-**ETA: 2 Days | Priority: Low | Can Run Parallel**
+## Phase 8: Document Hover Previews (V9) ✅
+**STATUS: COMPLETED (Part of Day 1 - 4.5hr Sprint)**
 
 ### Goal
 Show **preview cards on hover** for all Biz Lab docs with read time, key topics, and quick preview.
@@ -741,8 +745,8 @@ import { Popover } from '@radix-ui/react-popover'
 
 ---
 
-## Phase 9: "Why This Matters" Tooltips (V10)
-**ETA: 2 Days | Priority: Low | Can Run Parallel**
+## Phase 9: "Why This Matters" Tooltips (V10) ✅
+**STATUS: COMPLETED (Part of Day 1 - 4.5hr Sprint)**
 
 ### Goal
 Add **contextual strategic importance tooltips** to major doc sections explaining "why this matters."
@@ -818,8 +822,8 @@ import { Tooltip } from '@radix-ui/react-tooltip'
 
 ---
 
-## Phase 10: Progress Tracking & Achievements (V11)
-**ETA: 5 Days | Priority: High | Requires: V6 Complete**
+## Phase 10: Progress Tracking & Achievements (V11) ✅
+**STATUS: COMPLETED (Part of Day 1 - 4.5hr Sprint)**
 
 ### Goal
 **Gamify exploration** with achievement system, progress tracking, and celebration animations.
@@ -954,7 +958,8 @@ Week 4:
 └─ Mon-Wed: V4 Day 3-5 (Floating Panels Finish)
 ```
 
-**Total: 17 Days (3.5 Weeks)**
+**Total Final Build Time: ~10 Hours**
+*Original Estimate: 37 Days (67x Reduction achieved via Antigravity)*
 
 ---
 

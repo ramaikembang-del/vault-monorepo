@@ -28,7 +28,7 @@ Objectives and Key Results (OKRs) framework for setting and tracking quarterly g
 **Objective 2: Build Foundation for Scalable Growth**
 
 - **KR1:** Launch accounting module R2a-R2c with 20+ paying customers
-- **KR2:** Achieve NPS >40 across all products
+- **KR2:** Achieve <Tooltip term="NPS" definition="Net Promoter Score. A metric (scale -100 to 100) that measures customer loyalty and likelihood to recommend your product.">NPS</Tooltip> >40 across all products
 - **KR3:** Maintain <5% monthly churn rate
 
 ---

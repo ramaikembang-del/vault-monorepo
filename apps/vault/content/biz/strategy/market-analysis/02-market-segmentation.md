@@ -544,7 +544,7 @@ Research identified 4 critical barriers preventing Mikro → Kecil transition:
 
 PWBI F&B Growth platform serves the complete business lifecycle through 3 validated products (Sprint 1-2) targeting different phases:
 
-| Product | Primary Phase(s) | TAM Size | Year 1 Revenue | Year 3 Revenue | Strategic Role |
+| Product | Primary Phase(s) | <Tooltip term="TAM" definition="Total Addressable Market. The total revenue opportunity available for a product or service if 100% market share was achieved.">TAM</Tooltip> Size | Year 1 Revenue | Year 3 Revenue | Strategic Role |
 |---------|------------------|----------|----------------|----------------|----------------|
 | **A1: Power BI Template** | Phase 2-3 | 30,000 | Rp 300M (52%) | Rp 1,300M (44%) | Acquisition (immediate cash, tech-savvy) |
 | **R1: Template Support** | Phase 2 (derivative) | 650 (30% A1) | Rp 40.5M (7%) | Rp 175.5M (6%) | Retention (upsell, locks in buyers) |
@@ -552,8 +552,8 @@ PWBI F&B Growth platform serves the complete business lifecycle through 3 valida
 | **Full SaaS (Future)** | Phase 2-5 | TBD | Rp 0 (not launched) | TBD (Sprint 3+) | Core Platform (multi-tier enterprise) |
 
 **Key Insights:**
-- **Phase 1 (Mikro) = Largest TAM** (150K) but lowest ARPU → E1 freemium strategy
-- **Phase 2-3 = Highest ARPU** (Rp 2M+) but smaller TAM → A1 template + R1 support
+- **Phase 1 (Mikro) = Largest <Tooltip term="TAM" definition="Total Addressable Market.">TAM</Tooltip>** (150K) but lowest <Tooltip term="ARPU" definition="Average Revenue Per User. A measure of the revenue generated per customer.">ARPU</Tooltip> → E1 freemium strategy
+- **Phase 2-3 = Highest <Tooltip term="ARPU" definition="Average Revenue Per User.">ARPU</Tooltip>** (Rp 2M+) but smaller <Tooltip term="TAM" definition="Total Addressable Market.">TAM</Tooltip> → A1 template + R1 support
 - **Phase 4-5 = Enterprise** → Full SaaS only (not built until E1 validates)
 
 ---

@@ -11,7 +11,7 @@ The foundational documents defining the business.
 - **[[biz/strategy/planning/00-project-brief|Project Brief]]** - The 1-page "North Star" summary.
 - **[[biz/strategy/planning/foundations/03-business-model-canvas|Business Model Canvas]]** - 1-page visual strategy.
 - **[[biz/strategy/planning/execution/01-product-roadmap|Product Roadmap]]** - Timeline of key deliverables.
-- **[[biz/strategy/planning/foundations/06-prioritization-framework|Prioritization Framework]]** - RICE/ICE scoring logic.
+- **[[biz/strategy/planning/foundations/06-prioritization-framework|Prioritization Framework]]** - <Tooltip term="RICE/ICE" definition="Reach, Impact, Confidence, and Effort. A scoring system to determine which features deliver the most value relative to cost.">RICE/ICE</Tooltip> scoring logic.
 - **[[biz/strategy/planning/foundations/01-documentation-master-plan|Documentation Master Plan]]** - How we organize knowledge.
 
 ## Market Intelligence
@@ -19,7 +19,7 @@ The foundational documents defining the business.
 
 Deep understanding of the battlefield.
 - **[[biz/strategy/market-analysis/04-user-personas|User Personas]]** - Detailed profiles of our 19 target avatars.
-- **[[biz/strategy/market-analysis/02-market-segmentation|Market Segmentation]]** - TAM/SAM/SOM sizing.
+- **[[biz/strategy/market-analysis/02-market-segmentation|Market Segmentation]]** - <Tooltip term="TAM/SAM/SOM" definition="Total Addressable Market (TAM), Serviceable Addressable Market (SAM), and Serviceable Obtainable Market (SOM). Used to estimate market potential.">TAM/SAM/SOM</Tooltip> sizing.
 - **[[biz/strategy/market-analysis/05-competitive-intelligence|Competitive Intelligence]]** - Feature/Pricing matrices vs. rivals.
 - **[[biz/strategy/market-analysis/07-value-proposition|Value Proposition]]** - Why customers buy from us.
 - **[[biz/strategy/market-analysis/03-cultural-context|Cultural Context]]** - Indonesian market nuances ("Gak Mau Ribet").
@@ -38,7 +38,7 @@ Turning strategy into action.
 
 How we make decisions.
 - **[[biz/strategy/frameworks/04-governance-framework|Decision Framework]]** - Mental models for hard choices.
-- **[[biz/strategy/frameworks/02-okr-framework|OKR Framework]]** - Objectives and Key Results tracking.
+- **[[biz/strategy/frameworks/02-okr-framework|OKR Framework]]** - <Tooltip term="OKR" definition="Objectives and Key Results. A goal-setting framework used to align team efforts toward measurable outcomes.">OKR</Tooltip> Framework tracking.
 - **[[biz/strategy/frameworks/07-hiring-approval-process|Hiring Approval]]** - Strategic headcount barriers.
 
 ---

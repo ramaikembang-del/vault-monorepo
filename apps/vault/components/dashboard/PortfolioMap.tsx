@@ -6,16 +6,12 @@ import { Mermaid } from '@/components/mdx/Mermaid'
 
 const PORTFOLIO_DIAGRAM = `
 graph LR
-    A[Vault Foundation] --> B[Knowledge Engine]
-    A --> C[Gamification Core]
-    B --> D[Personal Wiki]
-    B --> E[Network Analysis]
-    C --> F[Mission Control]
-    C --> G[Progression System]
+    P1[Product 01: Power BI] --> P2[Product 02: Support]
+    P2 --> P3[Product 03: SaaS]
     
-    style A fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    style B fill:#8b5cf6,stroke:#6d28d9,color:#fff
-    style C fill:#ec4899,stroke:#be185d,color:#fff
+    style P1 fill:#22c55e,stroke:#16a34a,color:#fff,stroke-width:2px
+    style P2 fill:#f97316,stroke:#ea580c,color:#fff
+    style P3 fill:#94a3b8,stroke:#64748b,color:#fff
 `
 
 export function PortfolioMap() {

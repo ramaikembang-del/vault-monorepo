@@ -14,7 +14,7 @@
 > [!IMPORTANT]
 > **Financial Projections:** This framework derives product priorities that resulted in the consolidated financial strategy. For complete financial model including **three-scenario analysis**, unit economics by product, and profitability analysis, see **[[biz/strategy/execution/03-consolidated-financial-strategy#11. Three Scenario Analysis (Conservative vs Realistic vs Aggressive)|Consolidated Financial Strategy]]** Section 11.
 >
-> **TL;DR:** Conservative (Rp 2.9B Y3) → Realistic (Rp 68B Y3, 23× upside) → Aggressive (Rp 204B+ Y3, 69× upside). Realistic achievable with team of 3 executing quick wins.
+> **TL;DR:** Conservative (Rp 2.9B Y3) → Realistic (Rp 68B Y3, 23× upside) → Aggressive (Rp 204B+ Y3, 69× upside). Realistic achievable with team of 3 executing quick wins using <Tooltip term="RICE" definition="Reach, Impact, Confidence, and Effort. A scoring system used to prioritize features based on value vs. cost.">RICE</Tooltip> scoring.
 >
 > See [[biz/strategy/execution/03-consolidated-financial-strategy#11. Three Scenario Analysis (Conservative vs Realistic vs Aggressive)|Section 11]] of the financial strategy for detailed execution levers by product.
 

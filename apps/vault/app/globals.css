@@ -141,6 +141,22 @@
     --nav-anim-duration: 0.3;
     --nav-anim-ease: easeOut;
     --nav-z-index: 50;
+    --nav-blur-intense: 16px;
+    --nav-saturate: 180%;
+
+    /* --- Knowledge Graph Design Tokens --- */
+    --graph-strategy-color: #3b82f6;
+    /* blue-500 */
+    --graph-product-color: #f97316;
+    /* orange-500 */
+    --graph-financial-color: #10b981;
+    /* green-500 */
+    --graph-active-color: #fbbf24;
+    /* amber-400 */
+    --graph-active-glow: 0 0 20px rgba(251, 191, 36, 0.6);
+    --graph-link-color: rgba(148, 163, 184, 0.2);
+    --graph-bg: #09090b;
+    --graph-card-bg: rgba(15, 23, 42, 0.95);
 
 
     /* --- PAGE DESIGN SYSTEM --- */

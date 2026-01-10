@@ -28,37 +28,67 @@ export default function GraphView() {
 
     if (!isMounted) return <div className="h-[500px] w-full bg-muted animate-pulse rounded-lg flex items-center justify-center text-muted-foreground">Loading Graph...</div>;
 
-    const handleNodeClick = (node: any) => {
-        setActiveNode(node);
+    const nodeSize = (node: any) => {
+        const connectionWeight = (node.links?.length || 0) * 1.5;
+        const readStatus = node.unread ? 3 : 1;
+        return Math.max(5, Math.min(20, connectionWeight + readStatus));
     };
 
     return (
-        <div className="h-[500px] w-full border rounded-lg overflow-hidden bg-zinc-950 relative">
+        <div className="h-[500px] w-full border border-zinc-800 rounded-lg overflow-hidden bg-zinc-950 relative">
             <ForceGraph2D
                 graphData={graphData}
-                nodeLabel={() => ''} // Disable default tooltip
-                nodeColor={node => (node as any).group === 'Strategy' ? '#4f46e5' : '#f59e0b'}
-                linkColor={() => '#525252'}
-                backgroundColor="#09090b"
+                nodeLabel={() => ''}
+                nodeColor={node => {
+                    const group = (node as any).group?.toLowerCase();
+                    if (group === 'strategy') return 'var(--graph-strategy-color)';
+                    if (group === 'products') return 'var(--graph-product-color)';
+                    if (group === 'financial') return 'var(--graph-financial-color)';
+                    return '#94a3b8';
+                }}
+                nodeVal={nodeSize}
+                linkColor={() => 'var(--graph-link-color)'}
+                backgroundColor="var(--graph-bg)"
                 onNodeClick={handleNodeClick}
                 onNodeHover={(node) => setHoveredNode(node)}
+                nodeCanvasObject={(node, ctx, globalScale) => {
+                    const size = nodeSize(node);
+                    const isHovered = hoveredNode?.id === node.id;
+
+                    if (isHovered) {
+                        ctx.beginPath();
+                        ctx.arc(node.x, node.y, size + 4, 0, 2 * Math.PI);
+                        ctx.fillStyle = 'rgba(251, 191, 36, 0.2)';
+                        ctx.fill();
+                    }
+
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, size, 0, 2 * Math.PI);
+                    ctx.fillStyle = (node as any).group?.toLowerCase() === 'strategy' ? '#3b82f6' :
+                        (node as any).group?.toLowerCase() === 'products' ? '#f97316' :
+                            '#10b981';
+                    ctx.fill();
+                }}
             />
 
             {/* Premium Hover Preview Overlay */}
             {hoveredNode && !activeNode && (
-                <div className="absolute top-4 right-4 z-50 pointer-events-none animate-in fade-in slide-in-from-right-2 duration-200">
-                    <div className="w-64 rounded-xl border border-zinc-800 bg-zinc-950/90 p-4 shadow-2xl backdrop-blur-md">
-                        <div className="flex items-start justify-between mb-2">
+                <div className="absolute top-4 right-4 z-50 pointer-events-none animate-in fade-in slide-in-from-right-2 duration-300">
+                    <div className="w-68 rounded-xl border border-zinc-800/50 bg-zinc-950/90 p-4 shadow-2xl backdrop-blur-xl saturate-150">
+                        <div className="flex items-start justify-between mb-3">
                             <div>
-                                <h4 className="text-sm font-bold text-white">{hoveredNode.name}</h4>
-                                <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mt-0.5">
-                                    {hoveredNode.group || 'Document'}
-                                </p>
+                                <h4 className="text-sm font-bold text-white tracking-tight">{hoveredNode.name}</h4>
+                                <div className="flex items-center gap-2 mt-1">
+                                    <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-zinc-800 text-zinc-400 uppercase font-black">
+                                        {hoveredNode.group || 'Document'}
+                                    </span>
+                                    <span className="text-[9px] text-zinc-500 font-bold italic">5 min read</span>
+                                </div>
                             </div>
-                            <div className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+                            <div className="h-1.5 w-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
                         </div>
-                        <p className="text-[11px] text-zinc-400 leading-relaxed italic line-clamp-2">
-                            Explore the connections between this {(hoveredNode.group || 'item').toLowerCase()} and the rest of the Vault.
+                        <p className="text-[11px] text-zinc-400 leading-relaxed font-medium">
+                            Synthesizing connections within the <span className="text-blue-400">{hoveredNode.group}</span> matrix.
                         </p>
                     </div>
                 </div>

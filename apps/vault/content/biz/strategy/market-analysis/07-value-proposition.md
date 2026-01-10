@@ -106,7 +106,7 @@ Warung Mentality  ->  Bisnis Mindset
 Timeline: 6-12 months with F&B Ops Insight
 ```
 
-**Our Unique Value**: We don't just give you data - we guide you through the **"Naik Kelas" transformation**.
+**Our <Tooltip term="USP (Unique Selling Proposition)" definition="The specific factor that makes your product or service better than its competitors. It's the unique value you provide that no one else can match.">Unique Value (USP)</Tooltip>**: We don't just give you data - we guide you through the **"Naik Kelas" transformation**.
 
 ---
 
