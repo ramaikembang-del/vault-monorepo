@@ -6,8 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { UserProgress } from '@/types/user'
 import { getUserProgress } from '@/lib/user-progress'
 import { ACHIEVEMENTS } from '@/config/achievements'
-import { Award, Zap, BookOpen, Star } from 'lucide-react'
+import { Award, Zap, BookOpen, Star, MoreHorizontal } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { AchievementList } from '@/components/gamification/AchievementList'
 
 export function PersonalTracker() {
     const [progress, setProgress] = useState<UserProgress | null>(null)
@@ -72,22 +74,41 @@ export function PersonalTracker() {
                 </div>
 
                 {/* Badges */}
-                <div className="space-y-3">
+                <div className="flex items-center justify-between mb-3 border-t border-zinc-800 pt-4 mt-2">
                     <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Unlocked Badges</h4>
-                    <div className="flex flex-wrap gap-2">
-                        {ACHIEVEMENTS.map(achievement => {
-                            const isUnlocked = progress.achievements.includes(achievement.id)
-                            if (!isUnlocked) return null
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <button className="text-[10px] text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                                VIEW ALL
+                            </button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[900px] max-h-[80vh] overflow-y-auto bg-zinc-950 border-zinc-900">
+                            <DialogHeader>
+                                <DialogTitle className="text-xl font-bold text-white">Achievement Gallery</DialogTitle>
+                            </DialogHeader>
+                            {progress && <AchievementList progress={progress} />}
+                        </DialogContent>
+                    </Dialog>
+                </div>
 
-                            return (
-                                <div key={achievement.id}
-                                    className="group relative flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 hover:bg-zinc-700 transition-colors cursor-help"
-                                    title={`${achievement.name}: ${achievement.description}`}>
-                                    <Award className={`h-6 w-6 ${progress.role === 'field_ops' ? 'text-orange-500' : 'text-blue-500'}`} />
-                                </div>
-                            )
-                        })}
-                    </div>
+                <div className="grid grid-cols-4 gap-2">
+                    {progress.achievements.slice(0, 4).map((badgeId) => {
+                        const badge = ACHIEVEMENTS.find(a => a.id === badgeId)
+                        if (!badge) return null
+                        return (
+                            <div key={badgeId}
+                                className="aspect-square rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center group relative cursor-help transition-all hover:border-blue-500/50"
+                                title={badge.name}
+                            >
+                                <Award className="h-5 w-5 text-blue-400" />
+                            </div>
+                        )
+                    })}
+                    {progress.achievements.length === 0 && (
+                        <div className="col-span-4 py-4 text-center border border-dashed border-zinc-800 rounded-lg">
+                            <p className="text-[10px] text-zinc-600 uppercase font-bold tracking-widest">No Badges Yet</p>
+                        </div>
+                    )}
                 </div>
             </CardContent>
         </Card>

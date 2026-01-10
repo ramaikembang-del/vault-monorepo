@@ -2,8 +2,14 @@ export type PlayerRole = 'field_ops' | 'strategy_arch' | null;
 
 export interface UserStats {
     docsRead: number;
+    searchCount: number;
     streak: number;
-    lastLoginDate?: string; // ISO date string
+    lastActive?: string;
+    researchRead: number;
+    salesRead: number;
+    strategyRead: number;
+    marketingRead: number;
+    longReads: number;
 }
 
 export interface UserProgress {
