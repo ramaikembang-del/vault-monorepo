@@ -37,7 +37,7 @@
     /* --- Navbar Config Store (Source of Truth) --- */
 
     /* Desktop Mode (Default) */
-    --nav-collapsed-width-desktop: 60px;
+    --nav-collapsed-width-desktop: 59px;
     --nav-expanded-width-desktop: 260px;
     --nav-direction-desktop: column;
     --nav-top-desktop: 50%;
@@ -45,7 +45,7 @@
     --nav-left-desktop: 16px;
     --nav-right-desktop: auto;
     --nav-transform-desktop: translateY(-50%);
-    --nav-logo-mb-desktop: 16px;
+    --nav-logo-mb-desktop: 8px;
     --nav-logo-mr-desktop: 0px;
     --nav-padding-desktop: 6px;
 
@@ -93,31 +93,31 @@
     --nav-padding: var(--nav-padding-desktop);
 
     /* Shared Variables (All Modes) */
-    --nav-item-height: 44px;
-    --nav-padding-x: 6px;
-    --nav-padding-y: 6px;
+    --nav-item-height: 45px;
+    --nav-padding-x: 10px;
+    --nav-padding-y: 0px;
     --nav-radius: 16px;
     --nav-radius-tl: 18px;
     --nav-radius-tr: 18px;
     --nav-radius-bl: 18px;
     --nav-radius-br: 18px;
-    --nav-gap: 6px;
+    --nav-gap: 0px;
     --nav-icon-box: 44px;
-    --nav-icon-size: 20px;
+    --nav-icon-size: 21px;
     --nav-font-size: 14px;
     --nav-font-weight: 500;
     --nav-logo-icon-box: 45px;
     --nav-logo-icon-size: 20px;
     --nav-logo-text-size: 14px;
-    --nav-logo-pt: 8px;
-    --nav-logo-pl: 2px;
+    --nav-logo-pt: 0px;
+    --nav-logo-pl: 0px;
     --nav-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --nav-bg-opacity: 0.95;
+    --nav-bg-opacity: 0.4;
     --nav-border-width: 1px;
     --nav-blur: 12px;
 
     /* Navigation Tabs */
-    --nav-tab-radius: 8px;
+    --nav-tab-radius: 12px;
     --nav-tab-hover-scale: 1.02;
     --nav-tab-active-bg-opacity: 1;
     --nav-tab-inactive-opacity: 0.7;
@@ -128,7 +128,11 @@
     --nav-profile-avatar-size: 32px;
     --nav-theme-icon-size: 20px;
     --nav-theme-button-size: 40px;
-    --nav-extras-gap: 8px;
+    --nav-extras-gap: 0px;
+    --nav-theme-padding-x: 11px;
+    --nav-theme-padding-y: 6px;
+    --nav-profile-padding-x: 0px;
+    --nav-profile-padding-y: 6px;
 
     --nav-transition-speed: 300ms;
     --nav-anim-type: tween;
@@ -139,22 +143,29 @@
     --nav-z-index: 50;
 
 
-    /* Page Design System - Global Defaults */
-    /* Layout & Structure */
-    /* Base Values (Tunable) */
+    /* --- PAGE DESIGN SYSTEM --- */
+
+    /* 1. Layout & Structure */
+    --page-max-width: var(--page-max-width-desktop-xl);
+    --page-padding-x: var(--page-padding-x-desktop-xl);
+    --page-padding-y: var(--page-padding-y-desktop-xl);
+    --page-section-gap: var(--page-section-gap-desktop-xl);
+
+    /* Desktop (XL) Source Values */
+    --page-max-width-desktop-xl: 1600px;
     --page-padding-x-desktop-xl: 48px;
-    /* Wide Screens */
+    --page-padding-y-desktop-xl: 64px;
+    --page-section-gap-desktop-xl: 64px;
+
+    /* Responsive Breakpoint Sources */
     --page-padding-x-desktop: 32px;
-    /* Laptops */
     --page-padding-x-tablet: 24px;
     --page-padding-x-mobile: 16px;
 
-    --page-padding-y-desktop-xl: 64px;
     --page-padding-y-desktop: 42px;
     --page-padding-y-tablet: 32px;
     --page-padding-y-mobile: 24px;
 
-    --page-max-width-desktop-xl: 1600px;
     --page-max-width-desktop: 100%;
     --page-max-width-tablet: 100%;
     --page-max-width-mobile: 100%;
@@ -265,10 +276,11 @@
 
 /* --- Responsive Cascade Logic --- */
 
-/* Desktop Breakpoint (>1280px) */
-/* Uses Defaults */
+/* 1. Page Content Layout (Width-Based)
+   Text readability depends on column width, so we keep using width breakpoints 
+   to adjust paddings and max-widths. */
 
-/* Laptop Breakpoint (Max-Width Logic) */
+/* Laptop Breakpoint */
 @media (max-width: 1280px) {
   :root {
     --page-padding-x: var(--page-padding-x-desktop);
@@ -278,7 +290,7 @@
   }
 }
 
-/* Tablet Breakpoint (Max-Width Logic) */
+/* Tablet/Narrow Breakpoint */
 @media (max-width: 1024px) {
   :root {
     --page-padding-x: var(--page-padding-x-tablet);
@@ -286,10 +298,33 @@
     --page-section-gap: var(--page-section-gap-tablet);
     --page-max-width: var(--page-max-width-tablet);
 
-    /* Navbar Tablet Override */
+    /* Navbar Note: We DO NOT force navbar direction here anymore.
+       Narrow desktop windows (Mouse) should keep the Sidebar (Column) layout. */
+  }
+}
+
+/* Mobile Breakpoint (Tiny Screens) */
+@media (max-width: 640px) {
+  :root {
+    --page-padding-x: var(--page-padding-x-mobile);
+    --page-padding-y: var(--page-padding-y-mobile);
+    --page-section-gap: var(--page-section-gap-mobile);
+    --page-max-width: var(--page-max-width-mobile);
+  }
+}
+
+
+/* 2. Navbar Layout (Input + Orientation Matrix)
+   Navigation ergonomics depend on HOW you hold/use the device. */
+
+/* TOUCH DEVICES (Tablets, Phones, Hybrids) -> Bottom Dock (Row) */
+@media (pointer: coarse) {
+  :root {
+    /* Force Row Layout for easier thumb access */
+    --nav-direction: var(--nav-direction-tablet);
+    /* Row */
     --nav-collapsed-width: var(--nav-collapsed-width-tablet);
     --nav-expanded-width: var(--nav-expanded-width-tablet);
-    --nav-direction: var(--nav-direction-tablet);
     --nav-top: var(--nav-top-tablet);
     --nav-bottom: var(--nav-bottom-tablet);
     --nav-left: var(--nav-left-tablet);
@@ -301,19 +336,14 @@
   }
 }
 
-/* Mobile Breakpoint - Includes Portait & Landscape Touch Phones */
-@media (max-width: 640px),
-(max-width: 950px) and (orientation: landscape) and (pointer: coarse) {
+/* MOBILE SCREENS (Any Input) -> Bottom Dock (Row)
+   Even if using a mouse, a screen this small needs the vertical space. */
+@media (max-width: 640px) {
   :root {
-    --page-padding-x: var(--page-padding-x-mobile);
-    --page-padding-y: var(--page-padding-y-mobile);
-    --page-section-gap: var(--page-section-gap-mobile);
-    --page-max-width: var(--page-max-width-mobile);
-
-    /* Navbar Mobile Override */
+    --nav-direction: var(--nav-direction-mobile);
+    /* Row */
     --nav-collapsed-width: var(--nav-collapsed-width-mobile);
     --nav-expanded-width: var(--nav-expanded-width-mobile);
-    --nav-direction: var(--nav-direction-mobile);
     --nav-top: var(--nav-top-mobile);
     --nav-bottom: var(--nav-bottom-mobile);
     --nav-left: var(--nav-left-mobile);

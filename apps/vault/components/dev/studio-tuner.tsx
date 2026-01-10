@@ -100,6 +100,10 @@ const NAVBAR_DEFAULTS: Record<string, string> = {
     "--nav-theme-icon-size": "20px",
     "--nav-theme-button-size": "40px",
     "--nav-extras-gap": "8px",
+    "--nav-theme-padding-x": "6px",
+    "--nav-theme-padding-y": "6px",
+    "--nav-profile-padding-x": "6px",
+    "--nav-profile-padding-y": "6px",
 
     // Animation
     "--nav-anim-type": "tween",
@@ -220,40 +224,16 @@ export function StudioTuner() {
         if (!isDev) return;
 
         const loadAndHydrate = async () => {
-            // First, try to load saved defaults from JSON file
-            let customDefaults = { navbar: {}, page: {} };
-            try {
-                const res = await fetch("/api/dev/save-defaults");
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data.config) {
-                        customDefaults = data.config;
-                        console.log("✅ Loaded custom defaults from tuner-defaults.json");
-                    }
-                }
-            } catch (e) {
-                console.log("No custom defaults file found, using hardcoded defaults");
-            }
-
             const styles = getComputedStyle(document.documentElement);
 
-            // Hydrate Navbar: Start with HARDCODED defaults -> computed styles -> OVERRIDE with custom JSON
+            // Hydrate Navbar: Read from CSS (source of truth)
             const currentNav: any = {};
 
-            // 1. Read current CSS (hardcoded defaults)
+            // Read current CSS values
             Object.keys(NAVBAR_DEFAULTS).forEach((key) => {
                 const val = styles.getPropertyValue(key).trim();
-                if (val) currentNav[key] = val;
+                currentNav[key] = val || NAVBAR_DEFAULTS[key];
             });
-
-            // 2. Override with Saved Defaults (from JSON)
-            if (customDefaults.navbar) {
-                Object.entries(customDefaults.navbar).forEach(([key, val]) => {
-                    currentNav[key] = val;
-                    // Apply to DOM immediately
-                    document.documentElement.style.setProperty(key, val as string);
-                });
-            }
 
             setNavConfig(prev => {
                 const next = { ...prev, ...currentNav };
@@ -261,19 +241,12 @@ export function StudioTuner() {
                 return next;
             });
 
-            // Hydrate Page: Same logic
+            // Hydrate Page: Read from CSS (source of truth)
             const currentPage: any = {};
             Object.keys(PAGE_DEFAULTS).forEach((key) => {
                 const val = styles.getPropertyValue(key).trim();
-                if (val) currentPage[key] = val;
+                currentPage[key] = val || PAGE_DEFAULTS[key];
             });
-
-            if (customDefaults.page) {
-                Object.entries(customDefaults.page).forEach(([key, val]) => {
-                    currentPage[key] = val;
-                    document.documentElement.style.setProperty(key, val as string);
-                });
-            }
 
             setPageConfig(prev => {
                 const next = { ...prev, ...currentPage };
@@ -288,15 +261,23 @@ export function StudioTuner() {
                     const { navbar, page } = JSON.parse(saved);
                     if (navbar) {
                         setNavConfig(prev => ({ ...prev, ...navbar }));
-                        // Apply to DOM immediately
+                        // Only apply to DOM if value differs from current CSS
                         Object.entries(navbar).forEach(([key, val]) => {
-                            document.documentElement.style.setProperty(key, val as string);
+                            const currentCSSValue = styles.getPropertyValue(key).trim();
+                            if (currentCSSValue !== val) {
+                                console.log(`🔄 Updating ${key}: "${currentCSSValue}" -> "${val}"`);
+                                document.documentElement.style.setProperty(key, val as string);
+                            }
                         });
                     }
                     if (page) {
                         setPageConfig(prev => ({ ...prev, ...page }));
+                        // Only apply to DOM if value differs from current CSS
                         Object.entries(page).forEach(([key, val]) => {
-                            document.documentElement.style.setProperty(key, val as string);
+                            const currentCSSValue = styles.getPropertyValue(key).trim();
+                            if (currentCSSValue !== val) {
+                                document.documentElement.style.setProperty(key, val as string);
+                            }
                         });
                     }
                     console.log("✅ Loaded saved settings from localStorage");
@@ -730,7 +711,6 @@ export function StudioTuner() {
                                     <Section title="Navigation Tabs" expanded={expanded.navTabs} onToggle={() => toggleSection("navTabs")}>
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Size</div>
                                         <Input label="Tab Height" value={getNavValue("--nav-item-height")} onChange={(v) => updateNavValue("--nav-item-height", v)} />
-                                        <Input label="Icon Container" value={getNavValue("--nav-icon-box")} onChange={(v) => updateNavValue("--nav-icon-box", v)} />
                                         <div className="h-px bg-border my-2" />
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Content</div>
                                         <Input label="Tab Icons" value={getNavValue("--nav-icon-size")} onChange={(v) => updateNavValue("--nav-icon-size", v)} min={12} max={32} />
@@ -754,10 +734,18 @@ export function StudioTuner() {
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Theme Toggle</div>
                                         <Input label="Icon Size" value={getNavValue("--nav-theme-icon-size")} onChange={(v) => updateNavValue("--nav-theme-icon-size", v)} min={12} max={32} />
                                         <Input label="Button Size" value={getNavValue("--nav-theme-button-size")} onChange={(v) => updateNavValue("--nav-theme-button-size", v)} min={32} max={56} />
+                                        <div className="grid grid-cols-2 gap-2 mt-1">
+                                            <Input label="Pad X" value={getNavValue("--nav-theme-padding-x")} onChange={(v) => updateNavValue("--nav-theme-padding-x", v)} min={0} max={24} />
+                                            <Input label="Pad Y" value={getNavValue("--nav-theme-padding-y")} onChange={(v) => updateNavValue("--nav-theme-padding-y", v)} min={0} max={24} />
+                                        </div>
                                         <div className="h-px bg-border my-2" />
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">User Profile</div>
                                         <Input label="Avatar Size" value={getNavValue("--nav-profile-avatar-size")} onChange={(v) => updateNavValue("--nav-profile-avatar-size", v)} min={24} max={48} />
                                         <Input label="Name Font Size" value={getNavValue("--nav-profile-text-size")} onChange={(v) => updateNavValue("--nav-profile-text-size", v)} min={10} max={20} />
+                                        <div className="grid grid-cols-2 gap-2 mt-1">
+                                            <Input label="Pad X" value={getNavValue("--nav-profile-padding-x")} onChange={(v) => updateNavValue("--nav-profile-padding-x", v)} min={0} max={24} />
+                                            <Input label="Pad Y" value={getNavValue("--nav-profile-padding-y")} onChange={(v) => updateNavValue("--nav-profile-padding-y", v)} min={0} max={24} />
+                                        </div>
                                         <div className="h-px bg-border my-2" />
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Layout</div>
                                         <Input label="Elements Gap" value={getNavValue("--nav-extras-gap")} onChange={(v) => updateNavValue("--nav-extras-gap", v)} />
