@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const CONTENT_DIR = path.join(process.cwd(), 'content/biz')
+const CONTENT_DIR = path.join(process.cwd(), 'content')
 
 function getAllFiles(dirPath: string, arrayOfFiles: string[] = []) {
     const files = fs.readdirSync(dirPath)
@@ -69,25 +69,24 @@ export function generateGraphData() {
             let targetId = target;
 
             // Normalization Logic:
-            // 1. If target includes 'biz/', strip it to match our relative IDs (since we scan content/biz)
-            if (targetId.startsWith('biz/')) {
-                const potentialId = targetId.replace('biz/', '');
-                if (idMap.has(potentialId)) {
-                    targetId = potentialId;
-                }
-            }
+            // The ID structure is now relative to 'content/', so IDs look like 'biz/strategy/...' or 'products/...'
 
-            // 2. If the target is NOT found in our ID map, checking if it might be a partial match or just skip it
-            // ensuring we don't create links to non-existent nodes which crashes d3-force
-            if (!idMap.has(targetId)) {
-                // Try finding a node that ends with this target (lazy matching for filenames)
+            // 1. Direct match check
+            if (idMap.has(targetId)) {
+                // Perfect, do nothing
+            }
+            // 2. Fallback: Check if target (e.g. 'biz/strategy/doc') matches an ID
+            // or if we need to append .md (though we strip extensions usually)
+            else {
+                // Try finding a node that ends with this target (lazy matching)
+                // This covers cases where a link might be relative like [[foundations/06-prioritization]] linking to biz/strategy/planning/foundations/06...
                 const matchedId = Array.from(idMap.keys()).find(id => id.endsWith(targetId) || id.endsWith(targetId + '/index'));
+
                 if (matchedId) {
                     targetId = matchedId;
                 } else {
-                    // If still not found, we skip adding this link to avoid "node not found" errors
-                    // or we could add a "ghost" node, but for now skipping is safer for stability.
-                    console.warn(`Skipping broken link: [[${target}]] in ${sourceSlug}`);
+                    // If still not found, we skip adding this link
+                    // console.warn(`Skipping broken link: [[${target}]] in ${sourceSlug}`);
                     continue;
                 }
             }
