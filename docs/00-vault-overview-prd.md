@@ -81,17 +81,17 @@
 ### 3.3 Section Integration
 
 **Products Lab Section** (`/products`)
-- Full UI from `products-lab-prd.md`
+- Full UI from `11-products-lab-prd.md`
 - Sidebar navigation for experiments
 - Component showcase
 
 **Biz Lab Section** (`/biz`)
-- Full Nextra docs browser from `biz-lab-prd.md`
+- Full Nextra docs browser from `10-biz-lab-prd.md`
 - Auto-generated from `/biz` directory
 - Search bar
 
 **Admin Panel Section** (`/admin`)
-- Full user management from `admin-panel-prd.md`
+- Full user management from `12-admin-panel-prd.md`
 - User table, access control
 - Audit log
 
@@ -265,7 +265,7 @@ Since we don't have a backend to auto-assign roles yet, we will use the **Clerk 
 - Experiments at `/products/experiments`
 - Design tokens at `/products/tokens`
 
-**Note:** Full details in `products-lab-prd.md`
+**Note:** Full details in `11-products-lab-prd.md`
 
 ### 7.2 Biz Lab Integration
 
@@ -276,7 +276,7 @@ Since we don't have a backend to auto-assign roles yet, we will use the **Clerk 
 - Auto-generated sidebar from `/biz` directory
 - Search scoped to Biz section
 
-**Note:** Full details in `biz-lab-prd.md`
+**Note:** Full details in `10-biz-lab-prd.md`
 
 ### 7.3 Admin Panel Integration
 
@@ -287,7 +287,7 @@ Since we don't have a backend to auto-assign roles yet, we will use the **Clerk 
 - Audit log at `/admin/audit`
 - Settings at `/admin/settings`
 
-**Note:** Full details in `admin-panel-prd.md`
+**Note:** Full details in `12-admin-panel-prd.md`
 
 ---
 
@@ -350,7 +350,7 @@ Products Lab (1 result)
 
 ## 11. UX Enhancements (Interactive Layer)
 
-**See:** `vault-ux-enhancements-prd.md` for complete specifications.
+**See:** `13-vault-ux-enhancements-prd.md` for complete specifications.
 
 ### 11.1 Beyond Basic Navigation
 
@@ -386,15 +386,15 @@ Vault includes a **discovery experience layer** designed to make exploration eng
 
 This Vault Overview PRD orchestrates 3 detailed PRDs:
 
-1. **Products Lab PRD** (`products-lab-prd.md`)
+1. **Products Lab PRD** (`11-products-lab-prd.md`)
  - UI experiments, component workbench
  - Accessed via `/products` route
 
-2. **Biz Lab PRD** (`biz-lab-prd.md`)
+2. **Biz Lab PRD** (`10-biz-lab-prd.md`)
  - Strategy docs browser (Nextra)
  - Accessed via `/biz` route
 
-3. **Admin Panel PRD** (`admin-panel-prd.md`)
+3. **Admin Panel PRD** (`12-admin-panel-prd.md`)
  - User management, audit log
  - Accessed via `/admin` route
 
@@ -445,7 +445,7 @@ This Vault Overview PRD orchestrates 3 detailed PRDs:
 
 **Move to APPROVED status when:**
 - All Pre-Development Requirements checked
-- All section PRDs approved (Products Lab, Biz Lab, Admin Panel, UX Enhancements)
+- [ ] All section PRDs approved (Products Lab, Biz Lab, Admin Panel, UX Enhancements)
 - 3-week timeline confirmed
 
 ---

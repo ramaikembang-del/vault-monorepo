@@ -109,17 +109,17 @@ This is your daily actionable checklist. Check items off as you go.
 
 ### Day 2: Testing & QA (Sprint 1 Final Review)
 - [x] **Technical Spec & Roadmap Audit**
-  - [x] **Roadmap Alignment**: Verify completed features match the "Sprint 1 DONE" status in `vault-feature-roadmap.md`.
+  - [x] **Roadmap Alignment**: Verify completed features match the "Sprint 1 DONE" status in `20-vault-feature-roadmap-full.md`.
   - [ ] **Performance Audit**: Ensure Knowledge Graph maintains 60 FPS (check Chrome DevTools FPS Meter).
   - [ ] **Accessibility (WCAG AA)**: Verify keyboard `Tab` navigation for Tooltips and Nav items.
-  - [x] **Spec Verification**: Confirm exact CSS tokens (e.g., `#3b82f6` for Strategy nodes) match `vault-feature-specifications.md`.
+  - [x] **Spec Verification**: Confirm exact CSS tokens (e.g., `#3b82f6` for Strategy nodes) match `21-vault-feature-specifications.md`.
   - [ ] **Bundle Check**: Ensure new dependencies (Radix Tooltip, Hover Card) haven't bloated the `/biz` route excessively.
 
 - [x] **UX Strategy & Engagement Audit**
   - [x] **"Show, don't tell"**: Verify Mission Control visuals effectively communicate system state without text-heavy explanations.
   - [x] **Emotional Engagement**: Audit the "Wow Factor"—glassmorphism, micro-interactions (bounces/skips), and transition smoothness.
   - [ ] **Gamification Loop**: Verify the "Unlock -> Celebrate -> Track" flow (Check confetti and achievement slide-ins).
-  - [ ] **Guiding Principles**: Ensure "Why This Matters" tooltips are present on 5+ critical strategic sections as per `ux-enhancements-prd.md`.
+  - [ ] **Guiding Principles**: Ensure "Why This Matters" tooltips are present on 5+ critical strategic sections as per `13-vault-ux-enhancements-prd.md`.
   - [x] **Portfolio Interactivity**: Test Product Portfolio click handlers (Click -> Explore Spec) and hover stats.
 
 - [ ] **End-to-End User Journey**
@@ -252,5 +252,5 @@ This is your daily actionable checklist. Check items off as you go.
   - [ ] **Intelligence Briefing**: Host a live session demonstrating the "Decision Engine" (Calculators + Recs).
   - [ ] **Feedback Loop**: Establish a "Phase 2 Request" board for post-launch refinements.
 - [ ] **Antigravity Project Wrap**
-  - [ ] **Velocity Archive**: Save the final `vault-roadmap-optimized.md` as a case study for "60x Velocity Development."
+  - [ ] **Velocity Archive**: Save the final `01-vault-roadmap-active.md` as a case study for "60x Velocity Development."
   - [ ] **Final Handover**: Close the loop on all Day 1-Day 5 documentation.
