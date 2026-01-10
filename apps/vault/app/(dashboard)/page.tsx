@@ -1,6 +1,7 @@
 import GraphView from '@/components/graph/GraphView'
 import { PersonalTracker } from '@/components/dashboard/PersonalTracker'
 import { SprintProgress } from '@/components/dashboard/SprintProgress'
+import { PortfolioMap } from '@/components/dashboard/PortfolioMap'
 
 export default function DashboardPage() {
   return (
@@ -24,14 +25,17 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Center: The Graph */}
-        <div className="lg:col-span-3 rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-4 left-4 z-10">
-            <h3 className="tracking-tight text-xs font-medium text-zinc-400 uppercase">Knowledge Graph</h3>
+        {/* Center: The Graph & Portfolio */}
+        <div className="lg:col-span-3 space-y-6 overflow-y-auto pr-2 custom-scrollbar">
+          <div className="h-2/3 min-h-[400px] rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-4 left-4 z-10">
+              <h3 className="tracking-tight text-xs font-medium text-zinc-400 uppercase">Knowledge Graph</h3>
+            </div>
+            <div className="h-full">
+              <GraphView />
+            </div>
           </div>
-          <div className="h-full">
-            <GraphView />
-          </div>
+          <PortfolioMap />
         </div>
 
         {/* Right: Company Progress */}
