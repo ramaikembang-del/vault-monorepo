@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* --- Navbar Config Store (Source of Truth) --- */
+
+    /* Desktop Mode (Default) */
+    --nav-collapsed-width-desktop: 60px;
+    --nav-expanded-width-desktop: 260px;
+    --nav-direction-desktop: column;
+    --nav-top-desktop: 50%;
+    --nav-bottom-desktop: auto;
+    --nav-left-desktop: 16px;
+    --nav-right-desktop: auto;
+    --nav-transform-desktop: translateY(-50%);
+    --nav-logo-mb-desktop: 16px;
+    --nav-logo-mr-desktop: 0px;
+    --nav-padding-desktop: 6px;
+
+    /* Tablet Mode (Width < 1024px) */
+    --nav-collapsed-width-tablet: auto;
+    /* Dock fit content */
+    --nav-expanded-width-tablet: auto;
+    --nav-direction-tablet: row;
+    --nav-top-tablet: auto;
+    --nav-bottom-tablet: 24px;
+    --nav-left-tablet: 50%;
+    --nav-right-tablet: auto;
+    --nav-transform-tablet: translateX(-50%);
+    --nav-logo-mb-tablet: 0px;
+    --nav-logo-mr-tablet: 16px;
+    --nav-padding-tablet: 6px;
+
+    /* Mobile Mode (Width < 640px) */
+    --nav-collapsed-width-mobile: auto;
+    --nav-expanded-width-mobile: auto;
+    --nav-direction-mobile: row;
+    --nav-top-mobile: auto;
+    --nav-bottom-mobile: 16px;
+    --nav-left-mobile: 50%;
+    --nav-right-mobile: auto;
+    --nav-transform-mobile: translateX(-50%);
+    --nav-logo-mb-mobile: 0px;
+    --nav-logo-mr-mobile: 8px;
+    /* Tighter on mobile */
+    --nav-padding-mobile: 4px;
+    /* Tighter padding */
+
+    /* --- Active Variables (Used by Component) --- */
+    /* Defaults to Desktop values initially */
+    --nav-collapsed-width: var(--nav-collapsed-width-desktop);
+    --nav-expanded-width: var(--nav-expanded-width-desktop);
+    --nav-direction: var(--nav-direction-desktop);
+    --nav-top: var(--nav-top-desktop);
+    --nav-bottom: var(--nav-bottom-desktop);
+    --nav-left: var(--nav-left-desktop);
+    --nav-right: var(--nav-right-desktop);
+    --nav-transform: var(--nav-transform-desktop);
+    --nav-logo-mb: var(--nav-logo-mb-desktop);
+    --nav-logo-mr: var(--nav-logo-mr-desktop);
+    --nav-padding: var(--nav-padding-desktop);
+
+    /* Shared Variables (All Modes) */
+    --nav-item-height: 44px;
+    --nav-padding-x: 6px;
+    --nav-padding-y: 6px;
+    --nav-radius: 16px;
+    --nav-radius-tl: 18px;
+    --nav-radius-tr: 18px;
+    --nav-radius-bl: 18px;
+    --nav-radius-br: 18px;
+    --nav-gap: 6px;
+    --nav-icon-box: 44px;
+    --nav-icon-size: 20px;
+    --nav-font-size: 14px;
+    --nav-font-weight: 500;
+    --nav-logo-icon-box: 45px;
+    --nav-logo-icon-size: 20px;
+    --nav-logo-text-size: 14px;
+    --nav-logo-pt: 8px;
+    --nav-logo-pl: 2px;
+    --nav-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --nav-bg-opacity: 0.95;
+    --nav-border-width: 1px;
+    --nav-blur: 12px;
+
+    /* Navigation Tabs */
+    --nav-tab-radius: 8px;
+    --nav-tab-hover-scale: 1.02;
+    --nav-tab-active-bg-opacity: 1;
+    --nav-tab-inactive-opacity: 0.7;
+    --nav-tab-hover-opacity: 0.9;
+
+    /* Additional Elements */
+    --nav-profile-text-size: 14px;
+    --nav-profile-avatar-size: 32px;
+    --nav-theme-icon-size: 20px;
+    --nav-theme-button-size: 40px;
+    --nav-extras-gap: 8px;
+
+    --nav-transition-speed: 300ms;
+    --nav-anim-type: tween;
+    --nav-anim-stiffness: 300;
+    --nav-anim-damping: 30;
+    --nav-anim-duration: 0.3;
+    --nav-anim-ease: easeOut;
+    --nav-z-index: 50;
+
+
+    /* Page Design System - Global Defaults */
+    /* Layout & Structure */
+    /* Base Values (Tunable) */
+    --page-padding-x-desktop-xl: 48px;
+    /* Wide Screens */
+    --page-padding-x-desktop: 32px;
+    /* Laptops */
+    --page-padding-x-tablet: 24px;
+    --page-padding-x-mobile: 16px;
+
+    --page-padding-y-desktop-xl: 64px;
+    --page-padding-y-desktop: 42px;
+    --page-padding-y-tablet: 32px;
+    --page-padding-y-mobile: 24px;
+
+    --page-max-width-desktop-xl: 1600px;
+    --page-max-width-desktop: 100%;
+    --page-max-width-tablet: 100%;
+    --page-max-width-mobile: 100%;
+
+    --page-section-gap-desktop-xl: 64px;
+    --page-section-gap-desktop: 48px;
+    --page-section-gap-portrait: 40px;
+    --page-section-gap-tablet: 40px;
+    --page-section-gap-mobile: 32px;
+
+    --page-grid-gap: 24px;
+    --page-card-gap: 16px;
+    --page-content-spacing: 32px;
+    --page-sidebar-width: 280px;
+
+    /* Typography Defaults */
+    --page-h1-size: 36px;
+    --page-h2-size: 30px;
+    --page-h3-size: 24px;
+    --page-h4-size: 20px;
+    --page-body-size: 16px;
+    --page-small-size: 14px;
+
+    --page-line-height: 1.6;
+    --page-heading-weight: 700;
+    --page-body-weight: 400;
+    --page-letter-spacing: -0.01em;
+    --page-h1-line-height: 1.2;
+    --page-h2-line-height: 1.3;
+
+    /* Component Defaults */
+    --page-card-padding: 24px;
+    --page-card-radius: 12px;
+    --page-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --page-card-border-width: 1px;
+    --page-button-radius: 8px;
+    --page-input-radius: 8px;
+    --page-hover-scale: 1.02;
+    --page-hover-opacity: 0.8;
+    --page-transition-speed: 200ms;
+    --page-focus-ring-width: 2px;
+
+    /* Animation Defaults */
+    --page-anim-type: spring;
+    --page-anim-stiffness: 300;
+    --page-anim-damping: 30;
+    --page-anim-duration: 0.3;
+    --page-anim-ease: easeOut;
+    --page-anim-stagger: 0.05;
+
+    /* Color Defaults */
+    --page-accent-hue: 220;
+    --page-accent-sat: 90%;
+    --page-accent-light: 50%;
+    --page-card-bg-opacity: 1;
+    --page-text-muted-opacity: 0.7;
+    --page-border-opacity: 0.2;
+    --page-surface-tint: 0;
+    --page-highlight-opacity: 0.1;
+
+    /* Initial Cascade Setup */
+    --page-padding-x: var(--page-padding-x-desktop-xl);
+    --page-padding-y: var(--page-padding-y-desktop-xl);
+    --page-max-width: var(--page-max-width-desktop-xl);
+    --page-section-gap: var(--page-section-gap-desktop-xl);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* --- Responsive Cascade Logic --- */
+
+/* Desktop Breakpoint (>1280px) */
+/* Uses Defaults */
+
+/* Laptop Breakpoint (Max-Width Logic) */
+@media (max-width: 1280px) {
+  :root {
+    --page-padding-x: var(--page-padding-x-desktop);
+    --page-padding-y: var(--page-padding-y-desktop);
+    --page-section-gap: var(--page-section-gap-desktop);
+    --page-max-width: var(--page-max-width-desktop);
+  }
+}
+
+/* Tablet Breakpoint (Max-Width Logic) */
+@media (max-width: 1024px) {
+  :root {
+    --page-padding-x: var(--page-padding-x-tablet);
+    --page-padding-y: var(--page-padding-y-tablet);
+    --page-section-gap: var(--page-section-gap-tablet);
+    --page-max-width: var(--page-max-width-tablet);
+
+    /* Navbar Tablet Override */
+    --nav-collapsed-width: var(--nav-collapsed-width-tablet);
+    --nav-expanded-width: var(--nav-expanded-width-tablet);
+    --nav-direction: var(--nav-direction-tablet);
+    --nav-top: var(--nav-top-tablet);
+    --nav-bottom: var(--nav-bottom-tablet);
+    --nav-left: var(--nav-left-tablet);
+    --nav-right: var(--nav-right-tablet);
+    --nav-transform: var(--nav-transform-tablet);
+    --nav-logo-mb: var(--nav-logo-mb-tablet);
+    --nav-logo-mr: var(--nav-logo-mr-tablet);
+    --nav-padding: var(--nav-padding-tablet);
+  }
+}
+
+/* Mobile Breakpoint - Includes Portait & Landscape Touch Phones */
+@media (max-width: 640px),
+(max-width: 950px) and (orientation: landscape) and (pointer: coarse) {
+  :root {
+    --page-padding-x: var(--page-padding-x-mobile);
+    --page-padding-y: var(--page-padding-y-mobile);
+    --page-section-gap: var(--page-section-gap-mobile);
+    --page-max-width: var(--page-max-width-mobile);
+
+    /* Navbar Mobile Override */
+    --nav-collapsed-width: var(--nav-collapsed-width-mobile);
+    --nav-expanded-width: var(--nav-expanded-width-mobile);
+    --nav-direction: var(--nav-direction-mobile);
+    --nav-top: var(--nav-top-mobile);
+    --nav-bottom: var(--nav-bottom-mobile);
+    --nav-left: var(--nav-left-mobile);
+    --nav-right: var(--nav-right-mobile);
+    --nav-transform: var(--nav-transform-mobile);
+    --nav-logo-mb: var(--nav-logo-mb-mobile);
+    --nav-logo-mr: var(--nav-logo-mr-mobile);
+    --nav-padding: var(--nav-padding-mobile);
+  }
+}
