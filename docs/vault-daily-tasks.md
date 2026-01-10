@@ -5,45 +5,45 @@ This is your daily actionable checklist. Check items off as you go.
 ## 🏗️ Sprint 0: Core Foundation (Days 1-2)
 
 ### Day 1: Scaffolding Routes
-- [ ] **Install MDX Libraries** (Missing)
-  - [ ] `npm install next-mdx-remote shiki rehype-slug gray-matter`
+- [x] **Install MDX Libraries**
+  - [x] `npm install next-mdx-remote shiki rehype-slug gray-matter`
   - [x] `npm install lucide-react` (Already installed)
-- [ ] **Create Biz Lab Route**
-  - [ ] Create `apps/vault/app/biz/layout.tsx` (Sidebar Layout)
-  - [ ] Create `apps/vault/app/biz/[[...slug]]/page.tsx` (MDX Renderer)
-  - [ ] Create `apps/vault/lib/mdx.ts` (Content Fetcher)
-  - [ ] **Verify:** Navigate to `localhost:3000/biz` (should show empty docs page)
-- [ ] **Create Products Lab Route**
-  - [ ] Create `apps/vault/app/products/layout.tsx`
-  - [ ] Create `apps/vault/app/products/page.tsx` (Experiment Grid)
-  - [ ] Create `apps/vault/app/products/experiments/folder` (Throwaway zone)
+- [x] **Create Biz Lab Route**
+  - [x] Create `apps/vault/app/biz/layout.tsx` (Sidebar Layout)
+  - [x] Create `apps/vault/app/biz/[[...slug]]/page.tsx` (MDX Renderer)
+  - [x] Create `apps/vault/lib/mdx.ts` (Content Fetcher)
+  - [x] **Verify:** Navigate to `localhost:3000/biz` (should show empty docs page)
+- [x] **Create Products Lab Route**
+  - [x] Create `apps/vault/app/products/layout.tsx`
+  - [x] Create `apps/vault/app/products/page.tsx` (Experiment Grid)
+  - [x] Create `apps/vault/app/products/experiments/folder` (Throwaway zone)
 
 ### Day 2: Unified Navigation
 - [x] **Update Top Navbar** (`dynamic-navbar.tsx`)
   - [x] Add Tabs: `Products` | `Biz` | `Admin`
   - [x] Implement active state logic
-- [ ] **Setup Content Routes (Symlink)**
-  - [ ] Create directory: `apps/vault/content`
-  - [ ] **Symlink External Repo:** Route your docs repo to `apps/vault/content/biz`
-  - [ ] *Windows CMD:* `mklink /D "apps\vault\content\biz" "C:\Path\To\Your\DocsRepo"`
-  - [ ] Test MDX rendering with real content
+- [x] **Setup Content Routes (Symlink)**
+  - [x] Create directory: `apps/vault/content`
+  - [x] **Symlink External Repo:** Route your docs repo to `apps/vault/content/biz`
+  - [x] *Windows CMD:* `mklink /J "apps\vault\content\biz" "C:\Users\Adeandza Haqia\Desktop\Clario\biz"`
+  - [x] Test MDX rendering with real content
 
 ---
 
 ## 📦 Sprint 1: Knowledge Graph (Days 3-5)
 
 ### Day 3: Graph Engine
-- [ ] **Install Graph Libs**
-  - [ ] `npm install react-force-graph-2d`
-- [ ] **Data Extraction Script**
-  - [ ] Create `apps/vault/lib/graph/extract-nodes.ts`
-  - [ ] Implement recursive file scan of `/content/biz`
-  - [ ] Parse frontmatter for `tags` and `links`
-  - [ ] Output: `graph-data.json`
+- [x] **Install Graph Libs**
+  - [x] `npm install react-force-graph-2d`
+- [x] **Data Extraction Script**
+  - [x] Create `apps/vault/lib/graph/extract-nodes.ts`
+  - [x] Implement recursive file scan of `/content/biz`
+  - [x] Parse frontmatter for `tags` and `links`
+  - [x] Output: `graph-data.json`
 
 ### Day 4: Graph Visualization
-- [ ] **Build Component**
-  - [ ] Create `components/graph/GraphView.tsx`
+- [/] **Build Component**
+  - [x] Create `components/graph/GraphView.tsx`
   - [ ] Render nodes (Strategy=Blue, Product=Orange)
 - [ ] **Interactions**
   - [ ] Add `onNodeClick` handler
