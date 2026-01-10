@@ -1,5 +1,5 @@
-
-import { DynamicNavbar } from "@/components/enhanced-ux/dynamic-navbar";
+import { DynamicNavbar } from '@/components/enhanced-ux/dynamic-navbar'
+import { GamificationCheck } from '@/components/gamification/GamificationCheck'
 
 export default function DashboardLayout({
     children,
@@ -9,7 +9,8 @@ export default function DashboardLayout({
     return (
         <div className="min-h-screen bg-background text-foreground">
             <DynamicNavbar />
-            <div className="transition-all duration-300">
+            <GamificationCheck />
+            <div className="flex-1 overflow-y-auto bg-zinc-950">
                 {children}
             </div>
         </div>

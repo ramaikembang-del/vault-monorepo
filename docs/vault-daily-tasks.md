@@ -85,11 +85,15 @@ This is your daily actionable checklist. Check items off as you go.
 ## �📊 Sprint 3: Dashboard & Gamification (Days 8-13)
 
 ### Day 8: Clerk Metadata Setup
-- [ ] **Define Schema**
-  - [ ] Go to Clerk Dashboard -> User -> Metadata
-  - [ ] Add `achievements`, `readCount`, `sprintProgress`
-- [ ] **Create API Helper**
-  - [ ] `apps/vault/lib/user-progress.ts` (fetch/update metadata)
+- [x] **Define Schema**
+  - [x] Go to Clerk Dashboard -> User -> Metadata (Types defined in `types/user.ts`)
+  - [x] Add `achievements`, `readCount`, `sprintProgress`
+- [x] **Create API Helper**
+  - [x] `apps/vault/lib/user-progress.ts` (fetch/update metadata)
+- [x] **Gamification Strategy**
+  - [x] Create `gamification_design.md`
+  - [x] Implement `RoleSelection` modal
+  - [x] Integrate `GamificationCheck` in Dashboard Layout
 
 ### Day 9-10: Mission Control UI
 - [ ] **Install Charts**
