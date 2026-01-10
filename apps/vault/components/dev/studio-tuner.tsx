@@ -19,7 +19,8 @@ const RESPONSIVE_NAV_KEYS = [
     "--nav-transform",
     "--nav-logo-mb",
     "--nav-logo-mr",
-    "--nav-padding"
+    "--nav-padding",
+    "--nav-tabs-section-margin"
 ];
 
 const NAVBAR_DEFAULTS: Record<string, string> = {
@@ -29,6 +30,7 @@ const NAVBAR_DEFAULTS: Record<string, string> = {
     "--nav-direction-desktop": "column",
     "--nav-logo-mb-desktop": "16px",
     "--nav-logo-mr-desktop": "0px",
+    "--nav-tabs-section-margin-desktop": "0px",
     "--nav-top-desktop": "50%",
     "--nav-bottom-desktop": "auto",
     "--nav-left-desktop": "16px",
@@ -42,6 +44,7 @@ const NAVBAR_DEFAULTS: Record<string, string> = {
     "--nav-direction-tablet": "row",
     "--nav-logo-mb-tablet": "0px",
     "--nav-logo-mr-tablet": "16px",
+    "--nav-tabs-section-margin-tablet": "0px",
     "--nav-top-tablet": "auto",
     "--nav-bottom-tablet": "24px",
     "--nav-left-tablet": "50%",
@@ -55,6 +58,7 @@ const NAVBAR_DEFAULTS: Record<string, string> = {
     "--nav-direction-mobile": "column",
     "--nav-logo-mb-mobile": "16px",
     "--nav-logo-mr-mobile": "0px",
+    "--nav-tabs-section-margin-mobile": "0px",
     "--nav-top-mobile": "16px",
     "--nav-bottom-mobile": "auto",
     "--nav-left-mobile": "16px",
@@ -327,6 +331,7 @@ export function StudioTuner() {
                 --nav-logo-mb: ${getModeValue('--nav-logo-mb')} !important;
                 --nav-logo-mr: ${getModeValue('--nav-logo-mr')} !important;
                 --nav-padding: ${getModeValue('--nav-padding')} !important;
+                --nav-tabs-section-margin: ${getModeValue('--nav-tabs-section-margin')} !important;
 
                 /* Page Layout Overrides */
                 --page-padding-x: ${pageConfig[`--page-padding-x-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-padding-x-${globalDeviceMode}`]} !important;
@@ -720,6 +725,7 @@ export function StudioTuner() {
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Spacing</div>
                                         <Input label="Tab Padding X" value={getNavValue("--nav-padding-x")} onChange={(v) => updateNavValue("--nav-padding-x", v)} />
                                         <Input label="Tab Padding Y" value={getNavValue("--nav-padding-y")} onChange={(v) => updateNavValue("--nav-padding-y", v)} />
+                                        <Input label="Tabs Margin (Exp)" value={getNavValue("--nav-tabs-section-margin")} onChange={(v) => updateNavValue("--nav-tabs-section-margin", v)} />
                                         <div className="h-px bg-border my-2" />
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Visual Effects</div>
                                         <Input label="Tab Corner Radius" value={getNavValue("--nav-tab-radius")} onChange={(v) => updateNavValue("--nav-tab-radius", v)} />

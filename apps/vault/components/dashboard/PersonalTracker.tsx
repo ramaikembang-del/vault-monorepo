@@ -87,12 +87,12 @@ export function PersonalTracker() {
                 <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="rounded-lg bg-zinc-800/50 p-3 text-center">
                         <BookOpen className="mx-auto mb-1 h-4 w-4 text-zinc-400" />
-                        <div className="text-lg font-bold">{progress.stats.docsRead}</div>
+                        <div className="text-lg font-bold">{progress?.stats?.docsRead ?? 0}</div>
                         <div className="text-[10px] text-zinc-500 uppercase tracking-wider">Docs Read</div>
                     </div>
                     <div className="rounded-lg bg-zinc-800/50 p-3 text-center">
                         <Zap className="mx-auto mb-1 h-4 w-4 text-yellow-500" />
-                        <div className="text-lg font-bold">{progress.stats.streak}</div>
+                        <div className="text-lg font-bold">{progress?.stats?.streak ?? 0}</div>
                         <div className="text-[10px] text-zinc-500 uppercase tracking-wider">Day Streak</div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ export function PersonalTracker() {
                 </div>
 
                 <div className="grid grid-cols-4 gap-2">
-                    {progress.achievements.slice(0, 4).map((badgeId) => {
+                    {(progress?.achievements ?? []).slice(0, 4).map((badgeId) => {
                         const badge = ACHIEVEMENTS.find(a => a.id === badgeId)
                         if (!badge) return null
                         return (
@@ -128,7 +128,7 @@ export function PersonalTracker() {
                             </div>
                         )
                     })}
-                    {progress.achievements.length === 0 && (
+                    {(progress?.achievements ?? []).length === 0 && (
                         <div className="col-span-4 py-4 text-center border border-dashed border-zinc-800 rounded-lg">
                             <p className="text-[10px] text-zinc-600 uppercase font-bold tracking-widest">No Badges Yet</p>
                         </div>

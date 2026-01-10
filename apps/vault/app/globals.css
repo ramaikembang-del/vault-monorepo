@@ -37,7 +37,7 @@
     /* --- Navbar Config Store (Source of Truth) --- */
 
     /* Desktop Mode (Default) */
-    --nav-collapsed-width-desktop: 59px;
+    --nav-collapsed-width-desktop: 60px;
     --nav-expanded-width-desktop: 260px;
     --nav-direction-desktop: column;
     --nav-top-desktop: 50%;
@@ -45,8 +45,9 @@
     --nav-left-desktop: 16px;
     --nav-right-desktop: auto;
     --nav-transform-desktop: translateY(-50%);
-    --nav-logo-mb-desktop: 8px;
+    --nav-logo-mb-desktop: 1px;
     --nav-logo-mr-desktop: 0px;
+    --nav-tabs-section-margin-desktop: 0px;
     --nav-padding-desktop: 6px;
 
     /* Tablet Mode (Width < 1024px) */
@@ -61,6 +62,7 @@
     --nav-transform-tablet: translateX(-50%);
     --nav-logo-mb-tablet: 0px;
     --nav-logo-mr-tablet: 16px;
+    --nav-tabs-section-margin-tablet: 0px;
     --nav-padding-tablet: 6px;
 
     /* Mobile Mode (Width < 640px) */
@@ -74,6 +76,7 @@
     --nav-transform-mobile: translateX(-50%);
     --nav-logo-mb-mobile: 0px;
     --nav-logo-mr-mobile: 8px;
+    --nav-tabs-section-margin-mobile: 0px;
     /* Tighter on mobile */
     --nav-padding-mobile: 4px;
     /* Tighter padding */
@@ -90,13 +93,14 @@
     --nav-transform: var(--nav-transform-desktop);
     --nav-logo-mb: var(--nav-logo-mb-desktop);
     --nav-logo-mr: var(--nav-logo-mr-desktop);
+    --nav-tabs-section-margin: var(--nav-tabs-section-margin-desktop);
     --nav-padding: var(--nav-padding-desktop);
 
     /* Shared Variables (All Modes) */
     --nav-item-height: 45px;
     --nav-padding-x: 10px;
     --nav-padding-y: 0px;
-    --nav-radius: 16px;
+    --nav-radius: 20px;
     --nav-radius-tl: 18px;
     --nav-radius-tr: 18px;
     --nav-radius-bl: 18px;
@@ -107,10 +111,10 @@
     --nav-font-size: 14px;
     --nav-font-weight: 500;
     --nav-logo-icon-box: 45px;
-    --nav-logo-icon-size: 20px;
+    --nav-logo-icon-size: 21px;
     --nav-logo-text-size: 14px;
     --nav-logo-pt: 0px;
-    --nav-logo-pl: 0px;
+    --nav-logo-pl: 1px;
     --nav-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     --nav-bg-opacity: 0.4;
     --nav-border-width: 1px;
@@ -348,6 +352,7 @@
     --nav-transform: var(--nav-transform-tablet);
     --nav-logo-mb: var(--nav-logo-mb-tablet);
     --nav-logo-mr: var(--nav-logo-mr-tablet);
+    --nav-tabs-section-margin: var(--nav-tabs-section-margin-tablet);
     --nav-padding: var(--nav-padding-tablet);
   }
 }
@@ -367,6 +372,7 @@
     --nav-transform: var(--nav-transform-mobile);
     --nav-logo-mb: var(--nav-logo-mb-mobile);
     --nav-logo-mr: var(--nav-logo-mr-mobile);
+    --nav-tabs-section-margin: var(--nav-tabs-section-margin-mobile);
     --nav-padding: var(--nav-padding-mobile);
   }
 }

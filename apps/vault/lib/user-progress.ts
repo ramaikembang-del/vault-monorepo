@@ -27,9 +27,20 @@ export async function getUserProgress(): Promise<UserProgress> {
     const { userId } = await auth()
     if (!userId) return INITIAL_PROGRESS
 
+    const client = await clerkClient()
     try {
-        const user = await clerkClient.users.getUser(userId)
-        return (user.publicMetadata as unknown as UserProgress) || INITIAL_PROGRESS
+        const user = await client.users.getUser(userId)
+        const metadata = user.publicMetadata as unknown as Partial<UserProgress>
+
+        return {
+            ...INITIAL_PROGRESS,
+            ...metadata,
+            stats: {
+                ...INITIAL_PROGRESS.stats,
+                ...(metadata?.stats || {})
+            },
+            achievements: metadata?.achievements || INITIAL_PROGRESS.achievements
+        }
     } catch (e) {
         return INITIAL_PROGRESS
     }
@@ -50,7 +61,8 @@ export async function setPlayerRole(role: PlayerRole) {
         newProgress.achievements.push('onboarded')
     }
 
-    await clerkClient.users.updateUserMetadata(userId, {
+    const client = await clerkClient()
+    await client.users.updateUserMetadata(userId, {
         publicMetadata: newProgress,
     })
 
@@ -100,7 +112,8 @@ export async function incrementReadCount(currentPath: string) {
         achievements: newAchievements
     }
 
-    await clerkClient.users.updateUserMetadata(userId, {
+    const client = await clerkClient()
+    await client.users.updateUserMetadata(userId, {
         publicMetadata: newProgress,
     })
 
@@ -128,7 +141,8 @@ export async function incrementSearchCount() {
         }
     })
 
-    await clerkClient.users.updateUserMetadata(userId, {
+    const client = await clerkClient()
+    await client.users.updateUserMetadata(userId, {
         publicMetadata: { ...progress, stats: newStats, xp: newXp, achievements: newAchievements },
     })
 }
@@ -137,7 +151,8 @@ export async function resetUserProgress() {
     const { userId } = await auth()
     if (!userId) throw new Error('Unauthorized')
 
-    await clerkClient.users.updateUserMetadata(userId, {
+    const client = await clerkClient()
+    await client.users.updateUserMetadata(userId, {
         publicMetadata: INITIAL_PROGRESS,
     })
 

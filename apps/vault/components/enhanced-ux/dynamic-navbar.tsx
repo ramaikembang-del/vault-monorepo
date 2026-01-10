@@ -233,7 +233,14 @@ export function DynamicNavbar() {
 
                 {/* Navigation Items - Hidden when mobile collapsed */}
                 {(!isMobile || isExpanded) && (
-                    <div className="flex flex-col gap-1 w-full flex-1 pointer-events-auto" style={{ flexDirection: "inherit" }}>
+                    <div
+                        className="flex flex-col gap-1 w-full flex-1 pointer-events-auto"
+                        style={{
+                            flexDirection: "inherit",
+                            marginTop: !isRowOrientation && isExpanded ? "var(--nav-tabs-section-margin)" : undefined,
+                            marginLeft: isRowOrientation ? "var(--nav-tabs-section-margin)" : undefined
+                        }}
+                    >
                         {navItems.map((item) => (
                             <Link
                                 key={item.path}

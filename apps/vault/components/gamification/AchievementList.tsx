@@ -44,7 +44,7 @@ export function AchievementList({ progress, onClose }: AchievementListProps) {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredAchievements.map((achievement) => {
-                    const isUnlocked = progress.achievements.includes(achievement.id)
+                    const isUnlocked = (progress?.achievements ?? []).includes(achievement.id)
                     const IconComponent = Icons[achievement.icon] || Icons.Award
 
                     return (
