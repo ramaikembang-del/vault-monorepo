@@ -42,19 +42,20 @@ This is your daily actionable checklist. Check items off as you go.
   - [x] Output: `graph-data.json`
 
 ### Day 4: Graph Visualization
-- [/] **Build Component**
+- [x] **Build Component**
   - [x] Create `components/graph/GraphView.tsx`
-  - [ ] Render nodes (Strategy=Blue, Product=Orange)
-- [ ] **Interactions**
-  - [ ] Add `onNodeClick` handler
-  - [ ] Implement Zoom/Pan controls
+  - [x] **Connect Data**: Wire up `graph-data.json` to the view
+  - [x] Render nodes (Strategy=Blue, Product=Orange)
+- [x] **Interactions**
+  - [x] Add `onNodeClick` handler (Navigate to doc)
+  - [x] Implement Zoom/Pan controls (Built-in)
 
 ### Day 5: Floating Notes
-- [ ] **Install Dragging**
-  - [ ] `npm install react-draggable framer-motion`
-- [ ] **Build UI**
-  - [ ] Create `components/graph/FloatingNote.tsx`
-  - [ ] Connect Graph click -> Open Note
+- [x] **Install Dragging**
+  - [x] `npm install react-draggable framer-motion`
+- [x] **Build UI**
+  - [x] Create `components/graph/FloatingNote.tsx` (Draggable Card)
+  - [x] Connect Graph click -> Open Note overlay
 
 ---
 
