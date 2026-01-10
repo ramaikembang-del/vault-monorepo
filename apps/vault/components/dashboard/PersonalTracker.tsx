@@ -4,9 +4,9 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { UserProgress } from '@/types/user'
-import { getUserProgress } from '@/lib/user-progress'
+import { getUserProgress, resetUserProgress } from '@/lib/user-progress'
 import { ACHIEVEMENTS } from '@/config/achievements'
-import { Award, Zap, BookOpen, Star, MoreHorizontal } from 'lucide-react'
+import { Award, Zap, BookOpen, Star, MoreHorizontal, RefreshCcw } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { AchievementList } from '@/components/gamification/AchievementList'
@@ -14,9 +14,19 @@ import { AchievementList } from '@/components/gamification/AchievementList'
 export function PersonalTracker() {
     const [progress, setProgress] = useState<UserProgress | null>(null)
 
+    const [isLoading, setIsLoading] = useState(false)
+
     useEffect(() => {
         getUserProgress().then(setProgress)
     }, [])
+
+    const handleReset = async () => {
+        if (confirm('Are you sure you want to reset your progress? This will wipe your level, XP, and badges.')) {
+            setIsLoading(true)
+            await resetUserProgress()
+            window.location.reload()
+        }
+    }
 
     if (!progress) return null
 
@@ -27,11 +37,25 @@ export function PersonalTracker() {
     const roleColor = progress.role === 'field_ops' ? 'text-orange-500' : 'text-blue-500'
 
     return (
-        <Card className="border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
+        <Card className="border-zinc-800 bg-zinc-900/50 backdrop-blur-sm relative overflow-hidden">
+            {isLoading && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center bg-zinc-950/50 backdrop-blur-sm">
+                    <RefreshCcw className="h-8 w-8 text-blue-500 animate-spin" />
+                </div>
+            )}
             <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                     <div>
-                        <CardTitle className="text-sm font-medium text-zinc-400">Personal Progress</CardTitle>
+                        <div className="flex items-center gap-2">
+                            <CardTitle className="text-sm font-medium text-zinc-400">Personal Progress</CardTitle>
+                            <button
+                                onClick={handleReset}
+                                className="text-zinc-600 hover:text-red-500 transition-colors"
+                                title="Reset Progress (Debug)"
+                            >
+                                <RefreshCcw size={12} />
+                            </button>
+                        </div>
                         <div className={`text-xl font-bold ${roleColor}`}>{roleName}</div>
                     </div>
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800">

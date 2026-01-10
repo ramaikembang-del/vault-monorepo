@@ -133,6 +133,17 @@ export async function incrementSearchCount() {
     })
 }
 
+export async function resetUserProgress() {
+    const { userId } = auth()
+    if (!userId) throw new Error('Unauthorized')
+
+    await clerkClient.users.updateUserMetadata(userId, {
+        publicMetadata: INITIAL_PROGRESS,
+    })
+
+    return INITIAL_PROGRESS
+}
+
 function getCategoryFromPath(path: string): string {
     const p = path.toLowerCase()
     if (p.includes('/biz/strategy')) return 'strategy'
