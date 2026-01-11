@@ -20,74 +20,62 @@ function getAllFiles(dirPath: string, arrayOfFiles: string[] = []) {
     return arrayOfFiles
 }
 
-export function generateGraphData() {
-    const files = getAllFiles(CONTENT_DIR)
+// In-memory cache for graph data
+let cachedGraph: { nodes: any[], links: any[] } | null = null;
+let lastScanTime = 0;
+const CACHE_TTL = 30000; // 30 seconds
 
+export function generateGraphData() {
+    const now = Date.now();
+    if (cachedGraph && (now - lastScanTime < CACHE_TTL)) {
+        return cachedGraph;
+    }
+
+    const files = getAllFiles(CONTENT_DIR)
     const nodes: any[] = []
     const links: any[] = []
-    const idMap = new Map()
+    const idMap = new Map<string, string>() // id -> body content
 
-    // Pass 1: Create Nodes
+    // Single Pass: Create Nodes and Store Body
     files.forEach((file) => {
         const content = fs.readFileSync(file, 'utf8')
         const { data, content: body } = matter(content)
 
-        // Slug logic: similar to mdx.ts, relative to CONTENT_DIR, strip extension
         let slug = path.relative(CONTENT_DIR, file).replace(/\\/g, '/')
         slug = slug.replace(/\.mdx?$/, '')
 
         const id = slug
-        idMap.set(id, true) // Track valid IDs
+        idMap.set(id, body)
 
         nodes.push({
             id,
             name: data.title || path.basename(slug),
-            val: 1, // Default size
-            group: data.group || 'unknown' // Can use frontmatter group
+            val: 1,
+            group: data.group || (slug.startsWith('biz') ? 'biz' : 'products')
         })
     })
 
-    // Pass 2: Create Links (Wiki Links [[...]] )
+    // Process Links from memory
     const wikiLinkRegex = /\[\[(.*?)\]\]/g
 
-    files.forEach((file) => {
-        const content = fs.readFileSync(file, 'utf8')
-        const { content: body } = matter(content)
-
-        let sourceSlug = path.relative(CONTENT_DIR, file).replace(/\\/g, '/').replace(/\.mdx?$/, '')
-
+    idMap.forEach((body, sourceSlug) => {
         let match;
         while ((match = wikiLinkRegex.exec(body)) !== null) {
-            const target = match[1].split('|')[0].trim() // Handle [[Target|Alias]]
+            const target = match[1].split('|')[0].trim()
+            let targetId = target
 
-            // Simple matching: Assume target is a filename or partial slug
-            // For now, let's just create a link. 
-            // In a real generic system, we'd need fuzzy matching or exact path matching.
-            // We will try to find if 'target' exists as a node ID (exact match)
-            // or is a suffix of an ID.
-
-            let targetId = target;
-
-            // Normalization Logic:
-            // The ID structure is now relative to 'content/', so IDs look like 'biz/strategy/...' or 'products/...'
-
-            // 1. Direct match check
             if (idMap.has(targetId)) {
-                // Perfect, do nothing
-            }
-            // 2. Fallback: Check if target (e.g. 'biz/strategy/doc') matches an ID
-            // or if we need to append .md (though we strip extensions usually)
-            else {
-                // Try finding a node that ends with this target (lazy matching)
-                // This covers cases where a link might be relative like [[foundations/06-prioritization]] linking to biz/strategy/planning/foundations/06...
-                const matchedId = Array.from(idMap.keys()).find(id => id.endsWith(targetId) || id.endsWith(targetId + '/index'));
+                // Exact match
+            } else {
+                // lazy matching
+                const matchedId = Array.from(idMap.keys()).find(id =>
+                    id.endsWith(targetId) || id.endsWith(targetId + '/index')
+                )
 
                 if (matchedId) {
-                    targetId = matchedId;
+                    targetId = matchedId
                 } else {
-                    // If still not found, we skip adding this link
-                    // console.warn(`Skipping broken link: [[${target}]] in ${sourceSlug}`);
-                    continue;
+                    continue
                 }
             }
 
@@ -98,5 +86,7 @@ export function generateGraphData() {
         }
     })
 
-    return { nodes, links }
+    cachedGraph = { nodes, links };
+    lastScanTime = now;
+    return cachedGraph;
 }

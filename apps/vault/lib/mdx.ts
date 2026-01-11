@@ -84,3 +84,29 @@ export function getMetadataByPath(href: string) {
         excerpt
     };
 }
+export function getFolderMetadata(folder: string) {
+    const contentDir = path.join(contentBase, folder);
+    if (!fs.existsSync(contentDir)) return [];
+
+    const files = getAllMDXFiles(contentDir);
+
+    return files.map(file => {
+        const source = fs.readFileSync(file, 'utf8');
+        const { content, data } = matter(source);
+        const relativePath = path.relative(contentDir, file).replace(/\\/g, '/').replace(/\.mdx?$/, '');
+        const href = `/${folder}/${relativePath}`;
+
+        // Extract excerpt
+        const excerpt = data.whyItMatters ||
+            content.substring(0, 160).replace(/[#*`]/g, '').trim() + '...';
+
+        return {
+            title: data.title || path.basename(file).replace(/-/g, ' ').replace(/\.mdx?$/, ''),
+            href,
+            status: data.status || 'stable',
+            excerpt,
+            readTime: data.readTime ? `${data.readTime} min` : '3 min',
+            group: data.group || folder
+        };
+    });
+}
