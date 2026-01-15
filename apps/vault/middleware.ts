@@ -8,6 +8,11 @@ const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)", "/api/
 const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
+    // DEVELOPMENT BYPASS: Skip authentication in development mode
+    if (process.env.NODE_ENV === "development") {
+        return NextResponse.next();
+    }
+
     // If it's a public route, allow access
     if (isPublicRoute(req)) {
         return NextResponse.next();
