@@ -141,22 +141,22 @@
     --nav-logo-mr: var(--nav-logo-mr-desktop);
     --nav-tabs-section-margin: var(--nav-tabs-section-margin-desktop);
     --nav-padding: var(--nav-padding-desktop);
-    --nav-icon-size: var(--nav-icon-size-desktop);
-    --nav-font-size: var(--nav-font-size-desktop);
-    --nav-padding-x: var(--nav-padding-x-desktop);
-    --nav-padding-y: var(--nav-padding-y-desktop);
-    --nav-logo-icon-box: var(--nav-logo-icon-box-desktop);
-    --nav-logo-text-size: var(--nav-logo-text-size-desktop);
-    --nav-logo-pt: var(--nav-logo-pt-desktop);
-    --nav-logo-pl: var(--nav-logo-pl-desktop);
+    --nav-icon-size: 21px;
+    --nav-font-size: 14px;
+    --nav-padding-x: 10px;
+    --nav-padding-y: 0px;
+    --nav-logo-icon-box: 45px;
+    --nav-logo-text-size: 14px;
+    --nav-logo-pt: 0px;
+    --nav-logo-pl: 1px;
     --nav-transform-origin: var(--nav-transform-origin-desktop);
-    --nav-extras-gap: var(--nav-extras-gap-desktop);
-    --nav-theme-padding-x: var(--nav-theme-padding-x-desktop);
-    --nav-theme-padding-y: var(--nav-theme-padding-y-desktop);
-    --nav-profile-padding-x: var(--nav-profile-padding-x-desktop);
-    --nav-profile-padding-y: var(--nav-profile-padding-y-desktop);
+    --nav-extras-gap: 0px;
+    --nav-theme-padding-x: 11px;
+    --nav-theme-padding-y: 6px;
+    --nav-profile-padding-x: 0px;
+    --nav-profile-padding-y: 6px;
     --nav-label-margin: var(--nav-label-margin-desktop);
-    --nav-profile-text-size: var(--nav-profile-text-size-desktop);
+    --nav-profile-text-size: 14px;
 
     /* Shared Defaults (Static or Desktop Initial) */
     --nav-item-height: 45px;
@@ -274,7 +274,7 @@
     --page-focus-ring-width: 2px;
 
     /* Animation Defaults */
-    --page-anim-type: spring;
+    --page-anim-type: tween;
     --page-anim-stiffness: 300;
     --page-anim-damping: 30;
     --page-anim-duration: 0.3;
@@ -375,22 +375,22 @@
     --nav-transform: var(--nav-transform-tablet);
 
     /* Full Mapping for Tablet */
-    --nav-icon-size: var(--nav-icon-size-tablet);
-    --nav-font-size: var(--nav-font-size-tablet);
-    --nav-padding-x: var(--nav-padding-x-tablet);
-    --nav-padding-y: var(--nav-padding-y-tablet);
-    --nav-logo-icon-box: var(--nav-logo-icon-box-tablet);
-    --nav-logo-text-size: var(--nav-logo-text-size-tablet);
-    --nav-logo-pt: var(--nav-logo-pt-tablet);
-    --nav-logo-pl: var(--nav-logo-pl-tablet);
+    --nav-icon-size: 21px;
+    --nav-font-size: 14px;
+    --nav-padding-x: 10px;
+    --nav-padding-y: 0px;
+    --nav-logo-icon-box: 45px;
+    --nav-logo-text-size: 14px;
+    --nav-logo-pt: 0px;
+    --nav-logo-pl: 1px;
     --nav-transform-origin: var(--nav-transform-origin-tablet);
-    --nav-extras-gap: var(--nav-extras-gap-tablet);
-    --nav-theme-padding-x: var(--nav-theme-padding-x-tablet);
-    --nav-theme-padding-y: var(--nav-theme-padding-y-tablet);
-    --nav-profile-padding-x: var(--nav-profile-padding-x-tablet);
-    --nav-profile-padding-y: var(--nav-profile-padding-y-tablet);
+    --nav-extras-gap: 0px;
+    --nav-theme-padding-x: 11px;
+    --nav-theme-padding-y: 6px;
+    --nav-profile-padding-x: 0px;
+    --nav-profile-padding-y: 6px;
     --nav-label-margin: var(--nav-label-margin-tablet);
-    --nav-profile-text-size: var(--nav-profile-text-size-tablet);
+    --nav-profile-text-size: 14px;
   }
 }
 
@@ -415,22 +415,22 @@
     --nav-logo-mr: var(--nav-logo-mr-mobile);
     --nav-tabs-section-margin: var(--nav-tabs-section-margin-mobile);
     --nav-padding: var(--nav-padding-mobile);
-    --nav-icon-size: var(--nav-icon-size-mobile);
-    --nav-font-size: var(--nav-font-size-mobile);
-    --nav-padding-x: var(--nav-padding-x-mobile);
-    --nav-padding-y: var(--nav-padding-y-mobile);
-    --nav-logo-icon-box: var(--nav-logo-icon-box-mobile);
-    --nav-logo-text-size: var(--nav-logo-text-size-mobile);
-    --nav-logo-pt: var(--nav-logo-pt-mobile);
-    --nav-logo-pl: var(--nav-logo-pl-mobile);
+    --nav-icon-size: 21px;
+    --nav-font-size: 14px;
+    --nav-padding-x: 10px;
+    --nav-padding-y: 0px;
+    --nav-logo-icon-box: 45px;
+    --nav-logo-text-size: 14px;
+    --nav-logo-pt: 0px;
+    --nav-logo-pl: 1px;
     --nav-transform-origin: var(--nav-transform-origin-mobile);
-    --nav-extras-gap: var(--nav-extras-gap-mobile);
-    --nav-theme-padding-x: var(--nav-theme-padding-x-mobile);
-    --nav-theme-padding-y: var(--nav-theme-padding-y-mobile);
-    --nav-profile-padding-x: var(--nav-profile-padding-x-mobile);
-    --nav-profile-padding-y: var(--nav-profile-padding-y-mobile);
+    --nav-extras-gap: 0px;
+    --nav-theme-padding-x: 11px;
+    --nav-theme-padding-y: 6px;
+    --nav-profile-padding-x: 0px;
+    --nav-profile-padding-y: 6px;
     --nav-label-margin: var(--nav-label-margin-mobile);
-    --nav-profile-text-size: var(--nav-profile-text-size-mobile);
+    --nav-profile-text-size: 14px;
   }
 }
 
@@ -452,21 +452,21 @@
     --nav-logo-mr: var(--nav-logo-mr-tablet);
     --nav-tabs-section-margin: var(--nav-tabs-section-margin-tablet);
     --nav-padding: var(--nav-padding-tablet);
-    --nav-icon-size: var(--nav-icon-size-tablet);
-    --nav-font-size: var(--nav-font-size-tablet);
-    --nav-padding-x: var(--nav-padding-x-tablet);
-    --nav-padding-y: var(--nav-padding-y-tablet);
-    --nav-logo-icon-box: var(--nav-logo-icon-box-tablet);
-    --nav-logo-text-size: var(--nav-logo-text-size-tablet);
-    --nav-logo-pt: var(--nav-logo-pt-tablet);
-    --nav-logo-pl: var(--nav-logo-pl-tablet);
+    --nav-icon-size: 21px;
+    --nav-font-size: 14px;
+    --nav-padding-x: 10px;
+    --nav-padding-y: 0px;
+    --nav-logo-icon-box: 45px;
+    --nav-logo-text-size: 14px;
+    --nav-logo-pt: 0px;
+    --nav-logo-pl: 1px;
     --nav-transform-origin: var(--nav-transform-origin-tablet);
-    --nav-extras-gap: var(--nav-extras-gap-tablet);
-    --nav-theme-padding-x: var(--nav-theme-padding-x-tablet);
-    --nav-theme-padding-y: var(--nav-theme-padding-y-tablet);
-    --nav-profile-padding-x: var(--nav-profile-padding-x-tablet);
-    --nav-profile-padding-y: var(--nav-profile-padding-y-tablet);
+    --nav-extras-gap: 0px;
+    --nav-theme-padding-x: 11px;
+    --nav-theme-padding-y: 6px;
+    --nav-profile-padding-x: 0px;
+    --nav-profile-padding-y: 6px;
     --nav-label-margin: var(--nav-label-margin-tablet);
-    --nav-profile-text-size: var(--nav-profile-text-size-tablet);
+    --nav-profile-text-size: 14px;
   }
 }

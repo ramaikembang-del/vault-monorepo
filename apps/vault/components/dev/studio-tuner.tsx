@@ -1,13 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Settings2, Save, RotateCcw, X, GripHorizontal, ChevronDown, Palette, Globe, FileText, Monitor, Smartphone, Tablet, Code, ChevronsRight } from "lucide-react";
+import { Settings2, Save, RotateCcw, X, GripHorizontal, ChevronDown, Palette, Globe, FileText, Monitor, Smartphone, Tablet, Code, ChevronsRight, Undo, Redo } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// --- Navbar Config ---
+// --- CSS Variable Keys (Constants) ---
+// This serves as the single source of truth for all CSS variable names
+// Used throughout the component to prevent typos and enable refactoring
+
+// Responsive navbar keys that have device-specific variants
 const RESPONSIVE_NAV_KEYS = [
     "--nav-collapsed-width",
     "--nav-expanded-width",
@@ -38,6 +42,14 @@ const RESPONSIVE_NAV_KEYS = [
     "--nav-label-margin",
     "--nav-profile-text-size"
 ];
+
+// --- Default Values ---
+// These objects define all available CSS variables and their default values
+// They serve as the single source of truth for:
+// - Initial values on component mount
+// - Reset functionality
+// - Type safety through Record<string, string>
+// - Auto-completion in IDEs
 
 const NAVBAR_DEFAULTS: Record<string, string> = {
     // Desktop Defaults
@@ -166,6 +178,7 @@ const NAVBAR_DEFAULTS: Record<string, string> = {
 };
 
 // --- Page Config ---
+// Responsive page keys that have device-specific variants
 const RESPONSIVE_PAGE_KEYS = [
     "--page-padding-x",
     "--page-padding-y",
@@ -232,12 +245,89 @@ const PAGE_DEFAULTS: Record<string, string> = {
     "--page-highlight-opacity": "0.1",
 };
 
-const Icon = ({ icon: I, className, ...props }: { icon: any, className?: string } & React.ComponentProps<"svg">) => {
+// Type for Lucide icon components
+type LucideIcon = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
+const Icon = ({ icon: I, className, ...props }: { icon: LucideIcon, className?: string } & React.ComponentProps<"svg">) => {
     return <I className={className} {...props} />;
 };
 
+// CSS Value Validator (client-side)
+function validateCSSValue(value: string): { valid: boolean; error?: string } {
+    // Allow empty strings
+    if (value === "") {
+        return { valid: true };
+    }
+
+    const trimmed = value.trim();
+
+    // Common CSS keywords
+    const keywords = ["inherit", "initial", "unset", "auto", "none", "normal", "transparent"];
+    if (keywords.includes(trimmed.toLowerCase())) {
+        return { valid: true };
+    }
+
+    // Size values (px, rem, em, vh, vw, %, etc.)
+    if (/^-?\d+(\.\d+)?(px|rem|em|vh|vw|%|pt|cm|mm|in|pc|ex|ch|vmin|vmax)$/i.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // Numbers (for opacity, scale, etc.)
+    if (/^-?\d+(\.\d+)?$/.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // Hex colors
+    if (/^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // RGB/RGBA colors
+    if (/^rgba?\s*\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*(,\s*[\d.]+\s*)?\)$/i.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // HSL/HSLA colors
+    if (/^hsla?\s*\(\s*\d+\s*,\s*\d+%\s*,\s*\d+%\s*(,\s*[\d.]+\s*)?\)$/i.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // Direction keywords
+    const directions = ["row", "column", "row-reverse", "column-reverse"];
+    if (directions.includes(trimmed.toLowerCase())) {
+        return { valid: true };
+    }
+
+    // Shadow values
+    if (/^[\d\s.px\-]+rgba?\([^)]+\)$/i.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // Calc() expressions
+    if (/^calc\(.+\)$/i.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // Multiple values separated by spaces
+    if (/^[\d\s.px\-rem%em]+$/i.test(trimmed)) {
+        return { valid: true };
+    }
+
+    // Easing function keywords
+    const easings = ["linear", "easein", "easeout", "easeinout", "circin", "circout", "backin", "backout", "anticipate"];
+    if (easings.includes(trimmed.toLowerCase().replace(/[-_]/g, ""))) {
+        return { valid: true };
+    }
+
+    return {
+        valid: false,
+        error: "Invalid CSS value"
+    };
+}
+
 export function StudioTuner() {
-    const isDev = process.env.NODE_ENV === "development";
+    // Force enable for testing - TODO: revert to NODE_ENV check
+    const isDev = true; // process.env.NODE_ENV === "development";
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState<"navbar" | "page">("page");
@@ -254,6 +344,17 @@ export function StudioTuner() {
 
     const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
     const [saveMenuOpen, setSaveMenuOpen] = useState(false);
+    const saveMenuRef = useRef<HTMLDivElement>(null);
+    const modeChangeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Undo/Redo History State
+    const [history, setHistory] = useState<Array<{
+        navConfig: Record<string, string>;
+        pageConfig: Record<string, string>;
+        timestamp: number;
+    }>>([]);
+    const [historyIndex, setHistoryIndex] = useState(-1);
+    const isRecordingHistory = useRef(true);
 
     // Expanded Sections State (Merged)
     const [expanded, setExpanded] = useState<Record<string, boolean>>({
@@ -263,6 +364,7 @@ export function StudioTuner() {
         navTabs: false,
         navExtras: false,
         navAnimation: false,
+        navIndividualCorners: false,
         // Page - New sections
         pageLayoutContainer: true,
         pageGridSystem: false,
@@ -279,7 +381,7 @@ export function StudioTuner() {
             const styles = getComputedStyle(document.documentElement);
 
             // Hydrate Navbar: Read from CSS (source of truth)
-            const currentNav: any = {};
+            const currentNav: Record<string, string> = {};
 
             // Read current CSS values
             Object.keys(NAVBAR_DEFAULTS).forEach((key) => {
@@ -294,7 +396,7 @@ export function StudioTuner() {
             });
 
             // Hydrate Page: Read from CSS (source of truth)
-            const currentPage: any = {};
+            const currentPage: Record<string, string> = {};
             Object.keys(PAGE_DEFAULTS).forEach((key) => {
                 const val = styles.getPropertyValue(key).trim();
                 currentPage[key] = val || PAGE_DEFAULTS[key];
@@ -306,11 +408,67 @@ export function StudioTuner() {
                 return next;
             });
 
-            // Load saved settings from localStorage
+            // Load saved defaults from file (team defaults)
             try {
-                const saved = localStorage.getItem("studio-tuner-settings");
+                const response = await fetch('/api/dev/save-defaults');
+                const data = await response.json();
+
+                if (data.success && data.config) {
+                    console.log("📁 Loading saved defaults from tuner-defaults.json");
+
+                    if (data.config.navbar) {
+                        setNavConfig(prev => ({ ...prev, ...data.config.navbar }));
+                        setNavHydratedDefaults(prev => ({ ...prev, ...data.config.navbar }));
+
+                        // Apply to DOM
+                        Object.entries(data.config.navbar).forEach(([key, val]) => {
+                            document.documentElement.style.setProperty(key, val as string);
+                        });
+                    }
+
+                    if (data.config.page) {
+                        setPageConfig(prev => ({ ...prev, ...data.config.page }));
+                        setPageHydratedDefaults(prev => ({ ...prev, ...data.config.page }));
+
+                        // Apply to DOM
+                        Object.entries(data.config.page).forEach(([key, val]) => {
+                            document.documentElement.style.setProperty(key, val as string);
+                        });
+                    }
+
+                    console.log("✅ Loaded team defaults successfully");
+                }
+            } catch (e) {
+                console.log("ℹ️ No custom defaults found, using CSS baseline");
+            }
+
+            // Load saved settings from localStorage
+            // Check for page-specific settings first, then fall back to global
+            try {
+                let saved = null;
+                let loadedFrom = "global";
+
+                // Try page-specific settings first if pathname exists
+                if (pathname) {
+                    const pageSpecificKey = `studio-tuner-settings:${pathname}`;
+                    const pageSpecific = localStorage.getItem(pageSpecificKey);
+                    if (pageSpecific) {
+                        saved = pageSpecific;
+                        loadedFrom = `page (${pathname})`;
+                        setPageMode("page"); // Auto-switch to page mode if page-specific settings exist
+                    }
+                }
+
+                // Fall back to global settings if no page-specific found
+                if (!saved) {
+                    saved = localStorage.getItem("studio-tuner-settings");
+                    loadedFrom = "global";
+                }
+
                 if (saved) {
                     const { navbar, page } = JSON.parse(saved);
+                    console.log(`📦 Loaded settings from ${loadedFrom}:`, { navbar, page });
+
                     if (navbar) {
                         // Auto-migrate legacy tablet defaults (Center -> Bottom-Left)
                         if (navbar["--nav-top-tablet"] === "50%") {
@@ -351,62 +509,122 @@ export function StudioTuner() {
         // Execute the async loading
         loadAndHydrate();
 
-    }, [isDev]);
+    }, [isDev, pathname]); // Reload when pathname changes to load page-specific settings
 
-    // CSS Override Injection for Layout Simulation
+    // CSS Override Injection for Layout Simulation (with debounce)
     useEffect(() => {
         if (!isDev) return;
 
-        const styleId = 'dev-mode-override';
-        let styleEl = document.getElementById(styleId) as HTMLStyleElement;
-
-        if (!styleEl) {
-            styleEl = document.createElement('style');
-            styleEl.id = styleId;
-            document.head.appendChild(styleEl);
+        // Clear pending timeout to debounce rapid mode changes
+        if (modeChangeTimeoutRef.current) {
+            clearTimeout(modeChangeTimeoutRef.current);
         }
 
-        // Get current mode values from config
-        const getModeValue = (key: string) => {
-            const navValue = navConfig[`${key}-${globalDeviceMode}`];
-            if (navValue) return navValue;
-            return navConfig[key] || NAVBAR_DEFAULTS[`${key}-${globalDeviceMode}`] || NAVBAR_DEFAULTS[key];
-        };
+        // Debounce CSS updates by 150ms
+        modeChangeTimeoutRef.current = setTimeout(() => {
+            const styleId = 'dev-mode-override';
+            let styleEl = document.getElementById(styleId) as HTMLStyleElement;
 
-        // Inject mode-specific overrides
-        styleEl.textContent = `
-            :root {
-                /* Navbar Layout Overrides */
-                --nav-collapsed-width: ${getModeValue('--nav-collapsed-width')} !important;
-                --nav-expanded-width: ${getModeValue('--nav-expanded-width')} !important;
-                --nav-direction: ${getModeValue('--nav-direction')} !important;
-                --nav-top: ${getModeValue('--nav-top')} !important;
-                --nav-bottom: ${getModeValue('--nav-bottom')} !important;
-                --nav-left: ${getModeValue('--nav-left')} !important;
-                --nav-right: ${getModeValue('--nav-right')} !important;
-                --nav-transform: ${getModeValue('--nav-transform')} !important;
-                --nav-logo-mb: ${getModeValue('--nav-logo-mb')} !important;
-                --nav-logo-mr: ${getModeValue('--nav-logo-mr')} !important;
-                --nav-padding: ${getModeValue('--nav-padding')} !important;
-                --nav-tabs-section-margin: ${getModeValue('--nav-tabs-section-margin')} !important;
-
-                /* Page Layout Overrides */
-                --page-padding-x: ${pageConfig[`--page-padding-x-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-padding-x-${globalDeviceMode}`]} !important;
-                --page-padding-y: ${pageConfig[`--page-padding-y-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-padding-y-${globalDeviceMode}`]} !important;
-                --page-section-gap: ${pageConfig[`--page-section-gap-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-section-gap-${globalDeviceMode}`]} !important;
-                --page-max-width: ${pageConfig[`--page-max-width-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-max-width-${globalDeviceMode}`]} !important;
+            if (!styleEl) {
+                styleEl = document.createElement('style');
+                styleEl.id = styleId;
+                document.head.appendChild(styleEl);
             }
-        `;
 
-        // Force DynamicNavbar to re-read computed styles
-        window.dispatchEvent(new Event('resize'));
+            // Get current mode values from config
+            const getModeValue = (key: string) => {
+                const navValue = navConfig[`${key}-${globalDeviceMode}`];
+                if (navValue) return navValue;
+                return navConfig[key] || NAVBAR_DEFAULTS[`${key}-${globalDeviceMode}`] || NAVBAR_DEFAULTS[key];
+            };
+
+            // Inject mode-specific overrides
+            styleEl.textContent = `
+                :root {
+                    /* Navbar Layout Overrides */
+                    --nav-collapsed-width: ${getModeValue('--nav-collapsed-width')} !important;
+                    --nav-expanded-width: ${getModeValue('--nav-expanded-width')} !important;
+                    --nav-direction: ${getModeValue('--nav-direction')} !important;
+                    --nav-top: ${getModeValue('--nav-top')} !important;
+                    --nav-bottom: ${getModeValue('--nav-bottom')} !important;
+                    --nav-left: ${getModeValue('--nav-left')} !important;
+                    --nav-right: ${getModeValue('--nav-right')} !important;
+                    --nav-transform: ${getModeValue('--nav-transform')} !important;
+                    --nav-logo-mb: ${getModeValue('--nav-logo-mb')} !important;
+                    --nav-logo-mr: ${getModeValue('--nav-logo-mr')} !important;
+                    --nav-padding: ${getModeValue('--nav-padding')} !important;
+                    --nav-tabs-section-margin: ${getModeValue('--nav-tabs-section-margin')} !important;
+
+                    /* Page Layout Overrides */
+                    --page-padding-x: ${pageConfig[`--page-padding-x-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-padding-x-${globalDeviceMode}`]} !important;
+                    --page-padding-y: ${pageConfig[`--page-padding-y-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-padding-y-${globalDeviceMode}`]} !important;
+                    --page-section-gap: ${pageConfig[`--page-section-gap-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-section-gap-${globalDeviceMode}`]} !important;
+                    --page-max-width: ${pageConfig[`--page-max-width-${globalDeviceMode}`] || PAGE_DEFAULTS[`--page-max-width-${globalDeviceMode}`]} !important;
+                }
+            `;
+
+            // Force DynamicNavbar to re-read computed styles
+            window.dispatchEvent(new Event('resize'));
+        }, 150);
 
         return () => {
-            // Cleanup on unmount
-            const el = document.getElementById(styleId);
+            // Cleanup timeout on unmount or re-run
+            if (modeChangeTimeoutRef.current) {
+                clearTimeout(modeChangeTimeoutRef.current);
+            }
+            // Cleanup style element on unmount
+            const el = document.getElementById('dev-mode-override');
             if (el) el.remove();
         };
     }, [isDev, globalDeviceMode, navConfig, pageConfig]);
+
+    // Click-outside handler for save menu
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (saveMenuRef.current && !saveMenuRef.current.contains(event.target as Node)) {
+                setSaveMenuOpen(false);
+            }
+        };
+
+        if (saveMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [saveMenuOpen]);
+
+    // Keyboard shortcuts for undo/redo
+    useEffect(() => {
+        if (!isDev) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+            const modifier = isMac ? e.metaKey : e.ctrlKey;
+
+            // Cmd/Ctrl+Z = Undo
+            if (modifier && e.key === 'z' && !e.shiftKey) {
+                e.preventDefault();
+                undo();
+            }
+
+            // Cmd/Ctrl+Shift+Z = Redo
+            if (modifier && e.key === 'z' && e.shiftKey) {
+                e.preventDefault();
+                redo();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isDev, history, historyIndex]);
+
+    // Track config changes for history
+    useEffect(() => {
+        if (!isDev) return;
+        pushToHistory();
+    }, [navConfig, pageConfig]);
 
     // --- Helpers ---
     const getNavTargetKey = (baseKey: string) => {
@@ -483,8 +701,13 @@ export function StudioTuner() {
                     timestamp: new Date().toISOString(),
                 };
 
-                localStorage.setItem("studio-tuner-settings", JSON.stringify(saveData));
-                console.log("✅ Saved to localStorage:", saveData);
+                // Use route-based key when in "page" mode
+                const storageKey = pageMode === "page" && pathname
+                    ? `studio-tuner-settings:${pathname}`
+                    : "studio-tuner-settings";
+
+                localStorage.setItem(storageKey, JSON.stringify(saveData));
+                console.log(`✅ Saved to localStorage (${pageMode} mode):`, storageKey, saveData);
             }
 
             setStatus("saved");
@@ -536,6 +759,74 @@ export function StudioTuner() {
         setExpanded(prev => ({ ...prev, [section]: !prev[section] }));
     };
 
+    // History Management Functions
+    const pushToHistory = () => {
+        if (!isRecordingHistory.current) return;
+
+        const newEntry = {
+            navConfig: { ...navConfig },
+            pageConfig: { ...pageConfig },
+            timestamp: Date.now()
+        };
+
+        setHistory(prev => {
+            // Remove any future history if we're not at the end
+            const newHistory = prev.slice(0, historyIndex + 1);
+            // Add new entry
+            newHistory.push(newEntry);
+            // Keep only last 20 entries
+            return newHistory.slice(-20);
+        });
+
+        setHistoryIndex(prev => Math.min(prev + 1, 19));
+    };
+
+    const undo = () => {
+        if (historyIndex <= 0) return;
+
+        isRecordingHistory.current = false;
+        const previousState = history[historyIndex - 1];
+
+        setNavConfig(previousState.navConfig);
+        setPageConfig(previousState.pageConfig);
+
+        // Apply to DOM
+        Object.entries(previousState.navConfig).forEach(([key, val]) => {
+            document.documentElement.style.setProperty(key, val);
+        });
+        Object.entries(previousState.pageConfig).forEach(([key, val]) => {
+            document.documentElement.style.setProperty(key, val);
+        });
+
+        setHistoryIndex(prev => prev - 1);
+        setTimeout(() => {
+            isRecordingHistory.current = true;
+        }, 100);
+    };
+
+    const redo = () => {
+        if (historyIndex >= history.length - 1) return;
+
+        isRecordingHistory.current = false;
+        const nextState = history[historyIndex + 1];
+
+        setNavConfig(nextState.navConfig);
+        setPageConfig(nextState.pageConfig);
+
+        // Apply to DOM
+        Object.entries(nextState.navConfig).forEach(([key, val]) => {
+            document.documentElement.style.setProperty(key, val);
+        });
+        Object.entries(nextState.pageConfig).forEach(([key, val]) => {
+            document.documentElement.style.setProperty(key, val);
+        });
+
+        setHistoryIndex(prev => prev + 1);
+        setTimeout(() => {
+            isRecordingHistory.current = true;
+        }, 100);
+    };
+
     if (!isDev) return null;
 
     return (
@@ -572,10 +863,31 @@ export function StudioTuner() {
                                 <p className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1">Live Theme Editor</p>
                             </div>
                             <div className="flex items-center gap-2">
+                                <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    className="h-8 w-8"
+                                    onClick={undo}
+                                    disabled={historyIndex <= 0}
+                                    title={`Undo (${navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'Cmd' : 'Ctrl'}+Z)`}
+                                >
+                                    <Icon icon={Undo} className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    className="h-8 w-8"
+                                    onClick={redo}
+                                    disabled={historyIndex >= history.length - 1}
+                                    title={`Redo (${navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'Cmd' : 'Ctrl'}+Shift+Z)`}
+                                >
+                                    <Icon icon={Redo} className="h-4 w-4" />
+                                </Button>
+                                <div className="w-px h-6 bg-border" />
                                 <Button size="icon" variant="ghost" className="h-8 w-8" onClick={handleReset} title="Reset Section">
                                     <Icon icon={RotateCcw} className="h-4 w-4" />
                                 </Button>
-                                <div className="relative">
+                                <div className="relative" ref={saveMenuRef}>
                                     <Button
                                         size="sm"
                                         className={cn(
@@ -687,20 +999,54 @@ export function StudioTuner() {
                         )}
 
                         {/* Tabs */}
-                        <div className="grid grid-cols-2 p-1 bg-muted/20 border-b">
+                        <div
+                            className="grid grid-cols-2 p-1 bg-muted/20 border-b"
+                            role="tablist"
+                            aria-label="Studio configuration tabs"
+                        >
                             <button
+                                role="tab"
+                                aria-selected={activeTab === "page"}
+                                aria-controls="page-panel"
+                                tabIndex={activeTab === "page" ? 0 : -1}
                                 onClick={() => setActiveTab("page")}
+                                onKeyDown={(e) => {
+                                    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                                        e.preventDefault();
+                                        setActiveTab("navbar");
+                                        (e.currentTarget.nextElementSibling as HTMLElement)?.focus();
+                                    }
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        setActiveTab("page");
+                                    }
+                                }}
                                 className={cn(
-                                    "flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg transition-all",
+                                    "flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary/50",
                                     activeTab === "page" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:bg-background/50"
                                 )}
                             >
                                 <Icon icon={FileText} className="w-4 h-4" /> Page Layout
                             </button>
                             <button
+                                role="tab"
+                                aria-selected={activeTab === "navbar"}
+                                aria-controls="navbar-panel"
+                                tabIndex={activeTab === "navbar" ? 0 : -1}
                                 onClick={() => setActiveTab("navbar")}
+                                onKeyDown={(e) => {
+                                    if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                                        e.preventDefault();
+                                        setActiveTab("page");
+                                        (e.currentTarget.previousElementSibling as HTMLElement)?.focus();
+                                    }
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        setActiveTab("navbar");
+                                    }
+                                }}
                                 className={cn(
-                                    "flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg transition-all",
+                                    "flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary/50",
                                     activeTab === "navbar" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:bg-background/50"
                                 )}
                             >
@@ -711,7 +1057,12 @@ export function StudioTuner() {
                         {/* Content Area */}
                         <div className="flex-1 overflow-y-auto custom-scrollbar bg-background/50">
                             {activeTab === "navbar" ? (
-                                <div className="p-3 space-y-3">
+                                <div
+                                    role="tabpanel"
+                                    id="navbar-panel"
+                                    aria-labelledby="navbar-tab"
+                                    className="p-3 space-y-3"
+                                >
 
                                     {/* 1️⃣ Container */}
                                     <Section title="Container" expanded={expanded.navContainer} onToggle={() => toggleSection("navContainer")}>
@@ -732,26 +1083,46 @@ export function StudioTuner() {
                                         <div className="h-px bg-border my-2" />
                                         <div className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2">Visual Style</div>
                                         <Input label="Corner Radius" value={getNavValue("--nav-radius")} onChange={(v) => updateNavValue("--nav-radius", v)} />
-                                        <details className="group">
-                                            <summary className="text-[10px] text-muted-foreground cursor-pointer list-none flex items-center gap-1 my-2">
-                                                <span className="transition-transform group-open:rotate-90">▶</span>
-                                                Individual Corners
-                                            </summary>
-                                            <div className="grid grid-cols-2 gap-3 mt-2">
-                                                <div className="min-w-0">
-                                                    <Input label="Top Left" value={getNavValue("--nav-radius-tl")} onChange={(v) => updateNavValue("--nav-radius-tl", v)} />
-                                                </div>
-                                                <div className="min-w-0">
-                                                    <Input label="Top Right" value={getNavValue("--nav-radius-tr")} onChange={(v) => updateNavValue("--nav-radius-tr", v)} />
-                                                </div>
-                                                <div className="min-w-0">
-                                                    <Input label="Bottom Left" value={getNavValue("--nav-radius-bl")} onChange={(v) => updateNavValue("--nav-radius-bl", v)} />
-                                                </div>
-                                                <div className="min-w-0">
-                                                    <Input label="Bottom Right" value={getNavValue("--nav-radius-br")} onChange={(v) => updateNavValue("--nav-radius-br", v)} />
-                                                </div>
-                                            </div>
-                                        </details>
+                                        <div>
+                                            <button
+                                                className="text-[10px] text-muted-foreground cursor-pointer flex items-center gap-1 my-2 hover:text-foreground transition-colors"
+                                                onClick={() => toggleSection("navIndividualCorners")}
+                                            >
+                                                <Icon
+                                                    icon={ChevronDown}
+                                                    className={cn(
+                                                        "w-3 h-3 transition-transform",
+                                                        expanded.navIndividualCorners ? "rotate-0" : "-rotate-90"
+                                                    )}
+                                                />
+                                                <span className="uppercase tracking-wider font-semibold">Individual Corners</span>
+                                            </button>
+                                            <AnimatePresence>
+                                                {expanded.navIndividualCorners && (
+                                                    <motion.div
+                                                        initial={{ height: 0, opacity: 0 }}
+                                                        animate={{ height: "auto", opacity: 1 }}
+                                                        exit={{ height: 0, opacity: 0 }}
+                                                        className="overflow-hidden"
+                                                    >
+                                                        <div className="grid grid-cols-2 gap-3 mt-2">
+                                                            <div className="min-w-0">
+                                                                <Input label="Top Left" value={getNavValue("--nav-radius-tl")} onChange={(v) => updateNavValue("--nav-radius-tl", v)} />
+                                                            </div>
+                                                            <div className="min-w-0">
+                                                                <Input label="Top Right" value={getNavValue("--nav-radius-tr")} onChange={(v) => updateNavValue("--nav-radius-tr", v)} />
+                                                            </div>
+                                                            <div className="min-w-0">
+                                                                <Input label="Bottom Left" value={getNavValue("--nav-radius-bl")} onChange={(v) => updateNavValue("--nav-radius-bl", v)} />
+                                                            </div>
+                                                            <div className="min-w-0">
+                                                                <Input label="Bottom Right" value={getNavValue("--nav-radius-br")} onChange={(v) => updateNavValue("--nav-radius-br", v)} />
+                                                            </div>
+                                                        </div>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
                                         <Input label="Glass Blur" value={getNavValue("--nav-blur")} onChange={(v) => updateNavValue("--nav-blur", v)} />
                                         <Input label="Drop Shadow" value={getNavValue("--nav-shadow")} onChange={(v) => updateNavValue("--nav-shadow", v)} />
                                         <Input label="Background Opacity" value={getNavValue("--nav-bg-opacity")} onChange={(v) => updateNavValue("--nav-bg-opacity", v)} min={0} max={1} step={0.05} />
@@ -839,7 +1210,12 @@ export function StudioTuner() {
 
                                 </div>
                             ) : (
-                                <div className="p-3 space-y-3">
+                                <div
+                                    role="tabpanel"
+                                    id="page-panel"
+                                    aria-labelledby="page-tab"
+                                    className="p-3 space-y-3"
+                                >
                                     {/* Page Controls */}
                                     {/* Page Scope Switcher */}
                                     <div className="p-1 bg-muted/40 rounded-lg grid grid-cols-2 gap-1 mb-4">
@@ -1010,6 +1386,19 @@ function Section({ title, expanded, onToggle, children }: { title: string, expan
 }
 
 function Input({ label, value, onChange, options, min: propMin, max: propMax, step: propStep }: { label: string, value: string, onChange: (val: string) => void, options?: string[], min?: number, max?: number, step?: number }) {
+    const [validationError, setValidationError] = useState<string | null>(null);
+
+    // Validate on change
+    const handleChange = (newValue: string) => {
+        const validation = validateCSSValue(newValue);
+        if (!validation.valid && newValue !== "") {
+            setValidationError(validation.error || "Invalid value");
+        } else {
+            setValidationError(null);
+        }
+        onChange(newValue);
+    };
+
     // Dropdown Mode
     if (options) {
         return (
@@ -1018,7 +1407,7 @@ function Input({ label, value, onChange, options, min: propMin, max: propMax, st
                 <select
                     className="w-full h-8 px-2 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-mono shadow-sm appearance-none cursor-pointer"
                     value={value}
-                    onChange={(e) => onChange(e.target.value)}
+                    onChange={(e) => handleChange(e.target.value)}
                 >
                     {options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                 </select>
@@ -1026,11 +1415,51 @@ function Input({ label, value, onChange, options, min: propMin, max: propMax, st
         );
     }
 
+    // Color Detection
+    const isHexColor = /^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(value.trim());
+    const isRgbColor = /^rgba?\s*\(/i.test(value.trim());
+    const isHslColor = /^hsla?\s*\(/i.test(value.trim());
+    const isColor = isHexColor || isRgbColor || isHslColor;
+
+    // Convert any color to hex for color picker
+    const toHex = (color: string): string => {
+        if (isHexColor) return color.length === 4 ? `#${color[1]}${color[1]}${color[2]}${color[2]}${color[3]}${color[3]}` : color;
+        // For rgb/hsl, just return a default - color picker only works with hex
+        return "#000000";
+    };
+
     // Range Detection
     const numericMatch = value.match(/^([-\d.]+)(.*)$/);
     const hasNumeric = !!numericMatch;
     const numValue = hasNumeric ? parseFloat(numericMatch[1]) : 0;
     const unit = hasNumeric ? numericMatch[2] : "";
+
+    // Unit detection for size values
+    const sizeUnits = ["px", "rem", "em", "vh", "vw", "%"];
+    const hasSizeUnit = sizeUnits.includes(unit);
+
+    // Unit conversion functions
+    const convertUnit = (val: number, fromUnit: string, toUnit: string): number => {
+        if (fromUnit === toUnit) return val;
+
+        // px to rem/em (assuming 16px base)
+        if (fromUnit === "px" && (toUnit === "rem" || toUnit === "em")) {
+            return val / 16;
+        }
+        // rem/em to px
+        if ((fromUnit === "rem" || fromUnit === "em") && toUnit === "px") {
+            return val * 16;
+        }
+        // Default: return as-is
+        return val;
+    };
+
+    const switchUnit = (newUnit: string) => {
+        if (!hasNumeric) return;
+        const converted = convertUnit(numValue, unit, newUnit);
+        const rounded = newUnit === "px" ? Math.round(converted) : Math.round(converted * 100) / 100;
+        handleChange(`${rounded}${newUnit}`);
+    };
 
     // Heuristics or Props for range
     let min = propMin !== undefined ? propMin : 0;
@@ -1049,7 +1478,7 @@ function Input({ label, value, onChange, options, min: propMin, max: propMax, st
     }
 
     const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(`${e.target.value}${unit}`);
+        handleChange(`${e.target.value}${unit}`);
     };
 
     return (
@@ -1061,7 +1490,19 @@ function Input({ label, value, onChange, options, min: propMin, max: propMax, st
                 )}
             </div>
             <div className="flex items-center gap-2">
-                {hasNumeric && (
+                {/* Color Picker for color values */}
+                {isColor && isHexColor && (
+                    <input
+                        type="color"
+                        value={toHex(value)}
+                        onChange={(e) => handleChange(e.target.value)}
+                        className="w-10 h-7 rounded border border-border cursor-pointer"
+                        title="Pick color"
+                    />
+                )}
+
+                {/* Slider for numeric values */}
+                {hasNumeric && !isColor && (
                     <input
                         type="range"
                         min={min}
@@ -1069,18 +1510,43 @@ function Input({ label, value, onChange, options, min: propMin, max: propMax, st
                         step={step}
                         value={numValue}
                         onChange={handleSliderChange}
-                        className="w-[85%] h-1.5 bg-muted rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary"
+                        className="flex-1 h-1.5 bg-muted rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary"
                     />
                 )}
+
+                {/* Text input */}
                 <input
                     className={cn(
-                        "h-7 px-2 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-mono shadow-sm",
-                        hasNumeric ? "w-11 text-right" : "w-full"
+                        "h-7 px-2 text-xs bg-background border rounded-md focus:outline-none transition-all font-mono shadow-sm",
+                        hasNumeric && !isColor ? "w-16 text-right" : isColor ? "flex-1" : "w-full",
+                        validationError
+                            ? "border-red-500 focus:ring-1 focus:ring-red-500/50"
+                            : "focus:ring-1 focus:ring-primary/20"
                     )}
                     value={value}
-                    onChange={(e) => onChange(e.target.value)}
+                    onChange={(e) => handleChange(e.target.value)}
                 />
+
+                {/* Unit Switcher for size values */}
+                {hasSizeUnit && (
+                    <select
+                        className="h-7 px-1 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 cursor-pointer font-mono"
+                        value={unit}
+                        onChange={(e) => switchUnit(e.target.value)}
+                        title="Switch unit"
+                    >
+                        <option value="px">px</option>
+                        <option value="rem">rem</option>
+                        <option value="em">em</option>
+                        {unit === "vh" && <option value="vh">vh</option>}
+                        {unit === "vw" && <option value="vw">vw</option>}
+                        {unit === "%" && <option value="%">%</option>}
+                    </select>
+                )}
             </div>
+            {validationError && (
+                <div className="text-[10px] text-red-500 mt-0.5">{validationError}</div>
+            )}
         </div>
     );
 }

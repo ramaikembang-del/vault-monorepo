@@ -18,7 +18,39 @@ import {
 import { cn } from "@/lib/utils";
 
 // Utility wrapper for icons
-const DashIcon = ({ icon: Icon, ...props }: { icon: any, className?: string }) => <Icon {...props} />;
+// Utility wrapper for icons
+const DashIcon = ({ icon: Icon, ...props }: { icon: any, className?: string }) => (
+    <Icon aria-hidden="true" {...props} />
+);
+
+// --- Constants / Mocks ---
+const DASHBOARD_DATA = {
+    sprintName: "Sprint 1: Power BI Launch",
+    progress: 80,
+    weeks: ["Week 0 (Pre)", "Week 2", "Week 5 (Launch)"],
+    targetText: "Target: Launch on Feb 5, 2026. Prioritize marketing assets this week.",
+    quickActions: [
+        { title: "Strategy", progress: 65, color: "bg-blue-500", path: "/biz" },
+        { title: "Product", progress: 40, color: "bg-orange-500", path: "/products" },
+        { title: "UI Design", progress: 25, color: "bg-purple-500", path: "/products" },
+    ],
+    companySnapshot: {
+        activeProducts: 2,
+        targetCustomers: 50,
+        runwayMonths: 12
+    }
+};
+
+const getRecentAchievements = (unlockedIds: string[]) => {
+    if (!unlockedIds || unlockedIds.length === 0) return [];
+    // Simply take the last 2 for now
+    return unlockedIds.slice(-2).reverse().map(id => ({
+        id,
+        title: id.replace(/_/g, ' '),
+        description: "Achievement unlocked!"
+    }));
+};
+
 
 export function DashboardMissionControl() {
     const { user } = useUser();
@@ -35,6 +67,8 @@ export function DashboardMissionControl() {
     });
 
     React.useEffect(() => {
+        // NOTE: We intentionally read from CSS variables here to support the Studio Tuner dynamic theming system.
+        // This allows the animation config to update in real-time when the user tweaks settings in the tuner.
         const styles = getComputedStyle(document.documentElement);
         setAnimConfig({
             type: styles.getPropertyValue("--page-anim-type").trim() || "spring",
@@ -73,7 +107,7 @@ export function DashboardMissionControl() {
 
     return (
         <div
-            className="min-h-screen w-full bg-background text-foreground"
+            className="min-h-[100dvh] w-full bg-background text-foreground flex flex-col"
             style={{
                 paddingTop: "var(--page-padding-y)",
                 paddingBottom: "var(--page-padding-y)",
@@ -95,14 +129,14 @@ export function DashboardMissionControl() {
                     className="mb-8 flex items-end justify-between"
                 >
                     <div>
-                        <h5 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-1">Mission Control</h5>
+                        <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-1">Mission Control</p>
                         <h1 className="text-4xl font-bold text-foreground">
                             Welcome back, <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">{firstName}</span>
                         </h1>
                     </div>
                     <div className="text-right hidden sm:block">
                         <p className="text-muted-foreground text-sm">Current Sprint</p>
-                        <p className="text-xl font-semibold text-foreground">Sprint 1: Power BI Launch</p>
+                        <p className="text-xl font-semibold text-foreground">{DASHBOARD_DATA.sprintName}</p>
                     </div>
                 </motion.div>
 
@@ -110,7 +144,7 @@ export function DashboardMissionControl() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="grid grid-cols-1 lg:grid-cols-12"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12"
                     style={{ gap: "var(--page-section-gap)" }}
                 >
 
@@ -128,21 +162,21 @@ export function DashboardMissionControl() {
                                         <CardTitle className="flex items-center gap-2">
                                             <DashIcon icon={Target} className="text-accent-500 w-5 h-5" /> Sprint Progress
                                         </CardTitle>
-                                        <span className="text-2xl font-bold">80%</span>
+                                        <span className="text-2xl font-bold">{DASHBOARD_DATA.progress}%</span>
                                     </div>
                                 </CardHeader>
                                 <CardContent>
                                     {/* Timeline Visualization */}
                                     <div className="relative pt-4 pb-2">
                                         <div className="flex justify-between text-xs text-muted-foreground mb-2 font-mono uppercase">
-                                            <span>Week 0 (Pre)</span>
-                                            <span>Week 2</span>
-                                            <span>Week 5 (Launch)</span>
+                                            {DASHBOARD_DATA.weeks.map((week, idx) => (
+                                                <span key={idx}>{week}</span>
+                                            ))}
                                         </div>
                                         <div className="h-4 w-full bg-secondary rounded-full overflow-hidden">
                                             <motion.div
                                                 initial={{ width: 0 }}
-                                                animate={{ width: "80%" }}
+                                                animate={{ width: `${DASHBOARD_DATA.progress}%` }}
                                                 transition={{ duration: 1.5, ease: "easeOut" }}
                                                 className="h-full bg-gradient-to-r from-accent-600 to-accent-400 relative"
                                             >
@@ -150,7 +184,7 @@ export function DashboardMissionControl() {
                                             </motion.div>
                                         </div>
                                         <p className="mt-2 text-sm text-muted-foreground">
-                                            Target: Launch on Feb 5, 2026. Prioritize marketing assets this week.
+                                            {DASHBOARD_DATA.targetText}
                                         </p>
                                     </div>
                                 </CardContent>
@@ -162,11 +196,7 @@ export function DashboardMissionControl() {
                             className="grid grid-cols-1 sm:grid-cols-3"
                             style={{ gap: "var(--page-card-gap)" }}
                         >
-                            {[
-                                { title: "Strategy", progress: 65, color: "bg-blue-500", path: "/biz" },
-                                { title: "Product", progress: 40, color: "bg-orange-500", path: "/products" },
-                                { title: "UI Design", progress: 25, color: "bg-purple-500", path: "/products" },
-                            ].map((item, i) => (
+                            {DASHBOARD_DATA.quickActions.map((item, i) => (
                                 <motion.div
                                     key={i}
                                     variants={itemVariants}
@@ -202,8 +232,9 @@ export function DashboardMissionControl() {
                                     {(() => {
                                         const metadata = user?.publicMetadata as any;
                                         const unlockedIds = (metadata?.achievements as string[]) || [];
+                                        const recentAchievements = getRecentAchievements(unlockedIds);
 
-                                        if (unlockedIds.length === 0) {
+                                        if (recentAchievements.length === 0) {
                                             return (
                                                 <div className="text-center py-6 text-muted-foreground italic text-sm">
                                                     No achievements unlocked yet. Start exploring to earn badges!
@@ -211,28 +242,17 @@ export function DashboardMissionControl() {
                                             );
                                         }
 
-                                        // Get top 2 most recent accomplishments from config
-                                        // We assume the last ones in the array are the most recent for simple logic, 
-                                        // or better: we just show the first two from the unlocked list
-                                        const recentAchievementIds = unlockedIds.slice(-2).reverse();
-
-                                        // Import ACHIEVEMENTS config dynamically (conceptually, but here we just match)
-                                        // To keep it simple and avoid complex imports in this pass, I'll map some known ones
-                                        // but ideally we should import ACHIEVEMENTS.
-
-                                        return recentAchievementIds.map((id) => {
-                                            return (
-                                                <div key={id} className="flex items-center gap-4 p-3 rounded-lg bg-secondary/50 border border-accent-500/10 hover:border-accent-500/30 transition-all">
-                                                    <div className="h-10 w-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-lg">
-                                                        🏆
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="font-medium capitalize">{id.replace(/_/g, ' ')}</h4>
-                                                        <p className="text-xs text-muted-foreground">Achievement unlocked!</p>
-                                                    </div>
+                                        return recentAchievements.map((achievement) => (
+                                            <div key={achievement.id} className="flex items-center gap-4 p-3 rounded-lg bg-secondary/50 border border-accent-500/10 hover:border-accent-500/30 transition-all">
+                                                <div className="h-10 w-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-lg">
+                                                    🏆
                                                 </div>
-                                            );
-                                        });
+                                                <div>
+                                                    <h4 className="font-medium capitalize">{achievement.title}</h4>
+                                                    <p className="text-xs text-muted-foreground">{achievement.description}</p>
+                                                </div>
+                                            </div>
+                                        ));
                                     })()}
 
                                     {/* Show a locked one as motivation */}
@@ -269,15 +289,15 @@ export function DashboardMissionControl() {
                                     <ul className="space-y-4">
                                         <li className="flex justify-between items-center border-b border-border/50 pb-2">
                                             <span className="text-muted-foreground">Products</span>
-                                            <span className="font-mono font-medium">2 Active</span>
+                                            <span className="font-mono font-medium">{DASHBOARD_DATA.companySnapshot.activeProducts} Active</span>
                                         </li>
                                         <li className="flex justify-between items-center border-b border-border/50 pb-2">
                                             <span className="text-muted-foreground">Customers</span>
-                                            <span className="font-mono font-medium text-accent-400">50 (Target)</span>
+                                            <span className="font-mono font-medium text-accent-400">{DASHBOARD_DATA.companySnapshot.targetCustomers} (Target)</span>
                                         </li>
                                         <li className="flex justify-between items-center border-b border-border/50 pb-2">
                                             <span className="text-muted-foreground">Runway</span>
-                                            <span className="font-mono font-medium text-success-500">12 Months</span>
+                                            <span className="font-mono font-medium text-success-500">{DASHBOARD_DATA.companySnapshot.runwayMonths} Months</span>
                                         </li>
                                         <li className="flex justify-between items-center">
                                             <span className="text-muted-foreground">Team</span>
@@ -300,28 +320,32 @@ export function DashboardMissionControl() {
                                     </h3>
                                 </CardHeader>
                                 <CardContent className="space-y-3">
-                                    <div
-                                        className="p-3 rounded-lg border transition-colors cursor-pointer"
-                                        style={{
-                                            backgroundColor: `hsla(var(--page-accent-hue), var(--page-accent-sat), var(--page-accent-light), 0.1)`,
-                                            borderColor: `hsla(var(--page-accent-hue), var(--page-accent-sat), var(--page-accent-light), 0.3)`
-                                        }}
-                                    >
+                                    <Link href="/biz/strategy" className="block outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-500 rounded-lg">
                                         <div
-                                            className="text-xs font-bold mb-1"
-                                            style={{ color: `hsl(var(--page-accent-hue), var(--page-accent-sat), var(--page-accent-light))` }}
+                                            className="p-3 rounded-lg border transition-colors cursor-pointer"
+                                            style={{
+                                                backgroundColor: `hsla(var(--page-accent-hue), var(--page-accent-sat), var(--page-accent-light), 0.1)`,
+                                                borderColor: `hsla(var(--page-accent-hue), var(--page-accent-sat), var(--page-accent-light), 0.3)`
+                                            }}
                                         >
-                                            CRITICAL • WEEK 0
+                                            <div
+                                                className="text-xs font-bold mb-1"
+                                                style={{ color: `hsl(var(--page-accent-hue), var(--page-accent-sat), var(--page-accent-light))` }}
+                                            >
+                                                CRITICAL • WEEK 0
+                                            </div>
+                                            <h4 className="font-medium text-sm">GTM Strategy: Pre-Sale phase</h4>
+                                            <p className="text-xs text-muted-foreground mt-1">15 min read • Required for call tomorrow</p>
                                         </div>
-                                        <h4 className="font-medium text-sm">GTM Strategy: Pre-Sale phase</h4>
-                                        <p className="text-xs text-muted-foreground mt-1">15 min read • Required for call tomorrow</p>
-                                    </div>
+                                    </Link>
 
-                                    <div className="p-3 bg-secondary/50 rounded-lg border border-border hover:bg-secondary transition-colors cursor-pointer">
-                                        <div className="text-xs font-bold text-blue-500 mb-1">POPULAR</div>
-                                        <h4 className="font-medium text-sm">User Personas: The "Busy Exec"</h4>
-                                        <p className="text-xs text-muted-foreground mt-1">5 min read • 2 new comments</p>
-                                    </div>
+                                    <Link href="/biz/personas" className="block outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-500 rounded-lg">
+                                        <div className="p-3 bg-secondary/50 rounded-lg border border-border hover:bg-secondary transition-colors cursor-pointer">
+                                            <div className="text-xs font-bold text-blue-500 mb-1">POPULAR</div>
+                                            <h4 className="font-medium text-sm">User Personas: The "Busy Exec"</h4>
+                                            <p className="text-xs text-muted-foreground mt-1">5 min read • 2 new comments</p>
+                                        </div>
+                                    </Link>
 
                                     <Button variant="outline" className="w-full mt-2 text-xs h-9 text-accent-600 hover:text-accent-700 hover:bg-accent-50 dark:text-accent-400 dark:hover:bg-accent-950/50">
                                         View All Suggested
