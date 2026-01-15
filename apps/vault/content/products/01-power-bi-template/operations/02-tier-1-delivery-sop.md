@@ -19,7 +19,7 @@
 - Import Automation (Power Query script, one-click refresh)
 - Video Tutorials (5 x 2-min, Bahasa Indonesia)
 - Complete setup guide (ecosystem bundle walkthrough)
-- 30-day email support
+- Setup support (see [[Product 02]])
 
 **Pricing:** Rp 3.5M - Rp 6M (modular pricing based on modules selected)
 
@@ -27,7 +27,7 @@
 - No custom Excel template formatting (generic templates only)
 - No live setup assistance (they follow video tutorials)
 - No hands-on help (self-service only)
-- Limited support window (30 days)
+- Limited support window (see [[Product 02]] for ongoing support)
 
 **Our Job:** Deliver complete bundle promptly, provide clear instructions, monitor for issues, offer upgrade path.
 
@@ -53,7 +53,7 @@ Subject: Payment Confirmed - Your Complete F&B Data Ecosystem is Ready!
 
 Hi [Customer Name],
 
-Payment confirmed€"thank you for choosing our Complete F&B Data Ecosystem!
+Payment confirmed—thank you for choosing our Complete F&B Data Ecosystem!
 
  **DOWNLOAD YOUR COMPLETE BUNDLE:**
 
@@ -84,7 +84,7 @@ Full setup guide: [Link to Ecosystem Setup Guide]
 
 (Time) **TIME TO FIRST INSIGHT:** 30 minutes (vs 8 hours with other templates!)
 
- **30-DAY EMAIL SUPPORT INCLUDED:**
+ **SETUP SUPPORT INCLUDED (see Product 02):**
 Questions? Email: support@[company].com
 Response time: <72 hours (business days)
 
@@ -114,7 +114,7 @@ P.S. The Excel templates = our secret sauce. Other Power BI templates don't incl
 | Purchase Date | [YYYY-MM-DD] |
 | Amount Paid | [Rp amount] |
 | Download Sent | [Date/time] |
-| Support Expiry | [Purchase date + 30 days] |
+| Support Expiry | See [[Product 02]] for support options |
 | Status | "Delivered - Awaiting Setup" |
 
 #### 1.3 Add to Google Drive Customer Folder
@@ -122,20 +122,20 @@ P.S. The Excel templates = our secret sauce. Other Power BI templates don't incl
 **Create folder:**
 ```
 /Clients/Tier1_Complete_Bundle/
- """€"€ [Customer Name] - [Purchase Date]/
- "œ"€"€ Invoice.pdf
- "œ"€"€ Bundle_Delivered/
- "‚ "œ"€"€ A1-Complete-Bundle-Tier1.zip
- "‚ "œ"€"€ Power-BI-Dashboard.pbix
- "‚ "œ"€"€ Excel-Templates/
- "‚ "‚ "œ"€"€ Daily-Sales.xlsx
- "‚ "‚ "œ"€"€ Food-Cost.xlsx
- "‚ "‚ "œ"€"€ Staff-Log.xlsx
- "‚ "‚ """€"€ Sample-Data.xlsx
- "‚ "œ"€"€ Google-Sheets-Links.txt
- "‚ "œ"€"€ Video-Tutorials-Links.txt
- "‚ """€"€ README.md (bundle overview)
- """€"€ Support_Log.md (for tracking future questions)
+ """—€ [Customer Name] - [Purchase Date]/
+ "œ"—€ Invoice.pdf
+ "œ"—€ Bundle_Delivered/
+ "‚ "œ"—€ A1-Complete-Bundle-Tier1.zip
+ "‚ "œ"—€ Power-BI-Dashboard.pbix
+ "‚ "œ"—€ Excel-Templates/
+ "‚ "‚ "œ"—€ Daily-Sales.xlsx
+ "‚ "‚ "œ"—€ Food-Cost.xlsx
+ "‚ "‚ "œ"—€ Staff-Log.xlsx
+ "‚ "‚ """—€ Sample-Data.xlsx
+ "‚ "œ"—€ Google-Sheets-Links.txt
+ "‚ "œ"—€ Video-Tutorials-Links.txt
+ "‚ """—€ README.md (bundle overview)
+ """—€ Support_Log.md (for tracking future questions)
 ```
 
 #### 1.4 Set Calendar Reminders
@@ -171,9 +171,9 @@ COMMON DAY-3 ISSUES (from other customers):
 - "CSV files won't load" -> Check file format (UTF-8, comma-separated)
 - "Dashboard shows errors" -> Verify date format YYYY-MM-DD
 
-If you're stuck on any step, just hit reply€"I'll help!
+If you're stuck on any step, just hit reply—I'll help!
 
-Also€"what % complete are you with setup?
+Also—what % complete are you with setup?
 - [ ] 0% (haven't started)
 - [ ] 25% (installed software, preparing data)
 - [ ] 50% (data connected, configuring dashboard)
@@ -206,7 +206,7 @@ Best,
 ```
 Hi [Name]!
 
-Just wanted to check€"how's the Power BI dashboard setup going?
+Just wanted to check—how's the Power BI dashboard setup going?
 
 I saw you purchased it last week and wanted to make sure everything's working smoothly!
 
@@ -222,7 +222,7 @@ If you're stuck anywhere, I'm here to help. Just let me know!
 ```
 Awesome! Would love to see a screenshot if you don't mind sharing!
 
-Also€"if you know any other restaurant owners who might benefit, we have a referral program:
+Also—if you know any other restaurant owners who might benefit, we have a referral program:
 Refer a friend -> They get 10% off -> You get Rp 500K credit toward Tier 2/3 upgrade!
 ```
 
@@ -260,11 +260,11 @@ Free, no strings attached. Let me know a good time this week!
 **Email:**
 
 ```
-Subject: Heads Up - Your 30-Day Support Expires in 5 Days
+Subject: Support Options Beyond Setup Period
 
 Hi [Customer Name],
 
-Quick reminder: your 30-day email support expires on [Date].
+Quick reminder: your setup support period is ending soon. See [[Product 02]] for ongoing support options if needed.
 
 QUICK CHECK-IN:
  Is your dashboard working well?
@@ -275,7 +275,7 @@ QUICK CHECK-IN:
 
 **Option 1: Upgrade to Tier 2 (Retroactive)**
 Pay difference (Rp 1-8.5M, depending on current tier) -> Get:
-- 90-day support (3 months vs 30 days)
+- Extended support (see [[Product 02]])
 - 1 free customization
 - Future template updates included
 
@@ -294,7 +294,7 @@ Rp 75K/month -> Get:
 
 Reply "Interested" and I'll send details!
 
-OR if you're all set, no worries€"just wanted to make sure you're getting the most out of your investment.
+OR if you're all set, no worries—just wanted to make sure you're getting the most out of your investment.
 
 Best,
 [Your Name]
@@ -313,7 +313,7 @@ Subject: Final Resources + Thank You!
 
 Hi [Customer Name],
 
-Today marks the end of your 30-day support period.
+Today marks the end of your setup support period. See [[products/02-template-support/02-template-support|Product 02]] for ongoing support plans.
 
  **SELF-SERVICE RESOURCES (Always Free):**
 - [Troubleshooting KB] - Fix 90% of issues yourself
@@ -321,7 +321,7 @@ Today marks the end of your 30-day support period.
 - [Video Tutorials] - When/if we create them
 
  **COMMUNITY (Coming Soon):**
-We're launching a WhatsApp group for Power BI users€"want in?
+We're launching a WhatsApp group for Power BI users—want in?
 Share tips, ask questions, network with other F&B owners.
 Reply "Community" to join!
 
@@ -473,27 +473,27 @@ Escalate if:
 
 ## Common Pitfalls to Avoid
 
-Œ **Mistake 1: Delaying File Delivery**
+ **Mistake 1: Delaying File Delivery**
 - Customer paid, expects instant access
 - >2 hour delay = increased support tickets ("Where are my files?")
 - **Prevention:** Automate email + download link triggering off payment webhook
 
-Œ **Mistake 2: Over-Engaging Non-Responsive Customers**
+ **Mistake 2: Over-Engaging Non-Responsive Customers**
 - Some customers buy but never use (buyer's remorse, changed plans)
 - 3+ follow-up emails = spam feeling
 - **Prevention:** Stick to 3-touchpoint cadence (Day 3 email, Day 7 WhatsApp, Day 25 reminder). If no response, move on.
 
-Œ **Mistake 3: Giving Free Tier 2/3 Services**
+ **Mistake 3: Giving Free Tier 2/3 Services**
 - Customer: "Can you help me set it up real quick?"
 - You (wanting to be helpful): Spend 2 hours on call
 - **Prevention:** "I'd love to! That's what Tier 2 includes. Pay the difference (Rp 1-8.5M depending on your current tier and modules needed) and I'll schedule a 2-3 hour setup call."
 
-Œ **Mistake 4: Not Tracking Customer Status**
+ **Mistake 4: Not Tracking Customer Status**
 - 30 days pass, you don't remember who got support when
 - Customer emails after expiry expecting support
 - **Prevention:** Use CRM/spreadsheet + calendar reminders religiously
 
-Œ **Mistake 5: Not Offering Upgrades**
+ **Mistake 5: Not Offering Upgrades**
 - Customer struggles, you don't mention Tier 2/3 exists
 - Lost revenue opportunity
 - **Prevention:** Every support interaction = gentle upsell mention ("By the way, if you want hands-on help, Tier 2 includes...")

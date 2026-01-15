@@ -148,39 +148,138 @@
 
 **Channel 1: Facebook Groups (60% of leads)**
 
-**Tactics:**
-- Join 20-25 active F&B groups (5K-10K members each)
-- Post 2x/week (Monday, Thursday)
-- Content mix:
- - 50% educational (free tips, no product pitch)
- - 30% case studies (customer success stories)
- - 20% direct promotion (with value proposition)
+### **Priority Groups (Join Week 5, Post Week 6+)**
 
-**Post Schedule:**
+**🔥 Tier A: POS User Groups (HIGHEST INTENT - Start Here)**
+1. **"Moka POS Users Indonesia"** (~5,000 members) ⭐ **Day 1 Target**
+   - Why: Already have POS data, highest conversion
+   - First post: "Fellow Moka users - anyone struggling with Excel reports?"
+   - Expected: 100 views → 10 DMs → 4 sales/month
 
-**Week 6-8 (Educational Focus):**
-- "5 Excel mistakes F&B owners make (and how to fix them)"
-- "How to calculate food cost % correctly"
-- "Free Excel calculator: Is your food cost too high?"
+2. **"Pawoon Community"** (~3,000 members)
+   - Active Wed/Fri discussions about reports
+   - First post: "How I automate Pawoon CSV exports into Power BI"
+   - Expected: 60 views → 6 DMs → 2 sales/month
 
-**Week 9-11 (Case Study Focus):**
-- "How Dimas saved Rp 2M/month with BI analytics"
-- "From 4 hours/week Excel to 10 minutes (customer story)"
-- "Multi-outlet chaos to clarity (3-outlet café case study)"
+3. **"Komunitas Pengguna Qasir"** (~2,000 members)
+   - Smaller but very engaged
+   - First post: Educational (food cost tips) → soft pitch Week 2
+   - Expected: 40 views → 4 DMs → 2 sales/month
 
-**Week 12-16 (Direct Promotion):**
-- "Power BI for F&B: 100 customers, 92% setup success"
-- "Special offer: First 100 customers get 10% off"
-- "30-day money-back guarantee - try risk-free"
+**Tier B: General F&B Owner Groups (Good Volume)**
+4. **"Komunitas Pemilik Restoran Indonesia"** (~15,000 members)
+5. **"Café & Coffee Shop Indonesia"** (~8,000 members)
+6. **"Bisnis Kuliner & Restoran"** (~12,000 members)
+7. **"Komunitas F&B Indonesia"** (~10,000 members)
+8. **"Pengusaha Makanan & Minuman"** (~6,000 members)
+
+**Tier C: City-Specific Groups (Local Trust)**
+9. "Café Jakarta" (~4K)
+10. "Restoran & Kuliner Bandung" (~3K)
+11. "F&B Surabaya" (~2K)
+
+### **Engagement Tactics (Week-by-Week)**
+
+**Week 6-8: Trust-Building (ZERO product mentions)**
+- Monday post: "Free Excel template: Daily sales tracker for cafés [Google Drive link]"
+- Thursday post: "Common food cost mistakes + how to fix them"
+- Engage in comments: Answer questions, provide free advice
+- **Goal:** Establish expertise, get 50+ profile views
+
+**Week 9-11: Soft Pitch via Case Studies**
+- Monday: "Customer story: How Dimas (Moka user) cut reporting time from 4 hours to 10 minutes"
+- Include: Before/after screenshots, ROI calc, link to blog
+- Thursday: Respond to "How did he do it?" comments with demo offer
+- **Goal:** 30 discovery call signups
+
+**Week 12-16: Direct Promotion + Social Proof**
+- Monday: "We've helped 50+ Indonesian cafés automate their analytics. Here's what they saved:" [testimonials]
+- Thursday: "Limited offer: First 100 customers get Rp 500K off + priority support"
+- Pin post: "30-day money-back guarantee - try risk-free"
+- **Goal:** 60 qualified leads
+
+### **Content Calendar (Sample Posts)**
+
+**Educational Posts (50% of content):**
+1. "5 Excel mistakes costing you Rp 2M/month (and free fixes)"
+2. "How to calculate REAL food cost % (most cafés do this wrong)"
+3. "Free tool: Menu profitability calculator [Excel download]"
+4. "Staff productivity tracking: 3-minute daily check-in template"
+5. "Multi-outlet owners: How to consolidate 3 Excel files into 1 dashboard"
+
+**Case Study Posts (30% of content):**
+1. "Dimas (Jakarta café) found Rp 2.1M/month in hidden food waste"
+2. "Rina (3-outlet bakery) cut reporting time 97% (4 hours → 10 min)"
+3. "How Andi (Bali restaurant) caught Rp 800K staff theft with BI"
+
+**Direct Promotion Posts (20% of content):**
+1. "Power BI for F&B: 92% setup success (vs 40% for generic templates)"
+2. "50 cafés saved avg Rp 2.4M/month - your turn? [30-day guarantee]"
+3. "We work with YOUR POS (Moka/Pawoon/Qasir) - no CSV struggles"
+
+### **Expected Performance:**
+- 11 groups × 6,000 members avg = **66,000 total reach**
+- 22 posts/group over 11 weeks = **242 total posts**
+- 3,300 post views (5% visibility)
+- 165 clicks (5% CTR)
+- 80 qualified leads (48% lead conversion)
+- **48 sales** (60% close rate)
+
+**Cost:** Rp 0 (100% organic)
+
+---
+
+**Channel 1.5: WhatsApp Communities (NEW - 15% of leads)**
+
+### **How to Access These Groups:**
+
+**POS Vendor Communities (HIGHEST VALUE):**
+1. **Moka Official Groups**
+   - Contact Moka support: "I'm a Moka merchant, how do I join the user community?"
+   - Ask for city-specific WhatsApp groups (Jakarta, Bandung, Surabaya)
+   - Expected: 500-1K members per city group
+
+2. **Pawoon User Groups**
+   - Join Facebook group first → ask admin for WhatsApp invite
+   - More active than Facebook (daily discussions)
+   - Expected: 300-500 members per group
+
+3. **Qasir Community**
+   - Email support@qasir.com: "Partnership inquiry for analytics tool"
+   - Offer free integration guide for their users
+   - Expected: 200-300 members
+
+**F&B Association Groups:**
+4. **APRINDO Jakarta Chapter** (Indonesian Retailers Association)
+   - Requires membership (Rp 2M/year) - worth it for Tier 3 leads
+   - ~100 multi-outlet F&B owners
+   - Expected: 2-3 Tier 3 sales (Rp 30M+)
+
+5. **Local Café Owner Networks**
+   - Ask existing customers: "Do you have a café owner WhatsApp group?"
+   - Warm intro = higher trust
+   - Expected: 50-200 members per group
+
+### **WhatsApp Engagement Strategy:**
+
+**DO:**
+- Provide value FIRST (answer questions, share tips)
+- Wait 2-3 weeks before any product mention
+- DM interested people (don't spam group)
+- Offer exclusive WhatsApp-only early access
+
+**DON'T:**
+- Blast product links immediately (instant ban)
+- Mass add people without permission
+- Post more than 1x/week
 
 **Expected Performance:**
-- 250K group reach (25 groups × 10K members avg)
-- 2,500 post views (1% engagement)
-- 125 clicks (5% CTR)
-- 60 leads (48% lead conversion)
-- 36 sales (60% lead -> sale conversion)
+- 5 WhatsApp groups × 400 members avg = 2,000 reach
+- 80 warm conversations (4% engagement)
+- 24 qualified leads (30% conversion)
+- **14 sales** (58% close rate - higher than Facebook due to trust)
 
-**Cost:** Rp 0 (organic reach)
+**Cost:** Rp 2M (APRINDO membership), otherwise Rp 0
 
 ---
 

@@ -193,9 +193,9 @@
 
 | Alternative | Cost (Indonesian Market) | When Chosen | Why We Win/Lose |
 |-------------|-------------------------|-------------|-----------------|
-| **Excel (Do Nothing)** | Rp 0 | Budget < Rp 3M, "Excel enough" | Œ Costs money / Save 200+ hrs/year |
-| **DIY Power BI** | Rp 0 (40 hrs learning) | Tech enthusiast, has time | Œ Cost Rp 4.5M / 90% vs 30% success, save 32 hrs |
-| **Generic Template** | Rp 1-2M | Ultra budget | Œ 2-3x more / 90% vs 40% success |
+| **Excel (Do Nothing)** | Rp 0 | Budget < Rp 3M, "Excel enough" |  Costs money / Save 200+ hrs/year |
+| **DIY Power BI** | Rp 0 (40 hrs learning) | Tech enthusiast, has time |  Cost Rp 4.5M / 90% vs 30% success, save 32 hrs |
+| **Generic Template** | Rp 1-2M | Ultra budget |  2-3x more / 90% vs 40% success |
 | **Tier 1 (Ours)** | Rp 4.5M | Values ecosystem + success rate | Best success:price ratio |
 | **Freelancer (Jakarta)** | **Rp 8-15M** (V2.0: lower) | Budget Rp 10-15M | 2-3x cheaper (not 4-7x) |
 | **Consultant** | **Rp 20-50M** (V2.0: lower) | Budget Rp 20M+ | 4-11x cheaper (not 7-18x) |

@@ -317,7 +317,7 @@ Use the canonical facts tables above as your checklist.
  **Outdated Pricing:**
 - Old T1: "Rp 4M" or "Rp 5M" -> Should be: "Rp 3.5-6M"
 - Old T2: "Rp 6M" or "Rp 8M" -> Should be: "Rp 7-12M"
-- Old T3: "Rp 12M" -> Should be: "Rp 20-25M"
+- Old T3: "Rp 12M" -> Should be: "Rp 10-15M"
 
  **Fixed Metrics vs Modular:**
 - "75 fixed metrics" -> Should reference module selection
@@ -349,7 +349,7 @@ All tier-specific docs should link to:
 
 | Feature | T1 Essentials | T2 Professional | T3 Enterprise |
 |---------|---------------|-----------------|---------------|
-| **Price Range** | Rp 3.5-6M | Rp 7-12M | Rp 20-25M |
+| **Price Range** | Rp 3.5-6M | Rp 7-12M | Rp 10-15M |
 | **Metrics Range** | 30-50 | 50-100 | 100-150 |
 | **Setup** | DIY (videos) | 2-3h assisted call | Fully managed |
 | **Support** | 30 days email | 90 days email | Unlimited (email + WhatsApp) |
@@ -408,7 +408,7 @@ All tier-specific docs should link to:
 4. **NEVER mention T3 automation for T1/T2** -> Category C features are T3-exclusive
 5. **ALWAYS use exact messaging phrases** -> See Key Messaging table above
 6. **ALWAYS mention all 5 ecosystem components** -> Not just the dashboard
-7. **ALWAYS show monthly fee for T3** -> "Rp 20-25M"
+7. **ALWAYS show setup price for T3** -> "Rp 10-15M" (support is Product 02)
 8. **ALWAYS use canonical file numbers** -> Files are now 01-08 (product-strategy/), ordered by information flow
 9. **ALWAYS state Excel template counts** -> T1: 4 generic | T2: 5 custom | T3: 5 white-labeled
 10. **ALWAYS include timeline** -> T1: 40 Days (Solo Launch) | T2: Post-Revenue | T3: Future Roadmap

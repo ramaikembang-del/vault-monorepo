@@ -156,7 +156,7 @@
 
 ### Team Requirements
 
-**Can a team of 3 execute this?** Œ **NO - Need 5-10 people by Year 2**
+**Can a team of 3 execute this?**  **NO - Need 5-10 people by Year 2**
 
 **Required Scaling:**
 - Sales team: 3-5 people (100-150 customers/person/year)

@@ -533,7 +533,7 @@ The problem? CSV format confusion. POS exports are messy.
 Here's what's different about ours:
 1. Pre-built Excel templates (no CSV confusion)
 2. Bahasa Indonesia tutorials (not English-only)
-3. 14-90 days support (not 'download and good luck')
+3. Setup support (see Product 02, not 'download and good luck')
 4. F&B-specific (not generic business template)
 
 [Customer Name] had the EXACT same experience. Bought a template 6 months before us, gave up.

@@ -409,10 +409,10 @@ All recurring support, maintenance, and customizations are handled by **Product 
 4. Proven success rate (needs social proof - 90% vs 40%)
 
 **Anti-ICP (Who Should NOT Buy Tier 1):**
-- Œ Tech-phobic owners ("I hate computers")
-- Œ 3+ outlets (need consolidated view -> Tier 2)
-- Œ "Just want it done" attitude (no patience for DIY -> Tier 2/3)
-- Œ Budget < Rp 3M (can't afford even entry tier)
+-  Tech-phobic owners ("I hate computers")
+-  3+ outlets (need consolidated view -> Tier 2)
+-  "Just want it done" attitude (no patience for DIY -> Tier 2/3)
+-  Budget < Rp 3M (can't afford even entry tier)
 
 ---
  - Daily entry: 150 hrs/year (30 min x 300 days)
@@ -470,8 +470,8 @@ All recurring support, maintenance, and customizations are handled by **Product 
 - vs Freelancer: **4-8x cheaper** (Rp 3.5-6M vs Rp 15-30M), faster delivery
 
 **Where We Lose:**
-- Œ vs Do Nothing: Costs money (Excel is free)
-- Œ vs Freelancer/Consultant: Not fully bespoke
+-  vs Do Nothing: Costs money (Excel is free)
+-  vs Freelancer/Consultant: Not fully bespoke
 
 **Competitive Moat:** Pre-formatted Excel templates + 90% success rate
 
@@ -623,10 +623,10 @@ All recurring support, maintenance, and customizations are handled by **Product 
 5. **Success rate** (needs 95%+, can't afford 60% DIY failure risk)
 
 **Anti-ICP:**
-- Œ Single outlet (overkill, should buy Tier 1)
-- Œ DIY enthusiasts (underutilizing assisted service)
-- Œ 5+ outlets (need Tier 3 managed service)
-- Œ Tech-phobic (won't adopt even with help)
+-  Single outlet (overkill, should buy Tier 1)
+-  DIY enthusiasts (underutilizing assisted service)
+-  5+ outlets (need Tier 3 managed service)
+-  Tech-phobic (won't adopt even with help)
 
 ---
 
@@ -709,9 +709,9 @@ All recurring support, maintenance, and customizations are handled by **Product 
  - vs POS Reports: Full analytics (staff, customer, menu) vs just sales
 
 **Where We Lose:**
-- Œ vs Tier 1: Costs Rp 1-6M more upfront
-- Œ vs Consultant: Not fully bespoke
-- Œ vs PT Analyst: One-time vs ongoing support
+-  vs Tier 1: Costs Rp 1-6M more upfront
+-  vs Consultant: Not fully bespoke
+-  vs PT Analyst: One-time vs ongoing support
 
 **Competitive Moat:** Assisted setup (95% success) + multi-outlet consolidation via Outlet-Summary.xlsx
 
@@ -874,10 +874,10 @@ All recurring support, maintenance, and customizations are handled by **Product 
 6. **SLA guarantees** (uptime, response time commitments)
 
 **Anti-ICP:**
-- Œ Single outlet (massive overkill)
-- Œ Budget < Rp 15M (can't afford, should try Tier 2)
-- Œ DIY mindset (will be frustrated by fully managed approach)
-- Œ 20+ outlets (need Full SaaS Enterprise C4 instead)
+-  Single outlet (massive overkill)
+-  Budget < Rp 15M (can't afford, should try Tier 2)
+-  DIY mindset (will be frustrated by fully managed approach)
+-  20+ outlets (need Full SaaS Enterprise C4 instead)
 
 ---
 
@@ -967,9 +967,9 @@ All recurring support, maintenance, and customizations are handled by **Product 
 **Gap to Next Alternative:** Rp 125M+ (In-house analyst Rp 150M - Our Rp 12.5M)
 
 **Where We Lose:**
-- Œ vs Tier 2 Outsource: Higher upfront cost (but less ongoing effort)
-- Œ vs In-House: Not dedicated full-time resource (but 80% of value at 20% cost)
-- Œ vs Full SaaS: Not real-time, not cloud-based (but for 4-15 outlets, not critical)
+-  vs Tier 2 Outsource: Higher upfront cost (but less ongoing effort)
+-  vs In-House: Not dedicated full-time resource (but 80% of value at 20% cost)
+-  vs Full SaaS: Not real-time, not cloud-based (but for 4-15 outlets, not critical)
 
 **Competitive Moat:** Managed service at 1/10th cost of in-house hiring
 

@@ -197,7 +197,7 @@
 **Value:**
 - **Setup Time: 30 minutes** (vs 8 hours competitors)
 - **Daily Effort: 2 minutes** (staff fills Excel as usual)
-- **Pricing: Rp 3.5-6M (T1), Rp 7-12M (T2), Rp 20-25M (T3)**
+- **Pricing: Rp 3.5-6M (T1), Rp 7-12M (T2), Rp 10-15M (T3)**
 
 **"This isn't just a Power BI template. It's a complete data system. Excel (input) + Power BI (insights). That's why it works."**
 
@@ -297,7 +297,7 @@
 
 **What You Get:**
 - Power BI Dashboard + 4 Excel Templates + Google Sheets + Videos
-- 30-day email support
+- Setup support (see [[Product 02]])
 - **Setup time: 30 minutes** (watch videos, fill templates, click refresh)
 
 **Best for:** 1 outlet, budget-conscious, can follow tutorials
@@ -312,7 +312,7 @@
 - **+ 2-3 hour setup call** (we do it together)
 - **+ Custom Excel templates** (YOUR products, staff, recipes pre-filled)
 - **+ Outlet-Summary.xlsx** (multi-location ready)
-- 90-day support + 1 free customization
+- Extended support (see [[Product 02]]) + 1 free customization
 
 **Then Choose Your Modules (+Rp 1.25-1.5M each):**
 
@@ -342,7 +342,7 @@
  - POS auto-export scheduler (nightly data pull)
  - Automated backups (daily)
 - **+ Monthly service:** 2 customizations/month, strategy calls
-- **+ Priority WhatsApp support** (24h response)
+- **+ Priority support** (see [[Product 02]])
 
 **Strategic Modules (+Rp 1.25M each):
 For investor-backed/scaling businesses:**

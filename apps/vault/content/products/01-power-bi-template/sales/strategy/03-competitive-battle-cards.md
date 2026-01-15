@@ -34,7 +34,7 @@
 **What They Offer:**
 - .pbix file only (Power BI dashboard file)
 - Generic business dashboards (not F&B-specific)
-- Zero support (download & DIY)
+- Zero support (see Product 02 for support options)
 - English-only (most templates)
 
 **Market Share:** Unknown (fragmented, 100+ sellers)
@@ -59,7 +59,7 @@
 
 **2. Complete Ecosystem**
 - **Them:** .pbix file only (you figure out the rest)
-- **Us:** .pbix + 3-9 Excel templates + 5-15 hours training videos + 14-90 day support
+- **Us:** .pbix + 3-9 Excel templates + 5-15 hours training videos + Product 02 support options
 
 **Talking Point:**
 > "They give you a file. We give you a complete solution: templates for data entry, step-by-step videos in Bahasa Indonesia, and support when you get stuck."
@@ -80,7 +80,7 @@
 - **Us:** Full Bahasa Indonesia (videos, guides, support)
 
 **Talking Point:**
-> "Their tutorials are in English. You'll spend hours Google Translating or guessing. Our videos, guides, and support are 100% Bahasa Indonesia."
+> "Their tutorials are in English. You'll spend hours Google Translating or guessing. Our videos, guides, and support (see Product 02) are 100% Bahasa Indonesia."
 
 ---
 

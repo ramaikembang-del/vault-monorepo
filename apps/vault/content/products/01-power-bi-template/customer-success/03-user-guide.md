@@ -446,12 +446,12 @@ Test the dashboard with dummy data first to understand how it works. Then replac
 
 ### 7.1 Support Channels
 
-**Tier 1 (14-Day Email Support):**
+**Tier 1 (Setup Support via Product 02):**
 - Email: support@[company].com
 - Response time: <24 hours
-- Available: After purchase for 14 days
+- Available: See [[Product 02]] for support options
 
-**Tier 2-3 (90-Day Email + WhatsApp):**
+**Tier 2-3 (Extended/Premium Support via Product 02):**
 - Email: support@[company].com
 - WhatsApp: [Number]
 - Response time: <4 hours (WhatsApp), <24 hours (email)
@@ -527,10 +527,7 @@ Test the dashboard with dummy data first to understand how it works. Then replac
 
 **If you want us to handle everything:**
 
-**Product 02 Tiers:**
-- Basic: Rp 400K/month (we refresh dashboard monthly, email support)
-- Pro: Rp 1M/month (+ 1 customization/month, priority support)
-- Enterprise: Rp 2M/month (+ quarterly strategy calls, dedicated CSM)
+**See [[products/02-template-support/02-template-support|Product 02]] for ongoing support options and pricing.**
 
 **Best for:** Busy owners who want analytics but don't have time to manage it
 

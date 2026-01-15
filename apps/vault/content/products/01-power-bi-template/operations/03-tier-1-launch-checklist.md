@@ -91,7 +91,7 @@
 
 ---
 
-#### Œ PAUSE/PIVOT if:
+####  PAUSE/PIVOT if:
 - 0-2 verbal commitments
 - 0 deposits
 - <5 waitlist signups

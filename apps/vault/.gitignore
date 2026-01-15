@@ -37,3 +37,10 @@ next-env.d.ts
 
 # Claude Code temporary files
 tmpclaude-*-cwd
+
+# IDE settings
+.vscode/
+
+# Playwright test results
+playwright-report/
+test-results/

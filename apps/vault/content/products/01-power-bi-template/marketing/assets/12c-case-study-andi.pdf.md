@@ -29,7 +29,7 @@
 - Delivery platform fees eating into margins invisibly
 
 ### The Solution
-- Purchased Power BI Template Tier 3 (Rp 20M one-time) + Custom Dashboards
+- Purchased Power BI Template Tier 3 (Rp 10-15M one-time) + Custom Dashboards
 - Multi-location consolidated reporting
 - Brand-level profitability analysis
 - Delivery fee impact tracking (GoFood, GrabFood, ShopeeFood)

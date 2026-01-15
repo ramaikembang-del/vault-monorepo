@@ -13,9 +13,9 @@
 
 **For:** SME restaurant owners/managers
 **Who:** Want professional-grade analytics without hiring BI consultants
-**Our Product:** Power BI dashboard template (Rp 3.5-15M one-time, modular pricing)
+**Our Product:** Power BI dashboard template (3 tiers: Tier 1 Rp 3.5-6M | Tier 2 Rp 7-12M | Tier 3 Rp 10-15M)
 **Unlike:** Expensive BI consultants (Rp 50M+) or basic POS reports
-**We Offer:** 80% functionality at 5% of consultant cost, modular framework (30-150 metrics)
+**We Offer:** 80% functionality at 5% of consultant cost, modular by tier (T1: 30-50 | T2: 50-100 | T3: 100-150 metrics)
 
 ---
 
@@ -73,7 +73,7 @@
 - "Why not hire in-house analyst?" -> In-house = Rp 8-15M/month salary + overhead, we're optional support (see Product 02)
 - "What if we outgrow template?" -> We transition you to Full SaaS (cloud, multi-outlet, real-time)
 - "Is this consulting or software?" -> Hybrid - software foundation + strategic guidance
-- "All 150 metrics included?" -> Yes, Enterprise tier includes all 12 modules (100-150 metrics)
+- "All 150 metrics included?" -> Yes, **Tier 3 Enterprise** includes all 12 modules (100-150 metrics)
 
 ---
 
@@ -177,7 +177,7 @@ Month 3: "Gue upgrade/refer ke temen"
 - **Target:** Large chains only (Rp 500M+ revenue)
 
 **PWBI Approach:**
-- Rp 3.5-15M one-time (pre-built modular template)
+- **Tier 1:** Rp 3.5-6M (30-50 metrics, DIY) | **Tier 2:** Rp 7-12M (50-100 metrics, assisted) | **Tier 3:** Rp 10-15M (100-150 metrics, managed)
 - 1-7 days setup time
 - Optional Rp 75K/month (update subscription) or optional support (see Product 02) (T3 managed) - 80%+ cost savings
 - **Target:** SME Rp 8-50M revenue (underserved market)
@@ -269,7 +269,7 @@ Professional F&B Analytics
 Without Hiring a Data Team
 
 [Sub-headline]
-30-150 metrics (modular framework). Choose what you need. 1-minute daily check.
+**Modular by Tier:** Tier 1 (30-50 metrics) | Tier 2 (50-100 metrics) | Tier 3 (100-150 metrics). 1-minute daily check.
 Used by 50+ Indonesian restaurants.
 
 [CTA Button]
@@ -301,7 +301,7 @@ See Live Demo (5 minutes) | Explore Modules
 > "Masalah yang Anda sebutkan, kami solve dengan [specific module].
 > Contohnya [use case], Anda bisa [specific action] dalam 30 detik.
 >
-> Modular pricing: Mulai dari Rp 3.5M (Base 30 metrics). Add modules as needed up to 150 metrics (Rp 15M).
+> **Tier 1:** Rp 3.5-6M (30-50 metrics, DIY). **Tier 2:** Rp 7-12M (50-100 metrics, assisted setup). **Tier 3:** Rp 10-15M (100-150 metrics, fully managed).
 > Ada 3 tier: Essentials (Rp 3.5-6M, DIY), Professional (Rp 7-12M, we help), Enterprise (Rp 10-15M, fully managed).
 > Mana yang cocok untuk [company size, tech comfort level]?"
 
@@ -322,7 +322,7 @@ See Live Demo (5 minutes) | Explore Modules
 **"What if my POS format changes?"**
 - Tier 1: We provide updated import script (email support)
 - Tier 2: 1 free update included (we adapt to new format)
-- Tier 3: Maintenance plan covers all POS changes (part of monthly fee)
+- Tier 3: Maintenance plan covers all POS changes (see [[products/02-template-support/02-template-support|Product 02]] for support)
 
 **"Is this a subscription? I hate subscriptions"**
 - Tier 1-2: One-time payment, own it forever (no ongoing fees)

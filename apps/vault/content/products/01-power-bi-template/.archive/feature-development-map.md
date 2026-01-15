@@ -239,8 +239,8 @@
 - Top 5 menu items
 - Basic staff leaderboard (Top 3)
 - Customer count trend
-- Œ No drill-through (T1 limitation)
-- Œ No dynamic filtering beyond date range
+-  No drill-through (T1 limitation)
+-  No dynamic filtering beyond date range
 
 **Dev:** 5 days (page layout, basic visuals, metric cards)
 
@@ -250,8 +250,8 @@
 - Top 10 sellers (quantity + revenue)
 - Food cost % gauge
 - Basic margin analysis
-- Œ No BCG matrix (T2+ feature)
-- Œ No recipe-level cost tracking
+-  No BCG matrix (T2+ feature)
+-  No recipe-level cost tracking
 
 **Dev:** 3 days (charts, filters, basic calculations)
 
@@ -260,15 +260,15 @@
 - Staff leaderboard table
 - Customer count by day
 - New vs Repeat customer split
-- Œ No performance scores (T2+ feature)
-- Œ No patronage ladder (T3 feature)
+-  No performance scores (T2+ feature)
+-  No patronage ladder (T3 feature)
 
 **Dev:** 2 days (simple staff + customer metrics)
 
 **Filtering:**
 - Date range slicer (last 7/30/90 days)
-- Œ No outlet filter (single outlet only)
-- Œ No bookmarks (T2+ feature)
+-  No outlet filter (single outlet only)
+-  No bookmarks (T2+ feature)
 
 ---
 
@@ -281,8 +281,8 @@
 - Basic data entry form (Date, Product, Quantity, Price)
 - Data validation dropdowns (product selection)
 - Simple daily summary calculations
-- Œ No customer data pre-filled
-- Œ No outlet-specific products
+-  No customer data pre-filled
+-  No outlet-specific products
 
 **What customer does:** Replace sample products with their actual menu
 
@@ -290,8 +290,8 @@
 - Simple recipe cost calculator
 - Ingredient list template (blank)
 - Basic cost calculation formulas
-- Œ No variance tracking (T2+ feature)
-- Œ No supplier price trends
+-  No variance tracking (T2+ feature)
+-  No supplier price trends
 
 **What customer does:** Input their recipes and ingredient costs
 
@@ -299,8 +299,8 @@
 - Basic shift tracking (Name, Date, Hours)
 - Simple attendance log
 - Sales assignment field
-- Œ No performance scoring (T2+ feature)
-- Œ No discipline tracking
+-  No performance scoring (T2+ feature)
+-  No discipline tracking
 
 **What customer does:** Enter their staff names and daily shifts
 
@@ -308,7 +308,7 @@
 - Basic customer transaction log
 - Fields: Date, Customer ID, Check Size
 - New vs Repeat flag
-- Œ No patronage tracking (T3 feature)
+-  No patronage tracking (T3 feature)
 
 **What customer does:** Log customer visits
 
@@ -316,8 +316,8 @@
 - Data validation (dropdowns, date pickers)
 - Error checking (simple formulas)
 - Instruction sheets
-- Œ No branding customization (generic look)
-- Œ No password protection
+-  No branding customization (generic look)
+-  No password protection
 
 **Dev:** 1 day (validation, instruction sheets)
 
@@ -334,8 +334,8 @@
  - Customer creates "/data" folder
  - Drops CSV files
  - One-click refresh button
-- Œ No scheduled automation (manual refresh only)
-- Œ No POS-specific scripts (generic only)
+-  No scheduled automation (manual refresh only)
+-  No POS-specific scripts (generic only)
 
 **What customer does:** Export CSV from their POS, drop in folder, click refresh
 
@@ -349,7 +349,7 @@
 - Video 3: Data entry best practices (2 min) - 0.5 day dev
 - Video 4: Power BI refresh demo (2 min) - 0.5 day dev
 - Video 5: Reading your first dashboard (2 min) - 1 day dev
-- Œ No custom training (pre-recorded only)
+-  No custom training (pre-recorded only)
 
 **Dev:** 3 days total (recording, editing, hosting)
 
@@ -358,7 +358,7 @@
 - Excel template guide
 - FAQ (10 common questions)
 - Troubleshooting guide
-- Œ No customer-specific examples
+-  No customer-specific examples
 
 **Dev:** 2 days (writing, design, testing)
 
@@ -366,9 +366,9 @@
 - **30-day email support** (72h response time)
 - Support email templates
 - Ticketing system integration
-- Œ No WhatsApp support
-- Œ No phone support
-- Œ No setup calls
+-  No WhatsApp support
+-  No phone support
+-  No setup calls
 
 **Dev:** 0.5 day (support system setup)
 
@@ -377,7 +377,7 @@
 ### **E. Service Delivery Process (0 days - documentation only)**
 
 **Setup:**
-- Œ **Customer does it themselves (DIY)**
+-  **Customer does it themselves (DIY)**
 - Documentation provided
 - Video tutorials
 - **Estimated customer time:** 4-8 hours
@@ -386,7 +386,7 @@
 - Automated welcome email
 - Download links
 - Setup checklist
-- Œ No human interaction
+-  No human interaction
 
 ---
 
@@ -420,7 +420,7 @@
 - Recipe cost variance tracking
 - Ingredient cost trend charts
 - Custom drill-through to item details
-- Œ No cannibalization matrix (T3 feature)
+-  No cannibalization matrix (T3 feature)
 
 **Page 5: Customer Insights** (3 days dev)
 - Patronage ladder funnel (First-timer -> Regular -> VIP)
@@ -428,7 +428,7 @@
 - Churn rate monitoring
 - NPS score by segment
 - Visit frequency distribution
-- Œ No cohort analysis (T3 feature)
+-  No cohort analysis (T3 feature)
 
 **Enhanced Interactivity:** (3 days dev)
 - **Drill-through pages** (2-3 pages):
@@ -466,7 +466,7 @@
 - **YOUR ingredient suppliers** in system
 - Variance tracking formulas
 - Alert system for cost spikes
-- Œ No automated supplier price updates (T3 feature)
+-  No automated supplier price updates (T3 feature)
 
 **What WE do during setup:** Build recipe database together
 
@@ -475,7 +475,7 @@
 - **YOUR shift schedules** configured
 - Performance score tracking
 - Discipline score calculations
-- Œ No ROI tracking (T3 feature)
+-  No ROI tracking (T3 feature)
 
 **What WE do during setup:** Import current staff roster
 
@@ -492,7 +492,7 @@
 - Advanced validation (dependent dropdowns)
 - Error prevention (locked formulas)
 - Better formatting
-- Œ No branding (still generic look)
+-  No branding (still generic look)
 
 **Dev:** 1 day (advanced validation + locking)
 
@@ -507,13 +507,13 @@
  - Cashlez POS export format
 - Automatic column mapping
 - Data cleaning scripts
-- Œ No real-time API integration (T3 feature)
+-  No real-time API integration (T3 feature)
 
 **Excel VBA Macro:** (2 days dev)
 - **Format cleaner macro**
 - One-button data preparation
 - Automatic CSV conversion
-- Œ No scheduled execution (manual trigger)
+-  No scheduled execution (manual trigger)
 
 ---
 
@@ -522,14 +522,14 @@
 **Mobile Layout:** (2 days dev)
 - **Basic mobile layout** (1 page responsive)
 - Executive summary optimized for phone
-- Œ Not all pages (just summary)
-- Œ No touch interactions
+-  Not all pages (just summary)
+-  No touch interactions
 
 **Print Layout:** (1 day dev)
 - **Print-friendly page** (1 page)
 - Executive summary formatted for A4
 - Clean margins, no interactive elements
-- Œ Only 1 page printable (not full dashboard)
+-  Only 1 page printable (not full dashboard)
 
 ---
 
@@ -553,8 +553,8 @@
 **Support:**
 - **90-day email support** (48h response time)
 - **1 free template update** (bug fixes, minor tweaks)
-- Œ No WhatsApp support
-- Œ No ongoing monthly service
+-  No WhatsApp support
+-  No ongoing monthly service
 
 **Dev:** 0.5 day (extended support system setup)
 
@@ -636,14 +636,14 @@
 - **Auto-export script**
 - Scheduled data extraction
 - Automatic formatting
-- Œ Optional (client choice)
+-  Optional (client choice)
 
 **Sheets API Integration:** (5 days dev - P3 priority)
 - **Direct Sheets -> Power BI sync**
 - Real-time data flow
 - No manual CSV export
 - Mobile data entry -> dashboard auto-updates
-- Œ Complex, requires IT involvement
+-  Complex, requires IT involvement
 
 ---
 

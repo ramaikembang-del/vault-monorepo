@@ -98,7 +98,7 @@
 
 ## Pricing Strategy
 
-### **One-Time Pricing: Rp 20-25M**
+### **One-Time Pricing: Rp 10-15M**
 
 **Base Package (Rp 10M) - 100 Metrics:**
 - Everything from Tier 2 Complete (100 metrics)
@@ -203,13 +203,13 @@ Choose advanced intelligence you need:
 
 ### **Tier 3 Pricing Ladder:**
 
-| Package | Metrics | Setup Price | Monthly |
-|---------|---------|-------------|---------|
-| **Base** | 100 | **Rp 10M** | Rp 400K |
-| **Base + 1 Module** | 111-115 | **Rp 11.25M** | Rp 400K |
-| **Base + 2 Modules** | 122-127 | **Rp 12.5M** | Rp 400K |
-| **Base + 3 Modules** | 133-139 | **Rp 13.75M** | Rp 400K |
-| **Enterprise Complete** | 150 | **Rp 15M** | Rp 400K |
+| Package | Metrics | Setup Price | Support |
+|---------|---------|-------------||---------|
+| **Base** | 100 | **Rp 10M** | Product 02 |
+| **Base + 1 Module** | 111-115 | **Rp 11.25M** | Product 02 |
+| **Base + 2 Modules** | 122-127 | **Rp 12.5M** | Product 02 |
+| **Base + 3 Modules** | 133-139 | **Rp 13.75M** | Product 02 |
+| **Enterprise Complete** | 150 | **Rp 15M** | Product 02 |
 
 **Recommendations:**
 - **Investor-backed:** Base + Executive Intelligence (Rp 11.25M)
@@ -286,16 +286,16 @@ Available tiers:
 
 **Year 1:**
 - Setup fee: Rp 10-15M (avg Rp 12.5M one-time)
-- Monthly fees: Rp 400K x 12 months = Rp 4.8M
-- **Total Year 1:** Rp 17.3M (avg)
+- Optional support: See [[products/02-template-support/02-template-support|Product 02]] for pricing
+- **Total Year 1:** Rp 12.5M + Product 02 fees (if chosen)
 
-**Upgrade (from Tier 2):** Pay setup difference (Rp 3.5M avg) + start optional support (see Product 02) fees
-- **Total Year 1:** Rp 3.5M + Rp 4.8M = Rp 8.3M
+**Upgrade (from Tier 2):** Pay setup difference (Rp 3.5M avg) + optional Product 02 support fees
+- **Total Year 1:** Rp 3.5M + Product 02 fees (if chosen)
 
 **Year 2-3:**
-- Monthly fees: Rp 400K x 12 months = Rp 4.8M/year
+- Optional support: See Product 02 pricing
 - Expansion (customizations, upgrades): +Rp 1M/year avg
-- **Total Year 2+:** Rp 5.8M/year
+- **Total Year 2+:** Product 02 fees + Rp 1M expansion
 
 **3-Year LTV:** Rp 17.3M + Rp 5.8M + Rp 5.8M = **Rp 28.9M**
 
@@ -303,29 +303,29 @@ Available tiers:
 
 **Quarter 1 (Launch):**
 - 3 new customers: 3 x Rp 12.5M setup = Rp 37.5M
-- MRR: 3 x Rp 400K = Rp 1.2M/month
+- Support: See Product 02 adoption rates
 
 **Quarter 2:**
 - 3 more customers: 3 x Rp 12.5M = Rp 37.5M
-- MRR: 6 x Rp 400K = Rp 2.4M/month
+- Total customers: 6 (support via Product 02)
 
 **Quarter 3:**
 - 2 more customers: 2 x Rp 12.5M = Rp 25M
-- MRR: 8 x Rp 400K = Rp 3.2M/month
+- Total customers: 8 (support via Product 02)
 
 **Quarter 4:**
 - 2 more customers: 2 x Rp 12.5M = Rp 25M
-- MRR: 10 x Rp 400K = Rp 4M/month
+- Total customers: 10 (support via Product 02)
 
 **Year 1 Total:**
 - Setup fees: 10 x Rp 12.5M = Rp 125M
-- Recurring (avg 5 customers x 12 months): Rp 24M
-- **Total:** Rp 149M
+- Support: See [[products/02-template-support/02-template-support|Product 02]] for recurring revenue
+- **Product 01 Revenue:** Rp 125M one-time
 
 **Year 2 (Same 10 customers, no new adds):**
-- Recurring: 10 x Rp 4.8M = Rp 48M
-- **Churn adjusted (10% leave):** Rp 43M
-- **Net Revenue Retention:** 90% (losing customers but no expansion)
+- Support: See Product 02 pricing
+- **Churn adjusted (10% leave):** Some revenue loss
+- **Net Revenue Retention:** 90% (customers may adjust support tier)
 
 ---
 
@@ -383,8 +383,8 @@ Book a call to discuss?"
 **3. Referrals (20% of sales)**
 
 **Referral Incentive:**
-- Refer a customer -> They get 1 month free (Rp 400K value)
-- You get Rp 1M credit (toward setup fee if starting, or 2.5 months free if existing)
+- Refer a customer -> They get 1 month Product 02 support free
+- You get Rp 1M credit (toward setup fee if starting, or 2 months Product 02 credit if existing)
 
 **Promotion:** Quarterly email to all Tier 3 customers asking for referrals
 
@@ -429,8 +429,8 @@ Book a call to discuss?"
 |--------|--------|--------|------------------|---------------------|
 | **Year 1 Cost** | Rp 17.3M avg | Rp 9M avg | Rp 120M+ | Rp 8M+ |
 | **Your Time Investment** | 0 hours | 4 hours setup | 10h/month mgmt | 0 hours |
-| **Strategic Consulting** | Included | Œ No | If skilled | Available |
-| **Maintenance** | Done for you | Œ DIY | Managed | Managed |
+| **Strategic Consulting** | Included |  No | If skilled | Available |
+| **Maintenance** | Done for you |  DIY | Managed | Managed |
 | **Customization** | 2/month included | 1 free, rest paid | Unlimited | API-based |
 | **Support** | Unlimited <24h | 90 days | Internal | Unlimited |
 | **Scalability** | Scales with you | Fixed | Hire more staff | Unlimited scale |
@@ -513,9 +513,9 @@ Book a call to discuss?"
 
 ### **Risk 1: High Churn (>20% Annual)**
 
-**Causes:**
+**Cause:**
 - Customer doesn't see ROI (dashboard not used)
-- Financial distress (can't afford optional support (see Product 02))
+- Financial distress (can't afford optional support)
 - Competitor offers cheaper alternative
 
 **Mitigation:**
@@ -525,7 +525,7 @@ Book a call to discuss?"
 
 ---
 
-### **Risk 2: Negative Profit Margin (Service costs > optional support (see Product 02))**
+### **Risk 2: Negative Profit Margin (Service costs > optional support revenue)**
 
 **Causes:**
 - Customer requires >8 hours service/month
@@ -793,7 +793,7 @@ Book a call to discuss?"
 **ROI Validation:**
 - Time savings: 5h/month x Rp 1.5M/h = Rp 7.5M/month value
 - Cost: optional support (see Product 02)
-- **ROI:** 18.75x (customers paying Rp 400K to get Rp 7.5M value)
+- **ROI:** Time savings value vs Product 02 support fees
 
 ---
 
@@ -809,8 +809,8 @@ Book a call to discuss?"
 - **Hypothesis:** Avg 5-8 hours/month service time
 - **Beta test:** Avg 6.5 hours/month (range: 5-9 hours)
 - **Labor cost:** 6.5h x Rp 50K/h = Rp 325K
-- **Margin:** Rp 400K - Rp 325K = Rp 75K/month (19% margin)
-- **Conclusion:** Profitable, but need to watch high-maintenance customers
+- **Margin:** (See Product 02 for support pricing and margins)
+- **Conclusion:** Support profitability managed via Product 02
 
 **Risk: Low Tier 2->Tier 3 Upgrade Rate (<10%)**
 - **Hypothesis:** 15-20% upgrade rate

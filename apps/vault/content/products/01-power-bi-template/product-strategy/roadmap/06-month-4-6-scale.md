@@ -15,10 +15,10 @@
 ### What Changes in Month 4-6
 
 **STOP Doing:**
-- Œ Building new product tiers or modules (T1/T2/T3 are complete)
-- Œ Major feature development (no new metrics, no new tabs)
-- Œ Custom development for individual customers (standardize, don't customize)
-- Œ Manual, non-scalable processes (automate or delegate)
+-  Building new product tiers or modules (T1/T2/T3 are complete)
+-  Major feature development (no new metrics, no new tabs)
+-  Custom development for individual customers (standardize, don't customize)
+-  Manual, non-scalable processes (automate or delegate)
 
 **START Doing:**
 - Aggressive lead generation (2-3x current volume)
@@ -425,7 +425,7 @@
 
  Hi [Name],
 
- You've been using [T1/T2] for [X] months€"glad it's working for you!
+ You've been using [T1/T2] for [X] months—glad it's working for you!
 
  I noticed [you mentioned expanding to a 2nd outlet / you're preparing board reports]. Our [T2/T3] tier might be helpful:
 

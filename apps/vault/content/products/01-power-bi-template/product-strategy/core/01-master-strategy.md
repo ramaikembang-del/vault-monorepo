@@ -139,7 +139,7 @@
 - Monthly maintenance service
 - 2 customizations/month
 - Priority WhatsApp support
-- Œ Monthly check-in calls (Product 02 feature)
+- Monthly check-in calls (Product 02 feature)
 
 **Add Strategic Modules (+Rp 1.25M each):**
 
@@ -395,20 +395,20 @@ Every tier includes these 3 foundational modules:
 
 **Features using native Power BI/Excel/Sheets capabilities:**
 
-| Feature | T1 | T2 | T3 |
-|---------|----|----|-----|
-| **Dashboard Pages** | 3 combined | 5 dedicated | 5+ evolving |
-| **Drill-through** | Œ None | 2-3 pages | 5+ pages |
-| **Bookmarks** | Œ None | 5 presets | Custom |
-| **Tooltips** | Basic | Custom (key visuals) | Custom (all) |
-| **What-If Parameters** | Œ None | Œ None | 2-3 |
-| **Excel Macros** | Œ None | 1 macro | Full suite |
-| **Mobile Layout** | Œ Desktop only | Basic (1 page) | Full (all pages) |
-| **Print Layout** | Œ None | 1 page | 3 pages |
-| **Multi-Language** | Bahasa only | Bahasa + translations | Full bilingual toggle |
-| **Data Validation** | Basic dropdowns | Advanced | Dynamic |
-| **Template Protection** | Unprotected | Protected | Password + audit |
-| **RLS (Security)** | Œ None | Œ None | Configured |
+| Feature                 | T1              | T2                    | T3                    |
+| ----------------------- | --------------- | --------------------- | --------------------- |
+| **Dashboard Pages**     | 3 combined      | 5 dedicated           | 5+ evolving           |
+| **Drill-through**       |  None         | 2-3 pages             | 5+ pages              |
+| **Bookmarks**           |  None         | 5 presets             | Custom                |
+| **Tooltips**            | Basic           | Custom (key visuals)  | Custom (all)          |
+| **What-If Parameters**  |  None         |  None               | 2-3                   |
+| **Excel Macros**        |  None         | 1 macro               | Full suite            |
+| **Mobile Layout**       |  Desktop only | Basic (1 page)        | Full (all pages)      |
+| **Print Layout**        |  None         | 1 page                | 3 pages               |
+| **Multi-Language**      | Bahasa only     | Bahasa + translations | Full bilingual toggle |
+| **Data Validation**     | Basic dropdowns | Advanced              | Dynamic               |
+| **Template Protection** | Unprotected     | Protected             | Password + audit      |
+| **RLS (Security)**      |  None         |  None               | Configured            |
 
 ---
 
@@ -418,12 +418,12 @@ Every tier includes these 3 foundational modules:
 
 | Feature | T1 | T2 | T3 |
 |---------|----|----|-----|
-| **POS Auto-Export** | Œ Manual | Œ Manual or guide | We build script |
-| **WhatsApp Alerts** | Œ None | Œ None | Daily summary |
-| **Direct POS API** | Œ CSV only | Œ CSV only | API integration |
-| **Accounting Sync** | Œ Manual | Œ Manual | Accurate/Jurnal API |
-| **Email Reports** | Œ Manual | Œ Manual | Automated weekly |
-| **Encryption** | Œ None | Guidance | We configure |
+| **POS Auto-Export** |  Manual |  Manual or guide | We build script |
+| **WhatsApp Alerts** |  None |  None | Daily summary |
+| **Direct POS API** |  CSV only |  CSV only | API integration |
+| **Accounting Sync** |  Manual |  Manual | Accurate/Jurnal API |
+| **Email Reports** |  Manual |  Manual | Automated weekly |
+| **Encryption** |  None | Guidance | We configure |
 | **Backup** | Manual | Guidance | Automated |
 
 ---
@@ -438,7 +438,7 @@ Every tier includes these 3 foundational modules:
 | **Support Speed** | 72h email | 48h email | 24h email + WhatsApp |
 | **Training** | Videos only | Videos + setup call | Videos + 4h custom session |
 | **Customization** | None (pay Rp 1M each) | 1 free in 90 days | 2/month ongoing |
-| **Monthly Service** | Œ None | Œ None | optional support (maintenance + strategy) |
+| **Monthly Service** |  None |  None | optional support (maintenance + strategy) |
 
 ---
 

@@ -62,10 +62,10 @@ GROUP BY CAST(date_time AS DATE)
 - Suitable for operational dashboards
 
 **Cons:**
-- Œ Slower than cached data (network + query time)
-- Œ Database load increases with users
-- Œ Limited DAX features (some calculations not supported)
-- Œ Requires constant database connectivity
+-  Slower than cached data (network + query time)
+-  Database load increases with users
+-  Limited DAX features (some calculations not supported)
+-  Requires constant database connectivity
 
 **Best For:**
 - Live operational dashboards where data changes every minute
@@ -168,10 +168,10 @@ posSystem.on('transaction_complete', async (transaction) => {
 - No database query overhead
 
 **Cons:**
-- Œ Limited to simple calculations (no complex DAX)
-- Œ Small dataset size limit (not suitable for historical data)
-- Œ Requires custom integration code
-- Œ Limited visual types (cards, line charts, gauges)
+-  Limited to simple calculations (no complex DAX)
+-  Small dataset size limit (not suitable for historical data)
+-  Requires custom integration code
+-  Limited visual types (cards, line charts, gauges)
 
 **Best For:**
 - Live monitoring dashboards (current shift sales)
@@ -225,9 +225,9 @@ Revenue Trend Chart:
 - Real-time visibility for today
 
 **Cons:**
-- Œ Requires Power BI Premium (~$5,000/month)
-- Œ Complex setup and maintenance
-- Œ Potential data modeling issues (relationships)
+-  Requires Power BI Premium (~$5,000/month)
+-  Complex setup and maintenance
+-  Potential data modeling issues (relationships)
 
 **Best For:**
 - Large enterprise dashboards
@@ -241,7 +241,7 @@ Revenue Trend Chart:
 |---------|-------------------|-------------|---------------|--------|
 | **Data Freshness** | Hours (scheduled) | Seconds (on-click) | 1-5 seconds | Mixed |
 | **Visual Performance** | Very Fast (cached) | Slow (query delay) | Fast (limited) | Mixed |
-| **Complex DAX** | Full support | [!] Limited | Œ No | Historical only |
+| **Complex DAX** | Full support | [!] Limited |  No | Historical only |
 | **Dataset Size** | Up to 10 GB (Pro) | Unlimited | 1M rows | Unlimited |
 | **Concurrent Users** | High (100+) | Low (5-10) | High | Medium |
 | **Power BI License** | Pro ($10/user) | Pro | Pro | Premium ($5K/mo) |
@@ -299,10 +299,10 @@ WHERE DATE(date_time) = CURDATE()
 - Alert system (Slack, email notifications)
 
 **Cons:**
-- Œ No built-in business intelligence (DAX equivalent)
-- Œ Requires technical setup (Docker, databases)
-- Œ Not as user-friendly as Power BI
-- Œ Limited drill-through capabilities
+-  No built-in business intelligence (DAX equivalent)
+-  Requires technical setup (Docker, databases)
+-  Not as user-friendly as Power BI
+-  Limited drill-through capabilities
 
 **Best For:**
 - IT teams comfortable with code
@@ -329,9 +329,9 @@ WHERE DATE(date_time) = CURDATE()
 - Better geographic mapping
 
 **Cons:**
-- Œ More expensive than Power BI
-- Œ Steeper learning curve
-- Œ Still not "true" real-time (DirectQuery model)
+-  More expensive than Power BI
+-  Steeper learning curve
+-  Still not "true" real-time (DirectQuery model)
 
 **Best For:**
 - Teams already using Tableau
@@ -371,10 +371,10 @@ POS System -> WebSocket Server -> Browser (auto-updates)
 - Mobile-friendly (responsive design)
 
 **Cons:**
-- Œ Requires development team
-- Œ Ongoing maintenance burden
-- Œ No built-in report builder (code every chart)
-- Œ Higher initial cost (development time)
+-  Requires development team
+-  Ongoing maintenance burden
+-  No built-in report builder (code every chart)
+-  Higher initial cost (development time)
 
 **Best For:**
 - Startups with engineering resources
@@ -407,9 +407,9 @@ POS System -> WebSocket Server -> Browser (auto-updates)
 - Refresh intervals configurable
 
 **Cons:**
-- Œ Not as polished as Power BI/Tableau
-- Œ Limited advanced analytics
-- Œ Subscription costs add up
+-  Not as polished as Power BI/Tableau
+-  Limited advanced analytics
+-  Subscription costs add up
 
 **Best For:**
 - Internal operations dashboards
@@ -468,15 +468,15 @@ def on_transaction_complete(transaction):
 **Dashboard Design:**
 ```
 Tab 1 - Command Center:
-"Œ"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"
+""—————————————————————————————————————
 "‚ TODAY'S REVENUE (LIVE TILE) "‚ † Push Dataset, updates every 30s
 "‚ IDR 2,450,000 "‚
-"""€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"˜
+"""—————————————————————————————————————˜
 
-"Œ"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"
+""—————————————————————————————————————
 "‚ MTD Revenue vs Target (SCHEDULED) "‚ † Import mode, refreshes nightly
 "‚ -ˆ-ˆ-ˆ-ˆ-ˆ-ˆ-ˆ-ˆ-‘-‘ 85% "‚
-"""€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"˜
+"""—————————————————————————————————————˜
 ```
 
 **Costs:**
@@ -694,9 +694,9 @@ docker run -d -p 3000:3000 grafana/grafana
 **Phase 3 (6 months):** Consider Grafana for kitchen TV display (optional)
 
 **Don't Use:**
-- Œ DirectQuery (too slow for complex calculations)
-- Œ Power BI Premium (overkill for 3 users)
-- Œ Custom app (too expensive to develop)
+-  DirectQuery (too slow for complex calculations)
+-  Power BI Premium (overkill for 3 users)
+-  Custom app (too expensive to develop)
 
 ---
 

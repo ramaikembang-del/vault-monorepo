@@ -24,7 +24,7 @@
 - Core survival metrics (revenue, menu basics, staff basics)
 - 3 dashboard pages
 - DIY setup (4-8 hours)
-- 30-day email support
+- Setup support (see [[Product 02]])
 
 **T1-Standard: Rp 4.5M** -> **40 metrics**
 - T1-Basic + enhanced analytics
@@ -56,7 +56,7 @@
 - Everything from T1-Plus (50 metrics)
 - 2-3 hour setup call (we do it together)
 - Custom Excel templates (YOUR data pre-filled)
-- 90-day support
+- Extended support (see [[Product 02]])
 - 1 free customization
 
 **Add Modules (+Rp 1.25-1.5M each):**
@@ -103,7 +103,7 @@
 - Fully managed setup (we do everything)
 - White-label Excel templates (YOUR branding)
 - Monthly maintenance + 2 customizations/month
-- Priority WhatsApp support (24h response)
+- Priority support (see [[Product 02]])
 - Monthly + quarterly review calls
 - Automation: scheduled refresh, automated backups, WhatsApp alerts
 
@@ -178,7 +178,7 @@
 
 ### **vs BI Consultants:**
 - Consultant project: **Rp 15-25M** (one-time, no updates)
-- Our T2 Complete: **Rp 12M** (includes 90-day support + 1 customization)
+- Our T2 Complete: **Rp 12M** (includes extended support via [[Product 02]] + 1 customization)
 - **Savings: Rp 3-13M**
 
 ### **vs Time Cost:**

@@ -404,8 +404,8 @@ This document defines the service level commitments for each tier of the Power B
 | Channel | Tier 1 | Tier 2 | Tier 3 |
 |---------|--------|--------|--------|
 | **Email** | support@[company].com | support@[company].com | support@[company].com |
-| **WhatsApp** | Œ No | Œ No | [Phone Number] |
-| **Phone** | Œ No | Œ No | By appointment |
+| **WhatsApp** |  No |  No | [Phone Number] |
+| **Phone** |  No |  No | By appointment |
 | **Knowledge Base** | [URL] | [URL] | [URL] |
 
 **Business Hours:**

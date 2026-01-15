@@ -22,7 +22,7 @@
 - Monthly maintenance (data refresh, Excel template updates, metric adjustments)
 - Monthly Excel template updates (new products/staff added automatically)
 - Quarterly business reviews (strategic consulting)
-- Priority support (<24h response)
+- Premium support (see [[Product 02]])
 - 2 customizations/month included
 
 **Pricing:** Rp 10M - Rp 15M setup (support optional - see Product 02) (modular pricing based on Strategic modules)
@@ -57,7 +57,7 @@ Subject: Welcome to Tier 3 - White-Glove Service Starts Now!
 
 Hi [Customer Name],
 
-Payment confirmed€"excited to partner with you!
+Payment confirmed—excited to partner with you!
 
 You're on **Tier 3: Fully Managed**, which means I handle everything. You sit back and make better decisions with data.
 
@@ -90,25 +90,25 @@ Best,
 
 ```
 /Clients/Tier3_White_Label/
- """€"€ [Customer Name] - [Date]/
- "œ"€"€ Kickoff_Notes.md
- "œ"€"€ Branding_Assets/
- "‚ "œ"€"€ Logo.png
- "‚ "œ"€"€ Brand_Colors.txt
- "‚ """€"€ Custom_Terminology.md
- "œ"€"€ Dashboard_Builds/
- "‚ "œ"€"€ v1.0_Initial.pbix
- "‚ "œ"€"€ v1.1_Update_YYYY-MM-DD.pbix
- "‚ """€"€ changelog.md
- "œ"€"€ Excel_Templates_White_Label/
- "‚ "œ"€"€ Daily-Sales_[BrandName].xlsx
- "‚ "œ"€"€ Food-Cost_[BrandName].xlsx
- "‚ "œ"€"€ Staff-Log_[BrandName].xlsx
- "‚ """€"€ Outlet-Summary_[BrandName].xlsx
- "œ"€"€ Monthly_Check_Ins.md
- "œ"€"€ Monthly_Excel_Updates.md
- "œ"€"€ Quarterly_Reviews.md
- """€"€ Support_History.md
+ """—€ [Customer Name] - [Date]/
+ "œ"—€ Kickoff_Notes.md
+ "œ"—€ Branding_Assets/
+ "‚ "œ"—€ Logo.png
+ "‚ "œ"—€ Brand_Colors.txt
+ "‚ """—€ Custom_Terminology.md
+ "œ"—€ Dashboard_Builds/
+ "‚ "œ"—€ v1.0_Initial.pbix
+ "‚ "œ"—€ v1.1_Update_YYYY-MM-DD.pbix
+ "‚ """—€ changelog.md
+ "œ"—€ Excel_Templates_White_Label/
+ "‚ "œ"—€ Daily-Sales_[BrandName].xlsx
+ "‚ "œ"—€ Food-Cost_[BrandName].xlsx
+ "‚ "œ"—€ Staff-Log_[BrandName].xlsx
+ "‚ """—€ Outlet-Summary_[BrandName].xlsx
+ "œ"—€ Monthly_Check_Ins.md
+ "œ"—€ Monthly_Excel_Updates.md
+ "œ"—€ Quarterly_Reviews.md
+ """—€ Support_History.md
 ```
 
 ---
@@ -160,7 +160,7 @@ Best,
 
 ## Step 3: Dashboard Build (Days 1-4, Internal Work)
 
-**Customer doesn't participate in this step€"we handle everything.**
+**Customer doesn't participate in this step—we handle everything.**
 
 ### **Day 1: Data Extraction**
 - [ ] Export data from customer's POS (via API or CSV)
@@ -357,7 +357,7 @@ Best,
  - Data refreshing correctly?
 
 **2. Insights Review:**
- - Walk through 1-2 interesting findings (e.g., "Your VIP count dropped 15% this month€"what happened?")
+ - Walk through 1-2 interesting findings (e.g., "Your VIP count dropped 15% this month—what happened?")
  - Ask: "What questions do you have about the data?"
 
 **3. Customization Requests:**
@@ -379,7 +379,7 @@ Date: [Date]
 Duration: [Minutes]
 
 ### Dashboard Health:
-- Refresh status: Working / Œ Issue
+- Refresh status: Working /  Issue
 - Customer usage: [X] logins this month
 - Errors: None / [Description]
 
@@ -488,8 +488,9 @@ Delivered: [Date]
 | **Email** | <24h | Questions, feature requests |
 | **Phone Call** | Scheduled | Monthly check-ins |
 
-### Tier 3 Priority Support:
-- <24h response (vs 48h for Tier 2)
+### Tier 3 Premium Support (Product 02):
+
+- Unlimited support (see [[Product 02]])
 - Unlimited support (vs 90 days for Tier 2)
 - Proactive monitoring (we catch issues before customer reports)
 
@@ -522,7 +523,7 @@ Escalate if:
 
 **Red Flag 1: Low Usage**
 - Customer logs in <2 times/week
-- **Action:** WhatsApp: "Haven't seen you in the dashboard lately€"everything okay?"
+- **Action:** WhatsApp: "Haven't seen you in the dashboard lately—everything okay?"
 
 **Red Flag 2: Cancellation Hints**
 - Customer: "This is expensive for what I get"
@@ -539,7 +540,7 @@ Escalate if:
 - Demonstrate value beyond dashboard
 
 **Tactic 2: Proactive Insights**
-- Between calls, WhatsApp insights: "Saw your Friday revenue spiked 40%€"what changed?"
+- Between calls, WhatsApp insights: "Saw your Friday revenue spiked 40%—what changed?"
 - Show you're paying attention
 
 **Tactic 3: Continuous Improvement**

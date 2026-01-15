@@ -152,7 +152,7 @@ GATE 1A: Need 5+ Total Sales
 
 ---
 
-### Œ GATE 1A FAILS (0-2 Sales, <Rp 4M Revenue)
+###  GATE 1A FAILS (0-2 Sales, <Rp 4M Revenue)
 
 **Root Cause Analysis:**
 
@@ -225,7 +225,7 @@ Log all objections during demos to iterate messaging:
 3. **Decision** (5 min)
  - Pass -> Proceed Sprint 2
  - [!] Partial -> Extend Week 3
- - Œ Fail -> Pivot analysis
+ -  Fail -> Pivot analysis
 
 4. **Action items** (10 min)
  - If pass: Sprint 2 kickoff tasks
@@ -245,7 +245,7 @@ Log all objections during demos to iterate messaging:
 **Confidence Check:**
 - 5 sales = Product-market fit signal
 - 3-4 sales = [!] Cautious proceed
-- 0-2 sales = Œ Pivot required
+- 0-2 sales =  Pivot required
 
 ---
 

@@ -19,7 +19,7 @@
 - ? Import Automation (configured for their workflow)
 - ? Video Tutorials (5 × 2-min, Bahasa Indonesia)
 - ? **3-4 hours remote setup assistance** (screen sharing + Excel customization)
-- ? 90-day email support (vs 30 days for Tier 1)
+- ✅ Extended support (see [[Product 02]])
 - ? 1 free customization request
 
 **Pricing:** Rp 7M - Rp 12M (modular pricing based on Professional modules selected)
@@ -311,7 +311,7 @@ Best,
  - "Who do I call if it breaks?" ? Support email/WhatsApp
 
 17. **Set Expectations:**
- - **Support:** 90 days email support (<48h response)
+ - **Support:** Extended support (see [[Product 02]], <48h response)
  - **Updates:** 1 free template update if we release v2.0
  - **Customization:** 1 free request included (e.g., add new chart, change calculation)
 
@@ -560,11 +560,11 @@ Escalate if:
 It sounds like Tier 3 (Fully Managed) might be a better fit!
 
 For the price difference (Tier 3 setup starts at Rp 10M), you get:
-? Unlimited support forever (vs 90 days)
+✅ Unlimited support (see [[Product 02]], vs limited period)
 ? We handle all data refreshes (automated, no manual work)
 ? Monthly check-in calls to review trends
 ? 2 customizations/month included
-? Priority support (<24h response)
+✅ Priority support (see [[Product 02]], <24h response)
 
 Basically-you never touch Power BI again. We manage everything.
 

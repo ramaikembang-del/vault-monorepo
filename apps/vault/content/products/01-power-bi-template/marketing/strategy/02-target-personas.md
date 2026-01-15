@@ -52,7 +52,8 @@
 - "Avoid monthly fees - gue pengen one-time payment"
 
 **Relatable Quote:**
-> "Gue tau modal tipis, margin tipis. Rp 3.5 juta itu besar buat gue (T1-Basic). Tapi kalau dashboard ini bisa hemat 5% food cost (Rp 3 juta/bulan), itu balik modal dalam 2 bulan. Worth it lah. Modular pricing bagus - gue mulai dari Base modules dulu, nanti add T1-A kalau perlu." €" Dimas, Warung Kopi Yogyakarta
+> "Gue tau modal tipis, margin tipis. Rp 3.5 juta itu besar buat gue (T1-Basic). Tapi kalau dashboard ini bisa hemat 5% food cost (Rp 3 juta/bulan), itu balik modal dalam 2 bulan. Worth it lah. Modular pricing bagus - gue mulai dari Base modules dulu, nanti add T1-A kalau perlu." 
+> - Dimas, Warung Kopi Yogyakarta
 
 **Acquisition Channel:**
 - WhatsApp F&B owner groups ("Komunitas Warung Kopi Indonesia")
@@ -122,7 +123,7 @@ Month 3: "Gue buka outlet ke-2, upgrade ke Tier 2 buat multi-location"
 - "Start lean with T1-Basic (Rp 3.5M), add P1 module later pas scaling"
 
 **Relatable Quote:**
-> "Gue punya 2 cafe, revenue Rp 90 juta/bulan. Tier 2 Rp 7-12M itu affordable, tapi gue mau test Tier 1 dulu. Mulai dari T1-Standard (Rp 4.5M). Kalau bagus, gue upgrade ke T2 dengan P1 module. Modular pricing pas banget buat growth stage gue." €" Rina, 2-outlet Cafe Jakarta
+> "Gue punya 2 cafe, revenue Rp 90 juta/bulan. Tier 2 Rp 7-12M itu affordable, tapi gue mau test Tier 1 dulu. Mulai dari T1-Standard (Rp 4.5M). Kalau bagus, gue upgrade ke T2 dengan P1 module. Modular pricing pas banget buat growth stage gue." — Rina, 2-outlet Cafe Jakarta
 
 **Acquisition Channel:**
 - LinkedIn (B2B content for cafe owners)
@@ -189,7 +190,7 @@ Month 6: "Tier 2 worth it, setup call 2 jam vs gue setup sendiri 6 jam"
 - "Modular gives me control - add modules as I grow"
 
 **Relatable Quote:**
-> "Gue punya 3 cafe, bisa afford Tier 2 Rp 7-12M. Tapi gue skeptical. Gue coba Tier 1-Plus dulu Rp 6M (50 metrics). Ternyata dalam 2 minggu gue nemu Outlet #2 underperform 30%. Worth it! Upgrade ke Tier 2, add P1 module (Multi-Outlet). Modular pricing = smart risk management." €" Amanda, Tea Time Cafe
+> "Gue punya 3 cafe, bisa afford Tier 2 Rp 7-12M. Tapi gue skeptical. Gue coba Tier 1-Plus dulu Rp 6M (50 metrics). Ternyata dalam 2 minggu gue nemu Outlet #2 underperform 30%. Worth it! Upgrade ke Tier 2, add P1 module (Multi-Outlet). Modular pricing = smart risk management." — Amanda, Tea Time Cafe
 
 **Acquisition Channel:**
 - LinkedIn case studies ("How Amanda found Rp 10M revenue leak")
@@ -256,7 +257,7 @@ Month 6: "Gue buka Outlet #4, upgrade ke Tier 3 buat fully managed"
 - "Optimize menu across locations (Bandung vs Jakarta beda taste)"
 
 **Relatable Quote:**
-> "Gue punya 3 cafe, revenue Rp 150 juta/bulan. Gue nggak punya waktu setup dashboard 8 jam. Tier 2 Rp 6M, setup call 2 jam, jadi. Worth it buat gue yang sibuk." €" Amanda, Tea Time Cafe
+> "Gue punya 3 cafe, revenue Rp 150 juta/bulan. Gue nggak punya waktu setup dashboard 8 jam. Tier 2 Rp 6M, setup call 2 jam, jadi. Worth it buat gue yang sibuk." - Amanda, Tea Time Cafe
 
 **Acquisition Channel:**
 - LinkedIn content: "How Amanda scaled 3 cafes with data"
@@ -314,7 +315,7 @@ Month 6: "Gue buka Outlet #4, upgrade ke Tier 3 buat fully managed"
 - "Justify staffing changes ke HR (data-driven, bukan feeling)"
 
 **Relatable Quote:**
-> "GM minta report tiap Senin. Kalau gue pakai Excel, keliatan unprofessional. Dashboard Power BI ini game-changer. GM impressed, gue jadi hero." €" Paman Joko, Hotel F&B Manager Bali
+> "GM minta report tiap Senin. Kalau gue pakai Excel, keliatan unprofessional. Dashboard Power BI ini game-changer. GM impressed, gue jadi hero." — Paman Joko, Hotel F&B Manager Bali
 
 **Acquisition Channel:**
 - Hotel industry associations (IHGMA)
@@ -371,7 +372,7 @@ Month 6: "Dashboard udah essential, GM nggak bisa meeting tanpa ini"
 - "Track packaging cost as % revenue (sering dilupain)"
 
 **Relatable Quote:**
-> "Gue punya 15 virtual brands, tapi nggak tau mana yang untung. Ternyata 8 brands rugi after commission. Dashboard ini bantu gue kill 5 brands, fokus ke 3 winners. Revenue naik 40%." €" Budi, Dark Kitchen Operator
+> "Gue punya 15 virtual brands, tapi nggak tau mana yang untung. Ternyata 8 brands rugi after commission. Dashboard ini bantu gue kill 5 brands, fokus ke 3 winners. Revenue naik 40%." — Budi, Dark Kitchen Operator
 
 **Acquisition Channel:**
 - Facebook Group "Ghost Kitchen Indonesia"
@@ -429,7 +430,7 @@ Month 6: "Gue jadi case study, refer ke 5 dark kitchen operators"
 - "Plan outlet #9 based on performance patterns"
 
 **Relatable Quote:**
-> "8 outlets, gue nggak bisa track manual. Dashboard ini bantu gue identify Outlet #5 underperform 25%. Ganti manager, revenue naik 30% dalam 2 bulan." €" Andi, Regional Chain Manager
+> "8 outlets, gue nggak bisa track manual. Dashboard ini bantu gue identify Outlet #5 underperform 25%. Ganti manager, revenue naik 30% dalam 2 bulan." — Andi, Regional Chain Manager
 
 **Acquisition Channel:**
 - B2B sales (direct outreach ke known chains)
@@ -485,7 +486,7 @@ Month 6: "Gue plan Outlet #9-10 pakai data pattern, confident"
 - "Track brand consistency (menu, service, quality) across locations"
 
 **Relatable Quote:**
-> "Gue mau franchise, tapi investor minta proof. Dashboard ini tunjukin unit economics 10 outlets, avg profit 18%. Investor convinced, gue dapat funding Rp 5 miliar." €" Kevin, Franchise Operator
+> "Gue mau franchise, tapi investor minta proof. Dashboard ini tunjukin unit economics 10 outlets, avg profit 18%. Investor convinced, gue dapat funding Rp 5 miliar." — Kevin, Franchise Operator
 
 **Acquisition Channel:**
 - Franchise consultants / Franchise Indonesia network
@@ -541,7 +542,7 @@ Month 6: "5 franchisees signed, upgrade ke Full SaaS buat network"
 - "Identify VIP customers buat personalized service"
 
 **Relatable Quote:**
-> "Fine dining itu soal experience. Dashboard ini bantu gue track service quality, customer sentiment, VIP behavior. Labor cost 40% justified karena NPS 85+." €" Lisa, Premium Dining Operator
+> "Fine dining itu soal experience. Dashboard ini bantu gue track service quality, customer sentiment, VIP behavior. Labor cost 40% justified karena NPS 85+." — Lisa, Premium Dining Operator
 
 **Acquisition Channel:**
 - Referral dari premium F&B consultants
@@ -665,17 +666,17 @@ Month 6: "Revenue up 20% dari VIP program, dashboard proven"
 
 ## Anti-Personas (Who This Product is NOT For)
 
-Œ **Phase 0 (Pre-Mikro - Survival Mode):**
+ **Phase 0 (Pre-Mikro - Survival Mode):**
 - Street vendors, home-based businesses with <Rp 100M revenue
 - **Why:** Can't afford Rp 3.5M, need free tools first
 - **Alternative:** Start with Excel, upgrade to E1 Lite (freemium) when ready
 
-Œ **Phase 4-5 (Menengah - Enterprise Chains):**
+ **Phase 4-5 (Menengah - Enterprise Chains):**
 - National chains (100+ outlets)
 - **Why:** Need Full SaaS Enterprise (C4) with real-time, API, multi-tenant
 - **Alternative:** Sell them Full SaaS Advanced/Enterprise directly
 
-Œ **Non-Tech Operators:**
+ **Non-Tech Operators:**
 - Can't use smartphone apps, no POS system, manual cashier only
 - **Why:** Tier 1 requires basic tech skills (Power BI setup)
 - **Alternative:** E1 Lite (simpler UI) or Tier 3 (fully managed)

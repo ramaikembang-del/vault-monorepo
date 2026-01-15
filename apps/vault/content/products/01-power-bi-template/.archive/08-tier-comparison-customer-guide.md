@@ -68,9 +68,9 @@
 **Features:**
 - Basic filtering (Date range)
 - Standard visuals (cards, charts, tables)
-- Œ No drill-through pages
-- Œ No custom tooltips
-- Œ No bookmarks
+-  No drill-through pages
+-  No custom tooltips
+-  No bookmarks
 
 ### **Excel Templates: 4 files (Generic)**
 - Daily-Sales.xlsx (basic, sample products)
@@ -78,60 +78,60 @@
 - Staff-Log.xlsx (basic tracking)
 - Customer-Log.xlsx (basic tracking)
 - Data validation (dropdowns)
-- Œ No custom product pre-fill
-- Œ No custom recipe pre-fill
-- Œ No multi-outlet template
-- Œ No advanced validation
+-  No custom product pre-fill
+-  No custom recipe pre-fill
+-  No multi-outlet template
+-  No advanced validation
 
 ### **Google Sheets:**
 - View-only links (make-a-copy)
-- Œ No custom setup
-- Œ No Apps Script
-- Œ No API integration
+-  No custom setup
+-  No Apps Script
+-  No API integration
 
 ### **Automation:**
 - Manual one-click refresh (you click button)
 - Generic CSV import Power Query script
 - Folder-based refresh
-- Œ No POS-specific templates
-- Œ No Excel VBA macro
-- Œ No scheduled automation
-- Œ No auto-export scripts
+-  No POS-specific templates
+-  No Excel VBA macro
+-  No scheduled automation
+-  No auto-export scripts
 
 ### **Mobile & Print:**
-- Œ No mobile layout
-- Œ No print-friendly pages
-- Œ No multi-language support
+-  No mobile layout
+-  No print-friendly pages
+-  No multi-language support
 
 ### **Integration:**
-- Œ No WhatsApp alerts
-- Œ No email automation
-- Œ No API connections
+-  No WhatsApp alerts
+-  No email automation
+-  No API connections
 
 ### **Training:**
 - 5 video tutorials (10-min total learning path)
 - Quick-start guide PDF
-- Œ No live training
-- Œ No setup calls
+-  No live training
+-  No setup calls
 
 ### **Support:**
 - 30-day email support
 - (Time) 72-hour response time
-- Œ No WhatsApp support
-- Œ No phone support
+-  No WhatsApp support
+-  No phone support
 
 ### **Setup:**
-- Œ **DIY only** (4-8 hours your time)
+-  **DIY only** (4-8 hours your time)
 - Documentation provided
-- Œ No setup calls
-- Œ No managed setup
+-  No setup calls
+-  No managed setup
 
 ### **Customization:**
-- Œ Template as-is
-- Œ No free changes
+-  Template as-is
+-  No free changes
 - Paid customization: Rp 1M per metric
-- Œ No white-labeling
-- Œ No branding customization
+-  No white-labeling
+-  No branding customization
 
 ---
 
@@ -180,8 +180,8 @@
 - Drill-through pages (2-3 pages)
 - Custom tooltips (5 visuals)
 - Bookmarks (5 presets)
-- Œ No What-If parameters
-- Œ No Row-Level Security (RLS)
+-  No What-If parameters
+-  No Row-Level Security (RLS)
 
 ### **Excel Templates: 5 files (Custom)**
 - All 4 Tier 1 templates
@@ -189,61 +189,61 @@
 - Custom product pre-fill (your actual menu)
 - Custom recipe pre-fill (your actual recipes)
 - Advanced validation (dependent dropdowns)
-- Œ No white-label branding
-- Œ No template protection
-- Œ No dynamic validation
+-  No white-label branding
+-  No template protection
+-  No dynamic validation
 
 ### **Google Sheets:**
 - Custom setup for your business
 - Edit permissions (your account)
-- Œ No Apps Script automation
-- Œ No API integration
+-  No Apps Script automation
+-  No API integration
 
 ### **Automation:**
 - All Tier 1 automation
 - POS-specific Power Query (3 templates: Moka, BukuKas, Pawoon)
 - Excel VBA macro (format cleaner)
-- Œ No scheduled Power BI refresh
-- Œ No Python auto-export scripts
-- Œ No email report automation
+-  No scheduled Power BI refresh
+-  No Python auto-export scripts
+-  No email report automation
 
 ### **Mobile & Print:**
 - Basic mobile layout (1 page - Executive Summary)
 - Print-friendly page (1 page - Weekly Summary)
-- Œ No full mobile layout (all pages)
-- Œ No multi-language support
+-  No full mobile layout (all pages)
+-  No multi-language support
 
 ### **Integration:**
-- Œ No WhatsApp alerts
-- Œ No email automation
-- Œ No API connections
+-  No WhatsApp alerts
+-  No email automation
+-  No API connections
 
 ### **Training:**
 - All Tier 1 training materials
 - 2-3 hour live setup call
 - Personalized walkthrough
-- Œ No monthly check-ins
-- Œ No quarterly reviews
+-  No monthly check-ins
+-  No quarterly reviews
 
 ### **Support:**
 - 90-day email support (extended from Tier 1)
 - (Time) 48-hour response time (faster than Tier 1)
 - WhatsApp support (business hours)
-- Œ No phone support
-- Œ Not unlimited
+-  No phone support
+-  Not unlimited
 
 ### **Setup:**
 - **Assisted setup** (2-3 hour call included)
 - We help you configure templates
 - We pre-fill your product list
-- Œ Not fully managed (you still do some work)
+-  Not fully managed (you still do some work)
 
 ### **Customization:**
 - 3 free metric changes
 - 1 free page reorg
 - Additional changes: Rp 500K per metric (50% discount vs Tier 1)
-- Œ No white-labeling
-- Œ No branding customization
+-  No white-labeling
+-  No branding customization
 
 ---
 
@@ -339,7 +339,7 @@
 - (Time) 24-hour email response time
 - WhatsApp support (24/7 monitoring)
 - Phone support (business hours)
-- Œ Monthly check-in calls (Product 02 feature)
+-  Monthly check-in calls (Product 02 feature)
 - Quarterly business reviews
 
 ### **Setup:**
@@ -365,11 +365,11 @@
 | **Dashboard Pages** | 3 | 5 | 7+ |
 | **Excel Templates** | 4 generic | 5 custom | Fully white-labeled |
 | **Automation Level** | Manual refresh | POS-specific + VBA | Full auto-export + scheduled |
-| **Mobile Layout** | Œ | Basic (1 page) | Full (all pages) |
+| **Mobile Layout** |  | Basic (1 page) | Full (all pages) |
 | **Setup** | DIY | Assisted (2-3h call) | Fully managed |
 | **Support Duration** | 30 days | 90 days | Unlimited |
 | **Response Time** | 72h | 48h | 24h |
-| **WhatsApp Support** | Œ | Business hours | 24/7 |
+| **WhatsApp Support** |  | Business hours | 24/7 |
 | **Customization** | Paid only | 3 free changes | Unlimited |
 | **Training** | Videos only | Videos + live call | Full team training |
 | **Development Time** | 23 days | 47 days | 87+ days |

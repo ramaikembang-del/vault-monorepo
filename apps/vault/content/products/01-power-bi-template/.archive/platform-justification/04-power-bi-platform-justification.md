@@ -48,12 +48,12 @@ When selecting the BI platform in early 2025, we evaluated against these criteri
 | Platform | Cost | Offline? | Learning Curve | Indonesia Support | Analytical Power | Verdict |
 |----------|------|----------|----------------|-------------------|------------------|---------|
 | **Power BI Desktop** | Free | Yes | Medium | Strong | Very High (DAX) | **WINNER** |
-| **Google Data Studio** | Free | Œ No | Easy | [!] Limited | [!] Medium (SQL) | Cloud-only disqualified |
-| **Metabase** | Free (OSS) | [!] Server needed | Medium | Œ Weak | [!] Medium (SQL) | Self-hosting barrier |
+| **Google Data Studio** | Free |  No | Easy | [!] Limited | [!] Medium (SQL) | Cloud-only disqualified |
+| **Metabase** | Free (OSS) | [!] Server needed | Medium |  Weak | [!] Medium (SQL) | Self-hosting barrier |
 | **Tableau Desktop** | $70/mo | Yes | Very Hard | [!] Limited | Very High | Too expensive |
-| **Looker** | $$$$ | Œ No | Hard | Œ Weak | High | Enterprise-only |
-| **Apache Superset** | Free (OSS) | Œ No | Very Hard | Œ None | [!] Medium | Too technical |
-| **Redash** | Free (OSS) | Œ No | Medium | Œ Weak | [!] Medium | Limited analytics |
+| **Looker** | $$$$ |  No | Hard |  Weak | High | Enterprise-only |
+| **Apache Superset** | Free (OSS) |  No | Very Hard |  None | [!] Medium | Too technical |
+| **Redash** | Free (OSS) |  No | Medium |  Weak | [!] Medium | Limited analytics |
 | **Power BI Pro/Premium** | $10-$20/mo | [!] Cloud-first | Medium | Strong | Very High | Tier 3 upgrade path |
 
 **Score (Weighted):** Power BI Desktop = 84/100 | Google Data Studio = 62/100 | Metabase = 58/100
@@ -69,14 +69,14 @@ When selecting the BI platform in early 2025, we evaluated against these criteri
 | Feature | Google Data Studio | Power BI Desktop | Winner |
 |---------|-------------------|------------------|--------|
 | **Cost (Desktop/Free Tier)** | Free | Free | Tie |
-| **Offline Mode** | Œ Requires internet | Fully offline | **Power BI** |
+| **Offline Mode** |  Requires internet | Fully offline | **Power BI** |
 | **Data Size Limit** | 100MB / 100K rows | 10GB / Unlimited rows | **Power BI** |
 | **Refresh Speed** | Slow (cloud processing) | Fast (local processing) | **Power BI** |
 | **Calculation Engine** | SQL + Calculated Fields | DAX (time intelligence) | **Power BI** |
 | **Mobile App** | Yes (web-based) | Yes (native app) | Tie |
 | **Collaboration** | Built-in (Google sharing) | [!] Needs Power BI Service | **Data Studio** |
 | **Indonesian Tutorial Ecosystem** | [!] Limited (English-heavy) | Strong (many Bahasa tutorials) | **Power BI** |
-| **OS Support** | Web (any OS) | Œ Windows only | **Data Studio** |
+| **OS Support** | Web (any OS) |  Windows only | **Data Studio** |
 
 **When Google Data Studio Wins:**
 - Customer needs real-time cloud collaboration
@@ -95,7 +95,7 @@ When selecting the BI platform in early 2025, we evaluated against these criteri
 > Indonesian F&B operators need **offline-first analytics** because internet at restaurant locations is unreliable. 40% of our target market (Phase 1-2 Mikro) operates in areas with <5 Mbps internet. Google Data Studio requires constant connectivity; Power BI Desktop does not.
 
 **Real Customer Quote:**
-> "My restaurant in Bandung has Wi-Fi for customers, but it drops every hour. I can't rely on cloud dashboards. Power BI works offline€"this is a must-have." €" Budi, 2-outlet cafe owner
+> "My restaurant in Bandung has Wi-Fi for customers, but it drops every hour. I can't rely on cloud dashboards. Power BI works offline—this is a must-have." — Budi, 2-outlet cafe owner
 
 ---
 
@@ -111,8 +111,8 @@ When selecting the BI platform in early 2025, we evaluated against these criteri
 | **Query Language** | SQL | DAX | Depends on user |
 | **Visual Customization** | Limited | Extensive | **Power BI** |
 | **Update Mechanism** | Manual refresh (scheduled queries) | Click "Refresh" button | **Power BI** |
-| **Indonesian Support** | Œ None | YouTube, forums, trainers | **Power BI** |
-| **Vendor Lock-in** | No (open source) | Œ Yes (Microsoft) | **Metabase** |
+| **Indonesian Support** |  None | YouTube, forums, trainers | **Power BI** |
+| **Vendor Lock-in** | No (open source) |  Yes (Microsoft) | **Metabase** |
 
 **When Metabase Wins:**
 - Customer has technical team (can manage self-hosting)
@@ -158,7 +158,7 @@ When selecting the BI platform in early 2025, we evaluated against these criteri
 - **Microsoft ecosystem integration** (Excel, Office 365 familiarity)
 
 **Why We Chose Power BI:**
-> Tableau is the "Rolls Royce" of BI. But our market needs a "Toyota Camry"€"reliable, affordable, good enough. At $70/user/month, Tableau would price out 95% of our target market. Power BI Desktop is free, and Power BI Pro ($10/mo) is 85% cheaper than Tableau for cloud upgrades.
+> Tableau is the "Rolls Royce" of BI. But our market needs a "Toyota Camry"—reliable, affordable, good enough. At $70/user/month, Tableau would price out 95% of our target market. Power BI Desktop is free, and Power BI Pro ($10/mo) is 85% cheaper than Tableau for cloud upgrades.
 
 **Price Comparison (5-Year TCO):**
 
@@ -306,9 +306,9 @@ Our customers struggle with data issues -> need support resources
 - [!] Few local trainers
 
 **Metabase/Redash Indonesian Ecosystem:**
-- Œ <10 tutorials (all English)
-- Œ No Indonesian community
-- Œ Zero local trainers
+-  <10 tutorials (all English)
+-  No Indonesian community
+-  Zero local trainers
 
 **Practical Impact:**
 When our Tier 1 customer gets stuck, they can:
@@ -330,7 +330,7 @@ With Metabase? They're stuck searching English Stack Overflow threads.
 | **Google Data Studio** | Full-featured (cloud) | Free forever | None |
 | **Tableau Public** | Limited (must publish publicly) | $70/mo (private) | Medium |
 | **Metabase** | Full (if self-host) | $85/mo (cloud) | None (OSS) |
-| **Looker** | Œ No free tier | $$$$ (enterprise only) | High |
+| **Looker** |  No free tier | $$$$ (enterprise only) | High |
 
 **Our Tier 1 Product (Rp 2-3M):**
 - Customer pays us Rp 2-3M for **template + setup guide**
@@ -349,7 +349,7 @@ With Metabase? They're stuck searching English Stack Overflow threads.
 
 ## Power BI Disadvantages - Accepted Trade-offs
 
-### 1. **Windows-Only Limitation** Œ BIGGEST DISADVANTAGE
+### 1. **Windows-Only Limitation**  BIGGEST DISADVANTAGE
 
 **The Problem:**
 - Power BI Desktop only runs on Windows
@@ -392,7 +392,7 @@ With Metabase? They're stuck searching English Stack Overflow threads.
 - Excel: Easy (everyone knows it)
 - Google Data Studio: Easy (drag-and-drop)
 - Power BI: Medium-Hard (DAX is complex) [!]
-- Tableau: Very Hard (steeper than Power BI) Œ
+- Tableau: Very Hard (steeper than Power BI) 
 
 **Why We Accept This:**
 > We're not selling Power BI skills. We're selling a **pre-built template** that hides the complexity. Customer never writes DAX formulas; they just click Refresh.
@@ -422,7 +422,7 @@ With Metabase? They're stuck searching English Stack Overflow threads.
 
 **Competitive Landscape:**
 - Google Data Studio: $0 cloud forever (no limits)
-- Tableau: $70/user/month (7x more expensive than Power BI Pro) Œ
+- Tableau: $70/user/month (7x more expensive than Power BI Pro) 
 - Metabase: $85/user/month cloud OR $0 self-host [!]
 
 **Why We Accept This:**
@@ -452,7 +452,7 @@ With Metabase? They're stuck searching English Stack Overflow threads.
 
 **Competitive Landscape:**
 - Metabase, Superset, Redash: Fully open source (no lock-in)
-- Tableau, Looker: Œ Same lock-in risk as Power BI
+- Tableau, Looker:  Same lock-in risk as Power BI
 - Data Studio: [!] Google lock-in (similar risk)
 
 **Why We Accept This:**
@@ -536,7 +536,7 @@ With Metabase? They're stuck searching English Stack Overflow threads.
 - **ROI jelas:** Kalau dashboard bantu hemat 5% food cost, balik modal dalam 2-3 bulan
 
 **Quote Asli Customer:**
-> "Gue punya 2 cafe, revenue Rp 90 juta/bulan. Kalau disuruh bayar Rp 1 juta/bulan buat software, itu 1% dari revenue gue. Mending buat bayar barista. Tapi Rp 2 juta sekali bayar? Oke lah, gue coba." €" Rina, Cafe Owner Jakarta
+> "Gue punya 2 cafe, revenue Rp 90 juta/bulan. Kalau disuruh bayar Rp 1 juta/bulan buat software, itu 1% dari revenue gue. Mending buat bayar barista. Tapi Rp 2 juta sekali bayar? Oke lah, gue coba." — Rina, Cafe Owner Jakarta
 
 **Kenapa Ini Penting:**
 - Tableau ($70/bulan = Rp 1 juta/bulan) = **langsung ditolak** sebelum demo
@@ -589,7 +589,7 @@ Customer: "Oh gitu doang? Gue kira harus belajar programming..."
  - Analisa sambil ngopi, bikin keputusan
 
 **Quote Asli Customer:**
-> "Restoran gue di Bandung, WiFi-nya buat customer doang. Kalau gue mau liat dashboard, gue buka di laptop di rumah. Nggak perlu internet. Ini penting banget!" €" Budi, 2-outlet cafe
+> "Restoran gue di Bandung, WiFi-nya buat customer doang. Kalau gue mau liat dashboard, gue buka di laptop di rumah. Nggak perlu internet. Ini penting banget!" — Budi, 2-outlet cafe
 
 **Kenapa Ini Penting:**
 - Google Data Studio = **nggak bisa buka** kalau WiFi mati (frustasi!)
@@ -612,13 +612,13 @@ Customer: "Oh gitu doang? Gue kira harus belajar programming..."
 
 **Contoh Metric yang Relatable:**
 ```
-Œ Nggak Relatable: "Gross Margin EBITDA YoY"
+ Nggak Relatable: "Gross Margin EBITDA YoY"
  Relatable: "Untung Kotor Bulan Ini vs Bulan Lalu"
 
-Œ Nggak Relatable: "Customer Acquisition Cost (CAC)"
+ Nggak Relatable: "Customer Acquisition Cost (CAC)"
  Relatable: "Berapa Pelanggan Baru Minggu Ini?"
 
-Œ Nggak Relatable: "Inventory Turnover Ratio"
+ Nggak Relatable: "Inventory Turnover Ratio"
  Relatable: "Produk Mana yang Lama Nggak Laku?"
 ```
 
@@ -701,7 +701,7 @@ Investor: "Wah, kamu udah pakai analytics. Profesional nih."
 - **Validation, bukan replacement:** "Data confirm feeling kamu" (bukan lawan feeling)
 
 **Quote Asli Customer (Beta Tester):**
-> "Gue kira menu best-seller gue itu Nasi Goreng (laku 50 porsi/hari). Ternyata pas liat dashboard, margin-nya cuma 15%. Ayam Geprek laku 30 porsi tapi margin 40%. Gue salah fokus selama ini!" €" Dimas, Warung Kopi
+> "Gue kira menu best-seller gue itu Nasi Goreng (laku 50 porsi/hari). Ternyata pas liat dashboard, margin-nya cuma 15%. Ayam Geprek laku 30 porsi tapi margin 40%. Gue salah fokus selama ini!" — Dimas, Warung Kopi
 
 **Kenapa Ini Penting:**
 - Bukan soal "data vs feeling"
@@ -1049,7 +1049,7 @@ Istri: "Oh iya ya, kok merah gini? (liat traffic light)
 5. DAX power (complex F&B metrics made simple)
 6. Hybrid flexibility (Desktop for Tier 1, Cloud for Tier 3)
 
-Œ **We accept these trade-offs:**
+ **We accept these trade-offs:**
 1. Windows-only (loses 5-10% Mac market)
 2. Steep learning curve (mitigated by pre-built template)
 3. Vendor lock-in to Microsoft (mitigated by E1/C1 diversification)

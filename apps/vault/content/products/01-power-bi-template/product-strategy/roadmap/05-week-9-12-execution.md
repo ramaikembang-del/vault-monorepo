@@ -152,7 +152,7 @@
 - Monthly strategy call
 - Target: 10+ outlet chains, CEO/Owner buyer
 
-**T3-Enterprise: Rp 20-25M (Custom)**
+**T3-Enterprise: Rp 10-15M (Custom)**
 - All T3-Advanced (145 metrics)
 - Custom module development (up to 5 bespoke metrics)
 - API integration support (connect to custom systems)
@@ -560,7 +560,7 @@ RETURN
 - Page 4: Investment & ROI
  - T3-Core: Rp 15M
  - T3-Advanced: Rp 18M
- - T3-Enterprise: Rp 20-25M (custom quote)
+ - T3-Enterprise: Rp 10-15M (custom quote)
  - ROI calculation: Time saved × Hourly rate + Better decisions value
 - Page 5: Implementation Timeline (2-3 weeks onboarding)
 - Page 6: Next Steps (sign proposal -> kick-off call -> delivery)

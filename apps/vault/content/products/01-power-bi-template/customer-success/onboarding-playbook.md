@@ -443,7 +443,7 @@ Noticed you're using Tier 1 Essentials - awesome!
 Just FYI, here's what Tier 2 Professional adds:
  70 metrics (vs your current 30)
  Multi-outlet consolidation (if you expand)
- 90-day priority support (vs 14-day for Tier 1)
+ Extended priority support (see [[Product 02]])
  1 free customization
 
 Current Tier 1 -> 2 upgrade customers say:
@@ -606,12 +606,12 @@ Clearly, you're getting value. But I think you're hitting limits:
 TIER 1 CONSTRAINTS you're probably feeling:
 - Only 30 metrics (you've maxed out insights)
 - No multi-outlet support (if you expand, you're stuck)
-- Support expires Day 90 (only 30 days left!)
+- Extended support (see [[Product 02]])
 
 TIER 2 UPGRADES:
 - 70 metrics (2.3x more insights)
 - Multi-outlet consolidation
-- 90-day priority support FOREVER
+- Extended priority support (see [[Product 02]])
 - 1 free customization
 
 SPECIAL OFFER (THIS WEEK ONLY):
@@ -922,7 +922,7 @@ If customer doesn't respond:
 | Day | Touchpoint | Type | Goal |
 |-----|------------|------|------|
 | 0 | Purchase confirmation | Email | Immediate access |
-| 1 | Quick start nudge | Email + WhatsApp | First download |
+| 1 | **Tier 2** | Product 02 (extended) | Email + WhatsApp | <4 hours | 2-3 hours total |
 | 2 | Setup help | Email (if no progress) | Overcome blockers |
 | 5 | Troubleshooting | Email | Solve common issues |
 | 7 | Week 1 check-in | Email | Confirm setup success |

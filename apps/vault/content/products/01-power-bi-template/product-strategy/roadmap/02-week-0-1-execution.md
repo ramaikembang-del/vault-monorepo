@@ -44,7 +44,7 @@
 **Decision Gate:**
 - **PASS:** 3+ verbal commits OR 2+ deposits -> Proceed to build
 - [!] **PARTIAL:** 2 commits, positive feedback -> Adjust pricing, extend 1 week
-- Œ **FAIL:** <2 commits, lukewarm feedback -> Pivot or pause
+-  **FAIL:** <2 commits, lukewarm feedback -> Pivot or pause
 
 **Output:** 2-5 committed customers, validated pricing, confirmed feature priorities
 
@@ -539,7 +539,7 @@
 |--------|----------|--------|
 | **PASS** | 5+ sales, Rp 15M+ revenue | -> Proceed to Week 3-4 (T1-Standard/Plus modules) |
 | [!] **PARTIAL** | 3-4 sales, Rp 10-14M revenue | -> Extend 1 week, intensify sales, re-evaluate |
-| Œ **FAIL** | 0-2 sales, <Rp 10M revenue | -> Pause module builds, analyze why, pivot pricing/product |
+|  **FAIL** | 0-2 sales, <Rp 10M revenue | -> Pause module builds, analyze why, pivot pricing/product |
 
 **Success Indicators (Week 1 Signals):**
 - Demo booking rate (landing page -> demo): >5%

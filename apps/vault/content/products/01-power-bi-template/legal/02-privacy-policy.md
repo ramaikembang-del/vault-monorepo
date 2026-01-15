@@ -35,12 +35,12 @@
 **During Purchase:**
 - Name, email address, phone number
 - Company name, business type
-- Billing information (processed via Midtrans€"we do NOT store credit card details)
+- Billing information (processed via Midtrans—we do NOT store credit card details)
 
 **During Setup (Tier 2/3):**
 - POS system credentials (Tier 3 only, encrypted storage)
 - Sample transaction data (for testing setup)
-- Staff roster (names, IDs, roles€"for dashboard configuration)
+- Staff roster (names, IDs, roles—for dashboard configuration)
 
 **During Support:**
 - Communications via email/WhatsApp
@@ -259,7 +259,7 @@ If you are located in the EU and use our Product:
 Our website uses cookies to:
 - Remember your preferences (language, login sessions)
 - Analyze website traffic (Google Analytics)
-- Deliver targeted advertising (Facebook Pixel€"with consent)
+- Deliver targeted advertising (Facebook Pixel—with consent)
 
 **Cookie Types:**
 - **Essential:** Required for website functionality (cannot be disabled)

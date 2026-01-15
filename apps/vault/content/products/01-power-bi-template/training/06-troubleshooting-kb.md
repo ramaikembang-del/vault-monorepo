@@ -677,7 +677,7 @@ The column 'Sales_Data'[TotalAmount] cannot be found.
 
 **How to Submit Support Ticket:**
 
-**Tier 1 (Essentials - 30-50 metrics - 30 days email support):**
+**Tier 1 (Essentials - 30-50 metrics - setup support via Product 02):**
 - Email: support@[company].com
 - Subject: "[A1 Support] [Issue Type] - [Your Company Name]"
 - Include:
@@ -685,10 +685,10 @@ The column 'Sales_Data'[TotalAmount] cannot be found.
  - Steps to reproduce
  - What you already tried (from this KB)
 
-**Tier 2 (Professional - 50-100 metrics - 90 days email support):**
+**Tier 2 (Professional - 50-100 metrics - extended support via Product 02):**
 - Same as Tier 1, priority response (<48h)
 
-**Tier 3 (Enterprise - 100-150 metrics - priority support):**
+**Tier 3 (Enterprise - 100-150 metrics - managed support via Product 02):****
 - WhatsApp: [Phone Number] (<24h response)
 - Email: support@[company].com (mark URGENT if critical)
 

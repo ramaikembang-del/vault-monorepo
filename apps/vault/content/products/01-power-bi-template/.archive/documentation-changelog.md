@@ -190,57 +190,57 @@
 **Before:**
 ```
 01-power-bi-template/
-"œ"€"€ integrations/
-"œ"€"€ marketing/ (2 files)
-"œ"€"€ operations/ (5 files)
-"œ"€"€ product-strategy/
-"œ"€"€ sales/ (1 file)
-"œ"€"€ specifications/ (4 files)
-"œ"€"€ technical/
-"""€"€ training/ (4 files)
+"œ"—€ integrations/
+"œ"—€ marketing/ (2 files)
+"œ"—€ operations/ (5 files)
+"œ"—€ product-strategy/
+"œ"—€ sales/ (1 file)
+"œ"—€ specifications/ (4 files)
+"œ"—€ technical/
+"""—€ training/ (4 files)
 ```
 
 **After:**
 ```
 01-power-bi-template/
-"œ"€"€ business-intelligence/ † NEW
-"‚ """€"€ unit-economics.md (441 lines)
-"œ"€"€ integrations/
-"œ"€"€ legal/ † NEW
-"‚ """€"€ sla-definitions.md (467 lines)
-"œ"€"€ marketing/ (2 -> 4 files) † EXPANDED
-"‚ "œ"€"€ competitive-comparison.md (NEW - 535 lines)
-"‚ "œ"€"€ messaging.md
-"‚ "œ"€"€ one-pager.md (NEW - 380 lines)
-"‚ """€"€ target-personas.md
-"œ"€"€ operations/ (5 -> 6 files) † EXPANDED
-"‚ "œ"€"€ daily-operations.md
-"‚ "œ"€"€ deployment-sop.md
-"‚ "œ"€"€ gate-tracking.md
-"‚ "œ"€"€ maintenance-sop.md
-"‚ "œ"€"€ tier-1-launch-checklist.md
-"‚ """€"€ tier-2-3-onboarding-sop.md (NEW - 687 lines)
-"œ"€"€ product-strategy/
-"œ"€"€ sales/ (1 -> 4 files) † EXPANDED
-"‚ "œ"€"€ 3-tier-pricing-strategy.md
-"‚ "œ"€"€ demo-script.md (NEW - 465 lines)
-"‚ "œ"€"€ objection-handling.md (NEW - 489 lines)
-"‚ """€"€ sales-playbook.md (NEW - 625 lines)
-"œ"€"€ specifications/ (4 -> 5 files) † EXPANDED
-"‚ "œ"€"€ implementation-subset.md
-"‚ "œ"€"€ metrics-catalog.md (NEW - 612 lines)
-"‚ "œ"€"€ product-specifications.md
-"‚ "œ"€"€ specs.md
-"‚ """€"€ tier-1-tech-spec.md
-"œ"€"€ technical/
-"œ"€"€ training/ (4 -> 5 files) † EXPANDED
-"‚ "œ"€"€ advanced-features-guide.md
-"‚ "œ"€"€ customer-training-guide.md
-"‚ "œ"€"€ quick-start-guide.md
-"‚ "œ"€"€ troubleshooting-kb.md (NEW - 509 lines)
-"‚ """€"€ video-tutorials-index.md
-"œ"€"€ setup-guide.md (NEW - 570 lines)
-"""€"€ README.md
+"œ"—€ business-intelligence/ † NEW
+"‚ """—€ unit-economics.md (441 lines)
+"œ"—€ integrations/
+"œ"—€ legal/ † NEW
+"‚ """—€ sla-definitions.md (467 lines)
+"œ"—€ marketing/ (2 -> 4 files) † EXPANDED
+"‚ "œ"—€ competitive-comparison.md (NEW - 535 lines)
+"‚ "œ"—€ messaging.md
+"‚ "œ"—€ one-pager.md (NEW - 380 lines)
+"‚ """—€ target-personas.md
+"œ"—€ operations/ (5 -> 6 files) † EXPANDED
+"‚ "œ"—€ daily-operations.md
+"‚ "œ"—€ deployment-sop.md
+"‚ "œ"—€ gate-tracking.md
+"‚ "œ"—€ maintenance-sop.md
+"‚ "œ"—€ tier-1-launch-checklist.md
+"‚ """—€ tier-2-3-onboarding-sop.md (NEW - 687 lines)
+"œ"—€ product-strategy/
+"œ"—€ sales/ (1 -> 4 files) † EXPANDED
+"‚ "œ"—€ 3-tier-pricing-strategy.md
+"‚ "œ"—€ demo-script.md (NEW - 465 lines)
+"‚ "œ"—€ objection-handling.md (NEW - 489 lines)
+"‚ """—€ sales-playbook.md (NEW - 625 lines)
+"œ"—€ specifications/ (4 -> 5 files) † EXPANDED
+"‚ "œ"—€ implementation-subset.md
+"‚ "œ"—€ metrics-catalog.md (NEW - 612 lines)
+"‚ "œ"—€ product-specifications.md
+"‚ "œ"—€ specs.md
+"‚ """—€ tier-1-tech-spec.md
+"œ"—€ technical/
+"œ"—€ training/ (4 -> 5 files) † EXPANDED
+"‚ "œ"—€ advanced-features-guide.md
+"‚ "œ"—€ customer-training-guide.md
+"‚ "œ"—€ quick-start-guide.md
+"‚ "œ"—€ troubleshooting-kb.md (NEW - 509 lines)
+"‚ """—€ video-tutorials-index.md
+"œ"—€ setup-guide.md (NEW - 570 lines)
+"""—€ README.md
 ```
 
 ---

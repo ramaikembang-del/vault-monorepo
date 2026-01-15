@@ -67,8 +67,8 @@ Low Value High Value
 |-----------|------------------|----------------|---------------|
 | **Setup Success** | 40% (60% fail) | 92% | "We succeed where others fail" |
 | **What's Included** | .pbix file only | Complete ecosystem (Excel + Training + Support) | "Not just a file, a complete solution" |
-| **Specificity** | Generic business | F&B-specific (30-150 metrics) | "Built FOR F&B, not adapted FROM generic" |
-| **Support** | Zero (download & DIY) | 14-90 days | "We don't abandon you" |
+| **Specificity** | Generic business | F&B-specific by tier (T1: 30-50 | T2: 50-100 | T3: 100-150 metrics) | "Built FOR F&B, not adapted FROM generic" |
+| **Support** | Zero (download & DIY) | 30-90 days | "We don't abandon you" |
 | **Language** | English | Bahasa Indonesia | "Speak your language, literally" |
 
 **Positioning Statement:**

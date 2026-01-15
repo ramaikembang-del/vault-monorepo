@@ -12,12 +12,12 @@
 |---------|-------|---------------|---------|--------------|----------------------------|
 | **Cost** | Free (with Office) | Free | $70/user/mo | $10/user/mo | **Rp 7-12M one-time** |
 | **Setup Time** | 10-20 hours | 10-20 hours | 40-60 hours | 30-50 hours | **2-3 hours (we help)** |
-| **F&B-Specific Metrics** | Œ Build yourself | Œ Build yourself | Œ Build yourself | Œ Build yourself | ** 50-100 metrics (modular)** |
+| **F&B-Specific Metrics** |  Build yourself |  Build yourself |  Build yourself |  Build yourself | ** 50-100 metrics (modular)** |
 | **Data Refresh** | Manual copy-paste | Manual import | Auto (w/ server) | Auto (w/ server) | **Click 'Refresh' (30 sec)** |
 | **Mobile Access** | Limited | Yes | Yes ($$$) | Yes | **Yes (if published to cloud)** |
 | **Maintenance Effort** | 3-4 hours/week | 3-4 hours/week | Low (if set up right) | Low (if set up right) | **30 seconds/day** |
 | **Learning Curve** | Easy | Easy | Very Steep | Steep | **None (we set it up)** |
-| **Support** | Œ Self-help | Œ Self-help | Enterprise only | Enterprise only | ** 90-day email support** |
+| **Support** |  Self-help |  Self-help | Enterprise only | Enterprise only | ** 90-day email support** |
 | **Customization** | Full control | Full control | Full (if you know SQL) | Full (if you know DAX) | **1 free customization** |
 | **Best For** | <5 staff, simple tracking | Team collaboration | Enterprise ($500K+ budget) | Power users willing to learn | **Restaurant owners, 1-5 outlets** |
 
@@ -93,10 +93,10 @@
  Free
 
 #### Google Sheets Weaknesses for F&B Analytics:
-Œ No built-in F&B metrics (you build from scratch)
-Œ Slow with large datasets (>10,000 rows lag)
-Œ Charts are basic (no interactive drill-throughs)
-Œ Manual refresh (still copy-pasting POS data)
+ No built-in F&B metrics (you build from scratch)
+ Slow with large datasets (>10,000 rows lag)
+ Charts are basic (no interactive drill-throughs)
+ Manual refresh (still copy-pasting POS data)
 
 ---
 
@@ -119,7 +119,7 @@
 | Team collaboration on editable docs (budgets, checklists) | **Google Sheets** |
 | Data analysis & business intelligence (metrics, dashboards) | **Power BI Template** |
 
-**They complement each other€"not competitors.**"
+**They complement each other—not competitors.**"
 
 **Win Rate:** 60% (some customers still prefer Sheets for simplicity)
 
@@ -261,10 +261,10 @@
 
 **What POS Reports DON'T Show:**
 
-Œ **Why** revenue is down (upsells too low? Discounts too high?)
-Œ **Which staff** are underperforming (discipline issues? Low sales per hour?)
-Œ **How many VIPs** are churning (revenue at risk?)
-Œ **Gap to annual target** (are you on track for Rp 12B?)
+ **Why** revenue is down (upsells too low? Discounts too high?)
+ **Which staff** are underperforming (discipline issues? Low sales per hour?)
+ **How many VIPs** are churning (revenue at risk?)
+ **Gap to annual target** (are you on track for Rp 12B?)
 
 ---
 
@@ -368,21 +368,21 @@
 
 ### Competitor: Google Sheets
 **Objection:** "Google Sheets is free and cloud-based"
-**Counter:** Great for collaboration, weak for analytics. We're not replacing Sheets€"we complement it.
+**Counter:** Great for collaboration, weak for analytics. We're not replacing Sheets—we complement it.
 **Close:** "Use Sheets for team docs, use our dashboard for business intelligence. Best of both."
 
 ---
 
 ### Competitor: Tableau
 **Objection:** "Tableau is the industry standard"
-**Counter:** Tableau = Rp 13M/year + Rp 50M setup. Our template = Rp 3.5-15M one-time (modular). Right-sized for SME F&B.
+**Counter:** Tableau = Rp 13M/year + Rp 50M setup. Our templates = **T1** Rp 3.5-6M (DIY) | **T2** Rp 7-12M (assisted) | **T3** Rp 10-15M (managed). Right-sized for SME F&B.
 **Close:** "When you're doing Rp 100B revenue, buy Tableau. At Rp 8-12B, use our template."
 
 ---
 
 ### Competitor: Power BI Pro (DIY)
 **Objection:** "Can't I just build this myself?"
-**Counter:** You could spend 100+ hours learning & building. Or get 100 hours of pre-built work for Rp 3.5-15M (modular pricing).
+**Counter:** You could spend 100+ hours learning & building. Or get 100 hours of pre-built work for **T1** Rp 3.5-6M (DIY) | **T2** Rp 7-12M (assisted setup) | **T3** Rp 10-15M (managed service).
 **Close:** "Your time is worth more running the restaurant than learning DAX formulas."
 
 ---
@@ -426,7 +426,7 @@
 **What makes us different:**
 
 1. **F&B-Specific Metrics (Not Generic BI)**
- - 30-150 metrics designed for restaurants (modular framework - not generic business)
+ - Tier-specific metrics: **T1** (30-50) | **T2** (50-100) | **T3** (100-150 metrics) - all designed for restaurants, not generic business
  - Performance Score for staff (hospitality-specific)
  - Patronage Ladder for customers (first-timer -> VIP)
 

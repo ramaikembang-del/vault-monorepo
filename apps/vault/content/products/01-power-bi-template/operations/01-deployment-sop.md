@@ -205,20 +205,20 @@ Roles:
 
 ```
 A1-Complete-Bundle-Tier-[X]/
-"œ"€"€ Power-BI-Dashboard/
-"‚ """€"€ F&B-Analytics-Template-v1.0.0.pbix
-"œ"€"€ Excel-Templates/
-"‚ "œ"€"€ Daily-Sales.xlsx
-"‚ "œ"€"€ Food-Cost.xlsx
-"‚ "œ"€"€ Staff-Log.xlsx
-"‚ """€"€ Outlet-Summary.xlsx (Tier 2/3 only)
-"œ"€"€ Google-Sheets-Links.txt
+"œ"—€ Power-BI-Dashboard/
+"‚ """—€ F&B-Analytics-Template-v1.0.0.pbix
+"œ"—€ Excel-Templates/
+"‚ "œ"—€ Daily-Sales.xlsx
+"‚ "œ"—€ Food-Cost.xlsx
+"‚ "œ"—€ Staff-Log.xlsx
+"‚ """—€ Outlet-Summary.xlsx (Tier 2/3 only)
+"œ"—€ Google-Sheets-Links.txt
 "‚ (Contains make-a-copy links for all 4 templates)
-"œ"€"€ Video-Tutorials-Links.txt
+"œ"—€ Video-Tutorials-Links.txt
 "‚ (5 tutorials, 2 min each, Bahasa Indonesia)
-"œ"€"€ Automation/
-"‚ """€"€ Power-Query-Auto-Refresh.txt (instructions)
-"""€"€ README.md (Bundle overview + quick start)
+"œ"—€ Automation/
+"‚ """—€ Power-Query-Auto-Refresh.txt (instructions)
+"""—€ README.md (Bundle overview + quick start)
 ```
 
 ### Packaging Checklist

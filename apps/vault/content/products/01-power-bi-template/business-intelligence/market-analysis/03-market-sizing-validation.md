@@ -200,7 +200,7 @@ Let's test with Q1-Q4 targets from comprehensive-product-strategy.md:
 
 **Observation:**
 - If Q1-Q4 are **cumulative**, Year 1 total = 155 customers (close to target of 150) œ"
-- If avg customer value = **Rp 6.76M**, Year 1 revenue = **Rp 1.05B** (4x higher than Rp 250M target) Œ
+- If avg customer value = **Rp 6.76M**, Year 1 revenue = **Rp 1.05B** (4x higher than Rp 250M target) 
 - If avg customer value = **Rp 1.67M**, Year 1 revenue = **Rp 259M** (close to Rp 250M target) œ"
 
 **Conclusion:**
@@ -308,7 +308,7 @@ From comprehensive-product-strategy.md:
 **Issue:** Unclear if targets are **cumulative** (15 -> 45 -> 95 -> 155) or **incremental** (15 + 30 + 50 + 60 = 155).
 
 **Test:**
-- If cumulative: Q4 = 60 total customers (Year 1) Œ Doesn't match "150 customers Year 1" target
+- If cumulative: Q4 = 60 total customers (Year 1)  Doesn't match "150 customers Year 1" target
 - If incremental: Q1-Q4 = 155 total customers œ" Matches "150 customers Year 1" target
 
 **Conclusion:** Targets are **incremental** (each quarter adds new customers).
@@ -406,11 +406,11 @@ Rp 400M / Rp 2M = 200 customers cumulative
 
 | Claim | Source? | Validation Needed |
 |-------|---------|-------------------|
-| "750,000 F&B outlets in Indonesia" | Œ Not cited | BPS data? Industry report? |
-| "50,000 modern POS users" | Œ Not cited | Pawoon + Moka + Qasir combined user count? |
-| "100,000 restaurants (sit-down + cafes)" | Œ Not cited | Bottom-up city-by-city count? |
-| "10,500 SAM (10+ staff, Rp 50M+ revenue)" | Œ Not cited | Applied % filters to TAM - what %? |
-| "500,000 F&B outlets" (comprehensive strategy) | Œ Not cited | Conflict with 750K - which is correct? |
+| "750,000 F&B outlets in Indonesia" |  Not cited | BPS data? Industry report? |
+| "50,000 modern POS users" |  Not cited | Pawoon + Moka + Qasir combined user count? |
+| "100,000 restaurants (sit-down + cafes)" |  Not cited | Bottom-up city-by-city count? |
+| "10,500 SAM (10+ staff, Rp 50M+ revenue)" |  Not cited | Applied % filters to TAM - what %? |
+| "500,000 F&B outlets" (comprehensive strategy) |  Not cited | Conflict with 750K - which is correct? |
 
 **Recommendation:**
 - **Add "Data Sources & Assumptions" section to market-analysis.md:**

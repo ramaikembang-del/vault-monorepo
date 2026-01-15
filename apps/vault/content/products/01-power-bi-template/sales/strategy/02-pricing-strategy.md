@@ -51,7 +51,7 @@
 - 3 Excel templates (Sales, Top Items, Staff)
 - 5 video tutorials (2 hours, Bahasa Indonesia)
 - 4 PDF guides (Setup, Templates, FAQ, Troubleshooting)
-- 14-day email support
+- Setup support (see [[Product 02]])
 
 **Value Proposition:**
 - Save 4 hours/week on manual Excel = Rp 8M/month (owner time)
@@ -68,7 +68,7 @@
 - Power BI file development: Rp 0 (sunk cost, amortized)
 - Excel templates: Rp 0 (sunk cost)
 - Video hosting (Vimeo): Rp 50K/customer
-- Email support (14 days): Rp 125K (0.5 hours CS time @ Rp 250K/hour)
+- Setup support: See [[Product 02]] for support costs
 - **Total COGS:** Rp 175K
 
 ---
@@ -85,7 +85,7 @@
 - +40 metrics (70 total, 5 pages)
 - +3 Excel templates (6 total - adds Inventory, Customer, Promotions)
 - 2-hour 1:1 setup call (we guide you through setup)
-- 90-day email + WhatsApp support
+- Extended support (see [[Product 02]])
 - Multi-Outlet Module included (Tier 1 charges +Rp 1.25M)
 
 **Value Proposition:**
@@ -102,7 +102,7 @@
 **COGS Breakdown:**
 - All Tier 1 costs: Rp 175K
 - 2-hour 1:1 call: Rp 500K (2 hours CS time @ Rp 250K/hour)
-- 90-day support: Rp 25K (incremental vs 14-day)
+- Extended support: See [[Product 02]]
 - **Total COGS:** Rp 700K
 
 ---
@@ -213,7 +213,7 @@
 | **Price** | Rp 3.5M | **Rp 7M** | Rp 10M |
 | **Metrics** | 30 | **70** | 100-150 |
 | **Setup** | Self-service | **1:1 guided** | White-glove |
-| **Support** | 14 days | **90 days** | Unlimited |
+| **Support** | Product 02 | Product 02 (extended) | Product 02 (unlimited) |
 | **Multi-Outlet** | +Rp 1.25M | ** Included** | Included |
 | **Best For** | Solo owner | **Growing business ** | Enterprise |
 
@@ -309,7 +309,7 @@
 | **What's Included** | .pbix file only | .pbix + Excel + Training + Support | Complete ecosystem |
 | **Setup Success** | 40% | 92% | 2.3x higher success |
 | **F&B-Specific** | No (generic) | Yes (30-150 F&B metrics) | Industry tailored |
-| **Support** | None | 14-90 days | Not abandoned |
+| **Support** | None | Product 02 | Not abandoned |
 
 **Pricing Strategy vs Generic:**
 - Price 2-6x higher, but justify with 2.3x setup success + F&B specificity
@@ -481,7 +481,7 @@
 
 > "We have three tiers. Most growing businesses like yours choose Tier 2 Professional:
 > - Tier 2 is Rp 7M one-time (avg Rp 9.5M with add-ons you'll likely want)
-> - Includes 70 metrics, multi-outlet consolidation, 1:1 setup call, 90-day support
+> - Includes 70 metrics, multi-outlet consolidation, 1:1 setup call, extended support (Product 02)
 > - Pays for itself in 14-21 days based on beta customer results
 >
 > We also have Tier 1 at Rp 3.5M if you're DIY-comfortable and only have 1 outlet.
@@ -529,7 +529,7 @@
 > "You're right - there are cheaper templates out there. Here's the difference:
 > 1. **Setup success:** 60% of people who buy those templates fail to set up. You waste Rp 500K and 8 hours trying. We have 92% setup success.
 > 2. **F&B-specific:** Those are generic business templates. We have 30 F&B-specific metrics (food cost %, menu engineering, etc.) that you won't find anywhere else.
-> 3. **Support:** Those templates, you're on your own. We give you 14-90 days of support.
+> 3. **Support:** Those templates, you're on your own. We offer Product 02 support options.
 >
 > Would you rather save Rp 4M and have a 60% chance of failure, or invest Rp 4.7M and have a 92% chance of success?"
 

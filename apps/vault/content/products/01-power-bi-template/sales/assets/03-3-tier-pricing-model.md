@@ -33,7 +33,7 @@
 - Core survival metrics (Revenue, Menu basics, Staff basics, Customer count, Operations)
 - 3 dashboard pages (Executive, Revenue & Menu, Staff & Customer)
 - DIY setup (4-8 hours your time)
-- 30-day email support (72h response)
+- Setup support (see [[Product 02]])
 
 **T1-Standard: Rp 4.5M** - **40 Metrics**
 - Everything in T1-Basic PLUS:
@@ -77,7 +77,7 @@
 - Bahasa Indonesia throughout
 
  **Support**
-- 30-day email support (72h response)
+- Setup support (see [[Product 02]])
 - Setup questions, troubleshooting
 - Bug fixes included
 
@@ -112,8 +112,8 @@
 - **2-3 hour setup call** (we do it together)
 - **Custom Excel templates** (YOUR data pre-filled)
 - **Outlet-Summary.xlsx** (multi-location ready)
-- 90-day support (48h response)
-- **3 free metric changes + 1 free page reorganization** (within 90 days)
+- Extended support (see [[Product 02]])
+- **3 free metric changes + 1 free page reorganization**
 
 ### **Add-On Modules (+Rp 1.25-1.5M each):**
 
@@ -177,7 +177,7 @@
 - Q&A during setup
 
  **Support**
-- **90-day email support** (48h response)
+- **Extended support** (see [[Product 02]])
 - 1 free template update (bug fixes, minor tweaks)
 
 ### What Customer Does (Assisted)
@@ -201,7 +201,7 @@
 
 ---
 
-## TIER 3: ENTERPRISE (Rp 20-25M)
+## TIER 3: ENTERPRISE (Rp 10-15M)
 
 ### **Base + Strategic Modules Pricing:**
 
@@ -210,7 +210,7 @@
 - **Fully managed setup** (we do everything, 1h handoff meeting)
 - **White-label Excel templates** (YOUR branding, logo, colors)
 - Monthly maintenance + 2 customizations/month
-- **Priority WhatsApp support** (24h response)
+- **Priority support** (see [[Product 02]])
 - Monthly check-in + quarterly business review calls
 - **Automation:** Scheduled refresh, automated backups, email reports
 - **Security:** Data encryption, template protection
@@ -286,7 +286,7 @@
 - **Quarterly training refreshers** (as staff changes)
 
  **Support**
-- **Unlimited email + WhatsApp support** (24h priority response)
+- **Unlimited support** (see [[Product 02]])
 - **Monthly check-in calls** (30 min strategy review)
 - **Quarterly business review** (1 hour deep dive)
 
@@ -322,7 +322,7 @@ See [[products/02-template-support/02-template-support|Product 02 - Template Sup
 | 1 outlet, busy owner | T2 Base | **Rp 7M** | Assisted setup, saves 6+ hours |
 | 2 outlets | T2 Base + Multi-Outlet | **Rp 8.25M** | Outlet comparison critical |
 | 3 outlets, growing fast | T2 Complete | **Rp 12M** | All 4 modules, full operational insights |
-| 3-5 outlets, investor-backed | T3 Base + Executive | **Rp 21.25M** | Board-ready reporting |
+| 3-5 outlets, investor-backed | T3 Base + Executive | **Rp 11.25M** | Board-ready reporting |
 | Mature enterprise, 5+ outlets | T3 Complete | **Rp 15M** | Full strategic intelligence |
 
 ---
@@ -373,9 +373,9 @@ T3 Base (Pay Rp 11M difference for managed service)
 **Target Sales Mix:**
 - **T1:** 40 customers × Rp 4.5M avg = **Rp 180M**
 - **T2:** 20 customers × Rp 10M avg (1.8 modules) = **Rp 200M**
-- **T3:** 10 customers × Rp 22M avg = **Rp 220M**
+- **T3:** 10 customers × Rp 12.5M avg = **Rp 125M**
 
-**Total Year 1:** **Rp 553M**
+**Total Year 1:** **Rp 505M**
 
 **Expected Module Attachment:**
 - **T2:** 60% take Multi-Outlet, 40% take Menu, 30% take 2+ modules
@@ -385,7 +385,7 @@ T3 Base (Pay Rp 11M difference for managed service)
 
 ## Sales Team Action Items
 
-1. **Memorize** the 3 tier price ranges (Rp 3.5-6M, Rp 7-12M, Rp 20-25M)
+1. **Memorize** the 3 tier price ranges (Rp 3.5-6M, Rp 7-12M, Rp 10-15M)
 2. **Lead with T2** (sweet spot for most customers)
 3. **Understanding modules** (which modules for which customer needs)
 4. **Use Quick Recommendation Guide** (table above)

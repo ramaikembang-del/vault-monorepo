@@ -37,10 +37,10 @@
 
 > **Indonesian Market Realities:** Sprint 1 execution must align with local market dynamics (see [[biz/strategy/market-analysis/03-cultural-context.md|Cultural Context]]):
 >
-> - **WhatsApp-First Support** €" Primary communication channel (not email). Configure WhatsApp Business before launch.
-> - **Community Validation** €" Marketing via F&B owner groups, paguyuban networks, personal referrals (not cold outreach).
-> - **Trust-Building Sales** €" Demo calls and personal onboarding crucial for Tier 2/3 conversions.
-> - **Protection Messaging** €" Frame value as "Lindungi bisnis Anda" (protect your business) vs aggressive growth promises.
+> - **WhatsApp-First Support** — Primary communication channel (not email). Configure WhatsApp Business before launch.
+> - **Community Validation** — Marketing via F&B owner groups, paguyuban networks, personal referrals (not cold outreach).
+> - **Trust-Building Sales** — Demo calls and personal onboarding crucial for Tier 2/3 conversions.
+> - **Protection Messaging** — Frame value as "Lindungi bisnis Anda" (protect your business) vs aggressive growth promises.
 
 ---
 

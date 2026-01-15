@@ -102,8 +102,6 @@
 - "Visualize messy Excel data without learning complex formulas"
 - "Prove analytics value without changing operational workflow"
 
-
-
 **Success Indicators:**
 - Successfully connects POS data within 4 hours
 - Uses dashboard 2-3x/week minimum
@@ -503,7 +501,7 @@
 
 **Decision Gate:**
 - **If 3+ commitments** -> Proceed to build (Week 1-2 below)
-- Œ **If 0-2 commitments** -> Pause, investigate why, pivot if needed
+-  **If 0-2 commitments** -> Pause, investigate why, pivot if needed
 
 **Expected Outcome:**
 - Rp 3-6M in deposits collected upfront
@@ -575,23 +573,23 @@
 **Sales:**
 - **10+ purchases** -> Product validated, continue selling
 - [!] **5-9 purchases** -> Pricing too high OR need better marketing
-- Œ **<5 purchases** -> Major issue (product, price, or market)
+-  **<5 purchases** -> Major issue (product, price, or market)
 
 **Customer Satisfaction:**
 - **NPS >40** (via post-purchase survey) -> Quality validated
 - [!] **NPS 20-40** -> Usability issues, improve docs
-- Œ **NPS <20** -> Product doesn't solve problem
+-  **NPS <20** -> Product doesn't solve problem
 
 **Support Load:**
 - **<5 bug reports** -> Quality is good
 - [!] **5-10 issues** -> Testing was insufficient
-- Œ **>10 critical bugs** -> Don't sell more until fixed
+-  **>10 critical bugs** -> Don't sell more until fixed
 
 ### **Gate 1A Decision (Week 2)**
 
 **Criteria:**
 - **5+ sales in first week** -> Demand proven, scale marketing
-- Œ **<5 sales** -> Fix messaging/pricing, extend Sprint 1
+-  **<5 sales** -> Fix messaging/pricing, extend Sprint 1
 
 **Actions if fails:**
 - Lower price to Rp 1.5M (try again for 2 weeks)
@@ -754,7 +752,7 @@
 **Engagement (Month 1):**
 - 60%+ use dashboard 2-3x/week
 - <3 support tickets per customer (avg)
-- 30-day NPS ‰¥ 50
+- 30-day NPS >50
 
 **Retention Indicators:**
 - 40%+ upgrade to Tier 2/3 within 6 months

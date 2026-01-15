@@ -311,9 +311,9 @@ Total: Rp 8.25M for 62 metrics + assisted setup + outlet analytics
 **Features:**
 - Basic filtering (Date range)
 - Standard visuals (cards, charts, tables)
-- Œ No drill-through pages
-- Œ No custom tooltips
-- Œ No bookmarks
+-  No drill-through pages
+-  No custom tooltips
+-  No bookmarks
 
 ### **Excel Templates: 4 files (Generic)**
 - Daily-Sales.xlsx (basic, sample products)
@@ -321,60 +321,60 @@ Total: Rp 8.25M for 62 metrics + assisted setup + outlet analytics
 - Staff-Log.xlsx (basic tracking)
 - Customer-Log.xlsx (basic tracking)
 - Data validation (dropdowns)
-- Œ No custom product pre-fill
-- Œ No custom recipe pre-fill
-- Œ No multi-outlet template
-- Œ No advanced validation
+-  No custom product pre-fill
+-  No custom recipe pre-fill
+-  No multi-outlet template
+-  No advanced validation
 
 ### **Google Sheets:**
 - View-only links (make-a-copy)
-- Œ No custom setup
-- Œ No Apps Script
-- Œ No API integration
+-  No custom setup
+-  No Apps Script
+-  No API integration
 
 ### **Automation:**
 - Manual one-click refresh (you click button)
 - Generic CSV import Power Query script
 - Folder-based refresh
-- Œ No POS-specific templates
-- Œ No Excel VBA macro
-- Œ No scheduled automation
-- Œ No auto-export scripts
+-  No POS-specific templates
+-  No Excel VBA macro
+-  No scheduled automation
+-  No auto-export scripts
 
 ### **Mobile & Print:**
-- Œ No mobile layout
-- Œ No print-friendly pages
-- Œ No multi-language support
+-  No mobile layout
+-  No print-friendly pages
+-  No multi-language support
 
 ### **Integration:**
-- Œ No WhatsApp alerts
-- Œ No email automation
-- Œ No API connections
+-  No WhatsApp alerts
+-  No email automation
+-  No API connections
 
 ### **Training:**
 - 5 video tutorials (10-min total learning path)
 - Quick-start guide PDF
-- Œ No live training
-- Œ No setup calls
+-  No live training
+-  No setup calls
 
 ### **Support:**
 - 30-day email support
 - (Time) 72-hour response time
-- Œ No WhatsApp support
-- Œ No phone support
+-  No WhatsApp support
+-  No phone support
 
 ### **Setup:**
-- Œ **DIY only** (4-8 hours your time)
+-  **DIY only** (4-8 hours your time)
 - Documentation provided
-- Œ No setup calls
-- Œ No managed setup
+-  No setup calls
+-  No managed setup
 
 ### **Customization:**
-- Œ Template as-is
-- Œ No free changes
+-  Template as-is
+-  No free changes
 - Paid customization: Rp 1M per metric
-- Œ No white-labeling
-- Œ No branding customization
+-  No white-labeling
+-  No branding customization
 
 ---
 
@@ -443,8 +443,8 @@ Total: Rp 8.25M for 62 metrics + assisted setup + outlet analytics
 - Drill-through pages (2-3 pages)
 - Custom tooltips (5 visuals)
 - Bookmarks (5 presets)
-- Œ No What-If parameters
-- Œ No Row-Level Security (RLS)
+-  No What-If parameters
+-  No Row-Level Security (RLS)
 
 ### **Excel Templates: 5 files (Custom)**
 - All 4 Tier 1 templates
@@ -452,61 +452,61 @@ Total: Rp 8.25M for 62 metrics + assisted setup + outlet analytics
 - Custom product pre-fill (your actual menu)
 - Custom recipe pre-fill (your actual recipes)
 - Advanced validation (dependent dropdowns)
-- Œ No white-label branding
-- Œ No template protection
-- Œ No dynamic validation
+-  No white-label branding
+-  No template protection
+-  No dynamic validation
 
 ### **Google Sheets:**
 - Custom setup for your business
 - Edit permissions (your account)
-- Œ No Apps Script automation
-- Œ No API integration
+-  No Apps Script automation
+-  No API integration
 
 ### **Automation:**
 - All Tier 1 automation
 - POS-specific Power Query (3 templates: Moka, BukuKas, Pawoon)
 - Excel VBA macro (format cleaner)
-- Œ No scheduled Power BI refresh
-- Œ No Python auto-export scripts
-- Œ No email report automation
+-  No scheduled Power BI refresh
+-  No Python auto-export scripts
+-  No email report automation
 
 ### **Mobile & Print:**
 - Basic mobile layout (1 page - Executive Summary)
 - Print-friendly page (1 page - Weekly Summary)
-- Œ No full mobile layout (all pages)
-- Œ No multi-language support
+-  No full mobile layout (all pages)
+-  No multi-language support
 
 ### **Integration:**
-- Œ No WhatsApp alerts
-- Œ No email automation
-- Œ No API connections
+-  No WhatsApp alerts
+-  No email automation
+-  No API connections
 
 ### **Training:**
 - All Tier 1 training materials
 - 2-3 hour live setup call
 - Personalized walkthrough
-- Œ No monthly check-ins
-- Œ No quarterly reviews
+-  No monthly check-ins
+-  No quarterly reviews
 
 ### **Support:**
 - 90-day email support (extended from Tier 1)
 - (Time) 48-hour response time (faster than Tier 1)
 - WhatsApp support (business hours)
-- Œ No phone support
-- Œ Not unlimited
+-  No phone support
+-  Not unlimited
 
 ### **Setup:**
 - **Assisted setup** (2-3 hour call included)
 - We help you configure templates
 - We pre-fill your product list
-- Œ Not fully managed (you still do some work)
+-  Not fully managed (you still do some work)
 
 ### **Customization:**
 - 3 free metric changes
 - 1 free page reorg
 - Additional changes: Rp 500K per metric (50% discount vs Tier 1)
-- Œ No white-labeling
-- Œ No branding customization
+-  No white-labeling
+-  No branding customization
 
 ---
 
@@ -619,7 +619,7 @@ Total: Rp 8.25M for 62 metrics + assisted setup + outlet analytics
 - (Time) 24-hour email response time
 - WhatsApp support (24/7 monitoring)
 - Phone support (business hours)
-- Œ Monthly check-in calls (Product 02 feature)
+-  Monthly check-in calls (Product 02 feature)
 - Quarterly business reviews
 
 ### **Setup:**
@@ -681,7 +681,7 @@ See [[products/02-template-support/02-template-support|Product 02 - Template Sup
 | **Support Speed** | 72h email | 48h email | 24h email + WhatsApp |
 | **Training** | Videos only | Videos + 2-3h call | Videos + 4h custom |
 | **Customization** | None (pay per) | 3 free changes (90 days) | 2/month ongoing |
-| **Monthly Service** | Œ None | Œ None | Œ None (optional - see Product 02) |
+| **Monthly Service** |  None |  None |  None (optional - see Product 02) |
 
 ---
 
@@ -792,7 +792,7 @@ Customers buy exactly what they need, not forced to pay for unused metrics.
 - Monthly maintenance service
 - 2 customizations per month
 - Priority WhatsApp support (24h response)
-- Œ Monthly check-in calls (Product 02 feature)
+-  Monthly check-in calls (Product 02 feature)
 
 #### **Add-On Strategic Modules** (Rp 1.25M each):
 
@@ -926,21 +926,21 @@ Customers buy exactly what they need, not forced to pay for unused metrics.
 
 | Feature Category | Tier 1 (DIY) | Tier 2 (Assisted) | Tier 3 (Managed) |
 |------------------|--------------|-------------------|------------------|
-| **Price Range** | Rp 3.5-6M | Rp 7-12M | Rp 20-25M |
+| **Price Range** | Rp 3.5-6M | Rp 7-12M | Rp 10-15M |
 | **Metrics Range** | 30-50 | 50-100 | 100-150 |
 | **Dashboard Pages** | 3 combined | 5 dedicated | 7+ custom |
 | **Excel Templates** | 4 generic (samples) | 5 custom (YOUR data) | 5 white-labeled (YOUR brand) |
 | **Setup Method** | DIY (4-8h your time) | Assisted (2-3h call) | Fully managed (1h handoff) |
 | **Automation Level** | Manual one-click | POS-specific + VBA | Full auto + scheduled |
-| **Mobile Layout** | Œ None | Basic (1 page) | Full (all pages) |
+| **Mobile Layout** |  None | Basic (1 page) | Full (all pages) |
 | **Support Duration** | 30 days | 90 days | Unlimited lifetime |
 | **Response Time** | 72 hours | 48 hours | 24 hours (priority) |
-| **WhatsApp Support** | Œ No | Business hours only | 24/7 monitoring |
-| **Phone Support** | Œ No | Œ No | Yes (business hours) |
-| **Free Customization** | Œ None (pay per change) | 3 metric changes + 1 page reorg | Unlimited (2 metrics/month) |
+| **WhatsApp Support** |  No | Business hours only | 24/7 monitoring |
+| **Phone Support** |  No |  No | Yes (business hours) |
+| **Free Customization** |  None (pay per change) | 3 metric changes + 1 page reorg | Unlimited (2 metrics/month) |
 | **Training** | Videos only | Videos + live 2-3h call | Full team training (4h) |
-| **Monthly Service** | Œ No | Œ No | Œ No (optional - see Product 02) |
-| **White-Label Branding** | Œ No | Œ No | Yes (logo, colors, fonts) |
+| **Monthly Service** |  No |  No |  No (optional - see Product 02) |
+| **White-Label Branding** |  No |  No | Yes (logo, colors, fonts) |
 | **Sprint Planning** | 40 Days Solo Launch | Post-Launch | Post-Launch |
 
 **Decision Helper:**
@@ -1002,7 +1002,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Click staff name -> see detailed staff page
 - **Value:** Explore data without cluttering main view
 - **Tiering:**
- - T1: Œ No drill-through (static views)
+ - T1:  No drill-through (static views)
  - T2: 2-3 drill-through pages (Staff Detail, Menu Detail)
  - T3: 5+ drill-through pages (custom per need)
 
@@ -1010,7 +1010,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Save specific filter states, switch views with buttons
 - **Value:** Quick access to saved scenarios ("Last Week", "Peak Hours")
 - **Tiering:**
- - T1: Œ No bookmarks
+ - T1:  No bookmarks
  - T2: 5 pre-set bookmarks ("Today", "This Week", "This Month", "Last Month", "YTD")
  - T3: Custom bookmarks per user request
 
@@ -1034,8 +1034,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Adjust target/assumption, see impact (e.g., "What if target is 15B?")
 - **Value:** Scenario planning without rebuilding dashboard
 - **Tiering:**
- - T1: Œ No what-if
- - T2: Œ No what-if
+ - T1:  No what-if
+ - T2:  No what-if
  - T3: 2-3 what-if parameters (Revenue Target, Food Cost Target, Staff Count)
 
 ---
@@ -1046,7 +1046,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Button in Excel to auto-format POS export before Power BI import
 - **Value:** Reduces manual formatting from 10 min -> 5 seconds
 - **Tiering:**
- - T1: Œ No macros (manual format)
+ - T1:  No macros (manual format)
  - T2: 1 macro (POS export cleaner)
  - T3: Full macro suite (export cleaner, data validator, error checker)
 
@@ -1054,8 +1054,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Auto-sync Google Sheets to Excel (export as .xlsx nightly)
 - **Value:** Manager fills Sheets on phone, auto-converts to Excel for Power BI
 - **Tiering:**
- - T1: Œ Manual export (Sheets -> Download as Excel)
- - T2: Œ Manual export
+ - T1:  Manual export (Sheets -> Download as Excel)
+ - T2:  Manual export
  - T3: Automated nightly export (Apps Script + Google Drive)
 
 #### **Power Query Templates (Reusable)**
@@ -1070,7 +1070,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Publish dashboard to internal server (not cloud)
 - **Value:** Multi-user access without Power BI Service subscription
 - **Tiering:**
- - T1: Œ Desktop only (local .pbix file)
+ - T1:  Desktop only (local .pbix file)
  - T2: Guidance to self-publish (we provide instructions)
  - T3: We publish to your server (full setup)
 
@@ -1082,7 +1082,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Separate phone view (portrait mode)
 - **Value:** Check dashboard on phone without zooming
 - **Tiering:**
- - T1: Œ Desktop only (not mobile-friendly)
+ - T1:  Desktop only (not mobile-friendly)
  - T2: Basic mobile layout (1 summary page)
  - T3: Full mobile layout (all pages optimized)
 
@@ -1090,7 +1090,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Dedicated pages designed for PDF export/printing
 - **Value:** Share dashboard in meetings without screen
 - **Tiering:**
- - T1: Œ No print layout
+ - T1:  No print layout
  - T2: 1 print page (Executive Summary PDF-ready)
  - T3: 3 print pages (Exec Summary, Monthly Report, Staff Review)
 
@@ -1126,7 +1126,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Lock formula cells, only allow data entry cells
 - **Value:** Prevents staff from accidentally breaking template
 - **Tiering:**
- - T1: Œ Unprotected (user can edit)
+ - T1:  Unprotected (user can edit)
  - T2: Protected (locked formulas)
  - T3: Password-protected + audit log
 
@@ -1134,15 +1134,15 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **What:** Manager A only sees Outlet A data, Manager B sees Outlet B
 - **Value:** Share one dashboard, each user sees their data only
 - **Tiering:**
- - T1: Œ No RLS (all data visible)
- - T2: Œ No RLS
+ - T1:  No RLS (all data visible)
+ - T2:  No RLS
  - T3: RLS configured (outlet-level or role-level)
 
 #### **Version Control (Excel)**
 - **What:** Track changes, restore previous versions
 - **Value:** Undo mistakes, see historical edits
 - **Tiering:**
- - T1: Œ No version control
+ - T1:  No version control
  - T2: OneDrive versioning (if customer uses OneDrive)
  - T3: SharePoint versioning + audit trail configured
 
@@ -1157,8 +1157,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Zero manual work - data flows automatically
 - **Build Required:** Python script + Windows Task Scheduler
 - **Tiering:**
- - T1: Œ Manual export (owner exports CSV weekly)
- - T2: Œ Manual or we guide self-setup
+ - T1:  Manual export (owner exports CSV weekly)
+ - T2:  Manual or we guide self-setup
  - T3: We build + install auto-export script
 
 #### **WhatsApp Dashboard Alerts**
@@ -1166,8 +1166,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Owner gets insights without opening dashboard
 - **Build Required:** Power Automate + WhatsApp API integration
 - **Tiering:**
- - T1: Œ No alerts
- - T2: Œ No alerts
+ - T1:  No alerts
+ - T2:  No alerts
  - T3: Daily WhatsApp summary + alerts (Food Cost >35%, Revenue <target)
 
 #### **Voice-to-Excel (Staff Input)** Future
@@ -1191,8 +1191,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Real-time data, zero manual export
 - **Build Required:** API connectors for each POS system
 - **Tiering:**
- - T1: Œ CSV export only
- - T2: Œ CSV export only
+ - T1:  CSV export only
+ - T2:  CSV export only
  - T3: Direct POS API integration (if POS supports API)
 
 #### **Accounting Software Sync**
@@ -1200,8 +1200,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** No manual expense entry
 - **Build Required:** API integration with accounting platforms
 - **Tiering:**
- - T1: Œ Manual expense entry
- - T2: Œ Manual expense entry
+ - T1:  Manual expense entry
+ - T2:  Manual expense entry
  - T3: Accounting API integration (Accurate/Jurnal supported)
 
 #### **Inventory Management Link** Add-on
@@ -1215,8 +1215,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Stakeholders get report without asking
 - **Build Required:** Power Automate + Power BI REST API
 - **Tiering:**
- - T1: Œ Manual export
- - T2: Œ Manual export
+ - T1:  Manual export
+ - T2:  Manual export
  - T3: Scheduled email reports (weekly/monthly)
 
 ---
@@ -1240,8 +1240,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Gamification + planning
 - **Build Required:** Custom Power BI visual or external web app
 - **Tiering:**
- - T1: Œ Static targets
- - T2: Œ Static targets
+ - T1:  Static targets
+ - T2:  Static targets
  - T3: Interactive goal tracking (basic)
 
 ---
@@ -1253,7 +1253,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Protect sensitive business data
 - **Build Required:** BitLocker setup or encrypted container
 - **Tiering:**
- - T1: Œ No encryption
+ - T1:  No encryption
  - T2: Setup guidance (BitLocker how-to)
  - T3: We configure encryption
 
@@ -1262,8 +1262,8 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Accountability, detect fraud
 - **Build Required:** SharePoint audit log or custom logging
 - **Tiering:**
- - T1: Œ No audit
- - T2: Œ No audit
+ - T1:  No audit
+ - T2:  No audit
  - T3: SharePoint audit log configured
 
 #### **Backup & Recovery**
@@ -1271,7 +1271,7 @@ Tier 3 (Pay difference: Rp 3-11M + start monthly)
 - **Value:** Disaster recovery
 - **Build Required:** Cloud backup script (OneDrive/Google Drive)
 - **Tiering:**
- - T1: Œ Manual backup (user responsibility)
+ - T1:  Manual backup (user responsibility)
  - T2: Backup guidance (we document process)
  - T3: Automated backup configured
 

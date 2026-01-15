@@ -45,7 +45,7 @@ This document serves as the **definitive reference** for all product features, t
 3. **Google Sheets Integration** (multi-user collaboration option)
 4. **One-Click Refresh** (automated data processing)
 5. **Training Content** (5-15 hours Bahasa Indonesia videos + PDFs)
-6. **Setup Support** (14-90 days based on tier)
+6. **Setup Support** (see [[products/02-template-support/02-template-support|Product 02]] for support options)
 
 ### 1.2 Core Value Proposition
 
@@ -105,7 +105,7 @@ Customers have different needs based on:
 | **Dashboard Pages** | 2 pages | 5 pages | 8+ pages |
 | **Excel Templates** | 3 templates | 6 templates | 9 templates |
 | **Video Tutorials** | 5 videos (2 hours) | 10 videos (5 hours) | 15 videos (8 hours) |
-| **Setup Support** | 14 days email | 90 days + 2hr call | Unlimited (see Product 02) |
+| **Setup Support** | Product 02 | Product 02 (extended) | Product 02 (unlimited) |
 | **Setup** | DIY (self-service) | Guided (1:1 call) | Done-for-you (white-glove) |
 | **POS Integration** | Manual CSV import | POS-specific template | Custom API (optional) |
 | **Multi-Outlet** | Single outlet only | 2-5 outlets | 2-15+ outlets |
@@ -813,7 +813,7 @@ Customer buys tier once, owns .pbix file forever. No subscription.
 - Budget-friendly (one payment)
 
 **Cons:**
-- No ongoing support (after 14-90 days)
+- No ongoing support (after initial setup period - see [[Product 02]] for support plans)
 - No automatic updates (must re-buy new versions)
 
 ---
@@ -822,10 +822,9 @@ Customer buys tier once, owns .pbix file forever. No subscription.
 
 Customer pays Rp X/month, gets continuous updates + support.
 
-**Pricing (Proposed v2.0):**
-- Tier 1: Rp 400K/month (Rp 4.8M/year) - includes quarterly updates
-- Tier 2: Rp 900K/month (Rp 10.8M/year) - includes monthly updates + 1hr/month custom work
-- Tier 3: See Product 02 (Rp 400K-2M/month based on service level)
+**Ongoing Support (Optional):**
+- All tiers: See [[products/02-template-support/02-template-support|Product 02]] for optional support plans
+- Tier 3: See Product 02 (support plans range Rp 400K-2M/month based on service level)
 
 ---
 
@@ -847,7 +846,7 @@ Customer pays Rp X/month, gets continuous updates + support.
 - Excel ecosystem (they fail 60% of time, we succeed 92%)
 - F&B metrics (we have 30-150 F&B metrics, they have 10 generic)
 - Bahasa content (they're English-only)
-- Support (we have 14-90 days, they have none)
+- Support (we offer Product 02 support plans, they have none)
 
 **Price Justification:** 2-4x more expensive, but 10x better outcome
 

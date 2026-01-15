@@ -182,7 +182,7 @@
 |--------|----------|--------|
 | **PASS** | 5+ sales, Rp 15M+ revenue, 30%+ demo conversion | -> Proceed to Week 3-4 (build T1-Standard/Plus) |
 | [!] **PARTIAL** | 3-4 sales, Rp 10-12M revenue | -> Extend 1 week, intensify sales, re-evaluate |
-| Œ **FAIL** | 0-2 sales, <Rp 7M revenue | -> Pause, analyze why, pivot pricing/messaging |
+|  **FAIL** | 0-2 sales, <Rp 7M revenue | -> Pause, analyze why, pivot pricing/messaging |
 
 **If PASS:** Allocate time in Week 3-4 to build T1-Standard/Plus modules
 **If FAIL:** Focus 100% on sales/marketing, defer module builds
@@ -550,9 +550,9 @@
 - [!] Stay solo (don't hire yet)
 
 **If Month 1 Missed Targets (<10 customers, <Rp 30M):**
-- Œ Pause T2 build, focus 100% on sales
-- Œ Analyze why (wrong market? Wrong pricing? Wrong product?)
-- Œ Consider pivot (freemium model? Different target segment?)
+-  Pause T2 build, focus 100% on sales
+-  Analyze why (wrong market? Wrong pricing? Wrong product?)
+-  Consider pivot (freemium model? Different target segment?)
 
 ---
 

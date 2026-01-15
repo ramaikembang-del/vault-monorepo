@@ -288,7 +288,7 @@ Learn by customizing our template (save 80% of learning time) vs starting from s
 ```
 Prospect: "What about Tableau?"
 
-Response: "Tableau is amazing€"for 50-outlet chains with dedicated IT teams.
+Response: "Tableau is amazing—for 50-outlet chains with dedicated IT teams.
 
 But for 2-3 outlet operators:
 - Tableau: Rp 2M/month (Rp 24M/year)
@@ -320,7 +320,7 @@ Save Rp 10M/year, get the same insights, built specifically for Indonesian F&B."
 - Value time but budget-conscious
 
 **Why We Win:**
-1. **F&B-Specific:** Metrics like food cost %, patronage ladder, Wolf Pack staff ranking€"built-in
+1. **F&B-Specific:** Metrics like food cost %, patronage ladder, Wolf Pack staff ranking—built-in
 2. **Flexible Pricing:** Rp 3.5M to Rp 19.8M/year (modular tiers for all segments)
 3. **Fast Time-to-Value:** Live in hours/days vs weeks/months
 4. **Indonesian Market Fit:** Bahasa support, cultural context (e.g., "Naik Kelas" messaging)

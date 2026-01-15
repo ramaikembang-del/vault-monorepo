@@ -37,10 +37,10 @@
 ## Why Validate Before Building?
 
 **The Problem with "Build-First":**
-- Œ 3-4 weeks sunk cost if nobody wants it
-- Œ Might build wrong features (what YOU think vs what THEY need)
-- Œ No cash flow while building (burning savings)
-- Œ Feature bloat risk (adding things customers don't care about)
+-  3-4 weeks sunk cost if nobody wants it
+-  Might build wrong features (what YOU think vs what THEY need)
+-  No cash flow while building (burning savings)
+-  Feature bloat risk (adding things customers don't care about)
 
 **The Power of "Validate-First":**
 - Zero build risk if market says "no"
@@ -303,9 +303,9 @@ Appreciate honest feedback!
 #### **Scenario B: Weak Validation (Pivot or Pause)**
 
 **Criteria:**
-- Œ 0-2 verbal commitments
-- Œ 0 deposits
-- Œ <5 waitlist signups
+-  0-2 verbal commitments
+-  0 deposits
+-  <5 waitlist signups
 
 **Action:**
 1. ¸ **Pause building**
@@ -441,7 +441,7 @@ Appreciate your early support!
 
 ## Common Mistakes to Avoid
 
-### Œ Don't Do This:
+###  Don't Do This:
 
 1. **Validation theater** - Going through motions but ignoring "no" signals
  - Fix: Be brutally honest. If market says "meh," don't build.

@@ -556,7 +556,11 @@ Problem: Implies Electron is "better", Power BI is "budget"
 
 **NEW Pricing (RIGHT):**
 ```
-Power BI: Rp 3.5-15M (Desktop Edition - for established businesses, Microsoft ecosystem)
+Power BI Template:
+- Tier 1: Rp 3.5-6M (Desktop Edition - DIY, 30-50 metrics)
+- Tier 2: Rp 7-12M (Desktop Edition - Assisted, 50-100 metrics)
+- Tier 3: Rp 10-15M (Desktop Edition - Managed, 100-150 metrics)
+
 Electron: Rp 10-25M (Web Edition - for mobile-first teams, modern brands)
 
 Both premium, just different editions

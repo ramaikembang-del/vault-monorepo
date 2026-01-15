@@ -529,7 +529,7 @@ You'll see all 5 tables laid out. Now create relationships:
 2. **[[products/01-power-bi-template/training/06-troubleshooting-kb|06-troubleshooting-kb.md]]** - Fix common issues yourself
 3. **[[products/01-power-bi-template/training/03-customer-training-guide|05-customer-training-guide.md]]** - Deep dive training
 
-### Email Support (Tier 1: 30 Days)
+### Setup Support (See Product 02)
 
 **Email:** support@[company].com
 
@@ -542,9 +542,9 @@ You'll see all 5 tables laid out. Now create relationships:
 
 **Response Time:** <72 hours (business days)
 
-**After 30 Days:**
-- Support expires for Tier 1
-- Upgrade to Tier 2 (90 days) or Tier 3 (unlimited) if needed
+**After Initial Setup Period:**
+- See [[products/02-template-support/02-template-support|Product 02]] for ongoing support plans
+- Upgrade to Tier 2 or Tier 3 for extended assistance
 
 ---
 
@@ -602,7 +602,7 @@ You'll see all 5 tables laid out. Now create relationships:
 
 ### Tier 2: Assisted Setup (Retroactive)
 **Price:** Pay difference (Rp 3-4M)
-**Benefit:** 90-day support + 1 free customization
+**Benefit:** Extended setup support (see [[Product 02]]  ) + 1 free customization
 
 ### Tier 3: Fully Managed
 **Price:** Pay difference + Managed Service Subscription (Product 02)

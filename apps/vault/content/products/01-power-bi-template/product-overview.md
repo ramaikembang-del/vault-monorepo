@@ -524,7 +524,7 @@ Kalau ada yang mau lihat demo (30 menit, gratis), DM aja. Happy to help!
 > "POS reports answer 'what happened?' (sales, bestsellers). We answer 'why did it happen and what should I do?' (staff efficiency, customer segmentation, profitability by outlet)."
 
 **vs Hiring BI Consultant (Rp 20-50M):**
-> "Consultant: Rp 20-50M, 2-4 weeks, risky quality. Us: Rp 3.5-15M, live in 3 hours to 5 days, proven template. You get 80% of consultant quality for 20% of the cost and 10% of the time."
+> "Consultant: Rp 20-50M, 2-4 weeks, risky quality. Us: Tier 1 Rp 3.5-6M / Tier 2 Rp 7-12M / Tier 3 Rp 10-15M, live in 3 hours to 5 days, proven template. You get 80% of consultant quality for 20% of the cost and 10% of the time."
 
 ---
 
@@ -895,7 +895,7 @@ Addressing **10 cultural angles** (modal tipis, gaptek, WiFi mati, etc.) creates
 
 ### 4. **Gamification drives retention**
 
-**85% retention vs 50% industry standard** is NOT luck€"it's by design:
+**85% retention vs 50% industry standard** is NOT luck—it's by design:
 
 - Business Health Score (0-100) = progress visibility
 - 52 achievements = guided learning
@@ -1134,7 +1134,7 @@ This is a **meticulously planned product** with:
 **Documentation:** 65+ files across 13 directories
 **Execution Plans:** Week -1 through Month 6 (complete playbooks)
 
-**Key Insight:** This is NOT a Power BI template€"it's a complete F&B data ecosystem with "Sell-First, Build-Second" execution and cultural positioning as the moat.
+**Key Insight:** This is NOT a Power BI template—it's a complete F&B data ecosystem with "Sell-First, Build-Second" execution and cultural positioning as the moat.
 
 **Status:** Execution-Ready. Begin Week -1 preparation immediately.
 

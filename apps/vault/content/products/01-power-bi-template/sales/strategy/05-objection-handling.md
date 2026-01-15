@@ -339,7 +339,7 @@ When are you meeting with them? I'll block my calendar."
 You get:
 - Complete .pbix template
 - Setup documentation
-- 30-day email support
+- Setup support (see [[Product 02]])
 
 **Here's what you need to succeed with Tier 1:**
 - Comfortable with Power BI Desktop (you've used it before, or willing to learn)
@@ -423,7 +423,7 @@ Which sounds better?"
 
 **Our Tier 2:**
 - Rp 6M one-time
-- 90-day support included
+- Extended support (see [[Product 02]])
 - Template already built and tested with real F&B data
 - Updates when we improve the template (Tier 3 gets this automatically)
 
@@ -786,7 +786,7 @@ If you just want me to pick for you: **Go with Option 2 (Rp 9.5M)** - it's the s
 - Pre-formatted Excel templates (30 min setup, not 8 hours)
 - Complete ecosystem (Excel + Power BI + Sheets + Automation)
 - 2-hour assisted setup call (we configure together)
-- 90-day support included
+- Extended support (see [[Product 02]])
 
 **Real cost:**
 - Competitor: Rp 5M product + 8 hours your time (Rp 100K/hour = Rp 800K) + ongoing frustration = **Rp 5.8M + headaches**

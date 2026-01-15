@@ -15,7 +15,7 @@
 1. Power BI dashboard (.pbix file with 30-150 pre-built metrics)
 2. Excel templates (3-9 templates for data entry)
 3. Video tutorials (5-15 hours in Bahasa Indonesia)
-4. Setup support (14-90 days based on tier)
+4. Setup support (see [[products/02-template-support/02-template-support|Product 02]] for support options)
 
 **Not just** a Power BI file - it's the complete ecosystem to get you from manual Excel to automated insights.
 
@@ -43,7 +43,7 @@
 | **Setup Success Rate** | 40% (60% fail) | 92% (beta-validated) |
 | **F&B Specificity** | Generic business metrics | 30-150 F&B-specific metrics |
 | **Language** | English only | Bahasa Indonesia content |
-| **Support** | None (download & good luck) | 14-90 days email/WhatsApp |
+| **Support** | None (download & good luck) | Product 02 support options |
 
 **Bottom line:** We succeed where others fail (92% vs 40% setup success).
 
@@ -90,8 +90,8 @@
 - 4 PDF guides (Setup, Templates, FAQ, Power BI Basics)
 - 14-day email support
 
-**Tier 2 adds:** +40 metrics, +3 templates, 2-hour 1:1 setup call, 90-day support
-**Tier 3 adds:** +30-80 metrics, white-glove setup, unlimited support (see Product 02)
+**Tier 2 adds:** +40 metrics, +3 templates, 2-hour 1:1 setup call, extended support (Product 02)
+**Tier 3 adds:** +30-80 metrics, white-glove setup, unlimited support (see [[Product 02]])
 
 **NOT included:** Power BI Pro license (optional, Rp 140K/month paid to Microsoft if you want cloud features)
 

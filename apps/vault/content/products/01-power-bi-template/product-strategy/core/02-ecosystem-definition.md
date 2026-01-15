@@ -26,12 +26,12 @@
 4. Import Automation Scripts
 5. Video Tutorials (5 x 2-minute)
 
-**Total Value:** Rp 5M+ -> **Your Price:** Rp 3.5-15M (ecosystem bundle, not just template)
+**Total Value:** Rp 5M+ -> **Your Price:** Tier-specific (ecosystem bundle, not just template)
 
 **Tiered Pricing:**
-- **Tier 1 (Essentials):** Rp 3.5-6M - 30-50 metrics
-- **Tier 2 (Professional):** Rp 7-12M - 50-100 metrics
-- **Tier 3 (Enterprise):** Rp 10-15M one-time - 100-150 metrics
+- **Tier 1 (Essentials):** Rp 3.5-6M (30-50 metrics, setup only)
+- **Tier 2 (Professional):** Rp 7-12M (50-100 metrics, setup only)
+- **Tier 3 (Enterprise):** Rp 10-15M (100-150 metrics, setup only, support: see [[Product 02]])
 
 ---
 
@@ -187,7 +187,7 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 - Power Query automation script (one-click refresh)
 - 5 Video tutorials (10 min total)
 - Setup guide (PDF, 10 pages)
-- 30-day email support (72h response)
+- Setup support: See [[products/02-template-support/02-template-support|Product 02]] for support options
 
 **Modular Pricing Options:**
 - **Rp 3.5M:** 30 metrics (Core essentials)
@@ -213,9 +213,9 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 **Time to First Insight:** 30 minutes (vs 8 hours competitors)
 
 **NOT Included:**
-- Œ Live setup call (you follow video tutorials)
-- Œ Custom Excel template (Tier 2 for POS-specific format)
-- Œ Ongoing support after 30 days (or buy Product 02)
+-  Live setup call (you follow video tutorials)
+-  Custom Excel template (Tier 2 for POS-specific format)
+- Ongoing support (see [[Product 02]] for optional support plans)
 
 **Best For:** Tech-savvy operators, budget-conscious, DIY mindset
 
@@ -227,7 +227,7 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 - **4 Excel templates** (Daily-Sales, Food-Cost, Staff-Log + Outlet-Summary for multi-outlet)
 - **Custom template formatting** (matched to YOUR POS export)
 - **2-hour remote setup call** (we do it together on screen-share)
-- **90-day email support** (48h response, 3 months vs 30 days)
+- **Extended setup support** (see [[Product 02]] for support options)
 - **1 free template update** (when we release v1.1)
 - **Google Sheets API setup** (optional, for real-time sync)
 
@@ -245,8 +245,8 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 - We test end-to-end (ensure it works before handoff)
 
 **NOT Included:**
-- Œ Monthly maintenance (one-time setup, then you own it)
-- Œ Strategic consulting (Q&A only, not business advice)
+-  Monthly maintenance (one-time setup, then you own it)
+-  Strategic consulting (Q&A only, not business advice)
 
 **Best For:** Needs implementation help, values time over DIY savings
 
@@ -255,9 +255,8 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 ### Tier 3: Enterprise Managed (Rp 10-15M one-time)
 
 **Everything in Tier 2 PLUS:**
-- **Full setup + ongoing maintenance** (monthly updates, quarterly reviews)
-- **Priority support** (24h email + WhatsApp, vs 48h email T2)
-- **Optional monthly consulting** (1-hour strategy call to interpret data)
+- **Full white-glove setup** (we handle everything)
+- **Ongoing support & consulting** (see [[Product 02]] for managed service plans)
 - **API integration** (auto-sync from Moka/Pawoon, no manual CSV)
 - **Custom modifications** (add/remove metrics, change layout)
 
@@ -273,8 +272,8 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 - Dashboard health check (ensure data accuracy)
 
 **NOT Included:**
-- Œ Real-time data (still daily refresh, not hourly)
-- Œ Multi-user cloud hosting (local Power BI Desktop only)
+-  Real-time data (still daily refresh, not hourly)
+-  Multi-user cloud hosting (local Power BI Desktop only)
 - (For real-time + cloud, upgrade to Full SaaS Platform C1-C4)
 
 **Best For:** "Set it and forget it" preference, wants strategic partner
@@ -285,31 +284,31 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 
 ### Intentional Limitations
 
-**Œ Real-Time Data Refresh:**
+** Real-Time Data Refresh:**
 - Template = daily manual refresh (1 minute)
 - Real-time requires Full SaaS Platform (Rp 300K-8M/month cloud subscription)
 - **Why**: Power BI Desktop is desktop app (not cloud server)
 - **Upgrade Path**: Full SaaS Pro (C2) for hourly auto-refresh
 
-**Œ Multi-Outlet Consolidated View:**
+** Multi-Outlet Consolidated View:**
 - Template = single outlet focus (Tier 2+ has basic multi-outlet via Outlet-Summary.xlsx)
 - Full multi-outlet requires Full SaaS Platform Pro (C2) tier
 - **Why**: Template complexity limited to maintain DIY-friendliness
 - **Upgrade Path**: 3+ outlets -> Full SaaS Pro (Rp 900K-1.2M/month)
 
-**Œ Mobile App:**
+** Mobile App:**
 - Template = desktop Power BI only
 - Mobile requires Full SaaS Platform (responsive web app)
 - **Why**: Power BI Desktop doesn't have mobile app
 - **Upgrade Path**: Full SaaS Basic (C1) for mobile access
 
-**Œ Team Collaboration (Multi-User):**
+** Team Collaboration (Multi-User):**
 - Template = single Power BI file (can share but not collaborative)
 - Multi-user requires Full SaaS with user management
 - **Why**: Power BI Desktop file sharing is clunky
 - **Upgrade Path**: Full SaaS Pro (C2) for team collaboration
 
-**Œ Accounting Module Integration:**
+** Accounting Module Integration:**
 - Template = analytics only (not accounting)
 - Accounting requires R2 (Accounting Module) add-on
 - **Why**: Different domain expertise
@@ -360,9 +359,9 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 - Internet (for Power BI Desktop download, POS CSV export)
 
 **NOT Required:**
-- Œ Power BI Pro license (Power BI Desktop is free)
-- Œ Azure/AWS cloud hosting
-- Œ Dedicated server
+-  Power BI Pro license (Power BI Desktop is free)
+-  Azure/AWS cloud hosting
+-  Dedicated server
 
 ### Data Requirements
 
@@ -386,14 +385,14 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 
 | Feature | A1 Template (Tier 1-3) | Full SaaS Basic (C1) | Full SaaS Pro (C2) |
 |---------|------------------------|----------------------|---------------------|
-| **Price** | Rp 3.5-15M (support optional) (T3) | Rp 300-500K/month | Rp 900K-1.2M/month |
+| **Price** | Rp 3.5-6M (T1) / Rp 7-12M (T2) / Rp 10-15M (T3) - setup only | Rp 300-500K/month | Rp 900K-1.2M/month |
 | **Metrics** | 30-150 (modular) | 30 core (expanding) | 150+ |
 | **Outlets** | 1 | 1 | 2-5 |
 | **Refresh** | Daily manual | Hourly auto | Real-time |
 | **Hosting** | Local desktop | Cloud web app | Cloud |
-| **Mobile** | Œ No | Yes | Yes |
-| **Multi-User** | Œ No | 1-3 users | 3-5 users |
-| **API** | Œ No | Œ No | Yes |
+| **Mobile** |  No | Yes | Yes |
+| **Multi-User** |  No | 1-3 users | 3-5 users |
+| **API** |  No |  No | Yes |
 | **Best For** | Single outlet, budget, DIY | 1 outlet, needs mobile | Multi-outlet chains |
 
 **Decision Guide:**
@@ -437,13 +436,13 @@ Owner (laptop): Downloads as Excel -> Power BI imports -> Dashboard updates
 
 **Format:**
 ```
-"Œ"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"
+""—————————————————————————————————————————————————————
 "‚ DAILY SALES RECORD - [Outlet Name] "‚
-"œ"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"¤
+"œ"————————¬"——————————¬"————————¬"———————¬"————————¬"———————¤
 "‚ Date "‚ Product "‚ Qty "‚ Price "‚ Total "‚ Staff "‚
-"œ"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"¤
+"œ"————————¼"——————————¼"————————¼"———————¼"————————¼"———————¤
 "‚ [Auto] "‚ [Dropdn] "‚ [Type] "‚ [Lkp] "‚ [Auto] "‚ [Drp] "‚
-"""€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"˜
+"""————————´"——————————´"————————´"———————´"————————´"———————˜
 
 Features:
 - Drop-down menus (product list, staff names)
@@ -467,17 +466,17 @@ Features:
 
 **Format:**
 ```
-"Œ"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"
+""——————————————————————————————————————————————————————
 "‚ FOOD COST TRACKER (Recipe-Based) "‚
-"œ"€"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"€"€"€"€"€"¤
+"œ"——————————¬"————————¬"—————————¬"————————¬"——————————————¤
 "‚ Product "‚ Ingred "‚ Qty "‚ Price "‚ Cost/Portion "‚
-"œ"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"€"€"€"€"¤
+"œ"——————————¼"————————¼"—————————¼"————————¼"——————————————¤
 "‚ Nasi Grg "‚ Beras "‚ 150g "‚ Rp20/g "‚ Rp 3,000 "‚
 "‚ "‚ Ayam "‚ 100g "‚ Rp50/g "‚ Rp 5,000 "‚
 "‚ "‚ Telur "‚ 1 pcs "‚ Rp2K "‚ Rp 2,000 "‚
 "‚ "‚ ... "‚ "‚ "‚ "‚
 "‚ "‚ TOTAL "‚ "‚ "‚ Rp 12,000 "‚
-"""€"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"€"€"€"€"€"˜
+"""——————————´"————————´"—————————´"————————´"——————————————˜
 
 Selling Price: Rp 30,000
 Food Cost %: 40% (12K/30K)
@@ -500,14 +499,14 @@ Status: WARNING
 
 **Format:**
 ```
-"Œ"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"
+""———————————————————————————————————————————————————
 "‚ STAFF PERFORMANCE LOG "‚
-"œ"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"€"¤
+"œ"————————¬"——————————¬"—————————¬"—————————¬"——————————¤
 "‚ Date "‚ Staff "‚ Sales "‚ Hours "‚ Rp/Hour "‚
-"œ"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"¤
+"œ"————————¼"——————————¼"—————————¼"—————————¼"——————————¤
 "‚ 15 Dec "‚ Budi "‚ Rp 3M "‚ 8 "‚ Rp 375K "‚
 "‚ 15 Dec "‚ Ani "‚ Rp 2.5M "‚ 8 "‚ Rp 312K "‚
-"""€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"€"˜
+"""————————´"——————————´"—————————´"—————————´"——————————˜
 
 Leaderboard (Auto-Rank):
  Budi: Rp 375K/hour
@@ -530,17 +529,17 @@ Leaderboard (Auto-Rank):
 
 **Format:**
 ```
-"Œ"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"€"
+""————————————————————————————————————————————————————
 "‚ MULTI-OUTLET SUMMARY (Auto-Consolidation) "‚
-"œ"€"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"€"¬"€"€"€"€"€"€"€"€"¤
+"œ"——————————¬"——————————¬"——————————¬"—————————¬"————————¤
 "‚ Outlet "‚ Revenue "‚ Cost "‚ Profit "‚ Margin "‚
-"œ"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"¤
+"œ"——————————¼"——————————¼"——————————¼"—————————¼"————————¤
 "‚ Outlet A "‚ Rp 50M "‚ Rp 35M "‚ Rp 15M "‚ 30% "‚
 "‚ Outlet B "‚ Rp 45M "‚ Rp 32M "‚ Rp 13M "‚ 29% "‚
 "‚ Outlet C "‚ Rp 40M "‚ Rp 30M "‚ Rp 10M "‚ 25% "‚
-"œ"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"€"¼"€"€"€"€"€"€"€"€"¤
+"œ"——————————¼"——————————¼"——————————¼"—————————¼"————————¤
 "‚ TOTAL "‚ Rp 135M "‚ Rp 97M "‚ Rp 38M "‚ 28% "‚
-"""€"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"€"´"€"€"€"€"€"€"€"€"˜
+"""——————————´"——————————´"——————————´"—————————´"————————˜
 
 Links to individual outlet files (auto-updates)
 ```
@@ -832,7 +831,7 @@ Power BI alone = technical product (niche appeal)
 Power BI + Excel/Sheets ecosystem = complete business solution (mass appeal)
 
 **What Changes:**
-- Œ Don't sell "Power BI template"
+-  Don't sell "Power BI template"
 - Sell "Complete F&B Data System"
 
 **Bundle Components:**

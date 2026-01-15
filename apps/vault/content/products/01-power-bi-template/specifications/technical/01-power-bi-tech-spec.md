@@ -541,9 +541,12 @@ Power BI Measures/
 ### BREAKING CHANGE - Modular Framework Migration
 - **Major architectural change:** Migrated from fixed metric model to modular framework
 - Total metrics expanded from 75 to 150, organized into 12 modules
-- Tier configurations now module-based (30-50-100-150 metric ranges)
-- Pricing updated to modular approach (Rp 3.5-15M range)
-
+- Tier configurations now module-based (30-50-100-150 metrics)
+- **Modular Pricing Structure:**
+- Pricing updated to modular approach by tier:
+  - Tier 1: Rp 3.5-6M (30-50 metrics)
+  - Tier 2: Rp 7-12M (50-100 metrics)
+  - Tier 3: Rp 10-15M (100-150 metrics)
 ### Added - Module Organization
 - Base modules (30 metrics): B1 Revenue Core, B2 Menu Essentials, B3 Staff & Customer Basics
 - Tier 1 options (30 metrics): T1-A Revenue Intelligence, T1-B Menu Engineering, T1-C Staff Performance

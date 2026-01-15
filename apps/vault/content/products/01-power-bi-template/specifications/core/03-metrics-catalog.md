@@ -556,8 +556,11 @@ RANKX(
 - Reorganized all 150 metrics into 12 modules (3 base + 3 T1 + 4 T2 + 4 T3)
 - Added tier configurations with module combinations
 - Added module selection guide
-- Updated pricing to reflect modular approach (Rp 3.5-15M range)
-
+- **Pricing:**
+  - Updated pricing to reflect modular approach by tier:
+    - Tier 1: Rp 3.5-6M (30-50 metrics)
+    - Tier 2: Rp 7-12M (50-100 metrics)  
+    - Tier 3: Rp 10-15M (100-150 metrics)
 **Version 1.0 (2025-12-27):**
 - Initial release: 75 metrics across 3 tabs (DEPRECATED)
 
