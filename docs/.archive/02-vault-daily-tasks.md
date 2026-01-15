@@ -170,6 +170,8 @@ This is your daily actionable checklist. Check items off as you go.
 
 ---
 
+## Sprint 2
+
 ### Day 3 (Continued): Session 1: High-Fidelity UI (Est: 1.5 Hours)
 - [ ] **V4/V5 Fusion: The Resizable Workspace**
   - [ ] **Panel System**: Replace static sidebar with `react-resizable-panels` for Notion-style flexibility.

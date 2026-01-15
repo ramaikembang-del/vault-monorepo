@@ -1,0 +1,1520 @@
+
+> vault@0.1.0 test:audit
+> playwright test --reporter=html
+
+[1A[2K[2m[WebServer] [22m [33m[1m⚠[22m[39m Found lockfile missing swc dependencies, patching...
+
+[1A[2K[2m[WebServer] [22mnpm error code ENOWORKSPACES
+[2m[WebServer] [22mnpm error This command does not support workspaces.
+[2m[WebServer] [22mnpm error A complete log of this run can be found in: C:\Users\Adeandza Haqia\AppData\Local\npm-cache\_logs\2026-01-15T03_37_24_119Z-debug-0.log
+
+[1A[2K[2m[WebServer] [22m [31m[1m⨯[22m[39m Failed to patch lockfile, please try uninstalling and reinstalling next in this workspace
+
+[1A[2K[2m[WebServer] [22mTypeError: Cannot read properties of undefined (reading 'os')
+[2m[WebServer] [22m    at fetchPkgInfo [90m(C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\[39mnode_modules\[4mnext[24m\dist\lib\patch-incorrect-lockfile.js:73:25[90m)[39m
+[2m[WebServer] [22m[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+[2m[WebServer] [22m    at async Promise.all (index 0)
+[2m[WebServer] [22m    at async patchIncorrectLockfile [90m(C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\[39mnode_modules\[4mnext[24m\dist\lib\patch-incorrect-lockfile.js:162:26[90m)[39m
+
+
+Running 80 tests using 1 worker
+
+[1A[2K[1/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:24:7 › Phase 1: Core UI Functionality › 01.1 - Toggle button is visible in bottom-right corner
+[1A[2K[2/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:39:7 › Phase 1: Core UI Functionality › 01.2 - Click opens panel with correct animation
+[1A[2K[3/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:54:7 › Phase 1: Core UI Functionality › 01.3 - Icon changes from Palette to X when opened
+[1A[2K  1) [chromium] › tests\studio-tuner\01-core-ui.spec.ts:54:7 › Phase 1: Core UI Functionality › 01.3 - Icon changes from Palette to X when opened 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31m""[39m
+
+      62 |     // The button should now contain X instead of Palette
+      63 |     const buttonContent = await toggleButton.textContent();
+    > 64 |     expect(buttonContent).toBeTruthy();
+         |                           ^
+      65 |   });
+      66 |
+      67 |   test('01.4 - Click again closes panel', async ({ page }) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\01-core-ui.spec.ts:64:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-3db14-om-Palette-to-X-when-opened-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-3db14-om-Palette-to-X-when-opened-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\01-core-ui-Phase-1-Core-UI-3db14-om-Palette-to-X-when-opened-chromium\error-context.md
+
+
+[1A[2K[4/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:67:7 › Phase 1: Core UI Functionality › 01.4 - Click again closes panel
+[1A[2K[5/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:82:7 › Phase 1: Core UI Functionality › 01.5 - Panel has smooth slide-in animation from right
+[1A[2K[6/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:92:7 › Phase 1: Core UI Functionality › 01.6 - Panel has proper z-index (above content)
+[1A[2K  2) [chromium] › tests\studio-tuner\01-core-ui.spec.ts:92:7 › Phase 1: Core UI Functionality › 01.6 - Panel has proper z-index (above content) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m50[39m
+    Received:    [31mNaN[39m
+
+       99 |
+      100 |     // z-50 in Tailwind is z-index: 50
+    > 101 |     expect(parseInt(zIndex)).toBeGreaterThanOrEqual(50);
+          |                              ^
+      102 |   });
+      103 |
+      104 |   test('01.7 - Tab navigation works - Page Layout tab', async ({ page }) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\01-core-ui.spec.ts:101:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-88b9b-oper-z-index-above-content--chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-88b9b-oper-z-index-above-content--chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\01-core-ui-Phase-1-Core-UI-88b9b-oper-z-index-above-content--chromium\error-context.md
+
+
+[1A[2K[7/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:104:7 › Phase 1: Core UI Functionality › 01.7 - Tab navigation works - Page Layout tab
+[1A[2K[8/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:117:7 › Phase 1: Core UI Functionality › 01.8 - Tab navigation works - Navbar tab
+[1A[2K[9/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:130:7 › Phase 1: Core UI Functionality › 01.9 - Active tab is visually highlighted
+[1A[2K[10/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:149:7 › Phase 1: Core UI Functionality › 01.10 - Content switches when tabs change
+[1A[2K[11/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:169:7 › Phase 1: Core UI Functionality › 01.11 - Panel is scrollable
+[1A[2K[12/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:27:7 › Phase 2: Device Mode System › 02.1 - Desktop mode button activates Desktop mode
+[1A[2K[13/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:36:7 › Phase 2: Device Mode System › 02.2 - Tablet mode button activates Tablet mode
+[1A[2K[2m[WebServer] [22m [31m[1m⨯[22m[39m Error: aborted
+[2m[WebServer] [22m    at abortIncoming (node:_http_server:796:17)
+[2m[WebServer] [22m    at socketOnClose (node:_http_server:790:3)
+[2m[WebServer] [22m    at Socket.emit (node:events:530:35)
+[2m[WebServer] [22m    at TCP.<anonymous> (node:net:343:12)
+
+[1A[2K[2m[WebServer] [22mdigest: "454836993"
+
+[1A[2K[14/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:44:7 › Phase 2: Device Mode System › 02.3 - Mobile mode button activates Mobile mode
+[1A[2K[15/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:52:7 › Phase 2: Device Mode System › 02.4 - Only one mode is active at a time
+[1A[2K[16/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:74:7 › Phase 2: Device Mode System › 02.5 - Banner shows for Tablet mode
+[1A[2K[17/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:84:7 › Phase 2: Device Mode System › 02.6 - Banner shows for Mobile mode
+[1A[2K[18/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:93:7 › Phase 2: Device Mode System › 02.7 - Banner hidden for Desktop mode
+[1A[2K[19/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:110:7 › Phase 2: Device Mode System › 02.8 - Banner has correct pulsing animation
+[1A[2K[20/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:124:7 › Phase 2: Device Mode System › 02.9 - CSS variables update on mode change (--nav-collapsed-width)
+[1A[2K[21/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:149:7 › Phase 2: Device Mode System › 02.10 - CSS variables update on mode change (--page-padding-x)
+[1A[2K[22/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:173:7 › Phase 2: Device Mode System › 02.11 - Visual changes reflect in navbar position
+[1A[2K  3) [chromium] › tests\studio-tuner\02-device-modes.spec.ts:173:7 › Phase 2: Device Mode System › 02.11 - Visual changes reflect in navbar position 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('nav').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('nav').first()[22m
+
+
+      178 |     // Navbar should exist and have positioning applied
+      179 |     const navbar = page.locator('nav').first();
+    > 180 |     await expect(navbar).toBeVisible();
+          |                          ^
+      181 |
+      182 |     // Check that navbar has CSS variables applied
+      183 |     const bottom = await navbar.evaluate((el) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\02-device-modes.spec.ts:180:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\02-device-modes-Phase-2-De-5a3dd--reflect-in-navbar-position-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\02-device-modes-Phase-2-De-5a3dd--reflect-in-navbar-position-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\02-device-modes-Phase-2-De-5a3dd--reflect-in-navbar-position-chromium\error-context.md
+
+
+[1A[2K[23/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:190:7 › Phase 2: Device Mode System › 02.12 - Rapid mode switching works correctly
+[1A[2K[24/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:210:7 › Phase 2: Device Mode System › 02.13 - Mode persists when switching tabs
+[1A[2K[25/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:32:7 › Phase 3: Navbar Controls › 03.1 - Container section expands and collapses
+[1A[2K[26/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:47:7 › Phase 3: Navbar Controls › 03.2 - Width (Collapsed) input updates CSS variable
+[1A[2K  4) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:47:7 › Phase 3: Navbar Controls › 03.2 - Width (Collapsed) input updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      59 |
+      60 |     // Change value
+    > 61 |     await input.fill('80px');
+         |                 ^
+      62 |     await page.waitForTimeout(300);
+      63 |
+      64 |     // Verify CSS variable updated
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:61:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-35119--input-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-35119--input-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-35119--input-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[27/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:72:7 › Phase 3: Navbar Controls › 03.3 - Width (Expanded) input updates CSS variable
+[1A[2K  5) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:72:7 › Phase 3: Navbar Controls › 03.3 - Width (Expanded) input updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Expanded)').locator('..').locator('input[type="text"]')[22m
+
+
+      77 |     const input = label.locator('..').locator('input[type="text"]');
+      78 |
+    > 79 |     await input.fill('300px');
+         |                 ^
+      80 |     await page.waitForTimeout(300);
+      81 |
+      82 |     const newValue = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:79:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-a94ee--input-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-a94ee--input-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-a94ee--input-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[28/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:89:7 › Phase 3: Navbar Controls › 03.4 - Orientation dropdown switches between column and row
+[1A[2K[29/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:106:7 › Phase 3: Navbar Controls › 03.5 - Corner Radius slider updates CSS variable
+[1A[2K[30/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:124:7 › Phase 3: Navbar Controls › 03.6 - Background Opacity slider works (0-1 range)
+[1A[2K[31/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:141:7 › Phase 3: Navbar Controls › 03.7 - Logo section expands
+[1A[2K  6) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:141:7 › Phase 3: Navbar Controls › 03.7 - Logo section expands 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('text=Logo Icon Box')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('text=Logo Icon Box')[22m
+
+
+      143 |
+      144 |     // Should see logo-specific controls
+    > 145 |     await expect(page.locator('text=Logo Icon Box')).toBeVisible();
+          |                                                      ^
+      146 |   });
+      147 |
+      148 |   test('03.8 - Logo Icon Size updates CSS variable', async ({ page }) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:145:54
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-65e98-03-7---Logo-section-expands-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-65e98-03-7---Logo-section-expands-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-65e98-03-7---Logo-section-expands-chromium\error-context.md
+
+
+[1A[2K[32/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:148:7 › Phase 3: Navbar Controls › 03.8 - Logo Icon Size updates CSS variable
+[1A[2K  7) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:148:7 › Phase 3: Navbar Controls › 03.8 - Logo Icon Size updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Logo Icon').first().locator('..').locator('..').locator('input[type="range"]')[22m
+
+
+      152 |     const slider = label.locator('..').locator('..').locator('input[type="range"]');
+      153 |
+    > 154 |     await slider.fill('24');
+          |                  ^
+      155 |     await page.waitForTimeout(300);
+      156 |
+      157 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:154:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-bec50-n-Size-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-bec50-n-Size-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-bec50-n-Size-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[33/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:164:7 › Phase 3: Navbar Controls › 03.9 - Navigation Tabs section expands
+[1A[2K  8) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:164:7 › Phase 3: Navbar Controls › 03.9 - Navigation Tabs section expands 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('text=Tab Height')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('text=Tab Height')[22m
+
+
+      165 |     await expandSection(page, 'Navigation Tabs');
+      166 |
+    > 167 |     await expect(page.locator('text=Tab Height')).toBeVisible();
+          |                                                   ^
+      168 |   });
+      169 |
+      170 |   test('03.10 - Tab Height updates CSS variable', async ({ page }) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:167:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-85825-gation-Tabs-section-expands-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-85825-gation-Tabs-section-expands-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-85825-gation-Tabs-section-expands-chromium\error-context.md
+
+
+[1A[2K[34/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:170:7 › Phase 3: Navbar Controls › 03.10 - Tab Height updates CSS variable
+[1A[2K  9) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:170:7 › Phase 3: Navbar Controls › 03.10 - Tab Height updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Tab Height').locator('..').locator('input[type="text"]')[22m
+
+
+      174 |     const input = label.locator('..').locator('input[type="text"]');
+      175 |
+    > 176 |     await input.fill('50px');
+          |                 ^
+      177 |     await page.waitForTimeout(300);
+      178 |
+      179 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:176:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-d8d37-Height-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-d8d37-Height-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-d8d37-Height-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[35/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:186:7 › Phase 3: Navbar Controls › 03.11 - Font Weight dropdown works
+[1A[2K  10) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:186:7 › Phase 3: Navbar Controls › 03.11 - Font Weight dropdown works 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Font Weight').locator('..').locator('select')[22m
+
+
+      190 |     const select = label.locator('..').locator('select');
+      191 |
+    > 192 |     await select.selectOption('700');
+          |                  ^
+      193 |     await page.waitForTimeout(300);
+      194 |
+      195 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:192:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-faaba--Font-Weight-dropdown-works-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-faaba--Font-Weight-dropdown-works-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-faaba--Font-Weight-dropdown-works-chromium\error-context.md
+
+
+[1A[2K[36/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:202:7 › Phase 3: Navbar Controls › 03.12 - Hover Scale slider updates CSS variable
+[1A[2K  11) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:202:7 › Phase 3: Navbar Controls › 03.12 - Hover Scale slider updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Hover Scale').locator('..').locator('..').locator('input[type="range"]')[22m
+
+
+      206 |     const slider = label.locator('..').locator('..').locator('input[type="range"]');
+      207 |
+    > 208 |     await slider.fill('1.05');
+          |                  ^
+      209 |     await page.waitForTimeout(300);
+      210 |
+      211 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:208:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-24b72-slider-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-24b72-slider-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-24b72-slider-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[37/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:218:7 › Phase 3: Navbar Controls › 03.13 - Additional Elements section expands
+[1A[2K  12) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:218:7 › Phase 3: Navbar Controls › 03.13 - Additional Elements section expands 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('text=Theme Toggle')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('text=Theme Toggle')[22m
+
+
+      219 |     await expandSection(page, 'Additional Elements');
+      220 |
+    > 221 |     await expect(page.locator('text=Theme Toggle')).toBeVisible();
+          |                                                     ^
+      222 |   });
+      223 |
+      224 |   test('03.14 - Animation section expands and Type dropdown works', async ({ page }) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:221:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-6bf5e-al-Elements-section-expands-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-6bf5e-al-Elements-section-expands-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-6bf5e-al-Elements-section-expands-chromium\error-context.md
+
+
+[1A[2K[38/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:224:7 › Phase 3: Navbar Controls › 03.14 - Animation section expands and Type dropdown works
+[1A[2K  13) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:224:7 › Phase 3: Navbar Controls › 03.14 - Animation section expands and Type dropdown works 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Animation').first()[22m
+    [2m    - locator resolved to <style>#mermaid-cvy598rob{font-family:inherit;font-size:…</style>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    85 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       9 |
+      10 |   if (!isExpanded) {
+    > 11 |     await section.click();
+         |                   ^
+      12 |     await page.waitForTimeout(500);
+      13 |   }
+      14 | };
+        at expandSection (C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:11:19)
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:225:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-fc5c3-nds-and-Type-dropdown-works-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-fc5c3-nds-and-Type-dropdown-works-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-fc5c3-nds-and-Type-dropdown-works-chromium\error-context.md
+
+
+[1A[2K[39/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:238:7 › Phase 3: Navbar Controls › 03.15 - Animation Type tween shows duration and easing
+[1A[2K  14) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:238:7 › Phase 3: Navbar Controls › 03.15 - Animation Type tween shows duration and easing 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Animation').first()[22m
+    [2m    - locator resolved to <style>#mermaid-7bf2ba4wx{font-family:inherit;font-size:…</style>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    86 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       9 |
+      10 |   if (!isExpanded) {
+    > 11 |     await section.click();
+         |                   ^
+      12 |     await page.waitForTimeout(500);
+      13 |   }
+      14 | };
+        at expandSection (C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:11:19)
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:239:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-a850c-n-shows-duration-and-easing-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-a850c-n-shows-duration-and-easing-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-a850c-n-shows-duration-and-easing-chromium\error-context.md
+
+
+[1A[2K[40/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:32:7 › Phase 4: Page Controls › 04.1 - Global Theme / This Page mode switcher works
+[1A[2K[41/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:45:7 › Phase 4: Page Controls › 04.2 - Layout & Container section expands by default
+[1A[2K[42/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:51:7 › Phase 4: Page Controls › 04.3 - Padding X updates CSS variable
+[1A[2K  15) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:51:7 › Phase 4: Page Controls › 04.3 - Padding X updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Padding X').first().locator('..').locator('input[type="text"]')[22m
+
+
+      55 |     const input = label.locator('..').locator('input[type="text"]');
+      56 |
+    > 57 |     await input.fill('40px');
+         |                 ^
+      58 |     await page.waitForTimeout(300);
+      59 |
+      60 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:57:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-c6888-ding-X-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-c6888-ding-X-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-c6888-ding-X-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[43/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:67:7 › Phase 4: Page Controls › 04.4 - Padding Y updates CSS variable
+[1A[2K  16) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:67:7 › Phase 4: Page Controls › 04.4 - Padding Y updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Padding Y').first().locator('..').locator('input[type="text"]')[22m
+
+
+      71 |     const input = label.locator('..').locator('input[type="text"]');
+      72 |
+    > 73 |     await input.fill('50px');
+         |                 ^
+      74 |     await page.waitForTimeout(300);
+      75 |
+      76 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:73:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-65f6c-ding-Y-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-65f6c-ding-Y-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-65f6c-ding-Y-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[44/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:83:7 › Phase 4: Page Controls › 04.5 - Section Gap updates CSS variable
+[1A[2K  17) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:83:7 › Phase 4: Page Controls › 04.5 - Section Gap updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Section Gap').first().locator('..').locator('input[type="text"]')[22m
+
+
+      87 |     const input = label.locator('..').locator('input[type="text"]');
+      88 |
+    > 89 |     await input.fill('60px');
+         |                 ^
+      90 |     await page.waitForTimeout(300);
+      91 |
+      92 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:89:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-9c99f-on-Gap-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-9c99f-on-Gap-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-9c99f-on-Gap-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[45/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:99:7 › Phase 4: Page Controls › 04.6 - Page Max Width updates CSS variable
+[1A[2K  18) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:99:7 › Phase 4: Page Controls › 04.6 - Page Max Width updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Page Max Width').locator('..').locator('input[type="text"]')[22m
+
+
+      103 |     const input = label.locator('..').locator('input[type="text"]');
+      104 |
+    > 105 |     await input.fill('1200px');
+          |                 ^
+      106 |     await page.waitForTimeout(300);
+      107 |
+      108 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:105:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-9181a--Width-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-9181a--Width-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-9181a--Width-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[46/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:115:7 › Phase 4: Page Controls › 04.7 - Grid System section expands
+[1A[2K  19) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:115:7 › Phase 4: Page Controls › 04.7 - Grid System section expands 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('text=Grid Gap')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('text=Grid Gap')[22m
+
+
+      116 |     await expandSection(page, 'Grid System');
+      117 |
+    > 118 |     await expect(page.locator('text=Grid Gap')).toBeVisible();
+          |                                                 ^
+      119 |     await expect(page.locator('text=Card Gap')).toBeVisible();
+      120 |   });
+      121 |
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:118:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-75396-Grid-System-section-expands-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-75396-Grid-System-section-expands-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-75396-Grid-System-section-expands-chromium\error-context.md
+
+
+[1A[2K[47/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:122:7 › Phase 4: Page Controls › 04.8 - Grid Gap updates CSS variable
+[1A[2K  20) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:122:7 › Phase 4: Page Controls › 04.8 - Grid Gap updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Grid Gap').first().locator('..').locator('input[type="text"]')[22m
+
+
+      126 |     const input = label.locator('..').locator('input[type="text"]');
+      127 |
+    > 128 |     await input.fill('32px');
+          |                 ^
+      129 |     await page.waitForTimeout(300);
+      130 |
+      131 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:128:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-53b19-id-Gap-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-53b19-id-Gap-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-53b19-id-Gap-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[48/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:138:7 › Phase 4: Page Controls › 04.9 - Typography section expands
+[1A[2K[49/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:145:7 › Phase 4: Page Controls › 04.10 - H1 Size updates CSS variable
+[1A[2K  21) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:145:7 › Phase 4: Page Controls › 04.10 - H1 Size updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=H1 Size').locator('..').locator('input[type="text"]')[22m
+
+
+      149 |     const input = label.locator('..').locator('input[type="text"]');
+      150 |
+    > 151 |     await input.fill('48px');
+          |                 ^
+      152 |     await page.waitForTimeout(300);
+      153 |
+      154 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:151:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-19b1b-1-Size-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-19b1b-1-Size-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-19b1b-1-Size-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[50/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:161:7 › Phase 4: Page Controls › 04.11 - Body Size updates CSS variable
+[1A[2K  22) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:161:7 › Phase 4: Page Controls › 04.11 - Body Size updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Body Size').locator('..').locator('input[type="text"]')[22m
+
+
+      165 |     const input = label.locator('..').locator('input[type="text"]');
+      166 |
+    > 167 |     await input.fill('18px');
+          |                 ^
+      168 |     await page.waitForTimeout(300);
+      169 |
+      170 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:167:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-ddef2-y-Size-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-ddef2-y-Size-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-ddef2-y-Size-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[51/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:177:7 › Phase 4: Page Controls › 04.12 - Line Height updates CSS variable
+[1A[2K  23) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:177:7 › Phase 4: Page Controls › 04.12 - Line Height updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Line Height').first().locator('..').locator('input[type="text"]')[22m
+
+
+      181 |     const input = label.locator('..').locator('input[type="text"]');
+      182 |
+    > 183 |     await input.fill('1.8');
+          |                 ^
+      184 |     await page.waitForTimeout(300);
+      185 |
+      186 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:183:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-42181-Height-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-42181-Height-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-42181-Height-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[52/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:193:7 › Phase 4: Page Controls › 04.13 - Components section expands
+[1A[2K  24) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:193:7 › Phase 4: Page Controls › 04.13 - Components section expands 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('text=Card Radius')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('text=Card Radius')[22m
+
+
+      194 |     await expandSection(page, 'Components');
+      195 |
+    > 196 |     await expect(page.locator('text=Card Radius')).toBeVisible();
+          |                                                    ^
+      197 |     await expect(page.locator('text=Button Radius')).toBeVisible();
+      198 |   });
+      199 |
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:196:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-1105a--Components-section-expands-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-1105a--Components-section-expands-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-1105a--Components-section-expands-chromium\error-context.md
+
+
+[1A[2K[53/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:200:7 › Phase 4: Page Controls › 04.14 - Card Radius updates CSS variable
+[1A[2K  25) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:200:7 › Phase 4: Page Controls › 04.14 - Card Radius updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Card Radius').first().locator('..').locator('input[type="text"]')[22m
+
+
+      204 |     const input = label.locator('..').locator('input[type="text"]');
+      205 |
+    > 206 |     await input.fill('16px');
+          |                 ^
+      207 |     await page.waitForTimeout(300);
+      208 |
+      209 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:206:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-508fd-Radius-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-508fd-Radius-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-508fd-Radius-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[54/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:216:7 › Phase 4: Page Controls › 04.15 - Hover Scale slider updates CSS variable
+[1A[2K  26) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:216:7 › Phase 4: Page Controls › 04.15 - Hover Scale slider updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Hover Scale').first().locator('..').locator('..').locator('input[type="range"]')[22m
+
+
+      220 |     const slider = label.locator('..').locator('..').locator('input[type="range"]');
+      221 |
+    > 222 |     await slider.fill('1.05');
+          |                  ^
+      223 |     await page.waitForTimeout(300);
+      224 |
+      225 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:222:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-118da-slider-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-118da-slider-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-118da-slider-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[55/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:232:7 › Phase 4: Page Controls › 04.16 - Animation section expands
+[1A[2K  27) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:232:7 › Phase 4: Page Controls › 04.16 - Animation section expands 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Animation').first()[22m
+    [2m    - locator resolved to <style>#mermaid-k7t08amtp{font-family:inherit;font-size:…</style>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    89 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       9 |
+      10 |   if (!isExpanded) {
+    > 11 |     await section.click();
+         |                   ^
+      12 |     await page.waitForTimeout(500);
+      13 |   }
+      14 | };
+        at expandSection (C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:11:19)
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:233:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-146ca---Animation-section-expands-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-146ca---Animation-section-expands-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-146ca---Animation-section-expands-chromium\error-context.md
+
+
+[1A[2K[56/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:238:7 › Phase 4: Page Controls › 04.17 - Theme Colors section expands
+[1A[2K  28) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:238:7 › Phase 4: Page Controls › 04.17 - Theme Colors section expands 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('text=Hue')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('text=Hue')[22m
+
+
+      239 |     await expandSection(page, 'Theme Colors');
+      240 |
+    > 241 |     await expect(page.locator('text=Hue')).toBeVisible();
+          |                                            ^
+      242 |     await expect(page.locator('text=Saturation')).toBeVisible();
+      243 |   });
+      244 |
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:241:44
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-e1c15-heme-Colors-section-expands-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-e1c15-heme-Colors-section-expands-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-e1c15-heme-Colors-section-expands-chromium\error-context.md
+
+
+[1A[2K[57/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:245:7 › Phase 4: Page Controls › 04.18 - Accent Hue slider updates CSS variable
+[1A[2K  29) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:245:7 › Phase 4: Page Controls › 04.18 - Accent Hue slider updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Hue').first().locator('..').locator('..').locator('input[type="range"]')[22m
+
+
+      249 |     const slider = label.locator('..').locator('..').locator('input[type="range"]');
+      250 |
+    > 251 |     await slider.fill('180');
+          |                  ^
+      252 |     await page.waitForTimeout(300);
+      253 |
+      254 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:251:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-62c68-slider-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-62c68-slider-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-62c68-slider-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[58/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:261:7 › Phase 4: Page Controls › 04.19 - Saturation slider updates CSS variable
+[1A[2K  30) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:261:7 › Phase 4: Page Controls › 04.19 - Saturation slider updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Saturation').locator('..').locator('..').locator('input[type="range"]')[22m
+
+
+      265 |     const slider = label.locator('..').locator('..').locator('input[type="range"]');
+      266 |
+    > 267 |     await slider.fill('75');
+          |                  ^
+      268 |     await page.waitForTimeout(300);
+      269 |
+      270 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:267:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-7b1a1-slider-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-7b1a1-slider-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-7b1a1-slider-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[59/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:277:7 › Phase 4: Page Controls › 04.20 - Card BG Opacity slider updates CSS variable
+[1A[2K  31) [chromium] › tests\studio-tuner\04-page-controls.spec.ts:277:7 › Phase 4: Page Controls › 04.20 - Card BG Opacity slider updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Card BG').locator('..').locator('..').locator('input[type="range"]')[22m
+
+
+      281 |     const slider = label.locator('..').locator('..').locator('input[type="range"]');
+      282 |
+    > 283 |     await slider.fill('0.9');
+          |                  ^
+      284 |     await page.waitForTimeout(300);
+      285 |
+      286 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\04-page-controls.spec.ts:283:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-ca344-slider-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\04-page-controls-Phase-4-P-ca344-slider-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04-page-controls-Phase-4-P-ca344-slider-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[60/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:30:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.1 - Save menu opens when clicking Save button
+[1A[2K[61/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:39:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.2 - Save menu closes when clicking outside
+[1A[2K[62/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:52:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.3 - Quick save to localStorage works (Navbar)
+[1A[2K[2m[WebServer] [22m [31m[1m⨯[22m[39m Error: aborted
+[2m[WebServer] [22m[90m    at abortIncoming (node:_http_server:796:17)[39m
+[2m[WebServer] [22m[90m    at socketOnClose (node:_http_server:790:3)[39m
+[2m[WebServer] [22m[90m    at Socket.emit (node:events:530:35)[39m
+[2m[WebServer] [22m[90m    at TCP.<anonymous> (node:net:343:12)[39m
+[2m[WebServer] [22m[90m    at TCP.callbackTrampoline (node:internal/async_hooks:130:17)[39m
+
+[1A[2K  32) [chromium] › tests\studio-tuner\05-persistence.spec.ts:52:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.3 - Quick save to localStorage works (Navbar) 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      67 |     const label = page.locator('text=Width (Collapsed)');
+      68 |     const input = label.locator('..').locator('input[type="text"]');
+    > 69 |     await input.fill('75px');
+         |                 ^
+      70 |     await page.waitForTimeout(300);
+      71 |
+      72 |     // Open save menu and save
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\05-persistence.spec.ts:69:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-40673--localStorage-works-Navbar--chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-40673--localStorage-works-Navbar--chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\05-persistence-Phase-5-6-S-40673--localStorage-works-Navbar--chromium\error-context.md
+
+
+[1A[2K[63/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:92:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.4 - Saved settings persist after page reload
+[1A[2K  33) [chromium] › tests\studio-tuner\05-persistence.spec.ts:92:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.4 - Saved settings persist after page reload 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      106 |     const label = page.locator('text=Width (Collapsed)');
+      107 |     const input = label.locator('..').locator('input[type="text"]');
+    > 108 |     await input.fill('85px');
+          |                 ^
+      109 |     await page.waitForTimeout(300);
+      110 |
+      111 |     // Save
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\05-persistence.spec.ts:108:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-c99ec-s-persist-after-page-reload-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-c99ec-s-persist-after-page-reload-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\05-persistence-Phase-5-6-S-c99ec-s-persist-after-page-reload-chromium\error-context.md
+
+
+[1A[2K[64/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:133:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.5 - Reset button reverts to hydrated defaults
+[1A[2K  34) [chromium] › tests\studio-tuner\05-persistence.spec.ts:133:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.5 - Reset button reverts to hydrated defaults 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.inputValue: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      148 |     const label = page.locator('text=Width (Collapsed)');
+      149 |     const input = label.locator('..').locator('input[type="text"]');
+    > 150 |     const originalValue = await input.inputValue();
+          |                                       ^
+      151 |
+      152 |     // Change it
+      153 |     await input.fill('99px');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\05-persistence.spec.ts:150:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-bd2d7-everts-to-hydrated-defaults-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-bd2d7-everts-to-hydrated-defaults-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\05-persistence-Phase-5-6-S-bd2d7-everts-to-hydrated-defaults-chromium\error-context.md
+
+
+[1A[2K[65/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:175:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.1 - Desktop values stay independent from Tablet values
+[1A[2K  35) [chromium] › tests\studio-tuner\05-persistence.spec.ts:175:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.1 - Desktop values stay independent from Tablet values 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      194 |     const label = page.locator('text=Width (Collapsed)');
+      195 |     const input = label.locator('..').locator('input[type="text"]');
+    > 196 |     await input.fill('100px');
+          |                 ^
+      197 |     await page.waitForTimeout(300);
+      198 |
+      199 |     // Get desktop value
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\05-persistence.spec.ts:196:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-2662e-ependent-from-Tablet-values-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-2662e-ependent-from-Tablet-values-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\05-persistence-Phase-5-6-S-2662e-ependent-from-Tablet-values-chromium\error-context.md
+
+
+[1A[2K[66/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:230:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.2 - Mobile values stay independent from Desktop values
+[1A[2K  36) [chromium] › tests\studio-tuner\05-persistence.spec.ts:230:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.2 - Mobile values stay independent from Desktop values 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      248 |     const label = page.locator('text=Width (Collapsed)');
+      249 |     const input = label.locator('..').locator('input[type="text"]');
+    > 250 |     await input.fill('120px');
+          |                 ^
+      251 |     await page.waitForTimeout(300);
+      252 |
+      253 |     // Switch to Mobile
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\05-persistence.spec.ts:250:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-71580-pendent-from-Desktop-values-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-71580-pendent-from-Desktop-values-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\05-persistence-Phase-5-6-S-71580-pendent-from-Desktop-values-chromium\error-context.md
+
+
+[1A[2K[67/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:274:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.3 - Shared (non-responsive) values work consistently across modes
+[1A[2K[68/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:27:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.1 - Text inputs accept px values
+[1A[2K  37) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:27:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.1 - Text inputs accept px values 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      41 |     const input = label.locator('..').locator('input[type="text"]');
+      42 |
+    > 43 |     await input.fill('150px');
+         |                 ^
+      44 |     await page.waitForTimeout(300);
+      45 |
+      46 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:43:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-869eb-ext-inputs-accept-px-values-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-869eb-ext-inputs-accept-px-values-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-869eb-ext-inputs-accept-px-values-chromium\error-context.md
+
+
+[1A[2K[69/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:53:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.2 - Text inputs accept percentage values
+[1A[2K  38) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:53:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.2 - Text inputs accept percentage values 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Page Max Width').locator('..').locator('input[type="text"]')[22m
+
+
+      59 |     const input = label.locator('..').locator('input[type="text"]');
+      60 |
+    > 61 |     await input.fill('90%');
+         |                 ^
+      62 |     await page.waitForTimeout(300);
+      63 |
+      64 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:61:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-6ef6a-ts-accept-percentage-values-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-6ef6a-ts-accept-percentage-values-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-6ef6a-ts-accept-percentage-values-chromium\error-context.md
+
+
+[1A[2K[70/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:71:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.3 - Text inputs accept keyword values (auto)
+[1A[2K  39) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:71:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.3 - Text inputs accept keyword values (auto) 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      85 |     const input = label.locator('..').locator('input[type="text"]');
+      86 |
+    > 87 |     await input.fill('auto');
+         |                 ^
+      88 |     await page.waitForTimeout(300);
+      89 |
+      90 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:87:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-5575e-accept-keyword-values-auto--chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-5575e-accept-keyword-values-auto--chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-5575e-accept-keyword-values-auto--chromium\error-context.md
+
+
+[1A[2K[71/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:97:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.4 - Number slider respects min/max bounds
+[1A[2K[72/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:121:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.5 - Opacity slider accepts decimal values (0-1)
+[1A[2K[73/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:147:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.6 - Dropdown shows all options
+[1A[2K[74/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:170:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.7 - Dropdown selection updates value
+[1A[2K[75/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:192:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.8 - Slider is draggable and updates value
+[1A[2K[76/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:227:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.1 - Rapid mode switching with pending changes works
+[1A[2K  40) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:227:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.1 - Rapid mode switching with pending changes works 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      248 |     await desktopButton.click();
+      249 |     await page.waitForTimeout(100);
+    > 250 |     await input.fill('111px');
+          |                 ^
+      251 |
+      252 |     // Rapidly switch without saving
+      253 |     await tabletButton.click();
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:250:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-4c350--with-pending-changes-works-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-4c350--with-pending-changes-works-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-4c350--with-pending-changes-works-chromium\error-context.md
+
+
+[1A[2K[77/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:268:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.2 - Concurrent changes to Navbar and Page work independently
+[1A[2K  41) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:268:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.2 - Concurrent changes to Navbar and Page work independently 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      281 |
+      282 |     const navInput = page.locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]');
+    > 283 |     await navInput.fill('88px');
+          |                    ^
+      284 |     await page.waitForTimeout(300);
+      285 |
+      286 |     // Switch to Page tab and make change
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:283:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-c6412-and-Page-work-independently-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-c6412-and-Page-work-independently-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-c6412-and-Page-work-independently-chromium\error-context.md
+
+
+[1A[2K[78/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:308:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.3 - No console errors during normal operations
+[1A[2K  42) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:308:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.3 - No console errors during normal operations 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      326 |     // Make a change
+      327 |     const input = page.locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]');
+    > 328 |     await input.fill('77px');
+          |                 ^
+      329 |     await page.waitForTimeout(300);
+      330 |
+      331 |     // Switch modes
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:328:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-287fe-rs-during-normal-operations-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-287fe-rs-during-normal-operations-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-287fe-rs-during-normal-operations-chromium\error-context.md
+
+
+[1A[2K[79/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:345:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.4 - Panel closes and reopens without losing state
+[1A[2K  43) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:345:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.4 - Panel closes and reopens without losing state 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      360 |
+      361 |     const input = page.locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]');
+    > 362 |     await input.fill('95px');
+          |                 ^
+      363 |     await page.waitForTimeout(300);
+      364 |
+      365 |     // Close panel
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:362:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-7377f-eopens-without-losing-state-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-7377f-eopens-without-losing-state-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-7377f-eopens-without-losing-state-chromium\error-context.md
+
+
+[1A[2K[80/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:385:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.5 - Individual corner radius controls work
+[1A[2K  44) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:385:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.5 - Individual corner radius controls work 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Top Left').locator('..').locator('input[type="text"]')[22m
+
+
+      403 |     // Set Top Left
+      404 |     const topLeftInput = page.locator('text=Top Left').locator('..').locator('input[type="text"]');
+    > 405 |     await topLeftInput.fill('25px');
+          |                        ^
+      406 |     await page.waitForTimeout(300);
+      407 |
+      408 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:405:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-12771-corner-radius-controls-work-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-12771-corner-radius-controls-work-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-12771-corner-radius-controls-work-chromium\error-context.md
+
+
+[1A[2K  44 failed
+    [chromium] › tests\studio-tuner\01-core-ui.spec.ts:54:7 › Phase 1: Core UI Functionality › 01.3 - Icon changes from Palette to X when opened 
+    [chromium] › tests\studio-tuner\01-core-ui.spec.ts:92:7 › Phase 1: Core UI Functionality › 01.6 - Panel has proper z-index (above content) 
+    [chromium] › tests\studio-tuner\02-device-modes.spec.ts:173:7 › Phase 2: Device Mode System › 02.11 - Visual changes reflect in navbar position 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:47:7 › Phase 3: Navbar Controls › 03.2 - Width (Collapsed) input updates CSS variable 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:72:7 › Phase 3: Navbar Controls › 03.3 - Width (Expanded) input updates CSS variable 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:141:7 › Phase 3: Navbar Controls › 03.7 - Logo section expands 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:148:7 › Phase 3: Navbar Controls › 03.8 - Logo Icon Size updates CSS variable 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:164:7 › Phase 3: Navbar Controls › 03.9 - Navigation Tabs section expands 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:170:7 › Phase 3: Navbar Controls › 03.10 - Tab Height updates CSS variable 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:186:7 › Phase 3: Navbar Controls › 03.11 - Font Weight dropdown works 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:202:7 › Phase 3: Navbar Controls › 03.12 - Hover Scale slider updates CSS variable 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:218:7 › Phase 3: Navbar Controls › 03.13 - Additional Elements section expands 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:224:7 › Phase 3: Navbar Controls › 03.14 - Animation section expands and Type dropdown works 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:238:7 › Phase 3: Navbar Controls › 03.15 - Animation Type tween shows duration and easing 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:51:7 › Phase 4: Page Controls › 04.3 - Padding X updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:67:7 › Phase 4: Page Controls › 04.4 - Padding Y updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:83:7 › Phase 4: Page Controls › 04.5 - Section Gap updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:99:7 › Phase 4: Page Controls › 04.6 - Page Max Width updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:115:7 › Phase 4: Page Controls › 04.7 - Grid System section expands 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:122:7 › Phase 4: Page Controls › 04.8 - Grid Gap updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:145:7 › Phase 4: Page Controls › 04.10 - H1 Size updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:161:7 › Phase 4: Page Controls › 04.11 - Body Size updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:177:7 › Phase 4: Page Controls › 04.12 - Line Height updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:193:7 › Phase 4: Page Controls › 04.13 - Components section expands 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:200:7 › Phase 4: Page Controls › 04.14 - Card Radius updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:216:7 › Phase 4: Page Controls › 04.15 - Hover Scale slider updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:232:7 › Phase 4: Page Controls › 04.16 - Animation section expands 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:238:7 › Phase 4: Page Controls › 04.17 - Theme Colors section expands 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:245:7 › Phase 4: Page Controls › 04.18 - Accent Hue slider updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:261:7 › Phase 4: Page Controls › 04.19 - Saturation slider updates CSS variable 
+    [chromium] › tests\studio-tuner\04-page-controls.spec.ts:277:7 › Phase 4: Page Controls › 04.20 - Card BG Opacity slider updates CSS variable 
+    [chromium] › tests\studio-tuner\05-persistence.spec.ts:52:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.3 - Quick save to localStorage works (Navbar) 
+    [chromium] › tests\studio-tuner\05-persistence.spec.ts:92:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.4 - Saved settings persist after page reload 
+    [chromium] › tests\studio-tuner\05-persistence.spec.ts:133:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.5 - Reset button reverts to hydrated defaults 
+    [chromium] › tests\studio-tuner\05-persistence.spec.ts:175:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.1 - Desktop values stay independent from Tablet values 
+    [chromium] › tests\studio-tuner\05-persistence.spec.ts:230:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.2 - Mobile values stay independent from Desktop values 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:27:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.1 - Text inputs accept px values 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:53:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.2 - Text inputs accept percentage values 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:71:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.3 - Text inputs accept keyword values (auto) 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:227:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.1 - Rapid mode switching with pending changes works 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:268:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.2 - Concurrent changes to Navbar and Page work independently 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:308:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.3 - No console errors during normal operations 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:345:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.4 - Panel closes and reopens without losing state 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:385:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.5 - Individual corner radius controls work 
+  36 passed (42.3m)
+npm error Lifecycle script `test:audit` failed with error:
+npm error code 1
+npm error path C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault
+npm error workspace vault@0.1.0
+npm error location C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c playwright test --reporter=html

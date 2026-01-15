@@ -19,7 +19,7 @@ The **Accounts Admin Panel** is a centralized dashboard for managing team access
 ## 2. Strategic Context
 
 * **Problem:** Multiple Lab sites need access control, but we don't want to manage passwords manually or use Clerk's default dashboard (not branded, too generic).
-* **Solution:** Custom admin panel at `accounts.klario.world` that uses Clerk's API to manage user access via metadata flags.
+* **Solution:** Custom admin panel at `vault.klario-world.com/admin` that uses Clerk's API to manage user access via metadata flags.
 * **Users:** You (founder/admin), future Operations Partner.
 
 ---
@@ -105,7 +105,7 @@ export default authMiddleware({
 ```json
 {
  "publicMetadata": {
- "role": "admin", // Only for accounts.klario.world access
+ "role": "admin", // Only for vault.klario-world.com/admin access
  "productsLabAccess": true,
  "bizLabAccess": true
  }
@@ -147,7 +147,7 @@ npx shadcn@latest add data-table form input checkbox table button
 
 ### 5.1 Add New Team Member
 
-1. Admin opens `accounts.klario.world`
+1. Admin opens `vault.klario-world.com/admin`
 2. Clicks "Add User"
 3. Enters email: `newteam@clario.id`
 4. Clicks "Send Invitation"
@@ -156,7 +156,7 @@ npx shadcn@latest add data-table form input checkbox table button
 7. Admin grants access:
  - Products Lab Access
  - Biz Lab Access (not needed yet)
-8. User can now login to `products.klario.world`
+8. User can now login to `vault.klario-world.com/products`
 
 ### 5.2 Revoke Access (Team Member Leaves)
 
@@ -179,7 +179,7 @@ npx shadcn@latest add data-table form input checkbox table button
 **How to Set:**
 1. Create your account on Clerk dashboard
 2. Manually set `publicMetadata.role = 'admin'` in Clerk UI
-3. Deploy admin panel → You can now access `accounts.klario.world`
+3. Deploy admin panel → You can now access `vault.klario-world.com/admin`
 
 ### 6.2 Audit Trail
 
@@ -235,7 +235,7 @@ npx shadcn@latest add data-table form input checkbox table button
 **Day 4: Polish + Deploy**
 - Mobile responsive
 - Error handling
-- Deploy to Vercel (accounts.klario.world)
+- Deploy to Vercel as part of unified vault.klario-world.com
 
 **Total:** 4 days (can be done in parallel with Lab builds)
 

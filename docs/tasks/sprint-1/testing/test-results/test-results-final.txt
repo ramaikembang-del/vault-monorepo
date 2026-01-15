@@ -1,0 +1,609 @@
+
+> vault@0.1.0 test:audit
+> playwright test --reporter=html
+
+[1A[2K[2m[WebServer] [22m [33m[1m⚠[22m[39m Found lockfile missing swc dependencies, patching...
+
+[1A[2K[2m[WebServer] [22mnpm error code ENOWORKSPACES
+[2m[WebServer] [22mnpm error This command does not support workspaces.
+[2m[WebServer] [22mnpm error A complete log of this run can be found in: C:\Users\Adeandza Haqia\AppData\Local\npm-cache\_logs\2026-01-15T07_23_13_656Z-debug-0.log
+
+[1A[2K[2m[WebServer] [22m [31m[1m⨯[22m[39m Failed to patch lockfile, please try uninstalling and reinstalling next in this workspace
+
+[1A[2K[2m[WebServer] [22mTypeError: Cannot read properties of undefined (reading 'os')
+[2m[WebServer] [22m    at fetchPkgInfo [90m(C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\[39mnode_modules\[4mnext[24m\dist\lib\patch-incorrect-lockfile.js:73:25[90m)[39m
+[2m[WebServer] [22m[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+[2m[WebServer] [22m    at async Promise.all (index 0)
+[2m[WebServer] [22m    at async patchIncorrectLockfile [90m(C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\[39mnode_modules\[4mnext[24m\dist\lib\patch-incorrect-lockfile.js:162:26[90m)[39m
+
+
+Running 80 tests using 1 worker
+
+[1A[2K[1/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:45:7 › Phase 1: Core UI Functionality › 01.1 - Toggle button is visible in bottom-right corner
+[1A[2K[2/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:60:7 › Phase 1: Core UI Functionality › 01.2 - Click opens panel with correct animation
+[1A[2K[3/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:75:7 › Phase 1: Core UI Functionality › 01.3 - Icon changes from Palette to X when opened
+[1A[2K  1) [chromium] › tests\studio-tuner\01-core-ui.spec.ts:75:7 › Phase 1: Core UI Functionality › 01.3 - Icon changes from Palette to X when opened 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31m""[39m
+
+      83 |     // The button should now contain X instead of Palette
+      84 |     const buttonContent = await toggleButton.textContent();
+    > 85 |     expect(buttonContent).toBeTruthy();
+         |                           ^
+      86 |   });
+      87 |
+      88 |   test('01.4 - Click again closes panel', async ({ page }) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\01-core-ui.spec.ts:85:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-3db14-om-Palette-to-X-when-opened-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-3db14-om-Palette-to-X-when-opened-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\01-core-ui-Phase-1-Core-UI-3db14-om-Palette-to-X-when-opened-chromium\error-context.md
+
+
+[1A[2K[4/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:88:7 › Phase 1: Core UI Functionality › 01.4 - Click again closes panel
+[1A[2K[5/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:103:7 › Phase 1: Core UI Functionality › 01.5 - Panel has smooth slide-in animation from right
+[1A[2K[6/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:113:7 › Phase 1: Core UI Functionality › 01.6 - Panel has proper z-index (above content)
+[1A[2K  2) [chromium] › tests\studio-tuner\01-core-ui.spec.ts:113:7 › Phase 1: Core UI Functionality › 01.6 - Panel has proper z-index (above content) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m50[39m
+    Received:    [31mNaN[39m
+
+      120 |
+      121 |     // z-50 in Tailwind is z-index: 50
+    > 122 |     expect(parseInt(zIndex)).toBeGreaterThanOrEqual(50);
+          |                              ^
+      123 |   });
+      124 |
+      125 |   test('01.7 - Tab navigation works - Page Layout tab', async ({ page }) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\01-core-ui.spec.ts:122:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-88b9b-oper-z-index-above-content--chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\01-core-ui-Phase-1-Core-UI-88b9b-oper-z-index-above-content--chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\01-core-ui-Phase-1-Core-UI-88b9b-oper-z-index-above-content--chromium\error-context.md
+
+
+[1A[2K[7/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:125:7 › Phase 1: Core UI Functionality › 01.7 - Tab navigation works - Page Layout tab
+[1A[2K[8/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:138:7 › Phase 1: Core UI Functionality › 01.8 - Tab navigation works - Navbar tab
+[1A[2K[9/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:151:7 › Phase 1: Core UI Functionality › 01.9 - Active tab is visually highlighted
+[1A[2K[10/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:170:7 › Phase 1: Core UI Functionality › 01.10 - Content switches when tabs change
+[1A[2K[11/80] [chromium] › tests\studio-tuner\01-core-ui.spec.ts:190:7 › Phase 1: Core UI Functionality › 01.11 - Panel is scrollable
+[1A[2K[12/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:48:7 › Phase 2: Device Mode System › 02.1 - Desktop mode button activates Desktop mode
+[1A[2K[13/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:57:7 › Phase 2: Device Mode System › 02.2 - Tablet mode button activates Tablet mode
+[1A[2K[14/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:65:7 › Phase 2: Device Mode System › 02.3 - Mobile mode button activates Mobile mode
+[1A[2K[15/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:73:7 › Phase 2: Device Mode System › 02.4 - Only one mode is active at a time
+[1A[2K[16/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:95:7 › Phase 2: Device Mode System › 02.5 - Banner shows for Tablet mode
+[1A[2K[17/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:105:7 › Phase 2: Device Mode System › 02.6 - Banner shows for Mobile mode
+[1A[2K[18/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:114:7 › Phase 2: Device Mode System › 02.7 - Banner hidden for Desktop mode
+[1A[2K[19/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:131:7 › Phase 2: Device Mode System › 02.8 - Banner has correct pulsing animation
+[1A[2K[20/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:145:7 › Phase 2: Device Mode System › 02.9 - CSS variables update on mode change (--nav-collapsed-width)
+[1A[2K[21/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:170:7 › Phase 2: Device Mode System › 02.10 - CSS variables update on mode change (--page-padding-x)
+[1A[2K[22/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:194:7 › Phase 2: Device Mode System › 02.11 - Visual changes reflect in navbar position
+[1A[2K  3) [chromium] › tests\studio-tuner\02-device-modes.spec.ts:194:7 › Phase 2: Device Mode System › 02.11 - Visual changes reflect in navbar position 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('nav').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('nav').first()[22m
+
+
+      199 |     // Navbar should exist and have positioning applied
+      200 |     const navbar = page.locator('nav').first();
+    > 201 |     await expect(navbar).toBeVisible();
+          |                          ^
+      202 |
+      203 |     // Check that navbar has CSS variables applied
+      204 |     const bottom = await navbar.evaluate((el) => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\02-device-modes.spec.ts:201:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\02-device-modes-Phase-2-De-5a3dd--reflect-in-navbar-position-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\02-device-modes-Phase-2-De-5a3dd--reflect-in-navbar-position-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\02-device-modes-Phase-2-De-5a3dd--reflect-in-navbar-position-chromium\error-context.md
+
+
+[1A[2K[23/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:211:7 › Phase 2: Device Mode System › 02.12 - Rapid mode switching works correctly
+[1A[2K[24/80] [chromium] › tests\studio-tuner\02-device-modes.spec.ts:231:7 › Phase 2: Device Mode System › 02.13 - Mode persists when switching tabs
+[1A[2K[25/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:53:7 › Phase 3: Navbar Controls › 03.1 - Container section expands and collapses
+[1A[2K[26/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:68:7 › Phase 3: Navbar Controls › 03.2 - Width (Collapsed) input updates CSS variable
+[1A[2K[27/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:92:7 › Phase 3: Navbar Controls › 03.3 - Width (Expanded) input updates CSS variable
+[1A[2K[28/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:108:7 › Phase 3: Navbar Controls › 03.4 - Orientation dropdown switches between column and row
+[1A[2K  4) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:108:7 › Phase 3: Navbar Controls › 03.4 - Orientation dropdown switches between column and row 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Orientation').locator('..').locator('..').locator('select').first()[22m
+    [2m    - locator resolved to <select title="Switch unit" class="h-7 px-1 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 cursor-pointer font-mono">…</select>[22m
+    [2m  - attempting select option action[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m      - waiting 100ms[22m
+    [2m    108 × waiting for element to be visible and enabled[22m
+    [2m        - did not find some options[22m
+    [2m      - retrying select option action[22m
+    [2m        - waiting 500ms[22m
+
+
+      112 |     const select = getSelect(page, 'Orientation');
+      113 |
+    > 114 |     await select.selectOption('row');
+          |                  ^
+      115 |     await page.waitForTimeout(300);
+      116 |
+      117 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:114:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-bc4f7-ches-between-column-and-row-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-bc4f7-ches-between-column-and-row-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-bc4f7-ches-between-column-and-row-chromium\error-context.md
+
+
+[1A[2K[29/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:124:7 › Phase 3: Navbar Controls › 03.5 - Corner Radius slider updates CSS variable
+[1A[2K[30/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:142:7 › Phase 3: Navbar Controls › 03.6 - Background Opacity slider works (0-1 range)
+[1A[2K[31/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:159:7 › Phase 3: Navbar Controls › 03.7 - Logo section expands
+[1A[2K[32/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:166:7 › Phase 3: Navbar Controls › 03.8 - Logo Icon Size updates CSS variable
+[1A[2K  5) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:166:7 › Phase 3: Navbar Controls › 03.8 - Logo Icon Size updates CSS variable 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Logo Icon').first().locator('..').locator('..').locator('input[type="range"]')[22m
+
+
+      170 |     const slider = label.locator('..').locator('..').locator('input[type="range"]');
+      171 |
+    > 172 |     await slider.fill('24');
+          |                  ^
+      173 |     await page.waitForTimeout(300);
+      174 |
+      175 |     const value = await page.evaluate(() => {
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:172:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-bec50-n-Size-updates-CSS-variable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-bec50-n-Size-updates-CSS-variable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-bec50-n-Size-updates-CSS-variable-chromium\error-context.md
+
+
+[1A[2K[33/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:182:7 › Phase 3: Navbar Controls › 03.9 - Navigation Tabs section expands
+[1A[2K[34/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:188:7 › Phase 3: Navbar Controls › 03.10 - Tab Height updates CSS variable
+[1A[2K[35/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:203:7 › Phase 3: Navbar Controls › 03.11 - Font Weight dropdown works
+[1A[2K  6) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:203:7 › Phase 3: Navbar Controls › 03.11 - Font Weight dropdown works 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Font Weight').locator('..').locator('..').locator('select').first()[22m
+    [2m    - locator resolved to <select title="Switch unit" class="h-7 px-1 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 cursor-pointer font-mono">…</select>[22m
+    [2m  - attempting select option action[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m      - waiting 100ms[22m
+    [2m    104 × waiting for element to be visible and enabled[22m
+    [2m        - did not find some options[22m
+    [2m      - retrying select option action[22m
+    [2m        - waiting 500ms[22m
+
+
+      206 |
+      207 |     expect(value).toBe('50px');
+    > 208 |   });
+          |                ^
+      209 |
+      210 |   test('03.11 - Font Weight dropdown works', async ({ page }) => {
+      211 |     await expandSection(page, 'Navigation Tabs');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:208:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-faaba--Font-Weight-dropdown-works-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-faaba--Font-Weight-dropdown-works-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-faaba--Font-Weight-dropdown-works-chromium\error-context.md
+
+
+[1A[2K[36/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:218:7 › Phase 3: Navbar Controls › 03.12 - Hover Scale slider updates CSS variable
+[1A[2K[37/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:234:7 › Phase 3: Navbar Controls › 03.13 - Additional Elements section expands
+[1A[2K[38/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:240:7 › Phase 3: Navbar Controls › 03.14 - Animation section expands and Type dropdown works
+[1A[2K  7) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:240:7 › Phase 3: Navbar Controls › 03.14 - Animation section expands and Type dropdown works 
+
+    Error: locator.selectOption: Error: strict mode violation: locator('text=Type').last().locator('..').locator('..').locator('select') resolved to 2 elements:
+        1) <select class="w-full h-8 px-2 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-mono shadow-sm appearance-none cursor-pointer">…</select> aka locator('div:nth-child(5) > .overflow-hidden > .p-3 > div > .w-full').first()
+        2) <select class="w-full h-8 px-2 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-mono shadow-sm appearance-none cursor-pointer">…</select> aka locator('.p-3.space-y-3.border-t > div:nth-child(3) > .w-full')
+
+    Call log:
+    [2m  - waiting for locator('text=Type').last().locator('..').locator('..').locator('select')[22m
+
+
+      244 |     await expect(page.locator('text=Theme Toggle')).toBeVisible();
+      245 |   });
+    > 246 |
+          | ^
+      247 |   test('03.14 - Animation section expands and Type dropdown works', async ({ page }) => {
+      248 |     await expandSection(page, 'Animation');
+      249 |
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:246:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-fc5c3-nds-and-Type-dropdown-works-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-fc5c3-nds-and-Type-dropdown-works-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-fc5c3-nds-and-Type-dropdown-works-chromium\error-context.md
+
+
+[1A[2K[39/80] [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:254:7 › Phase 3: Navbar Controls › 03.15 - Animation Type tween shows duration and easing
+[1A[2K  8) [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:254:7 › Phase 3: Navbar Controls › 03.15 - Animation Type tween shows duration and easing 
+
+    Error: locator.selectOption: Error: strict mode violation: locator('text=Type').last().locator('..').locator('..').locator('select') resolved to 2 elements:
+        1) <select class="w-full h-8 px-2 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-mono shadow-sm appearance-none cursor-pointer">…</select> aka locator('div:nth-child(5) > .overflow-hidden > .p-3 > div > .w-full').first()
+        2) <select class="w-full h-8 px-2 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-mono shadow-sm appearance-none cursor-pointer">…</select> aka locator('.p-3.space-y-3.border-t > div:nth-child(3) > .w-full')
+
+    Call log:
+    [2m  - waiting for locator('text=Type').last().locator('..').locator('..').locator('select')[22m
+
+
+      258 |     await expect(page.locator('text=Damping').last()).toBeVisible();
+      259 |   });
+    > 260 |
+          | ^
+      261 |   test('03.15 - Animation Type tween shows duration and easing', async ({ page }) => {
+      262 |     await expandSection(page, 'Animation');
+      263 |
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\03-navbar-controls.spec.ts:260:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-a850c-n-shows-duration-and-easing-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\03-navbar-controls-Phase-3-a850c-n-shows-duration-and-easing-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\03-navbar-controls-Phase-3-a850c-n-shows-duration-and-easing-chromium\error-context.md
+
+
+[1A[2K[40/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:53:7 › Phase 4: Page Controls › 04.1 - Global Theme / This Page mode switcher works
+[1A[2K[41/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:66:7 › Phase 4: Page Controls › 04.2 - Layout & Container section expands by default
+[1A[2K[42/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:72:7 › Phase 4: Page Controls › 04.3 - Padding X updates CSS variable
+[1A[2K[43/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:87:7 › Phase 4: Page Controls › 04.4 - Padding Y updates CSS variable
+[1A[2K[44/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:102:7 › Phase 4: Page Controls › 04.5 - Section Gap updates CSS variable
+[1A[2K[45/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:117:7 › Phase 4: Page Controls › 04.6 - Page Max Width updates CSS variable
+[1A[2K[46/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:132:7 › Phase 4: Page Controls › 04.7 - Grid System section expands
+[1A[2K[47/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:139:7 › Phase 4: Page Controls › 04.8 - Grid Gap updates CSS variable
+[1A[2K[48/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:154:7 › Phase 4: Page Controls › 04.9 - Typography section expands
+[1A[2K[49/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:161:7 › Phase 4: Page Controls › 04.10 - H1 Size updates CSS variable
+[1A[2K[50/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:176:7 › Phase 4: Page Controls › 04.11 - Body Size updates CSS variable
+[1A[2K[51/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:191:7 › Phase 4: Page Controls › 04.12 - Line Height updates CSS variable
+[1A[2K[52/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:206:7 › Phase 4: Page Controls › 04.13 - Components section expands
+[1A[2K[53/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:213:7 › Phase 4: Page Controls › 04.14 - Card Radius updates CSS variable
+[1A[2K[54/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:228:7 › Phase 4: Page Controls › 04.15 - Hover Scale slider updates CSS variable
+[1A[2K[55/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:244:7 › Phase 4: Page Controls › 04.16 - Animation section expands
+[1A[2K[56/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:250:7 › Phase 4: Page Controls › 04.17 - Theme Colors section expands
+[1A[2K[57/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:257:7 › Phase 4: Page Controls › 04.18 - Accent Hue slider updates CSS variable
+[1A[2K[58/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:273:7 › Phase 4: Page Controls › 04.19 - Saturation slider updates CSS variable
+[1A[2K[59/80] [chromium] › tests\studio-tuner\04-page-controls.spec.ts:289:7 › Phase 4: Page Controls › 04.20 - Card BG Opacity slider updates CSS variable
+[1A[2K[60/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:51:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.1 - Save menu opens when clicking Save button
+[1A[2K[61/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:60:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.2 - Save menu closes when clicking outside
+[1A[2K[62/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:73:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.3 - Quick save to localStorage works (Navbar)
+[1A[2K[63/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:112:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.4 - Saved settings persist after page reload
+[1A[2K[64/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:152:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 05.5 - Reset button reverts to hydrated defaults
+[1A[2K[65/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:193:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.1 - Desktop values stay independent from Tablet values
+[1A[2K[66/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:247:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.2 - Mobile values stay independent from Desktop values
+[1A[2K[2m[WebServer] [22m [31m[1m⨯[22m[39m Error: aborted
+[2m[WebServer] [22m[90m    at abortIncoming (node:_http_server:796:17)[39m
+[2m[WebServer] [22m[90m    at socketOnClose (node:_http_server:790:3)[39m
+[2m[WebServer] [22m[90m    at Socket.emit (node:events:530:35)[39m
+[2m[WebServer] [22m[90m    at TCP.<anonymous> (node:net:343:12)[39m
+[2m[WebServer] [22m[90m    at TCP.callbackTrampoline (node:internal/async_hooks:130:17)[39m
+
+[1A[2K  9) [chromium] › tests\studio-tuner\05-persistence.spec.ts:247:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.2 - Mobile values stay independent from Desktop values 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('button').filter({ hasText: 'Navbar' })[22m
+
+
+      247 |     expect(desktopValueAfter).toBe('100px');
+      248 |   });
+    > 249 |
+          | ^
+      250 |   test('06.2 - Mobile values stay independent from Desktop values', async ({ page }) => {
+      251 |     const navbarTab = page.locator('button', { hasText: 'Navbar' });
+      252 |     await navbarTab.click();
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\05-persistence.spec.ts:249:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-71580-pendent-from-Desktop-values-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\05-persistence-Phase-5-6-S-71580-pendent-from-Desktop-values-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\05-persistence-Phase-5-6-S-71580-pendent-from-Desktop-values-chromium\error-context.md
+
+
+[1A[2K[67/80] [chromium] › tests\studio-tuner\05-persistence.spec.ts:290:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.3 - Shared (non-responsive) values work consistently across modes
+[1A[2K[68/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:48:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.1 - Text inputs accept px values
+[1A[2K[69/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:73:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.2 - Text inputs accept percentage values
+[1A[2K[70/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:90:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.3 - Text inputs accept keyword values (auto)
+[1A[2K[71/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:115:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.4 - Number slider respects min/max bounds
+[1A[2K[72/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:139:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.5 - Opacity slider accepts decimal values (0-1)
+[1A[2K[73/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:165:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.6 - Dropdown shows all options
+[1A[2K  10) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:165:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.6 - Dropdown shows all options 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected value: [32m"column"[39m
+    Received array: [31m["px", "rem", "em"][39m
+
+      181 |     const select = getSelect(page, 'Orientation');
+      182 |
+    > 183 |     // Get all options
+          |                     ^
+      184 |     const options = await select.locator('option').allTextContents();
+      185 |
+      186 |     expect(options).toContain('column');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:183:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-a3c54--Dropdown-shows-all-options-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-a3c54--Dropdown-shows-all-options-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-a3c54--Dropdown-shows-all-options-chromium\error-context.md
+
+
+[1A[2K[74/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:187:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.7 - Dropdown selection updates value
+[1A[2K  11) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:187:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.7 - Dropdown selection updates value 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Font Weight').locator('..').locator('..').locator('select').first()[22m
+    [2m    - locator resolved to <select title="Switch unit" class="h-7 px-1 text-xs bg-background border rounded-md focus:outline-none focus:ring-1 focus:ring-primary/20 cursor-pointer font-mono">…</select>[22m
+    [2m  - attempting select option action[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m      - waiting 100ms[22m
+    [2m    105 × waiting for element to be visible and enabled[22m
+    [2m        - did not find some options[22m
+    [2m      - retrying select option action[22m
+    [2m        - waiting 500ms[22m
+
+
+      196 |     await tabsSection.click();
+      197 |     await page.waitForTimeout(500);
+    > 198 |
+          | ^
+      199 |     const select = getSelect(page, 'Font Weight');
+      200 |
+      201 |     await select.selectOption('600');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:198:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-531a3-own-selection-updates-value-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-531a3-own-selection-updates-value-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-531a3-own-selection-updates-value-chromium\error-context.md
+
+
+[1A[2K[75/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:208:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.8 - Slider is draggable and updates value
+[1A[2K[76/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:243:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.1 - Rapid mode switching with pending changes works
+[1A[2K[77/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:283:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.2 - Concurrent changes to Navbar and Page work independently
+[1A[2K  12) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:283:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.2 - Concurrent changes to Navbar and Page work independently 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      296 |       await containerSection.locator('button').first().click();
+      297 |       await page.waitForTimeout(300);
+    > 298 |     }
+          |      ^
+      299 |
+      300 |     const navInput = page.locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]');
+      301 |     await navInput.fill('88px');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:298:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-c6412-and-Page-work-independently-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-c6412-and-Page-work-independently-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-c6412-and-Page-work-independently-chromium\error-context.md
+
+
+[1A[2K[78/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:323:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.3 - No console errors during normal operations
+[1A[2K  13) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:323:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.3 - No console errors during normal operations 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      341 |     await containerSection.locator('button').first().click();
+      342 |     await page.waitForTimeout(300);
+    > 343 |
+          | ^
+      344 |     // Make a change
+      345 |     const input = page.locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]');
+      346 |     await input.fill('77px');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:343:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-287fe-rs-during-normal-operations-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-287fe-rs-during-normal-operations-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-287fe-rs-during-normal-operations-chromium\error-context.md
+
+
+[1A[2K[79/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:360:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.4 - Panel closes and reopens without losing state
+[1A[2K  14) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:360:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.4 - Panel closes and reopens without losing state 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]')[22m
+
+
+      375 |       await containerSection.locator('button').first().click();
+      376 |       await page.waitForTimeout(300);
+    > 377 |     }
+          |      ^
+      378 |
+      379 |     const input = page.locator('text=Width (Collapsed)').locator('..').locator('input[type="text"]');
+      380 |     await input.fill('95px');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:377:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-7377f-eopens-without-losing-state-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-7377f-eopens-without-losing-state-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-7377f-eopens-without-losing-state-chromium\error-context.md
+
+
+[1A[2K[80/80] [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:400:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.5 - Individual corner radius controls work
+[1A[2K  15) [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:400:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.5 - Individual corner radius controls work 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('text=Top Left').locator('..').locator('input[type="text"]')[22m
+
+
+      418 |     await detailsToggle.click();
+      419 |     await page.waitForTimeout(300);
+    > 420 |
+          | ^
+      421 |     // Set Top Left
+      422 |     const topLeftInput = page.locator('text=Top Left').locator('..').locator('input[type="text"]');
+      423 |     await topLeftInput.fill('25px');
+        at C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault\tests\studio-tuner\06-edge-cases.spec.ts:420:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-12771-corner-radius-controls-work-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\06-edge-cases-Phase-7-8-In-12771-corner-radius-controls-work-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\06-edge-cases-Phase-7-8-In-12771-corner-radius-controls-work-chromium\error-context.md
+
+
+[1A[2K  15 failed
+    [chromium] › tests\studio-tuner\01-core-ui.spec.ts:75:7 › Phase 1: Core UI Functionality › 01.3 - Icon changes from Palette to X when opened 
+    [chromium] › tests\studio-tuner\01-core-ui.spec.ts:113:7 › Phase 1: Core UI Functionality › 01.6 - Panel has proper z-index (above content) 
+    [chromium] › tests\studio-tuner\02-device-modes.spec.ts:194:7 › Phase 2: Device Mode System › 02.11 - Visual changes reflect in navbar position 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:108:7 › Phase 3: Navbar Controls › 03.4 - Orientation dropdown switches between column and row 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:166:7 › Phase 3: Navbar Controls › 03.8 - Logo Icon Size updates CSS variable 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:203:7 › Phase 3: Navbar Controls › 03.11 - Font Weight dropdown works 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:240:7 › Phase 3: Navbar Controls › 03.14 - Animation section expands and Type dropdown works 
+    [chromium] › tests\studio-tuner\03-navbar-controls.spec.ts:254:7 › Phase 3: Navbar Controls › 03.15 - Animation Type tween shows duration and easing 
+    [chromium] › tests\studio-tuner\05-persistence.spec.ts:247:7 › Phase 5-6: Save/Load Workflow & Responsive Isolation › 06.2 - Mobile values stay independent from Desktop values 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:165:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.6 - Dropdown shows all options 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:187:7 › Phase 7-8: Input Control Variety & Edge Cases › 07.7 - Dropdown selection updates value 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:283:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.2 - Concurrent changes to Navbar and Page work independently 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:323:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.3 - No console errors during normal operations 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:360:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.4 - Panel closes and reopens without losing state 
+    [chromium] › tests\studio-tuner\06-edge-cases.spec.ts:400:7 › Phase 7-8: Input Control Variety & Edge Cases › 08.5 - Individual corner radius controls work 
+  65 passed (18.2m)
+npm error Lifecycle script `test:audit` failed with error:
+npm error code 1
+npm error path C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault
+npm error workspace vault@0.1.0
+npm error location C:\Users\Adeandza Haqia\Desktop\Sakamoto\vault-monorepo\apps\vault
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c playwright test --reporter=html
