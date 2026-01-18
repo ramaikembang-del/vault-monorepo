@@ -2,7 +2,7 @@
 
 **Product:** Clario Vault (Unified Internal Portal)  
 **Type:** Internal Team Hub  
-**Status:** ✅ IMPLEMENTED  
+**Status:** 🚧 IN PROGRESS  
 **Access:** Internal Team Only  
 **Domain:** `vault.klario-world.com`
 
@@ -25,42 +25,42 @@
 **Clario Vault** is the unified **PM & PKM system** for the Klario ecosystem. It serves as Mission Control for 2 co-founders to manage projects, share knowledge, track contributions, and coordinate their work across Products Lab, Biz Lab, and team settings.
 
 **Core Value:**
-- **PM (Project Management):** Track who's working on what, coordinate reviews, assign tasks
-- **PKM (Personal Knowledge Management):** Shared knowledge base, document attribution, reading tracking
-- **One Portal:** Single login, unified navigation, seamless partner collaboration
-
----
-
-## 2. Strategic Context
-
-### 2.1 The Problem
-
-**Team Structure:**
-- **2 Co-founders (Current Team):**
+ - **Mission Control (Dashboard):** Single "Day-Start" screen with real-time Team Pulse and Smart Recommendations.
+ - **Unified Workflows (PM):** Integrated review cycles, task queuing, and contribution tracking.
+ - **Knowledge Engine (PKM):** Shared strategy (Biz Lab) and component library (Products Lab) in one OS.
+ 
+ ---
+ 
+ ## 2. Strategic Context
+ 
+ ### 2.1 The Problem
+ 
+ **Team Structure:**
+ - **2 Co-founders (Current Team):**
   - Partner 1: Product & Strategy lead
   - Partner 2: Marketing & Sales lead
   - Overlap: Both contribute to marketing and product
-
-**PM/PKM Challenges:**
-- No visibility into what partner is working on
-- Can't track who created/edited which documents
-- No structured review/approval workflows
-- Hard to see contribution breakdown
-- Knowledge scattered across tools
-
-**Solution:** Unified PM & PKM system for 2-partner collaboration
-
-### 2.2 Users & Access Model
-
-**Current Team (2 Co-founders):**
-* **Partner 1 (Product & Strategy):** Full access to everything
-* **Partner 2 (Marketing & Sales):** Full access to everything
-
-**Future Team Growth (3 → 5 → 8 → 12 people):**
-* **Product Team:** Products Lab + relevant Biz docs
-* **Marketing Team:** Biz Lab + campaign tracking
-* **Specialists:** Scoped access based on role
-* **Co-founders Always:** Full access to everything (no restrictions)
+ 
+ **PM/PKM Challenges:**
+ - No visibility into what partner is working on
+ - Can't track who created/edited which documents
+ - No structured review/approval workflows
+ - Hard to see contribution breakdown
+ - Knowledge scattered across tools
+ 
+ **Solution:** A **"Dashboard-First" OS** providing real-time partner awareness and integrated command workflows.
+ 
+ ### 2.2 Users & Access Model
+ 
+ **Current Team (2 Co-founders):**
+ * **Partner 1 (Product & Strategy):** Admin (Full Access)
+ * **Partner 2 (Marketing & Sales):** Admin (Full Access)
+ 
+ **Future Team Growth (3 → 5 → 8 → 12 people):**
+ * **Product Team:** Products Lab + relevant Biz docs
+ * **Marketing Team:** Biz Lab + campaign tracking
+ * **Specialists:** Scoped access based on role
+ * **Co-founders Always:** Full access to everything (no restrictions)
 
 ---
 
@@ -74,19 +74,86 @@
 - `/biz` → Biz Lab (strategy docs)
 - `/settings` → Settings & Studio (navigation, theme, app prefs)
 
-### 3.2 📊 Mission Control Dashboard
+### 3.2 📊 Mission Control Dashboard & Gamification
 
-**Purpose:** PM & PKM coordination hub for 2 partners
+**Purpose:** PM & PKM coordination hub for 2 partners. Visual command center showing company state, progress, and next actions.
 
-**Widgets (Partner-Facing):**
-- **Your Focus Today:** Active docs, pending reviews, assigned tasks
-- **Partner Activity:** Live feed of what partner is working on
-- **Contribution Metrics:** Team stats (docs, experiments, reviews)
-- **Team Achievements:** Collaborative milestones unlocked
+**Location:** `/` (Dashboard landing page)
 
-*(Technical Specs moved to Appendix)*
+**A. Core Widgets (Grouped by Intent):**
 
-**See:** Part IV § 10 for detailed UX Enhancement specs
+**Layout:** 2-Column Grid (Desktop)
+- **Left Column (Interactive Stack):** "My Focus" + "Team Pulse" vertically stacked.
+- **Right Column (Status):** "Mission Status" (Full height).
+
+*   **⚡ My Focus (Personal Action) - [Left Col, Top]**
+    *   **Your Focus Today:**
+        *   *Features:* Displays Pinned Tasks (Active Sprint), Active Drafts (Unsaved), Assigned Reviews, and "Overdue" alerts.
+        *   *Actions:* **Check off** tasks (updates `.md`), **Click** to resume drafting, **Drag** to reorder priorities.
+        *   *Integration:* Reads `docs/tasks/*.md`, queries Local Storage (Biz Lab Quick Pad), checks `reviewStatus` in `biz/*.md`.
+    *   **Smart Recommendations:**
+        *   *Features:* Context-aware "Next Read", "Topic" tags, Read Time estimates, and "Strategy Priority" badges.
+        *   *Actions:* **"Start Reading"** (Biz deep link), **"Save for Later"** (Bookmark), **"Dismiss"**.
+        *   *Integration:* User Metadata `docsRead`, `biz/` content tags (`targetMarket`, `kpis`), and Contentlayer reading time.
+    *   **Quick Actions:**
+        *   *Features:* One-click shortcuts, "Recent Actions" history.
+        *   *Actions:*
+            *   **"New Strategy Doc"** (Opens `/biz/new?template=strategy`).
+            *   **"Log Decision"** (Opens `/biz/new?template=decision`).
+            *   **"Request Review"** (Sets `needs_review: true` in frontmatter).
+        *   *Integration:* Deep links to Biz templates, File Mutation API, and User Activity Log.
+
+*   **👥 Team Pulse (Collaboration) - [Left Col, Bottom]**
+    *   **Partner Activity Stream:**
+        *   *Features:* Real-time edit feed, "Online Now" dots, and "Viewing: [Doc Name]" status.
+        *   *Actions:* **"Jump to Doc"** (Join session), **"Reply"** (to comment), **"React"**.
+        *   *Integration:* Clerk Presence (Biz routing), Pusher (WebSocket events), and `docsRead` metadata tracker.
+    *   **Review Queue:**
+        *   *Features:* Inbound requests (Partner 1 -> Partner 2), Outbound status, "Stale" warnings.
+        *   *Actions:* **"Approve"**, **"Request Changes"**, **"Nudge"**.
+        *   *Integration:* Aggregates `needs_review: true` from all `.md` files in `/biz` and `/products`.
+
+*   **📈 Mission Status (Big Picture) - [Right Col, Full Height]**
+    *   **Sprint Velocity:**
+        *   *Features:* Days Remaining countdown, Completed Points vs. Ideal.
+        *   *Integration:* Parses `sprint-X-active.md` and `biz/sprint-plan.md` templates.
+    *   **Interactive Portfolio Map:**
+        *   *Visuals:* Mermaid diagrams, Status Color-coding (Biz Blue, Product Orange).
+        *   *Interactions:* **Click** to Navigate to Biz doc, **Hover** for Strategy Metrics.
+        *   *Integration:* Visualizes `05-metrics-bundling-rationale.md` and common Biz/Product frontmatter.
+    *   **Achievement Tracker (Gamified Progress):**
+        *   *Features:* Progress bars, Streak counter, "Strategy Explorer" (Read 10+ docs) badge.
+        *   *Integration:* User Metadata `achievements`, Clerk Usage stats, and Biz Lab `readCount`.
+        *   *Visuals:* Progress bars + Confetti celebration on unlock.
+
+**B. Technical Implementation:**
+
+**Components:**
+- **Layout:** `components/dashboard/DashboardLayout.tsx` (CSS Grid)
+- **Widgets:**
+  - `MyFocusWidget.tsx` (Tasks/Recs)
+  - `TeamPulseWidget.tsx` (Activity Stream)
+  - `MissionStatusWidget.tsx` (Container for Map + Achievements)
+- **Visualizations:**
+  - Portfolio: `components/dashboard/PortfolioMap.tsx` (Mermaid)
+  - Charts: `recharts` for Velocity/Progress
+  - Celebration: `react-confetti`
+
+**Data Model:**
+```json
+{
+  "vaultProgress": {
+    "docsRead": ["biz/strategy/..."],
+    "achievements": ["strategy-explorer", "product-visionary"],
+    "readCount": 12,
+    "sprintProgress": { "week": 0, "docsCompleted": 5 }
+  }
+}
+```
+
+**visuals:** Confetti celebration on unlock (uses `react-confetti`).
+
+**See:** `specifications/interactive-ui.md` for detailed UX Enhancement specs
 
 ### 3.3 Collaboration Features (Sprint 3+)
 
@@ -98,15 +165,15 @@
 - Visual indicators throughout UI
 
 **Partner Activity Feed:**
-- See what partner is currently working on
-- Recent actions (created, edited, reviewed)
-- Real-time updates (30s polling)
+- **Presence:** "Online Now" indicators (green dot) + Current active file.
+- **Actions:** Real-time edit stream with "Jump to Doc" and "Reply" to comments.
+- **Engagement:** Partner "Reactions" (Emoji) on activity items.
+- *Tech:* Clerk Webhooks + Pusher (WebSocket) for < 500ms latency.
 
 **Review Workflows:**
-- Request partner review
-- Approve/request changes
-- Review queue dashboard
-- Priority flags
+- **Status:** Inbound (Needs Review), Outbound (Awaiting), and "Stale" (>2 days) flags.
+- **Actions:** "Approve", "Request Changes", "Nudge" (resend notification), "Delegate".
+- **Integration:** Powered by `reviewStatus` frontmatter and file modification timestamps.
 
 **Contribution Tracking:**
 - Metrics per partner (docs, experiments, reviews)
@@ -127,12 +194,20 @@
 - Auto-generated from `/biz` directory
 - Search bar
 
-**Admin Panel Section** (`/admin`)
-- Command palette, global menu, and keyboard shortcuts from `12-global-navigation-prd.md`
-- User table, access control
-- Audit log
+**Settings Section** (`/settings`)
+- **App Settings & Preferences** (`14-app-settings-prd.md`)
+  - User preferences (Theme, Notifications)
+  - Security (Audit Logs)
 
-**Key Difference:** Each section is a **route**, not a separate site.
+**Core Systems** (Global Runtime)
+- **Global Navigation** (`12-global-navigation-prd.md`)
+  - Command Palette & Shortcuts (Configured via Studio)
+
+**Development Tools** (Local Env Only)
+- **Studio Tuner** (`13-studio-tuner-prd.md`)
+  - Theme Editor & Layout Presets
+
+**Key Difference:** Settings are *runtime* (Users/Data). Studio is *build-time* (Config/Theme).
 
 ---
 
@@ -149,7 +224,7 @@
  /app
  /products (Products Lab)
  /biz (Biz Lab - Custom MDX)
- /admin (Admin Panel)
+ ├── /settings   (User & App Settings)
  /components
  /shared (Vault navigation, dashboard)
 /packages
@@ -162,15 +237,27 @@
 * **Framework:** Next.js 14 (App Router)
 * **Styling:** Tailwind CSS (shared design tokens)
 * **Authentication:** Clerk (single session across all tabs)
+* **State Management:** Zustand (Settings & Preferences)
+* **Real-time:** Pusher (WebSocket events for "Team Pulse")
+* **Search:** cmdk + fuse.js (Global Command Palette)
 * **Products Section:** Next.js + Shadcn UI
-* **Biz Section:** Shadcn MDX (Custom Docs Layout)
-* **Admin Section:** Next.js + Shadcn data-table
+* **Biz Section:** Custom MDX + Shadcn Layout
+* **Settings Section:** React Hook Form + Zod (Validation)
 
 ### 4.3 Deployment
 
 * **Domain:** `vault.klario-world.com`
 * **Hosting:** Vercel
 * **Access Control:** Clerk (role-based)
+
+### 4.4 Core Dependencies
+```bash
+npm install framer-motion      # Animations
+npm install recharts           # Progress charts
+npm install react-confetti     # Achievement celebrations
+npm install pusher-js          # Real-time WebSocket client
+npm install cmdk fuse.js       # Global search
+```
 
 ---
 
@@ -180,60 +267,64 @@
 
 **Single Login:**
 - User logs in at `vault.klario-world.com`
-- Session valid for all sections (/products, /biz, /admin)
+- Session valid for all sections (/products, /biz, /settings)
 
 **User Metadata:**
-```json
-{
- "vaultAccess": true,
- "vaultRole": "admin", // "admin", "editor", "viewer"
- "sections": {
- "products": true,
- "biz": true,
- "admin": true
+ ```json
+ {
+  "vaultAccess": true,
+  "vaultRole": "admin", // "admin", "editor", "viewer"
+  "sections": {
+  "products": true, // Controls access to Products Lab
+  "biz": true, // Controls access to Biz Lab
+  "settings": true // Controls access to Settings
+  }
  }
-}
-```
+ ```
+ 
+ ### 5.2 Role-Based Permissions
+ 
+ > **Note:** `vaultRole` defines **capabilities** (e.g., Edit vs View), while `sections` metadata defines **scope** (e.g., Marketing Team only sees Biz Lab).
+ 
+ | Capability | Viewer | Editor | Partner (Admin) |
+ | :--- | :--- | :--- | :--- |
+ | **Products Lab** | View Experiments | Create/Deploy | Full Access |
+ | **Biz Lab** | Read Strategy | Comment/Review | Full Access |
+ | **Settings** | Personal Prefs | Personal Prefs | Audit + Defaults |
 
-### 5.2 Role-Based Permissions
+ **Middleware:**
+ ```typescript
+ // apps/vault/middleware.ts
+ import { authMiddleware } from '@clerk/nextjs'
 
-| Role | Products Lab | Biz Lab | Admin Panel |
-|------|--------------|---------|-------------|
-| **Viewer** | View only | View only | No access |
-| **Editor** | Create experiments | View only | No access |
-| **Admin** | Full access | Full access | Full access |
+ export default authMiddleware({
+  publicRoutes: ['/sign-in', '/sign-up'],
 
-**Middleware:**
-```typescript
-// apps/vault/middleware.ts
-import { authMiddleware } from '@clerk/nextjs'
+  afterAuth: async (auth, req) => {
+  const user = await currentUser()
+  const vaultAccess = user?.publicMetadata?.vaultAccess
 
-export default authMiddleware({
- publicRoutes: ['/sign-in', '/sign-up'],
+  if (!vaultAccess) {
+  return redirectToSignIn({ returnBackUrl: req.url })
+  }
 
- afterAuth: async (auth, req) => {
- const user = await currentUser()
- const vaultAccess = user?.publicMetadata?.vaultAccess
-
- if (!vaultAccess) {
- return redirectToSignIn({ returnBackUrl: req.url })
- }
-
- // Check section-specific access
- if (req.nextUrl.pathname.startsWith('/admin')) {
- const isAdmin = user?.publicMetadata?.vaultRole === 'admin'
- if (!isAdmin) {
- return new Response('Access Denied', { status: 403 })
- }
- }
- }
+  // Check section-specific access
+  if (req.nextUrl.pathname.startsWith('/settings/audit')) {
+  const isAdmin = user?.publicMetadata?.vaultRole === 'admin'
+  if (!isAdmin) {
+  return new Response('Access Denied', { status: 403 })
+  }
+  }
+  }
 })
 ```
-
 
 ### 5.3 Initial Team Setup (2 Partners)
 
 **Configure via Clerk Dashboard:**
+
+> [!NOTE]
+> **Team Management** (Adding users, assigning roles) is handled **only** through the Clerk Dashboard, not within the Vault app.
 
 1. Log in to https://dashboard.clerk.com
 2. Go to **Users** → select each partner
@@ -273,38 +364,25 @@ export default authMiddleware({
 ---
 
 ## 6. Navigation UX
-
-### 6.1 Tab Navigation
-
-**Persistent Top Nav:**
-```tsx
-// components/VaultNav.tsx
-<nav>
- <Link href="/products" className={activeTab === 'products' ? 'active' : ''}>
- Products
- </Link>
- <Link href="/biz" className={activeTab === 'biz' ? 'active' : ''}>
- Biz
- </Link>
- {isAdmin && (
- <Link href="/admin" className={activeTab === 'admin' ? 'active' : ''}>
- Admin
- </Link>
- )}
-</nav>
-```
-
-**Active Tab State:**
-- Active tab highlighted (orange accent)
-- URL updates: `/products`, `/biz`, `/admin`
-- Browser back/forward works correctly
-
-### 6.2 Keyboard Shortcuts
-
-- `Cmd+1` → Products Lab
-- `Cmd+2` → Biz Lab
-- `Cmd+3` → Admin Panel (if admin)
-- `Cmd+K` → Global search (searches across all sections)
+ 
+ ### 6.1 Global Navigation System
+ 
+ **Primary Interface:**
+ - **Floating Dock:** Vertical layout on Left (Desktop).
+ - **Command Palette (Cmd+K):** Instant search and action execution.
+ 
+ > **Detailed Specification:** See `12-global-navigation-prd.md` for the complete implementation details.
+ 
+ ### 6.2 Key Shortcuts
+ 
+ - `Cmd+K` → Global Command Palette
+ - `Cmd+1-4` → Quick Switch Tabs
+ - `Cmd+/` → Show Shortcuts Guide
+ 
+ **Active Tab State:**
+ - Active tab highlighted (orange accent)
+ - URL updates: `/products`, `/biz`, `/settings`
+ - Browser back/forward works correctly
 
 ---
 
@@ -334,16 +412,15 @@ export default authMiddleware({
 
 **Note:** Full details in `10-biz-lab-prd.md`
 
-### 7.3 Admin Panel Integration
-
-**Route:** `/admin/*`
-
-**Features:**
-- User management at `/admin/users`
-- Audit log at `/admin/audit`
-- Settings at `/admin/settings`
-
-**Note:** Full details in `12-admin-panel-prd.md`
+### 7.3 Settings & Configuration System
+ 
+ **Runtime Settings (`/settings`):**
+ - **Focus:** User Preferences, Notifications, Audit Logs.
+ - **Reference:** See `14-app-settings-prd.md`.
+ 
+ **Studio Tuner (Floating Window):**
+ - **Focus:** Visual Theme Editor, Layout Presets (Overlay).
+ - **Reference:** See `13-studio-tuner-prd.md`.
 
 ---
 
@@ -354,201 +431,66 @@ export default authMiddleware({
 **Location:** Top-right corner (all pages)
 
 **Scope:**
-- Products Lab: Searches component names, experiments
-- Biz Lab: Searches doc content (FlexSearch)
-- Admin Panel: Searches user emails, audit logs
+- **Actions:** "New Strategy Doc", "Log Experiment", "Request Review" (Command Palette style)
+- **Products Lab:** Searches component names, experiments
+- **Biz Lab:** Searches doc content (FlexSearch/Fuse.js)
+- **Settings:** Searches audit logs
 
-**Keyboard:** `Cmd+K` opens search modal
+**Keyboard:** `Cmd+K` or `Ctrl+K` opens search modal
+
+**Implementation:**
+- **Component:** `components/search/CommandMenu.tsx`
+- **Library:** `cmdk` (UI) + `fuse.js` (Fuzzy Search)
+- **Performance:** < 500ms response time
+- **Results:** Grouped by section (Actions, Biz Lab, Products Lab, Settings)
 
 **Results Format:**
 ```
- Search: "pricing strategy"
+ Search: "new"
+
+Actions (2 results)
+ - ✨ New Strategy Doc
+ - 🧪 Log Experiment
 
 Biz Lab (3 results)
- - 02-pricing-strategy.md
+ - 02-new-pricing-strategy.md
  - competitive-battle-cards.md
-
-Products Lab (1 result)
- - experiments/pricing-card-v2
 ```
 
 ---
 
 ## 9. Development Timeline
-
-### Phase 1: Foundation (Week 1)
-- Scaffold Vault app in monorepo
-- Set up Clerk authentication
-- Build top navigation and dashboard
-
-### Phase 2: Integration (Week 2)
-- Integrate Products Lab at `/products`
-- Build Biz Lab MDX viewer at `/biz` (Shadcn Layout)
-- Integrate Admin Panel at `/admin`
-
-### Phase 3: Polish (Week 3)
-- Global search implementation
-- Keyboard shortcuts
-- Mobile responsive navigation
-
-**Total:** 3 weeks (can overlap with individual section builds)
-
----
-
-## 10. Success Metrics
-
-* **Login Efficiency:** Single login accesses all 3 sections (1 session, not 3)
-* **Navigation Speed:** < 3 clicks to any section from anywhere
-* **Search Coverage:** 100% of content searchable via Cmd+K
-* **Mobile Usability:** All sections accessible on phone
-
----
-
-# Part IV: Cross-Cutting Features
-
-## 11. UX Enhancements (Cross-Cutting Features)
-
-> **Note:** This section contains UX features that span the entire Vault application. For Biz Lab-specific UX enhancements, see `10-biz-lab-prd.md`.
-
-### 11.1 Mission Control Dashboard
-
-**Purpose:** Visual command center showing company state, progress, and next actions
-
-**Status:** ✅ IMPLEMENTED (Sprint 1)
-
-**Location:** `/` (Dashboard landing page)
-
-**Key Features:**
-- **Live Progress Bars** - Visual representation of Sprint completion
-- **Smart Recommendations** - Suggests what to read next based on:
-  - What you haven't read
-  - What's critical for current week
-  - What's related to what you just read
-- **Achievement System** - Gamified exploration milestones
-- **Company Snapshot** - High-level context at a glance
-
-**Implementation:**
-- Component: `components/dashboard/DashboardMissionControl.tsx`
-- Data source: Clerk user metadata (`vaultProgress`)
-- Recharts for progress visualizations
-- Real-time updates on document reads
-
-**Technical Details:** See `../specifications/design-foundation.md` for styling values
+ 
+ ### Phase 1: Foundation (Week 1)
+ - Scaffold Vault app in monorepo
+ - Set up Clerk authentication
+ - Build Floating Dock & Dashboard
+ 
+ ### Phase 2: Integration (Week 2)
+ - Integrate Products Lab at `/products`
+ - Build Biz Lab MDX viewer at `/biz`
+ - Build Settings & Studio Tuner
+ 
+ ### Phase 3: Polish (Week 3)
+ - Global Search (Cmd+K)
+ - Keyboard Shortcuts (Cmd+1-4)
+ - Performance Tuning (Lighthouse > 95)
+ 
+ **Total:** 3 weeks (overlapping builds)
+ 
+ ---
+ 
+ ## 10. Success Metrics
+ 
+ * **Login Efficiency:** Single login accesses all sections (1 session)
+ * **Collaboration Latency:** < 500ms for partner updates (Pusher)
+ * **Nav Speed:** Floating Dock switching < 100ms
+ * **Search Coverage:** 100% of content + actions searchable via Cmd+K
+ * **Desktop Optimization:** 100% Full-width utilization (No wasted space)
 
 ---
 
-### 11.2 Interactive Product Portfolio Map
-
-**Purpose:** Visual journey through Clario's product strategy
-
-**Status:** ✅ IMPLEMENTED (Sprint 1)
-
-**Location:** Dashboard + `/products/portfolio`
-
-**Interactive Features:**
-- **Click Product Box** → Opens product deep dive with:
-  - Strategy docs (with read/unread badges)
-  - Specifications (with completion %)
-  - Marketing materials
-  - Financial projections
-- **Hover** → Shows quick stats (target revenue, customer goals, key metrics)
-- **Animated Transitions** → Smooth expand/collapse
-
-**Implementation:**
-- Mermaid diagrams with click handlers
-- Component: `components/dashboard/PortfolioMap.tsx`
-- Color-coded by status (Green = Active, Orange = Planned, Gray = Research)
-
----
-
-### 11.3 Progress Tracking & Achievements
-
-**Purpose:** Gamify exploration, give sense of accomplishment
-
-**Status:** ✅ IMPLEMENTED (Sprint 1 - 24 achievements)
-
-**Achievement Categories:**
-
-**📚 Knowledge Achievements:**
-- **Strategy Explorer** - Read all Market Analysis docs (5/5)
-- **Product Visionary** - Reviewed all Product 01 specs (10/10)
-- **Financial Guru** - Read all financial projections (3/3)
-
-**🎯 Engagement Achievements:**
-- **Deep Diver** - Comment on 5+ docs
-- **Collaboration Champion** - Share 3+ insights with team
-- **Knowledge Graph Explorer** - Use graph view 10+ times
-
-**📅 Milestone Achievements:**
-- **Week 0 Ready** - Complete all "Critical for Week 0" docs
-- **Launch Ready** - Understand full Sprint 1 plan
-- **Sprint 1 Complete** - Unlock all Sprint 1 achievements
-
-**Components:**
-- `components/gamification/AchievementList.tsx`
-- `components/gamification/AchievementNotifier.tsx` (confetti on unlock)
-- `config/achievements.ts` (24 total achievements defined)
-
-**Data Model:**
-```json
-{
-  "vaultProgress": {
-    "docsRead": ["biz/strategy/..."],
-    "achievements": ["strategy-explorer", "product-visionary"],
-    "readCount": 12,
-    "sprintProgress": { "week": 0, "docsCompleted": 5 }
-  }
-}
-```
-
-**Confetti Celebration:** Uses `react-confetti` on achievement unlock
-
----
-
-### 11.4 Global Search (Cross-Cutting)
-
-**Purpose:** Search across all Vault sections from anywhere
-
-**Status:** ✅ IMPLEMENTED (Sprint 1)
-
-**Keyboard Shortcut:** `Cmd+K` or `Ctrl+K`
-
-**Scope:**
-- Products Lab: Searches component names, experiments
-- Biz Lab: Searches doc content (Fuse.js fuzzy search)
-- Admin Panel: Searches user emails
-
-**Implementation:**
-- Component: `components/search/CommandMenu.tsx`
-- Library: `cmdk` + `fuse.js`
-- Results grouped by section
-
----
-
-### 11.5 Integration & Technical Stack
-
-**Shared Dependencies:**
-```bash
-npm install framer-motion      # Animations
-npm install recharts           # Progress charts
-npm install react-confetti     # Achievement celebrations
-npm install cmdk fuse.js       # Global search
-```
-
-**Cross-References:**
-- **Biz Lab UX:** See `10-biz-lab-prd.md` Section 11 (Document previews, tooltips, graph view)
-- **Design Specs:** See `../specifications/design-foundation.md`
-- **Roadmap:** See `../roadmap/sprint-archive.md` for implementation details
-
-**Performance Targets:**
-- Dashboard load: < 1s
-- Search results: < 500ms
-- Achievement unlock animation: 60 FPS
-- All animations: GPU-accelerated transforms only
-
----
-
-# Part V: Related PRDs & Approval
+# Part IV: Related PRDs & Approval
 
 ## 12. Related PRDs
 
@@ -562,16 +504,19 @@ This Vault Overview PRD orchestrates 3 detailed PRDs:
  - Strategy docs browser (Custom MD X)
  - Accessed via `/biz` route
 
-3. **Admin Panel PRD** (`12-admin-panel-prd.md`)
- - User management, audit log
- - Accessed via `/admin` route
+3. **App Settings PRD** (`14-app-settings-prd.md`)
+ - User preferences (Theme, Notifications)
+ - Security (Audit Logs)
+ - Accessed via `/settings` (Runtime)
+
+4. **Global Navigation PRD** (`12-global-navigation-prd.md`)
+ - Command Palette, Shortcuts (Runtime System)
+ - *Configured via Studio Tuner*
+
+5. **Studio Tuner PRD** (`13-studio-tuner-prd.md`)
+ - **Dev Env Only:** Theme Editor, Layout Presets, Nav Config
 
 **Read those PRDs for section-specific technical details.**
-
----
-
-**Last Updated:** January 15, 2026  
-**Next Review:** After section PRD reviews complete
 
 ---
 
@@ -612,14 +557,22 @@ This Vault Overview PRD orchestrates 3 detailed PRDs:
 ### Ready-to-Build Criteria
 
 **Move to APPROVED status when:**
-- All Pre-Development Requirements checked
-- [ ] All section PRDs approved (Products Lab, Biz Lab, Admin Panel, UX Enhancements)
-- 3-week timeline confirmed
+ - [ ] All Pre-Development Requirements checked
+ - [ ] Core PRDs Approved: Products (11), Biz (10), Nav (12), Studio (13), Settings (14)
+ - [ ] Sprint 1 Build & Launch Plan confirmed
 
 ---
 
 **Status History:**
-- **DRAFT** (Jan 8, 2026) - Initial PRD created
-- **REVIEW** (Jan 9, 2026) - Core architecture defined, awaiting validation
-- **APPROVED** (Jan 10, 2026) - Ready for development
-- **IMPLEMENTED** (Jan 10, 2026) - Vault launched at vault.klario-world.com ✅
+- **v0.1.0 DRAFT** (Jan 8, 2026) - Initial Solo-Founder Concept created.
+- **v0.1.0 APPROVED** (Jan 10, 2026) - Initial architecture approved.
+- **v0.1.1 DRAFT** (Jan 15, 2026) - **Pivot:** Restructured for 2-Partner Team.
+- **v0.1.1 REVIEW** (Jan 17, 2026) - Feedback: "Too complex", requested clearer dashboard.
+- **v0.1.2 DRAFT** (Jan 18, 2026) - **Refinement:** Dashboard Density & Settings/Studio split.
+- **v0.1.2 REVIEW** (Jan 18, 2026) - Feedback: "Settings = User Prefs", "Team = Clerk".
+- **APPROVED** (TBD) - Ready for development
+- **IMPLEMENTED** (TBD) - Live at `vault.klario-world.com`
+
+---
+
+**Last Updated:** January 18, 2026

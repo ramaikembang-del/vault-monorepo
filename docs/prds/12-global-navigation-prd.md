@@ -22,7 +22,7 @@
 
 ## 🚀 1. Executive Summary
 
-**Global Navigation** provides unified navigation and quick access features across all Vault sections (Products Lab, Biz Lab, Admin). It centers around a command palette (⌘K), customizable global menu, and keyboard shortcuts.
+**Global Navigation** provides unified navigation and quick access features across all Vault sections (Products, Biz, Settings). It centers around a command palette (⌘K), customizable global menu, and keyboard shortcuts.
 
 **Core Function:** "Command center for power users" - instant access to any feature, document, or action.
 
@@ -404,11 +404,37 @@ export const useMenuStore = create<MenuState>()(
     { name: 'vault-menu-config' }
   )
 );
-```
 
 ---
 
-# Part VI: Metrics & Success
+## Approval Checklist
+ 
+ ### Pre-Development Requirements
+ 
+ - [ ] **Keyboard Shortcuts:** React Hotkeys Hook configured.
+ - [ ] **Search Engine:** Flexsearch or Cmdk integration confirmed.
+ - [ ] **UI:** Floating Dock glassmorphism tokens defined.
+ 
+ ### Stakeholder Approvals
+ 
+ - [ ] **Partner 1 (Product):** Command palette categories approved.
+ - [ ] **Partner 2 (Marketing):** Quick action shortcuts confirmed.
+ 
+ ### Ready-to-Build Criteria
+ 
+ - [ ] **Accessibility:** Screen reader labels for all dock items.
+ - [ ] **Performance:** Cmd+K response < 100ms verified.
+ 
+ ---
+ 
+ **Status History:**
+ - **v0.1.0 DRAFT** (Jan 10, 2026) - Initial navigation spec created.
+ - **v0.1.1 REVIEW** (Jan 15, 2026) - Added Command Palette details.
+ - **v0.1.2 APPROVED** (Jan 18, 2026) - Standardized for 2-Partner Vault.
+ 
+ ---
+ 
+ **Last Updated:** January 18, 2026
 
 ## 8. Success Criteria
 
@@ -429,15 +455,12 @@ export const useMenuStore = create<MenuState>()(
 
 ---
 
-**Last Updated:** January 15, 2026  
 **See Also:**
 - `13-studio-tuner-prd.md` - Theme and layout customization
 - `00-vault-overview-prd.md` - Parent PRD
 - `specifications/core-platform.md` - Navigation architecture
 
 ---
-
-# Part III: Technical Appendix
 
 ## A. Search Categories Configuration
 

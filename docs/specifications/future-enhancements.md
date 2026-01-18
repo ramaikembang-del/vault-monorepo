@@ -373,7 +373,7 @@ Document:
 | **F17: Studio Tuner** | **Medium** | **Medium** | **None** | **2** |
 | **F18: App Settings** | **Medium** | **Low** | **None** | **2** |
 
-**Note:** F16-F18 replace original Admin Panel (user management now handled by Clerk)
+**Note:** Built-in Settings replace original Admin Panel (Team management handled exclusively via Clerk Dashboard)
 
 ---
 

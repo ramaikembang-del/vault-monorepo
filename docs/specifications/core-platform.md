@@ -232,11 +232,11 @@ interface VaultUserMetadata {
   "vaultAccess": true,
   "vaultRole": "admin",
   "sections": {
-    "products": true,
-    "biz": true,
-    "admin": true
-  }
-}
+     "products": true,
+     "biz": true,
+     "settings": true
+   }
+ }
 ```
 
 5. Click **Save**
@@ -397,7 +397,7 @@ nav a:hover {
 
 - **`Cmd+1`** → Products Lab
 - **`Cmd+2`** → Biz Lab
-- **`Cmd+3`** → Admin Panel (if admin)
+- **`Cmd+3`** → Settings
 - **`Cmd+K`** → Global search
 
 ### 9.2 Implementation
@@ -527,10 +527,10 @@ export default function NotFound() {
 - Animation controls
 - Accessibility settings
 
-**App Settings (`/settings/apps`)**
-- Products Lab preferences
-- Biz Lab preferences
-- Dashboard preferences
+**App Settings (`/settings`)**
+- User & Workspace preferences
+- Products Lab settings
+- Biz Lab settings
 
 ### 12.2 State Management Pattern
 

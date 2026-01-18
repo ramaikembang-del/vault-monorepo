@@ -167,8 +167,7 @@ npm run docs:check-links
 ```bash
 npm run docs:find-dupes
 # Output: ⚠️  Found duplicate block in 2 files:
-#         - prds/10-biz-lab.md:45-60
-#         - roadmap/20-full.md:234-249
+#         - **Biz Lab** (`10-biz-lab-prd.md`): Knowledge consumption engine.       - roadmap/20-full.md:234-249
 ```
 
 ---

@@ -106,7 +106,7 @@ This document records key implementation decisions, pivots, and deviations from 
 - ⚠️ **Future:** May add split-view as option later
 - **Status:** ✅ IMPLEMENTED - Successful pivot
 
-**See:** `content-navigation.md` § 17-23 for F3 implementation
+**See:** `content-navigation.md` for F3 implementation
 
 ---
 
@@ -286,7 +286,7 @@ This document records key implementation decisions, pivots, and deviations from 
 - ✅ **Cons:** None
 - **Status:** ✅ IMPLEMENTED
 
-**See:** `design-foundation.md` § 4 for complete color system
+**See:** `design-foundation.md` for complete color system
 
 ---
 
@@ -311,7 +311,7 @@ This document records key implementation decisions, pivots, and deviations from 
 
 **Status:** ⚠️ ACCEPTABLE - Within 20% of target
 
-**See:** `design-foundation.md` § 12 for performance budget
+**See:** `design-foundation.md` for performance budget
 
 ---
 

@@ -1,6 +1,6 @@
 # Vault Feature Status Dashboard
-**Last Updated:** January 15, 2026
-**Purpose:** Single source of truth for all Vault features across all documentation
+**Last Updated:** January 18, 2026
+**Purpose:** Single source of truth for all Vault features (2-Partner Team aligned)
 
 ---
 
@@ -25,8 +25,8 @@
 | **F01** | **Biz Lab Route** | `10-biz-lab-prd.md` | ✅ Live |
 | **F02** | **Knowledge Graph** | `content-navigation.md` | ✅ Live |
 | **F03** | **Floating Panels** | `content-navigation.md` | ✅ Live |
-| **F06** | **Mission Control** | `00-overview.md` | ✅ Live |
-| **F07** | **Product Portfolio** | `11-products-lab.md` | ✅ Live |
+| **F06** | **Mission Control** | `00-vault-overview-prd.md` | ✅ Live |
+| **F07** | **Product Portfolio** | `11-products-lab-prd.md` | ✅ Live |
 | **F09** | **Hover Previews** | `interactive-ui.md` | ✅ Live |
 | **F10** | **Tooltips** | `interactive-ui.md` | ✅ Live |
 | **F11** | **Gamification** | `interactive-ui.md` | ✅ Live |
@@ -36,10 +36,10 @@
 
 | ID | Feature | Documentation | Status | Note |
 |----|---------|---------------|--------|------|
-| **F16** | **Global Navigation** | `12-global-nav.md` | 📋 Planned | Command Palette, Shortcuts |
+| **F16** | **Global Navigation** | `12-global-navigation-prd.md` | 📋 Planned | Command Palette, Shortcuts |
 | **F04** | **Resizable Workspaces** | `interactive-ui.md` | 📋 Planned | Notion-style Panels |
 | **F05** | **Premium Navbar** | `interactive-ui.md` | 📋 Planned | Glassmorphism |
-| **F17** | **Studio Tuner** | `13-studio-tuner.md` | 📋 Planned | Team Presets, Themes |
+| **F17** | **Studio Tuner** | `13-studio-tuner-prd.md` | 📋 Planned | Team Presets, Themes |
 
 ### Expansion (Sprint 3: Collaboration & Scale)
 *Status: 📋 PLANNED*
@@ -49,7 +49,7 @@
 | **F14** | **Collaboration** | `future-enhancements.md` | 📋 Planned | Comments, Reviews |
 | **F15** | **AI Integration** | `future-enhancements.md` | 📋 Planned | Summaries, Tags |
 
-*Note: "Admin Panel" is deprecated, replaced by F16 & F17.*
+*Note: "Admin Panel" is deprecated, replaced by F16, F17, and F18.*
 
 ---
 

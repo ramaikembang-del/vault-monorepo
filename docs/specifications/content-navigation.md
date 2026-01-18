@@ -783,7 +783,7 @@ const searchIndex = buildSearchIndex(getAllDocSlugs());
 - Highlight matching nodes
 - Adjust link visibility
 
-**See Also:** Global Vault Search in `00-vault-overview-prd.md` § 8
+**See Also:** Global Vault Search in `../prds/00-vault-overview-prd.md`
 
 ---
 

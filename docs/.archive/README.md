@@ -39,7 +39,7 @@ This directory contains the original large documentation files that have been re
 ### PRD Archives
 - **13-vault-ux-enhancements-prd.md** (21.6KB, 711 lines)
   - Comprehensive UX enhancements specification
-  - Replaced by: Distributed to `00-vault-overview-prd.md` § 11 (cross-cutting features) and `10-biz-lab-prd.md` § 10 (Biz Lab-specific features)
+  - Replaced by: Distributed to `00-vault-overview-prd.md` (cross-cutting features) and `10-biz-lab-prd.md` (Biz Lab-specific features)
   - Contains: Mission Control, Achievements, Product Portfolio, Document Previews, Tooltips, Customer Journey, Knowledge Graph
 
 ---

@@ -1,6 +1,6 @@
 # Vault Documentation
 
-**Comprehensive documentation for the Clario Vault unified internal portal**
+**The "Digital Office" and "Second Brain" for the Clario Co-Founders**
 
 ---
 
