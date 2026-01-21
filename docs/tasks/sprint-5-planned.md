@@ -1,15 +1,16 @@
 # Sprint 5: Planned Tasks (App Settings)
-**Status:** 🔄 85% COMPLETE (UNCOMMITTED)
+**Status:** ✅ 85% COMPLETE (COMMITTED - NEEDS TESTING)
 **Focus:** Build App Settings from specification (v0.8.0)
 **Workflow:** Dev → Test → Iterate → Build → Deploy
 
-**⚠️ DISCOVERY:** ~3,300 lines of Sprint 5 code exist uncommitted in working directory!
+**✅ UPDATE:** Sprint 5 work committed in `d4e7aa9` - Settings Hub now in codebase!
+**Next:** Testing & QA required, then complete remaining 15%
 **See:** `sprint-5-implementation-status.md` for detailed assessment
 
 ---
 
 ## 📦 Stage 1: Development (Implementation)
-*Status: 🔄 85% Complete (Uncommitted - see `sprint-5-implementation-status.md`)*
+*Status: ✅ 85% Complete (Committed in `d4e7aa9`)*
 
 ### Workflow Profiles (app-settings-system.md Part I)
 - [x] **Profile Infrastructure** ✅ COMPLETE (uncommitted)
@@ -135,7 +136,7 @@
 ---
 
 ## 🧪 Stage 2: Testing & MVP Verification (QA)
-*Status: ⏳ Pending*
+*Status: 🏃 ACTIVE - Ready to test committed code*
 
 ### Technical Performance
 - [ ] **Profile Switching**

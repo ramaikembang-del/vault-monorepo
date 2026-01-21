@@ -84,7 +84,7 @@ docs/
 **Current State:** 🔄 Scattered between Sprint 1 & 2
 **Sprint 1 (v0.1.0):** ✅ Complete (Rapid Prototype - not yet in production)
 **Scattered Work:** ✅ PRDs 10-14 specifications created (4 hours)
-**Sprint 5 (v0.8.0):** 🔄 85% Complete (3,300 lines UNCOMMITTED!)
+**Sprint 5 (v0.8.0):** ✅ 85% Complete (COMMITTED - Testing Phase)
 
 | Sprint | Version | Status | Focus |
 |--------|---------|--------|-------|
@@ -92,11 +92,11 @@ docs/
 | **Sprint 2** | **v0.2.0** | 📋 PLANNED | Enhanced Core Features (Dashboard, Biz Lab, Navigation) |
 | **Sprint 3** | **v0.4.0** | 📋 PLANNED | Products Lab (Workbench, Experiments, Tokens) |
 | **Sprint 4** | **v0.6.0** | 📋 PLANNED | Studio Tuner (Themes, Layouts, Accessibility) |
-| **Sprint 5** | **v0.8.0** | 🔄 85% UNCOMMITTED | App Settings (Workflow Profiles, Settings Hub) |
+| **Sprint 5** | **v0.8.0** | 🧪 85% TESTING | App Settings (Workflow Profiles, Settings Hub) |
 | **Sprint 6** | **v1.0.0** | 📋 PLANNED | Final v1.0 Polish (Navigation, System Integration) |
 | **Sprint 7+** | **v1.x** | 📋 PLANNED | Advanced Features (Collaboration, AI, Performance) |
 
-**⚠️ IMPORTANT:** Sprint 5 has 3,300 lines of uncommitted code ready to commit!
+**✅ UPDATE:** Sprint 5 committed in `d4e7aa9` - Settings Hub now ready for testing!
 
 See **[roadmap/current-sprint.md](roadmap/current-sprint.md)** for current state details.
 
@@ -105,7 +105,7 @@ See **[roadmap/current-sprint.md](roadmap/current-sprint.md)** for current state
 ## 🚀 Getting Started
 
 1. **Check Current State:** Read [roadmap/current-sprint.md](roadmap/current-sprint.md) to see where we are.
-2. **Review Sprint 5 Status:** Check [tasks/sprint-5-implementation-status.md](tasks/sprint-5-implementation-status.md) for uncommitted work.
-3. **Pick Next Task:** Choose from Sprint 2-6 task files in `tasks/`.
-4. **Read the Spec:** Open the relevant specification in `specifications/`.
-5. **Commit Sprint 5:** Consider committing the 3,300 lines of Settings Hub code!
+2. **Test Sprint 5:** Visit `/settings` route in browser to test the Settings Hub UI
+3. **Review Sprint 5 Status:** Check [tasks/sprint-5-implementation-status.md](tasks/sprint-5-implementation-status.md) for details.
+4. **Pick Next Task:** Choose from Sprint 2-6 task files in `tasks/` or complete Sprint 5 remaining 15%.
+5. **Read the Spec:** Open the relevant specification in `specifications/`.

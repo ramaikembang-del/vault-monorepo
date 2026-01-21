@@ -9,7 +9,7 @@
 **Current State:** Scattered between Sprint 1 & 2
 - Sprint 1 (v0.1.0): ✅ Complete (Rapid Prototype - 4.5h)
 - Scattered Work: ✅ PRDs 10-14 specs created (4h)
-- **Sprint 5 (v0.8.0): 🔄 85% Complete (UNCOMMITTED!)**
+- **Sprint 5 (v0.8.0): ✅ 85% Complete (COMMITTED - Testing Phase)**
 
 | Sprint | Version | Status | Progress | Notes |
 |--------|---------|--------|----------|-------|
@@ -18,11 +18,11 @@
 | **Sprint 2** | **v0.2.0** | 📋 Planned | 0% | Enhanced Core Features |
 | **Sprint 3** | **v0.4.0** | 📋 Planned | 0% | Products Lab |
 | **Sprint 4** | **v0.6.0** | 📋 Planned | 0% | Studio Tuner |
-| **Sprint 5** | **v0.8.0** | 🔄 Uncommitted | 85% | **3,300 lines ready to commit!** |
+| **Sprint 5** | **v0.8.0** | 🧪 Testing | 85% | **Committed in `d4e7aa9` - needs testing** |
 | **Sprint 6** | **v1.0.0** | 📋 Planned | 0% | Final v1.0 Polish |
 | **Sprint 7+** | **v1.x** | 📋 Planned | 0% | Advanced Features |
 
-**⚠️ CRITICAL:** Sprint 5 App Settings system is 85% complete but uncommitted!
+**✅ UPDATE:** Sprint 5 App Settings committed - now in testing phase!
 
 ---
 
@@ -87,19 +87,20 @@
 
 ---
 
-### 🔄 Sprint 5: App Settings (v0.8.0)
-*Status: 85% COMPLETE - UNCOMMITTED!*
+### 🧪 Sprint 5: App Settings (v0.8.0)
+*Status: 85% COMPLETE - COMMITTED (Testing Phase)*
 
 | Feature | Specification | Status | Details |
 |---------|---------------|--------|---------|
-| **Settings Infrastructure** | `app-settings-system.md` | ✅ Complete | 3,303 lines uncommitted |
+| **Settings Infrastructure** | `app-settings-system.md` | ✅ Complete | Committed in `d4e7aa9` |
 | **Workflow Profiles** | `app-settings-system.md` | ✅ Core done | Automation missing |
 | **App-Specific Settings** | `app-settings-system.md` | ✅ UI complete | Integration pending |
 | **Export/Import** | `app-settings-system.md` | ✅ Complete | Works with JSON |
 | **Cascade Engine** | `app-settings-system.md` | ❌ Not done | Needs implementation |
 | **Real-Time Sync** | `app-settings-system.md` | ❌ Not done | Pusher integration missing |
 
-**⚠️ Action Required:** Commit uncommitted work!
+**✅ Committed:** Settings Hub committed in `d4e7aa9` on Jan 21, 2026
+**Next:** Test in browser, then implement remaining 15%
 **Assessment:** See `tasks/sprint-5-implementation-status.md`
 
 ---
@@ -158,7 +159,7 @@
 | **Specifications/** | ✅ Complete | 10 technical specs ready |
 | **Roadmap/** | ✅ Updated | Current sprint, archive, upcoming work |
 | **Tasks/** | ✅ Complete | Sprints 1-7 task files created |
-| **Sprint 5 Code** | ⚠️ Uncommitted | 3,303 lines ready to commit |
+| **Sprint 5 Code** | ✅ Committed | Committed in `d4e7aa9` - needs testing |
 
 ---
 
@@ -172,10 +173,11 @@
 
 ## 🎯 Immediate Actions
 
-1. **Commit Sprint 5 Work** - 3,303 lines of Settings Hub code ready
-2. **Test Settings Hub** - Verify all UI sections work in browser
-3. **Choose Next Sprint** - Start Sprint 2, 3, 4, or 6?
-4. **Deploy v0.1.0** - Consider deploying prototype to production
+1. ✅ **Commit Sprint 5 Work** - DONE in `d4e7aa9`
+2. 🏃 **Test Settings Hub** - Verify all 7 UI sections work in browser (`/settings` route)
+3. **Complete Sprint 5** - Implement remaining 15% (Cascade Engine, Real-Time Sync)
+4. **Choose Next Sprint** - Start Sprint 2, 3, 4, or 6?
+5. **Deploy v0.1.0** - Consider deploying prototype to production
 
 ---
 
