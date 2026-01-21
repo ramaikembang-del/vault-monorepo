@@ -1,119 +1,251 @@
-# Sprint 2: Planned Tasks (Intelligence & Immersion)
-**Status:** 📋 PLANNED  
-**Focus:** Premium UX + Decision Intelligence + Data Moat  
+# Sprint 2: Planned Tasks (Enhanced Core Features)
+**Status:** 📋 PLANNED
+**Focus:** Enhance Dashboard, Biz Lab, Navigation from existing specs (v0.2.0)
 **Workflow:** Dev → Test → Iterate → Build → Deploy
 
 ---
 
-## 🏗️ Stage 0: Foundation Alignment (The "Merge")
-**Goal:** Align Documentation & Specs before writing code. (✅ Completed)
+## 📦 Stage 1: Development (Implementation)
+*Status: ⏳ Pending*
 
-- [x] **PRD Alignment (H1 2026)**
-  - [x] Humanize 6 PRDs for Partner readability (`00`, `10`..`14`)
-  - [x] Audit Feature UX (Command Palette = 🟢, Studio = 🟡)
-- [x] **Specification Alignment**
-  - [x] Update `core-platform.md` (2-Partner Logic, Global Nav)
-  - [x] Update `design-foundation.md` (Team Presets)
-  - [x] Update `future-enhancements.md` (F16-F18 Roadmapped)
-
----
-
-## 🛠️ Stage 1: Development (The Build)
-**Goal:** Implement core features based on aligned Specs.
-
-### Feature A: Global Navigation (F16)
+### Enhanced Dashboard (dashboard-system.md)
 - [ ] **Install Dependencies**
-  - [ ] `npm install cmdk react-hotkeys-hook`
-- [ ] **Build Command Palette**
-  - [ ] Create `components/search/CommandMenu.tsx` (Update Existing)
-  - [ ] Implement `ActionRegistry` (Static + Dynamic)
-  - [ ] Add `usePartnerActions` hook (Mock Notifications)
-- [ ] **Global Shortcuts**
+  - [ ] `npm install zustand @dnd-kit/core @dnd-kit/sortable`
+  - [ ] `npm install @dnd-kit/utilities react-grid-layout`
+- [ ] **Widget System Architecture**
+  - [ ] Create `stores/widgetStore.ts` (Zustand)
+  - [ ] Create `types/dashboard.ts` (Widget interfaces)
+  - [ ] Create `config/widgets.ts` (Widget registry)
+- [ ] **Configurable Widgets**
+  - [ ] Create `components/dashboard/WidgetContainer.tsx`
+  - [ ] Create `components/dashboard/WidgetGrid.tsx` (Drag & drop)
+  - [ ] Implement `useWidget` hook
+  - [ ] Add localStorage persistence
+- [ ] **Gamification Enhancement**
+  - [ ] Update `lib/user-progress.ts` (Clerk metadata sync)
+  - [ ] Create `components/gamification/XPTracker.tsx`
+  - [ ] Create `components/gamification/BadgeUnlock.tsx`
+  - [ ] Implement achievement unlock notifications
+  - [ ] Add progress tracking API
+- [ ] **Dashboard Widgets**
+  - [ ] Enhance `MyFocusWidget` (configurable tasks)
+  - [ ] Enhance `TeamPulseWidget` (real-time partner activity)
+  - [ ] Create `ReviewQueueWidget` (document reviews)
+  - [ ] Enhance `MissionStatusWidget` (live sprint data)
+
+### Enhanced Biz Lab (biz-lab-system.md)
+- [ ] **Install Dependencies**
+  - [ ] `npm install openai` (for embeddings)
+  - [ ] `npm install workbox-webpack-plugin` (for caching)
+- [ ] **Strategic Brain - Backlinks**
+  - [ ] Create `lib/graph/backlinks.ts`
+  - [ ] Build bidirectional link detection
+  - [ ] Create `components/biz/BacklinksPanel.tsx`
+  - [ ] Add unlinked mentions detection
+- [ ] **Strategic Brain - Semantic Similarity**
+  - [ ] Create `lib/ai/embeddings.ts`
+  - [ ] Build document similarity calculator
+  - [ ] Create `components/biz/RelatedDocs.tsx`
+  - [ ] Add "Similar Documents" widget
+- [ ] **Advanced Features - Staged Parsing**
+  - [ ] Create `lib/mdx/staged-parser.ts`
+  - [ ] Implement 3-stage loading (TOC → Content → Full)
+  - [ ] Add Web Worker for parsing
+  - [ ] Implement progress indicators
+- [ ] **Advanced Features - Multi-Layer Caching**
+  - [ ] Create `lib/cache/manager.ts`
+  - [ ] Implement memory cache (LRU)
+  - [ ] Implement disk cache (IndexedDB)
+  - [ ] Add cache invalidation strategy
+  - [ ] Edge caching configuration
+
+### Enhanced Navigation (global-navigation-system.md)
+- [ ] **Install Dependencies**
+  - [ ] `npm install react-hotkeys-hook`
+- [ ] **Command Palette Enhancement**
+  - [ ] Update `components/search/CommandMenu.tsx`
+  - [ ] Create `lib/actions/registry.ts` (Action registry)
+  - [ ] Implement context-aware actions
+  - [ ] Add quick action shortcuts
+- [ ] **Global Shortcuts System**
   - [ ] Create `hooks/useGlobalShortcuts.ts`
-  - [ ] Implement `Cmd+1/2/3` routing (`router.push`)
-  - [ ] Implement `Cmd+K` trigger (Context aware)
-- [ ] **Update Navbar**
-  - [ ] Modify `components/shared/VaultNav.tsx`
-  - [ ] Add `active` state styling (Border Bottom)
-
-### Feature B: The "Alive" Workspace (F4/F5)
-- [ ] **Install Resizable Panels**
-  - [ ] `npm install react-resizable-panels`
-- [ ] **Floating Sidebar (F4)**
-  - [ ] Create `components/layout/ResizableSidebar.tsx`
-  - [ ] Implement `PanelGroup` / `Panel` / `PanelResizeHandle`
-  - [ ] Add `localStorage` persistence (`autoSaveId="sidebar-width"`)
-- [ ] **Glassmorphism Navbar (F5)**
-  - [ ] Update `components/shared/DynamicNavbar.tsx`
-  - [ ] Add CSS: `backdrop-filter: blur(16px)`
-  - [ ] Connect `useClerkMetadata` for "Unread" badges
-
-### Feature C: Decision Intelligence (V8)
-- [ ] **Sankey Funnels**
-  - [ ] `npm install d3-sankey` (or Recharts equivalent)
-  - [ ] Create `components/analytics/SankeyFunnel.tsx`
-  - [ ] Map "Lead -> Revenue" data structure
-- [ ] **MDX Calculators**
-  - [ ] Create `components/mdx/ROI_Calculator.tsx`
-  - [ ] Add inputs: `MarketSize`, `ConversionRate`, `Price`
-  - [ ] Implement dynamic output formatting (`Intl.NumberFormat`)
-  - [ ] Embed in `content/biz/projections/03-financials.md`
-
-### Feature D: Studio Tuner (F17)
-- [ ] **Theme Infrastructure**
-  - [ ] Create `config/themes.ts` (Official, Partner1, Partner2)
-  - [ ] Define CSS Variables: `--color-primary`, `--bg-primary`
-- [ ] **Studio Tuner UI**
-  - [ ] Create `app/settings/studio/page.tsx`
-  - [ ] Built `ThemeSelector` component (Grid of previews)
-  - [ ] **Logic:** `useTheme` hook to apply CSS vars to `:root`
+  - [ ] Implement `Cmd+D` (Dashboard)
+  - [ ] Implement `Cmd+1` (Products)
+  - [ ] Implement `Cmd+2` (Biz)
+  - [ ] Implement `Cmd+3` (Settings)
+  - [ ] Implement `Cmd+K` (Search)
+- [ ] **Keyboard Shortcuts Manager**
+  - [ ] Create `components/settings/ShortcutsManager.tsx`
+  - [ ] Add conflict detection
+  - [ ] Implement custom binding UI
+  - [ ] Create shortcuts help panel (`Cmd+/`)
 
 ---
 
-## 🧪 Stage 2: Testing & QA (The Audit)
-**Goal:** Verify features against Success Criteria.
+## 🧪 Stage 2: Testing & MVP Verification (QA)
+*Status: ⏳ Pending*
 
-- [ ] **Performance Audit**
-  - [ ] **Cmd+K Latency:** Open in < 100ms (Profiler)
-  - [ ] **Layout Shift:** Resizable panels must be stable (CLS < 0.1)
-  - [ ] **Theme Switch:** Instant paint (< 16ms)
-- [ ] **UX Verification**
-  - [ ] **Shortcuts:** Verify `Cmd+1` works from *inside* a modal
-  - [ ] **Persistence:** Reload page -> Check if Sidebar width is saved
-  - [ ] **Mobile:** Verify Navbar collapses to Bottom Dock (per Spec 1.1)
-- [ ] **Data Integrity**
-  - [ ] **Calculator:** Test edge cases (Negative inputs, Zero division)
+### Technical Performance
+- [ ] **Dashboard Performance**
+  - [ ] Widget drag & drop < 60 FPS
+  - [ ] Dashboard load time < 1s
+  - [ ] Widget state persistence works
+- [ ] **Biz Lab Performance**
+  - [ ] Staged parsing reduces load time by 40%
+  - [ ] Cache hit rate > 80%
+  - [ ] Backlinks calculate < 500ms
+  - [ ] Semantic similarity < 2s
+- [ ] **Navigation Performance**
+  - [ ] Command Palette opens < 100ms
+  - [ ] Keyboard shortcuts respond instantly
+  - [ ] No shortcut conflicts
+
+### Feature Verification
+- [ ] **Widget System**
+  - [ ] Drag & drop works smoothly
+  - [ ] Widget configuration saves
+  - [ ] Layout persists after reload
+  - [ ] Mobile: widgets stack vertically
+- [ ] **Gamification**
+  - [ ] Achievements unlock correctly
+  - [ ] XP increments on actions
+  - [ ] Clerk metadata syncs
+  - [ ] Badge notifications appear
+- [ ] **Strategic Brain**
+  - [ ] Backlinks detect correctly
+  - [ ] Unlinked mentions found
+  - [ ] Similar docs make sense
+  - [ ] Embeddings cache properly
+- [ ] **Global Shortcuts**
+  - [ ] All shortcuts work from any page
+  - [ ] Shortcuts work inside modals
+  - [ ] Help panel shows all shortcuts
+  - [ ] Custom bindings save
+
+### Data Integrity
+- [ ] **Cache Validation**
+  - [ ] Cache invalidates on content update
+  - [ ] No stale data served
+  - [ ] IndexedDB storage limits respected
+- [ ] **Metadata Sync**
+  - [ ] Clerk metadata updates in < 2s
+  - [ ] No race conditions on concurrent updates
 
 ---
 
-## 🔄 Stage 3: Iteration (The Polish)
-**Goal:** Refine based on feedback.
+## 🔄 Stage 3: Iteration (Post-QA Refinement)
+*Status: ⏳ Pending*
 
-- [ ] **Micro-Copy Injection**
-  - [ ] Implement "Empty State" illustrations in Dashboard/Reviews
-  - [ ] Update Button Labels to match `design-foundation.md`
-  - [ ] Add "Success Toast" variations (Randomized celebration messages)
-- [ ] **Visual Tuning**
-  - [ ] Adjust glassmorphism contrast based on real usage
-  - [ ] Tune spring animations for "snappiness"
+### 3.1 Performance Optimization
+- [ ] **Bundle Size Check**
+  - [ ] Verify bundle < 150KB per route
+  - [ ] Code-split heavy dependencies
+  - [ ] Tree-shake unused code
+- [ ] **Animation Polish**
+  - [ ] Widget transitions smooth
+  - [ ] Badge unlocks delightful
+  - [ ] Loading states clear
+
+### 3.2 UX Refinement
+- [ ] **Widget Customization**
+  - [ ] Add widget visibility toggles
+  - [ ] Improve drag handles
+  - [ ] Better empty states
+- [ ] **Strategic Brain UX**
+  - [ ] Backlinks panel design
+  - [ ] Related docs prominence
+  - [ ] Loading state improvements
+
+### 3.3 Accessibility
+- [ ] **Keyboard Navigation**
+  - [ ] Tab order logical
+  - [ ] Focus indicators visible
+  - [ ] Skip links work
+- [ ] **Screen Reader**
+  - [ ] Widget labels clear
+  - [ ] Shortcuts announced
+  - [ ] Dynamic content updates announced
 
 ---
 
-## 🚀 Stage 4: Build & Launch (The Release)
-**Goal:** Deploy v0.2.0 to Production.
+## 🚀 Stage 4: Build & Launch (v0.2.0 Release)
+*Status: ⏳ Pending*
 
-- [ ] **Pre-Flight Check**
-  - [ ] `npm run lint` (Zero errors)
-  - [ ] `npm run build` (Check bundle size)
-  - [ ] Verify environment variables
-- [ ] **Deployment**
+### Pre-Flight Check
+- [ ] **Build Verification**
+  - [ ] `npm run build` succeeds
+  - [ ] No build warnings
+  - [ ] Environment variables set
+- [ ] **Code Quality**
+  - [ ] `npm run lint` passes
+  - [ ] TypeScript errors: 0
+  - [ ] Console errors: 0
+- [ ] **Documentation**
+  - [ ] Update CHANGELOG.md
+  - [ ] Document new features
+  - [ ] Update user guide
+
+### Production Git Flow
+- [ ] **Version Control**
+  - [ ] Commit: `feat: sprint 2 - enhanced core features`
+  - [ ] Tag: `v0.2.0`
+  - [ ] Create GitHub Release
+- [ ] **Branch Management**
+  - [ ] Merge feature branches
+  - [ ] Resolve conflicts
+  - [ ] Clean up old branches
+
+### Deployment
+- [ ] **Vercel Deploy**
   - [ ] Push to `main`
-  - [ ] Verify Vercel deployment URL
-- [ ] **Handoff**
-  - [ ] Record "Sprint 2: Intelligence Engine" Loom
-  - [ ] Update `CHANGELOG.md`
+  - [ ] Verify deployment URL
+  - [ ] Test production environment
+  - [ ] Monitor performance metrics
+- [ ] **Smoke Testing**
+  - [ ] Login works
+  - [ ] Dashboard loads
+  - [ ] Widgets drag & drop
+  - [ ] Shortcuts work
+  - [ ] Biz Lab loads docs
+  - [ ] Backlinks show up
+
+### Handoff
+- [ ] **Documentation**
+  - [ ] Update `docs/roadmap/current-sprint.md`
+  - [ ] Move to `docs/roadmap/sprint-archive.md`
+  - [ ] Record demo video (Loom)
+- [ ] **Partner Communication**
+  - [ ] Send release notes
+  - [ ] Highlight new features
+  - [ ] Request feedback
 
 ---
 
-**Last Updated:** January 15, 2026
-**See Also:** `../specifications/core-platform.md`
+## Summary
+
+### Sprint 2 Goals
+- ✅ Enhance Dashboard (configurable widgets + gamification)
+- ✅ Enhance Biz Lab (Strategic Brain + advanced features)
+- ✅ Enhance Navigation (Command Palette + global shortcuts)
+
+### Key Deliverables
+- Configurable widget system with drag & drop
+- Strategic Brain with backlinks & semantic similarity
+- Multi-layer caching for performance
+- Global keyboard shortcuts
+- v0.2.0 production release
+
+### Success Criteria
+- Dashboard load < 1s
+- Widget drag & drop smooth (60 FPS)
+- Backlinks calculate < 500ms
+- Cache hit rate > 80%
+- All shortcuts work globally
+- Zero critical bugs
+
+---
+
+**Last Updated:** January 21, 2026
+**Status:** Planned - Waiting to start
+**Next Sprint:** `sprint-3-planned.md` (Products Lab)
+**Specifications:** `docs/specifications/dashboard-system.md`, `docs/specifications/biz-lab-system.md`, `docs/specifications/global-navigation-system.md`

@@ -396,6 +396,13 @@ Document:
 
 **Total Estimated:** $35-50/month for all AI features
 
+### F16-F18: Navigation & Settings
+- **Global Navigation:** No additional costs (CMDK already in bundle)
+- **Studio Tuner:** No additional costs (CSS-in-JS, localStorage)
+- **App Settings:** No additional costs (Zustand + localStorage)
+
+**Total Estimated:** $0/month - All client-side features
+
 ---
 
 ## Success Metrics
@@ -415,7 +422,22 @@ Document:
 - Auto-tags achieve 80% accuracy
 - Predictive search improves relevance by 40%
 
+### F16: Global Navigation
+- Command Palette used 10+ times/day per user
+- Average task completion 50% faster
+- Keyboard shortcuts reduce mouse usage by 30%
+
+### F17: Studio Tuner
+- 80%+ users customize at least 1 theme setting
+- Layout presets save 5+ minutes per session switch
+- Accessibility features used by 20%+ of users
+
+### F18: App Settings
+- Settings import/export used 5+ times/week
+- Workflow Profiles save 10+ minutes/day
+- Settings sync reduces configuration time by 70%
+
 ---
 
-**Last Updated:** January 15, 2026  
-**See Also:** `../roadmap/upcoming-work.md`, `content-navigation.md`
+**Last Updated:** January 20, 2026
+**See Also:** `upcoming-work.md`, `../specifications/global-navigation-system.md`, `../specifications/studio-tuner-system.md`, `../specifications/app-settings-system.md`

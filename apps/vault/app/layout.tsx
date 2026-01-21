@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 import { CommandMenu } from '@/components/search/CommandMenu'
 import { AchievementNotifier } from '@/components/gamification/AchievementNotifier'
 import { DynamicNavbar } from '@/components/enhanced-ux/dynamic-navbar'
+import { SettingsProvider } from '@/components/settings-provider'
 
 export default function RootLayout({
   children,
@@ -42,11 +43,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <CommandMenu />
-            <AchievementNotifier />
-            <DynamicNavbar />
-            {children}
-            <StudioTuner />
+            <SettingsProvider>
+              <CommandMenu />
+              <AchievementNotifier />
+              <DynamicNavbar />
+              {children}
+              <StudioTuner />
+            </SettingsProvider>
           </ThemeProvider>
         </body>
       </html>

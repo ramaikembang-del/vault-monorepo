@@ -246,7 +246,7 @@ const PAGE_DEFAULTS: Record<string, string> = {
 };
 
 // Type for Lucide icon components
-type LucideIcon = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+type LucideIcon = any;
 
 const Icon = ({ icon: I, className, ...props }: { icon: LucideIcon, className?: string } & React.ComponentProps<"svg">) => {
     return <I className={className} {...props} />;

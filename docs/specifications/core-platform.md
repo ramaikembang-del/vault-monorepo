@@ -182,8 +182,207 @@ Specifically designed for the 2-partner workflow:
 - `triggerReviewModal()`: Opens the review request dialog
 - `toggleActivityFeed()`: Slides out the partner activity sidebar
 
----
+### 5.4 Unified Navigation Routes
+
+**Primary Routes:**
+```typescript
+// Route structure
+const routes = {
+  dashboard: '/',                    // Mission Control Dashboard
+  products: '/products',             // Products Lab
+  biz: '/biz',                      // Biz Lab
+  settings: '/settings',            // App Settings & Preferences
+};
 ```
+
+**Navigation Implementation:**
+```tsx
+// components/shared/FloatingDock.tsx
+import { usePathname, useRouter } from 'next/navigation';
+
+export function FloatingDock() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const navItems = [
+    { id: 'dashboard', label: 'Dashboard', route: '/', icon: '🏠', shortcut: 'Cmd+D' },
+    { id: 'products', label: 'Products', route: '/products', icon: '🎨', shortcut: 'Cmd+1' },
+    { id: 'biz', label: 'Biz', route: '/biz', icon: '📊', shortcut: 'Cmd+2' },
+    { id: 'settings', label: 'Settings', route: '/settings', icon: '⚙️', shortcut: 'Cmd+3' },
+  ];
+
+  return (
+    <nav className="floating-dock">
+      {navItems.map((item) => (
+        <button
+          key={item.id}
+          className={pathname.startsWith(item.route) ? 'active' : ''}
+          onClick={() => router.push(item.route)}
+          title={`${item.label} (${item.shortcut})`}
+        >
+          <span className="icon">{item.icon}</span>
+          <span className="label">{item.label}</span>
+        </button>
+      ))}
+    </nav>
+  );
+}
+```
+
+### 5.5 Global Search System
+
+**Implementation:** `cmdk` + `fuse.js` for fuzzy search
+
+**Component:**
+```tsx
+// components/search/CommandMenu.tsx
+'use client';
+
+import { Command } from 'cmdk';
+import Fuse from 'fuse.js';
+
+interface SearchResult {
+  type: 'action' | 'biz' | 'products' | 'settings';
+  title: string;
+  description?: string;
+  deepLink: string;
+}
+
+export function CommandMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [search, setSearch] = useState('');
+  const [results, setResults] = useState<SearchResult[]>([]);
+
+  // Aggregate searchable content
+  const searchIndex = useMemo(() => {
+    const items: SearchResult[] = [
+      // Actions
+      { type: 'action', title: 'New Strategy Doc', deepLink: '/biz/new?template=strategy' },
+      { type: 'action', title: 'Log Experiment', deepLink: '/products/new' },
+      { type: 'action', title: 'Request Review', deepLink: '#review-modal' },
+
+      // Biz Lab docs
+      ...bizDocs.map(doc => ({
+        type: 'biz' as const,
+        title: doc.title,
+        description: doc.description,
+        deepLink: `/biz/${doc.slug}`,
+      })),
+
+      // Products Lab
+      ...productsExperiments.map(exp => ({
+        type: 'products' as const,
+        title: exp.name,
+        description: exp.description,
+        deepLink: `/products/experiments/${exp.id}`,
+      })),
+    ];
+
+    return new Fuse(items, {
+      keys: ['title', 'description'],
+      threshold: 0.3,
+    });
+  }, [bizDocs, productsExperiments]);
+
+  useEffect(() => {
+    if (search) {
+      const fuseResults = searchIndex.search(search);
+      setResults(fuseResults.map(r => r.item));
+    } else {
+      setResults([]);
+    }
+  }, [search, searchIndex]);
+
+  return (
+    <Command.Dialog open={open} onOpenChange={onClose}>
+      <Command.Input
+        value={search}
+        onValueChange={setSearch}
+        placeholder="Search actions, docs, experiments..."
+      />
+      <Command.List>
+        {/* Group by type */}
+        {['action', 'biz', 'products', 'settings'].map(type => {
+          const groupResults = results.filter(r => r.type === type);
+          if (groupResults.length === 0) return null;
+
+          return (
+            <Command.Group key={type} heading={type.toUpperCase()}>
+              {groupResults.map(result => (
+                <Command.Item
+                  key={result.deepLink}
+                  onSelect={() => {
+                    window.location.href = result.deepLink;
+                    onClose();
+                  }}
+                >
+                  <div>
+                    <div className="font-semibold">{result.title}</div>
+                    {result.description && (
+                      <div className="text-xs text-slate-400">{result.description}</div>
+                    )}
+                  </div>
+                </Command.Item>
+              ))}
+            </Command.Group>
+          );
+        })}
+      </Command.List>
+    </Command.Dialog>
+  );
+}
+```
+
+**Keyboard Shortcut Handler:**
+```tsx
+// lib/hooks/useGlobalShortcuts.ts
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+export function useGlobalShortcuts(
+  setSearchOpen: (open: boolean) => void,
+  isAdmin: boolean
+) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey) {
+        switch (e.key) {
+          case 'd':
+            e.preventDefault();
+            router.push('/');
+            break;
+          case '1':
+            e.preventDefault();
+            router.push('/products');
+            break;
+          case '2':
+            e.preventDefault();
+            router.push('/biz');
+            break;
+          case '3':
+            e.preventDefault();
+            if (isAdmin) router.push('/settings');
+            break;
+          case 'k':
+            e.preventDefault();
+            setSearchOpen(true);
+            break;
+          case '/':
+            e.preventDefault();
+            // Show shortcuts guide
+            break;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+    return () => window.removeEventListener('keydown', handleKeydown);
+  }, [isAdmin, router, setSearchOpen]);
+}
+```
+
+**Performance Target:** < 500ms response time for search results
 
 ---
 
@@ -552,11 +751,13 @@ const useSettingsStore = create()(
 
 ---
 
-**Last Updated:** January 15, 2026  
+**Last Updated:** January 20, 2026
 **See Also:**
 - `design-foundation.md` for design tokens
-- `00-vault-overview-prd.md` for product requirements
+- `dashboard-system.md` for Mission Control Dashboard
+- `collaboration-features.md` for team coordination
 - `content-navigation.md` for MDX implementation
+- `../prds/00-vault-overview-prd.md` - Product overview
 - `../prds/12-global-navigation-prd.md` - Navigation settings
 - `../prds/13-studio-tuner-prd.md` - Theme & layout
 - `../prds/14-app-settings-prd.md` - App preferences

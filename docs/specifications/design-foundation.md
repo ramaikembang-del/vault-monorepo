@@ -372,7 +372,131 @@ For the Mission Control Dashboard:
 
 ---
 
-## 15. Usage Guidelines
+## 15. Studio Tuner Integration
+
+### 15.1 Dynamic Token Application
+
+Studio Tuner (PRD #13) provides real-time theme customization by dynamically updating these design tokens via CSS variables.
+
+**Theme Application Flow:**
+```typescript
+// Studio Tuner updates design tokens in real-time
+function applyThemeToDesignTokens(theme: ThemeConfig) {
+  const root = document.documentElement;
+
+  // Color tokens from Studio Tuner
+  root.style.setProperty('--color-primary', theme.colors.primary);
+  root.style.setProperty('--color-accent', theme.colors.accent);
+  root.style.setProperty('--color-success', theme.colors.success);
+  root.style.setProperty('--color-warning', theme.colors.warning);
+  root.style.setProperty('--color-error', theme.colors.error);
+
+  // Typography tokens from Studio Tuner
+  root.style.setProperty('--font-primary', theme.typography.fontFamily.sans.join(', '));
+  root.style.setProperty('--font-mono', theme.typography.fontFamily.mono.join(', '));
+  root.style.setProperty('--font-size-multiplier', theme.typography.fontSize.multiplier.toString());
+
+  // Animation tokens from Studio Tuner
+  root.style.setProperty('--animation-speed', theme.animation.speedMultiplier.toString());
+  root.style.setProperty('--transition-timing', getEasingFunction(theme.animation.transitionStyle));
+
+  // Accessibility tokens from Studio Tuner
+  root.style.setProperty('--focus-ring-size', `${theme.accessibility.focusIndicator.size}px`);
+  root.style.setProperty('--focus-ring-color', theme.accessibility.focusIndicator.color);
+  root.style.setProperty('--text-scale-multiplier', theme.accessibility.textScaling.multiplier.toString());
+}
+```
+
+### 15.2 Responsive Token Scaling
+
+All design tokens scale with Studio Tuner settings:
+
+**Font Size Scaling:**
+```css
+/* Base token */
+--text-base: 1rem;
+
+/* Studio Tuner multiplier applied */
+font-size: calc(var(--text-base) * var(--font-size-multiplier));
+/* Example: 1rem * 1.25 = 1.25rem (20px) */
+```
+
+**Animation Speed Scaling:**
+```css
+/* Base transition */
+--transition-base: 300ms;
+
+/* Studio Tuner speed multiplier applied */
+transition: all calc(var(--transition-base) * var(--animation-speed)) var(--transition-timing);
+/* Example: 300ms * 0.75 = 225ms (slower) */
+```
+
+### 15.3 High Contrast Mode Overrides
+
+When Studio Tuner's high contrast mode is enabled, design tokens adapt for accessibility:
+
+```css
+.high-contrast {
+  /* Override color tokens for maximum contrast */
+  --color-primary: #000000;
+  --color-accent: #000000;
+  --text-color-primary: #000000;
+  --bg-primary: #ffffff;
+  --border-primary: #000000;
+
+  /* Enhance focus indicators */
+  --focus-ring-size: 4px;
+  --shadow-md: 0 0 0 2px #000000; /* Replace soft shadows with hard borders */
+}
+```
+
+### 15.4 Token Consumption Pattern
+
+Components should consume design tokens, never hard-coded values:
+
+**Good (Token-based):**
+```tsx
+<div
+  className="bg-primary text-white"
+  style={{
+    fontSize: 'calc(1rem * var(--font-size-multiplier))',
+    transition: 'all calc(300ms * var(--animation-speed)) var(--transition-timing)'
+  }}
+>
+```
+
+**Bad (Hard-coded):**
+```tsx
+<div
+  className="bg-blue-500 text-white"
+  style={{
+    fontSize: '16px',
+    transition: 'all 300ms ease-in-out'
+  }}
+>
+```
+
+### 15.5 Preset Management
+
+Studio Tuner theme presets (section 4.3) can be applied globally:
+
+```typescript
+// Apply preset from Studio Tuner
+const applyPreset = (presetName: string) => {
+  const preset = themePresets[presetName]; // From section 4.3
+  applyThemeToDesignTokens(preset);
+
+  // Persist to localStorage via Studio Tuner store
+  useStudioStore.getState().applyTheme(preset);
+};
+```
+
+**See:** `specifications/studio-tuner-system.md` for complete theme store architecture
+**See:** PRD #13 Section 4 for Theme Studio user interface and workflows
+
+---
+
+## 16. Usage Guidelines
 
 ### 15.1 When to Use Custom Tokens
 - ✅ Creating new UI components

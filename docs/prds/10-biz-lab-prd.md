@@ -75,45 +75,184 @@ An **Engineered Strategic Intelligence System** that feels alive. It uses **stag
 **Personalized command center for strategic focus and decision tracking.**
 
 **Features:**
-1.  **Strategic Brief:** Dynamic summary of critical market updates, pending decisions, and high-priority initiatives.
-2.  **Decision Log:** Persistent tracker for active decisions awaiting approval or execution.
-3.  **Priority Initiatives:** Drag-and-drop vertical queue of the top 3 strategic documents.
-4.  **Market Pulse:** Real-time feed of partner contributions to market analysis and competitive docs.
-5.  **Quick Capture:** Rapid-fire note-taking for strategy sessions and market observations.
+1.  **Strategic Brief:** Dynamic summary of critical market updates, pending decisions, and high-priority initiatives
+2.  **Decision Log:** Persistent tracker for active decisions awaiting approval or execution
+3.  **Priority Initiatives:** Drag-and-drop vertical queue of the top 3 strategic documents
+4.  **Market Pulse:** Real-time feed of partner contributions to market analysis and competitive docs
+5.  **Quick Capture:** Rapid-fire note-taking for strategy sessions and market observations
 
-**Actions:**
-1.  **`Cmd+D` (Add to Decisions):** Instantly flag current doc for decision governance workflow.
-2.  **`Clear Brief`:** Mark all updates as read after morning strategy review.
-3.  **`Focus Toggle`:** Collapse all sidebars to center the Strategic Brief.
-4.  **`Log Insight`:** Quick capture market intelligence or competitive observation.
+**Key Actions:**
+- `Cmd+D`: Add current doc to decisions
+- `Clear Brief`: Mark all updates as read
+- `Focus Toggle`: Collapse sidebars for focused reading
+- `Log Insight`: Quick capture market intelligence
 
-**Integrations:**
-1.  **Clerk metadata:** Syncs Priority Initiatives across devices for the same user.
-2.  **Zustand Persist:** Ensures Decision Log data survives browser refreshes.
-3.  **Git Commits:** Analyzes recent repo activity to populate the Strategic Brief.
-4.  **Market Intelligence API:** (Future) Pulls competitor news and market trends.
+**See:** `specifications/biz-lab-system.md` �#1 for technical implementation
+
+---
+
+#### 3.1.1 Dashboard Layout Options
+
+**Both layout options follow the same functional grouping:**
+
+| Layer | Purpose | Widgets |
+|-------|---------|---------|
+| **📊 INFORMATION** | Consume & Monitor | Strategic Brief, Market Pulse |
+| **⚡ WORK MANAGEMENT** | Organize & Execute | Decision Log, Priority Initiatives |
+| **✍️ QUICK ACTION** | Capture Insights | Quick Capture |
+
+---
+
+**Option A: 2-Column Layout (PRIMARY - Mirrors Mission Control)**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ Strategy Desk Dashboard                                    [⚙️] │
+├──────────────────────────────┬──────────────────────────────────┤
+│ LEFT COLUMN                  │ RIGHT COLUMN                     │
+│ (Interactive Stack)          │ (Strategic Status - Full Height) │
+│                              │                                  │
+│ ┌──────────────────────────┐ │ ┌──────────────────────────────┐ │
+│ │ 📊 STRATEGIC BRIEF       │ │ │ 📈 STRATEGIC STATUS          │ │
+│ │ ────────────────────────│ │ │ ────────────────────────────│ │
+│ │ • 3 pending decisions    │ │ │ Strategic Portfolio Map      │ │
+│ │ • Indonesia market entry │ │ │                              │ │
+│ │ • Q1 pricing update      │ │ │ ┌────────────────────────┐   │ │
+│ │ • Competitive intel      │ │ │ │ Market Entry (Blue)    │   │ │
+│ │                          │ │ │ │ ├─ Pricing Strategy ✓  │   │ │
+│ │ 🔥 High Priority:        │ │ │ │ ├─ GTM Plan �#        │   │ │
+│ │ → Approve pricing model  │ │ │ │ └─ Competitive Anal ⏳ │   │ │
+│ └──────────────────────────┘ │ │ │                        │   │ │
+│                              │ │ │ Financial (Green)      │   │ │
+│ ┌──────────────────────────┐ │ │ │ ├─ Q1 Forecast ✓      │   │ │
+│ │ 👥 MARKET PULSE          │ │ │ │ └─ Pricing Model �#  │   │ │
+│ │ ────────────────────────│ │ │ └────────────────────────┘   │ │
+│ │ Partner 2 updated:       │ │ │                              │ │
+│ │ → Competitive Analysis   │ │ │ ────────────────────────────│ │
+│ │   (5 min ago)            │ │ │ Decision Pipeline            │ │
+│ │                          │ │ │                              │ │
+│ │ Partner 1 created:       │ │ │ Draft      Review   Approved │ │
+│ │ → Indonesia Market Entry │ │ │   │          │         │     │ │
+│ │   (1 hour ago)           │ │ │   3    ──▶   2   ──▶   1    │ │
+│ └──────────────────────────┘ │ │                              │ │
+│                              │ │ Executed: 12 this month      │ │
+│ ┌──────────────────────────┐ │ │                              │ │
+│ │ ⚡ DECISION LOG          │ │ │ ────────────────────────────│ │
+│ │ ────────────────────────│ │ │ Market Intelligence          │ │
+│ │ ⚠️ Pending (3):          │ │ │                              │ │
+│ │ • Pricing Model Pivot    │ │ │ 📊 Competitive Landscape:    │ │
+│ │   [Approve] [Changes]    │ │ │    4 major competitors       │ │
+│ │ • Indonesia Entry        │ │ │                              │ │
+│ │   Awaiting Partner 2     │ │ │ 📈 Customer Trends:          │ │
+│ │ • Q2 Budget Allocation   │ │ │    Monthly billing +17%      │ │
+│ │   [Review Required]      │ │ │                              │ │
+│ └──────────────────────────┘ │ │ 🎯 Strategic Priorities:     │ │
+│                              │ │    Q1: Market Entry (85%)    │ │
+│ ┌──────────────────────────┐ │ │    Q2: Product Expansion    │ │
+│ │ 🎯 PRIORITY INITIATIVES  │ │ └──────────────────────────────┘ │
+│ │ ────────────────────────│ │                                  │
+│ │ 1. [≡] Indonesia Market  │ │                                  │
+│ │    Entry Strategy        │ │                                  │
+│ │                          │ │                                  │
+│ │ 2. [≡] Q1 Pricing Model  │ │                                  │
+│ │    (Draft)               │ │                                  │
+│ │                          │ │                                  │
+│ │ 3. [≡] Competitive Battle│ │                                  │
+│ │    Cards                 │ │                                  │
+│ └──────────────────────────┘ │                                  │
+│                              │                                  │
+│ ┌──────────────────────────┐ │                                  │
+│ │ ✍️ QUICK CAPTURE         │ │                                  │
+│ │ ────────────────────────│ │                                  │
+│ │ [Type to capture...]     │ │                                  │
+│ │                          │ │                                  │
+│ │ #market-intel  #competitor│ │                                  │
+│ │ @Partner1  @Partner2     │ │                                  │
+│ └──────────────────────────┘ │                                  │
+└──────────────────────────────┴──────────────────────────────────┘
+```
+
+**Layout Logic:**
+- **Left Column (40% width):** Interactive widgets requiring user action (read brief, approve decisions, reorder priorities, capture notes)
+- **Right Column (60% width):** Strategic status visualization providing "big picture" context (portfolio health, decision velocity, market intelligence)
+- **Vertical Flow:** Left column scrolls independently for deep interaction; Right column provides persistent context
+- **Consistency:** Mirrors Mission Control's 2-column pattern for muscle memory across dashboards
+
+---
+
+**Option B: Flexible 3-Column Grid (ALTERNATIVE - Domain-Optimized)**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Strategy Desk Dashboard                                               [⚙️] │
+├─────────────────────────┬──────────────────────────┬─────────────────────────┤
+│ INFORMATION             │ WORK MANAGEMENT          │ STATUS & CONTEXT        │
+│ (Left - 30%)            │ (Center - 35%)           │ (Right - 35%)           │
+│                         │                          │                         │
+│ ┌─────────────────────┐ │ ┌──────────────────────┐ │ ┌─────────────────────┐ │
+│ │ 📊 STRATEGIC BRIEF  │ │ │ ⚡ DECISION LOG       │ │ │ 📈 PORTFOLIO MAP    │ │
+│ │ ───────────────────│ │ │ ──────────────────── │ │ │ ────────────────── │ │
+│ │ Critical Updates:   │ │ │ ⚠️ Pending (3):       │ │ │ ┌─────────────────┐ │ │
+│ │ • 3 decisions need  │ │ │                      │ │ │ │ Market Entry ✓  │ │ │
+│ │   approval          │ │ │ • Pricing Pivot      │ │ │ │ Financial �#   │ │ │
+│ │ • Indonesia market  │ │ │   [Approve][Changes] │ │ │ │ GTM Strategy ⏳ │ │ │
+│ │   doc updated       │ │ │                      │ │ │ └─────────────────┘ │ │
+│ │ • Competitor X      │ │ │ • Indonesia Entry    │ │ │                     │ │
+│ │   launched feature  │ │ │   Awaiting Partner 2 │ │ │ Decision Pipeline:  │ │
+│ │                     │ │ │                      │ │ │ 3→2→1 (Executed:12) │ │
+│ │ 🔥 Priority Action: │ │ │ • Q2 Budget          │ │ └─────────────────────┘ │
+│ │ → Review pricing    │ │ │   [Review Required]  │ │                         │
+│ └─────────────────────┘ │ │                      │ │ ┌─────────────────────┐ │
+│                         │ │ ✓ Approved (2):      │ │ │ 📊 MARKET INTEL     │ │
+│ ┌─────────────────────┐ │ │ • GTM Strategy       │ │ │ ────────────────── │ │
+│ │ 👥 MARKET PULSE     │ │ │ • Pricing Research   │ │ │ Competitors: 4      │ │
+│ │ ───────────────────│ │ └──────────────────────┘ │ │ Customer Trends:    │ │
+│ │ Partner 2:          │ │                          │ │ → Monthly +17%      │ │
+│ │ → Updated Comp Anal │ │ ┌──────────────────────┐ │ │ → WhatsApp usage ↑ │ │
+│ │   (5 min ago)       │ │ │ 🎯 PRIORITY INIT.    │ │ │                     │ │
+│ │                     │ │ │ ──────────────────── │ │ │ Strategic Priority: │ │
+│ │ Partner 1:          │ │ │ 1. [≡] Indonesia     │ │ │ Q1: Market Entry    │ │
+│ │ → Created Indo Entry│ │ │    Market Entry      │ │ │ (85% complete)      │ │
+│ │   (1 hour ago)      │ │ │                      │ │ └─────────────────────┘ │
+│ │                     │ │ │ 2. [≡] Q1 Pricing    │ │                         │
+│ │ [View All Activity] │ │ │    Model (Draft)     │ │                         │
+│ └─────────────────────┘ │ │                      │ │                         │
+│                         │ │ 3. [≡] Battle Cards  │ │                         │
+│ ┌─────────────────────┐ │ │                      │ │                         │
+│ │ ✍️ QUICK CAPTURE    │ │ │ [+ Add Initiative]   │ │                         │
+│ │ ───────────────────│ │ └──────────────────────┘ │                         │
+│ │ [Type insight...]   │ │                          │                         │
+│ │                     │ │                          │                         │
+│ │ #market #competitor │ │                          │                         │
+│ └─────────────────────┘ │                          │                         │
+└─────────────────────────┴──────────────────────────┴─────────────────────────┘
+```
+
+**Layout Logic:**
+- **Left Column (30%):** Information consumption (what's happening)
+- **Center Column (35%):** Work management (what you need to do)
+- **Right Column (35%):** Status & context (big picture view)
+- **Flexibility:** Each column can have custom height widgets without forcing vertical stacking
+- **Optimization:** Designed specifically for strategic workflow (decision-first in center column)
 
 ---
 
 ### 3.2 Strategy Rooms
 
-**Immersive multi-document environments tailored for specific business initiatives.**
+**Immersive multi-document environments for specific business initiatives.**
 
 **Features:**
-1.  **Dual-Pane Strategy View:** Side-by-side rendering of market analysis + product strategy for alignment.
-2.  **Decision Thread:** Document-linked discussion stream for async strategic coordination.
-3.  **Live Presence:** Visual indicators showing which partners are in the strategy room.
-4.  **Room Presets:** Saved layouts for specific contexts (e.g., "Q1 Planning Room", "Competitive Analysis War Room").
+1.  **Dual-Pane Strategy View:** Side-by-side comparison of related strategies (e.g., market analysis + product strategy)
+2.  **Decision Thread:** Document-linked discussion stream for async coordination
+3.  **Live Presence:** Visual indicators showing which partners are actively in the room
+4.  **Room Presets:** Saved layouts for specific contexts (Q1 Planning Room, Competitive Analysis War Room)
 
-**Actions:**
-1.  **`Alt+Click` (Open Split):** Open a strategy doc in the secondary pane.
-2.  **`Decision Drop`:** Highlight text to start a decision thread in the sidebar.
-3.  **`Room Swap`:** Fast-switch between active strategy rooms via the sidebar.
+**Key Actions:**
+- `Alt+Click`: Open doc in split pane
+- `Decision Drop`: Start decision thread from highlighted text
+- `Room Swap`: Quick-switch between active strategy rooms
 
-**Integrations:**
-1.  **Clerk Presence:** Tracks real-time user location within the /biz file tree.
-2.  **Ably/Pusher:** Powers real-time chat and presence updates.
-3.  **Markdown-Tasks:** Automatically aggregates `[ ]` items from strategy docs into room task lists.
+**See:** `specifications/biz-lab-system.md` �#2 for technical implementation
 
 ---
 
@@ -123,22 +262,18 @@ An **Engineered Strategic Intelligence System** that feels alive. It uses **stag
 
 **Features:**
 1.  **Decision Status Pipeline:** Draft → Review → Approved → Executed
-2.  **Approval Chains:** Define who must approve (e.g., "Requires both founders")
-3.  **Decision History:** Immutable log of all strategic decisions with timestamps
-4.  **Impact Tracking:** Link decisions to affected docs and initiatives
-5.  **Stale Decision Alerts:** Decisions pending > 5 days trigger urgency notifications
+2.  **Approval Chains:** Define required approvers (e.g., "Both founders must approve")
+3.  **Decision History:** Complete audit trail of all strategic decisions
+4.  **Impact Tracking:** Visual map showing which docs and initiatives are affected
+5.  **Stale Decision Alerts:** Urgency notifications for decisions pending > 5 days
 
-**Actions:**
-1.  **`Request Approval`:** Sets `needs_approval: true` and notifies stakeholders
-2.  **`Approve Decision`:** Updates status, timestamps, and triggers execution workflow
-3.  **`Challenge Decision`:** Opens discussion thread without blocking approval
-4.  **`Link Impact`:** Associate decision with affected strategy docs
+**Key Actions:**
+- `Request Approval`: Flag decision for stakeholder review
+- `Approve Decision`: Move forward with timestamped approval
+- `Challenge Decision`: Open discussion without blocking
+- `Link Impact`: Associate decision with affected strategies
 
-**Integrations:**
-1.  **Frontmatter Parser:** Scans for `decision: true` and `status` fields
-2.  **Notification System:** Pusher alerts when approval is needed
-3.  **Audit Log:** Records all decision state changes with attribution
-4.  **Calendar Integration:** (Future) Adds execution deadlines to shared calendar
+**See:** `specifications/biz-lab-system.md` �#3 for technical implementation
 
 ---
 
@@ -149,58 +284,48 @@ An **Engineered Strategic Intelligence System** that feels alive. It uses **stag
 **Intelligent linking and bi-directional navigation for strategic intelligence.**
 
 **Features:**
-1.  **Bi-directional Backlinks:** Automated footer list of all docs referencing the current strategy.
-2.  **Unlinked Mentions:** Identification of keywords that exist as doc titles but aren't linked.
-3.  **Semantic Similarity:** Suggestion of "Related Strategies" based on content embeddings.
-4.  **Reference Previews:** On-hover popovers for every internal link (Implemented - Sprint 1).
-5.  **Cross-Product Links:** Automatic detection of product references in strategy docs.
+1.  **Bi-directional Backlinks:** Automated list showing all docs that reference the current strategy
+2.  **Unlinked Mentions:** Suggestions for keywords that could be linked to existing docs
+3.  **Semantic Similarity:** AI-powered "Related Strategies" based on content analysis
+4.  **Reference Previews:** Hover to preview linked docs without navigation (Implemented)
+5.  **Cross-Product Links:** Automatic connections between business strategy and product implementation
 
-**Actions:**
-1.  **`One-Click Link`:** Convert an unlinked mention into a formal [[wikilink]].
-2.  **`Explore Neighbors`:** Trigger the Local Graph to show connections for the current doc.
-3.  **`Ignore Suggestion`:** Dismiss semantic relations that aren't strategically relevant.
-4.  **`View Product Context`:** Jump to related product strategy from business doc.
+**Key Actions:**
+- `One-Click Link`: Convert unlinked mention to formal link
+- `Explore Neighbors`: Show local knowledge graph
+- `View Product Context`: Jump to related product docs
 
-**Integrations:**
-1.  **Flexsearch Engine:** Fast indexing of terms for unlinked mention scanning.
-2.  **OpenAI Embeddings:** Generates vector representations for semantic similarity.
-3.  **Contentlayer:** Provides the type-safe internal link map used for backlinks.
-4.  **Cross-Section Index:** Links between `/biz` and `/products` content.
+**See:** `specifications/biz-lab-system.md` �#4 for backlink algorithm and semantic similarity implementation
 
 ---
 
 ### 4.2 Strategic Document Browser
 
-**Auto-generated navigation from `/biz` directory with intelligent organization.**
+**Auto-generated navigation organized by strategic function.**
 
-**Features:**
-1.  **5-Domain Content Architecture:** Organized by strategic function (Market Intelligence, Strategic Planning, Go-to-Market, Financial Planning, Decision Logs).
-2.  **Auto-Generated Sidebar:** Navigation tree automatically built from `/content/biz/` folder structure with smart sorting by priority/date.
-3.  **Contextual Breadcrumbs:** Full navigation path displayed at top (e.g., "Biz Lab > Strategy > Indonesia Market").
-4.  **Read Status Indicators:** Visual badges showing which docs you've read, which are new, and which have updates.
-5.  **Version History Timeline:** Git-based changelog showing who edited what and when for every strategy doc.
-
-**Actions:**
-1.  **`Browse by Domain`:** Click domain in sidebar to expand all docs in that category (e.g., all Market Intelligence).
-2.  **`Mark as Read`:** Auto-marks doc as read after 30 seconds, manual toggle available.
-3.  **`View Changes`:** Click version indicator to see diff of recent changes with git blame.
-4.  **`Pin Favorite`:** Star frequently accessed strategies to appear at top of sidebar.
-
-**Integrations:**
-1.  **Contentlayer:** Type-safe parsing of frontmatter and markdown for structured navigation.
-2.  **Git Metadata:** Extracts commit history, authors, and timestamps for version tracking.
-3.  **Clerk User Metadata:** Stores read status per user across devices.
-4.  **Zustand Store:** Manages sidebar collapsed/expanded state and pinned favorites.
-
-**Content Structure Reference:**
+**5-Domain Content Architecture:**
 ```
 /biz/
-├── market/          → Market Intelligence (Competitive Landscape, Customer Research)
-├── strategy/        → Strategic Planning (Annual Strategy, OKRs, Product Portfolio)
-├── gtm/             → Go-to-Market (GTM Strategy, Sales Playbooks, Marketing Plans)
-├── financial/       → Financial Planning (Models, Forecasts, Unit Economics, Pricing)
-└── decisions/       → Decision Logs (Strategic Decisions, Product Pivots, Market Entry)
+├── market/          → Market Intelligence
+├── strategy/        → Strategic Planning
+├── gtm/             → Go-to-Market
+├── financial/       → Financial Planning
+└── decisions/       → Decision Logs
 ```
+
+**Features:**
+1.  **Auto-Generated Sidebar:** Navigation tree built from folder structure with smart sorting
+2.  **Contextual Breadcrumbs:** Full navigation path (e.g., "Biz Lab > Strategy > Indonesia Market")
+3.  **Read Status Indicators:** Visual badges for read/new/updated docs
+4.  **Version History Timeline:** Git-based changelog showing edits and authors
+
+**Key Actions:**
+- `Browse by Domain`: Expand all docs in a category
+- `Mark as Read`: Auto-mark after 30s or manual toggle
+- `View Changes`: See recent edits with git diff
+- `Pin Favorite`: Star important strategies to top of sidebar
+
+**See:** `specifications/content-navigation.md` for MDX rendering and navigation tree builder
 
 ---
 
@@ -209,29 +334,23 @@ An **Engineered Strategic Intelligence System** that feels alive. It uses **stag
 **High-fidelity mapping of the entire strategic knowledge repository.**
 
 **Features:**
-1.  **Galaxy View:** Global galaxy-style visualization clustered by strategic domain (Market, Strategy, GTM, Financial, Decisions).
-2.  **Neighbor Focus:** Localized force-directed graph limited to 2-hop relations from current strategy doc.
-3.  **Filtered Views:** Ability to toggle node visibility by tag, decision status, or document type.
-4.  **Path Finder:** Visual highlight of the shortest link-path between two strategic docs.
-5.  **Color Coding:** Strategy (Blue), Market Intel (Purple), GTM (Orange), Financial (Green), Decisions (Red).
+1.  **Galaxy View:** Global visualization clustered by strategic domain (Market, Strategy, GTM, Financial, Decisions)
+2.  **Neighbor Focus:** Local graph showing 2-hop connections from current doc
+3.  **Filtered Views:** Toggle visibility by tag, decision status, or document type
+4.  **Path Finder:** Visual highlight of shortest link-path between any two docs
+5.  **Color Coding:** Strategy (Blue), Market Intel (Purple), GTM (Orange), Financial (Green), Decisions (Red)
 
-**Actions:**
-1.  **`Node Click`:** Instant "thought-speed" navigation to the selected document.
-2.  **`Reseed Graph`:** Change the center-node of the Local Graph via drag-and-drop.
-3.  **`Export Snapshot`:** Save the current graph view as an SVG/PNG for presentations.
-4.  **`Filter by Status`:** Show only approved decisions or pending reviews.
+**Key Actions:**
+- `Node Click`: Instant navigation to selected doc
+- `Reseed Graph`: Change center node via drag-and-drop
+- `Export Snapshot`: Save as SVG/PNG for presentations
+- `Filter by Status`: Show only approved/pending/blocked decisions
 
-**Integrations:**
-1.  **D3.js / React-Force-Graph:** Underlying physics engine for visualization.
-2.  **Framer Motion:** Handles smooth transitions between local and global views.
-3.  **Clerk metadata:** Colors nodes based on the current user's read/unread status.
-4.  **Decision Status:** Node borders indicate decision state (green=approved, yellow=pending, red=blocked).
-
-**Access:**
-- "🗺️ Graph View" button in Biz Lab sidebar
-- Route: `/biz/graph`
+**Access:** "🗺️ Graph View" button in sidebar or `/biz/graph`
 
 **Status:** ✅ IMPLEMENTED (Sprint 1 - F2)
+
+**See:** `specifications/content-navigation.md` for force-directed graph implementation
 
 ### 5.1 View Modes & Floating Panels (F3)
 
@@ -249,364 +368,138 @@ An **Engineered Strategic Intelligence System** that feels alive. It uses **stag
 
 ## 6. Quick Capture
 
-**Frictionless entry point for capturing strategic insights without breaking deep-work flow.**
+**Frictionless capture of strategic insights without breaking flow.**
 
 **Features:**
-1.  **Global Modal:** `Cmd+Shift+N` trigger available from any page in the Vault.
-2.  **Auto-Inbox:** Saves captures into a chronological `/content/biz/inbox/` folder.
-3.  **Insight Types:** Quick templates for "Market Insight", "Competitive Intel", "Customer Feedback", "Strategic Idea".
-4.  **Multi-Entry:** Ability to stack 3-5 quick notes before submitting the batch.
-5.  **Auto-Tagging:** Smart suggestions for tags based on content (e.g., detects "competitor" → suggests #competitive-intel).
+1.  **Global Modal:** `Cmd+Shift+N` from anywhere in Vault
+2.  **Auto-Inbox:** Saves to chronological `/content/biz/inbox/` folder
+3.  **Insight Types:** Templates for Market Insight, Competitive Intel, Customer Feedback, Strategic Idea
+4.  **Multi-Entry:** Stack 3-5 quick notes before submitting batch
+5.  **Auto-Tagging:** Smart tag suggestions based on content keywords
 
-**Actions:**
-1.  **`Commit Inbox`:** Finalize a batch of captures into formal markdown files.
-2.  **`Tag-on-Fly`:** Assign categories or stakeholders via `#` or `@` triggers.
-3.  **`Dismiss Modal`:** Instant close that preserves draft state for the next opening.
-4.  **`Promote to Strategy`:** Convert inbox item to full strategy doc with template.
+**Key Actions:**
+- `Commit Inbox`: Finalize batch into markdown files
+- `Tag-on-Fly`: Assign categories via `#` or `@` mentions
+- `Promote to Strategy`: Convert inbox item to full strategy doc
 
-**Integrations:**
-1.  **Next.js API Routes:** Handles the file creation logic in the monorepo content folder.
-2.  **Clerk Auth:** Attributes every capture to the correct partner in the history.
-3.  **OpenAI Integration:** (Future) Generates insight summaries and tag suggestions.
-4.  **Slack Webhook:** (Future) Shares critical market insights with team automatically.
+**Future:** AI-powered insight summaries and Slack integration for critical market insights
+
+**See:** `specifications/biz-lab-system.md` �#5 for Quick Capture modal and auto-tagging implementation
 
 ---
 
 ## 7. Search & Filtering
 
-**Unified search system for instant strategic intelligence retrieval across all business documents.**
+**Unified search for instant strategic intelligence retrieval.**
 
 **Features:**
-1.  **Instant Indexing:** All markdown files automatically indexed on save with < 2 min delay.
-2.  **Multi-Scope Search:** Search across headings, paragraphs, strategic frameworks, financial models, and decision logs.
-3.  **Advanced Filters:** Filter by decision status, document type, author, date range, OKR tags, and approval state.
-4.  **Fuzzy Matching:** Typo-tolerant search with `fuse.js` (finds "Indonesia" even if you type "Indonsia").
-5.  **Search History:** Auto-saves last 10 searches for quick re-execution.
+1.  **Instant Indexing:** All markdown files indexed on save (< 2 min delay)
+2.  **Multi-Scope Search:** Across headings, paragraphs, frameworks, models, and decision logs
+3.  **Advanced Filters:** Filter by decision status, document type, author, date range, OKR tags, approval state
+4.  **Fuzzy Matching:** Typo-tolerant search (finds "Indonesia" from "Indonsia")
+5.  **Search History:** Auto-saves last 10 searches for quick re-execution
 
-**Actions:**
-1.  **`Quick Search (Cmd+K)`:** Type-ahead results as you type with live preview snippets.
-2.  **`Advanced Filter`:** Toggle filter panel to refine by frontmatter fields (status, approver, targetMarket, quarter).
-3.  **`Semantic Query`:** (Future) Natural language queries ("What's our Indonesia strategy?", "Show Q1 decisions").
-4.  **`Save Search`:** Bookmark complex filter combinations for repeated use.
+**Key Actions:**
+- `Cmd+K`: Quick search with live preview snippets
+- `Advanced Filter`: Refine by frontmatter fields
+- `Save Search`: Bookmark filter combinations
 
-**Integrations:**
-1.  **Fuse.js:** Powers fuzzy search with weighted scoring (title=3x, headings=2x, content=1x).
-2.  **FlexSearch:** Alternative engine for larger content volumes (500+ docs) with < 100ms response.
-3.  **cmdk Library:** Command Palette UI for keyboard-first search experience.
-4.  **Contentlayer:** Provides structured frontmatter metadata for advanced filtering.
+**Future:** Natural language queries ("What's our Indonesia strategy?", "Show Q1 decisions")
 
-**See Also:** Global Vault Search in `00-vault-overview-prd.md`
+**See:**
+- `specifications/biz-lab-system.md` for search implementation
+- `specifications/core-platform.md` �#5.5 for global Command Palette
+- `00-vault-overview-prd.md` �#8 for unified Vault search
 
 ---
 
 ## 8. Cross-Section Integration with Products Lab
 
-**Biz Lab and Products Lab are not isolated silos—they are deeply interconnected systems where business strategy informs product execution and product learnings feed back into strategic decisions.**
+**Biz Lab and Products Lab are deeply interconnected—business strategy informs product execution, and product learnings feed back into strategic decisions.**
+
+**See:** `specifications/biz-lab-system.md` �#6 for complete cross-section integration architecture
 
 ### 8.1 Strategic-to-Product Linkage
 
-**Purpose:** Direct connections from business strategy docs to product implementation, ensuring strategic alignment.
+**Direct connections from business strategy to product implementation.**
 
-**Features:**
-1.  **Auto-Detected Product References:** When a strategy doc mentions "pricing page" or "onboarding flow", automatically suggests linking to relevant Products Lab components.
-2.  **Strategy-Driven Component Tags:** Products Lab components can be tagged with strategic initiatives (e.g., `#indonesia-market-entry`, `#q1-gtm`).
-3.  **Bi-Directional Context Panels:** When viewing GTM strategy, sidebar shows "Related UI Components" that implement this strategy.
-4.  **Execution Status Indicators:** Strategy docs show real-time status (e.g., "Pricing Page: ✅ Implemented", "Onboarding Flow: 🚧 In Progress").
-5.  **Impact Visualization:** Sankey diagram showing how strategic goals flow down to specific product experiments and components.
+**Key Features:**
+- **Auto-Detected References:** Strategy mentions of "pricing page" auto-suggest links to Products Lab components
+- **Strategy-Driven Tags:** Products tagged with strategic initiatives (`#indonesia-market-entry`, `#q1-gtm`)
+- **Context Panels:** Strategy sidebar shows related UI components and implementation status
+- **Execution Indicators:** Real-time status ("Pricing Page: ✅ Implemented", "Onboarding: �#In Progress")
+- **Impact Visualization:** Sankey diagram showing strategy-to-product flow
 
-**Actions:**
-1.  **`View Implementation`:** Click on a strategic initiative to see all Products Lab experiments and components implementing it.
-2.  **`Link to Component`:** From strategy doc, explicitly link to specific UI component in Products Lab with reasoning.
-3.  **`Track Progress`:** See aggregated completion status of all product work tied to a strategic initiative.
-4.  **`Create Product Task`:** From strategy doc, instantly create a new experiment in Products Lab with strategic context pre-filled.
-
-**Integrations:**
-1.  **Unified Tagging System:** Shared tag namespace between Biz Lab (`#market-entry`) and Products Lab (components tagged with same).
-2.  **Cross-Section Graph:** Knowledge graph shows edges between strategy docs and product components.
-3.  **Contentlayer Cross-Index:** Build-time analysis creates bidirectional reference map across `/biz` and `/products`.
-4.  **Real-time Status Sync:** Pusher events when product status changes update strategy doc indicators.
-
-**Example Flow:**
-```
-Reading: /biz/gtm/indonesia-market-entry.md
-→ Sidebar shows: "Related Products: Pricing Component (✅), Onboarding Flow (🚧), WhatsApp Integration (📋 Planned)"
-→ Click "Pricing Component" → Jumps to /products/components/pricing with strategic context highlighted
-```
+**Example:** Reading Indonesia Market Entry strategy → Sidebar shows related Pricing Component (✅), Onboarding Flow (🚧), WhatsApp Integration (📋 Planned)
 
 ---
 
 ### 8.2 Product-to-Strategy Feedback Loop
 
-**Purpose:** Product learnings, experiment results, and component usage data flow back to inform strategic decisions.
+**Product learnings and experiment results flow back to inform strategic decisions.**
 
-**Features:**
-1.  **Experiment Results Summary:** Products Lab experiments automatically generate "Strategic Insights" that appear in Biz Lab inbox.
-2.  **Component Usage Analytics:** When a component is promoted to `/packages/ui`, usage data is surfaced in relevant market analysis docs.
-3.  **Design Decision Logs:** UI decisions made in Products Lab (e.g., "Why we chose blue CTA buttons") link to strategic brand guidelines.
-4.  **A/B Test Results → Strategy:** Experiment conversion data automatically updates pricing strategy docs with validated insights.
-5.  **Customer Feedback Channel:** User research from product experiments creates actionable items in Biz Lab's "Market Intelligence" section.
+**Key Features:**
+- **Experiment Insights:** A/B test results auto-create strategic insights in Biz Lab inbox
+- **Usage Analytics:** Component promotion surfaces usage data in market analysis docs
+- **Design Decisions:** UI choices link to strategic brand guidelines
+- **Challenge Mechanism:** Experiments can flag contradicting strategies for review
 
-**Actions:**
-1.  **`Log Strategic Insight`:** From Products Lab experiment, create a strategic observation that appears in Biz Lab inbox.
-2.  **`Update Market Analysis`:** One-click to promote experiment learnings into formal market analysis doc.
-3.  **`Challenge Strategy`:** If experiment contradicts strategy (e.g., users prefer monthly over annual pricing), flag strategy doc for review.
-4.  **`View Product Evidence`:** From strategy doc, see all Products Lab experiments that validate or challenge this strategy.
-
-**Integrations:**
-1.  **Experiment Metadata Bridge:** Products Lab `experimentResults` frontmatter automatically parsed for strategic insights.
-2.  **Analytics Pipeline:** Product usage data from experiments flows into Biz Lab's decision support system.
-3.  **Automated Inbox Creation:** Products Lab API can create Biz Lab inbox items with `type: "product-learning"`.
-4.  **Git Commit Cross-Referencing:** Detects when product changes reference business strategy (e.g., commit message "Implements pricing strategy from biz/financial/pricing-model.md").
-
-**Example Flow:**
-```
-Products Lab: Glass Card Experiment completed
-→ 45% conversion increase with gradient vs. solid background
-→ Auto-creates Biz Lab inbox item: "Strategic Insight: Visual Design Preference for Indonesia Market"
-→ Product Partner reviews and promotes to /biz/market/indonesia-visual-preferences.md
-```
+**Example:** Glass Card experiment shows 45% conversion increase → Auto-creates Biz Lab inbox item "Strategic Insight: Visual Design Preference for Indonesia Market" → Promotes to formal market analysis doc
 
 ---
 
 ### 8.3 Unified Decision Governance
 
-**Purpose:** Strategic business decisions and product decisions managed in a single governance workflow.
+**Business and product decisions managed in a single governance workflow.**
 
-**Features:**
-1.  **Cross-Section Decision Logs:** Decision logs can affect both Biz Lab strategies AND Products Lab roadmaps.
-2.  **Dual-Approval Workflows:** Some decisions require approval from both business stakeholder AND product lead.
-3.  **Impact Cascade Visualization:** Shows how a business decision (e.g., "Enter Indonesia market") cascades to product decisions (e.g., "Build WhatsApp integration").
-4.  **Unified Review Queue:** Mission Control Review Queue shows both strategic approvals and component promotion approvals in one view.
-5.  **Decision Timeline:** Chronological view showing interleaved business and product decisions over time.
+**Key Features:**
+- **Cross-Section Decisions:** Decisions affecting both Biz Lab strategies and Products Lab roadmaps
+- **Dual-Approval Workflows:** Some decisions require both business and product lead approval
+- **Impact Cascade:** Visual map showing how strategic decisions flow to product requirements
+- **Unified Review Queue:** Mission Control shows both strategic and component approvals
 
-**Actions:**
-1.  **`Create Cross-Section Decision`:** Flag a decision as affecting both Biz and Products (e.g., pricing model change).
-2.  **`View Impact Map`:** See all downstream product and business decisions affected by this strategic choice.
-3.  **`Sync Approval Status`:** When business strategy is approved, auto-notify Products Lab team of new requirements.
-4.  **`Challenge with Evidence`:** Product experiments can challenge business assumptions with data (e.g., "Users prefer monthly, not annual").
-
-**Integrations:**
-1.  **Shared Decision Database:** Zustand store maintains single source of truth for all decisions across sections.
-2.  **Impact Graph Algorithm:** Analyzes decision dependencies across `/biz/decisions/` and `/products/` to build cascade visualization.
-3.  **Notification Orchestration:** Pusher events ensure both sections are notified when cross-cutting decisions are made.
-4.  **Audit Trail:** Clerk metadata tracks decision lineage across both Biz Lab and Products Lab.
-
-**Decision Flow Example:**
-```typescript
-Decision: "Pivot to Monthly Pricing for Indonesia Market"
-├─ Biz Lab Impact:
-│  ├─ /biz/financial/pricing-strategy.md → Requires update
-│  ├─ /biz/gtm/sales-playbook.md → Requires update
-│  └─ /biz/decisions/pricing-pivot.md → Decision log created
-└─ Products Lab Impact:
-   ├─ /products/components/pricing-card → Needs monthly option
-   ├─ /products/experiments/pricing-test → Needs A/B validation
-   └─ Review Queue → "Update Pricing Component" added for Product Partner
-```
+**Example:** Decision "Pivot to Monthly Pricing" → Updates pricing strategy doc, sales playbook → Creates product task for pricing component update → Triggers A/B test requirement
 
 ---
 
 ### 8.4 Shared Context & Recommendations
 
-**Purpose:** Intelligent cross-section recommendations based on partner activity and strategic-product alignment.
+**AI-powered cross-section recommendations based on partner activity.**
 
-**Features:**
-1.  **Contextual Suggestions:** If viewing Indonesia market analysis in Biz Lab, suggest related Products Lab components (e.g., "WhatsApp Integration Experiment").
-2.  **Reverse Suggestions:** If working on pricing component in Products Lab, suggest reading "Pricing Psychology Research" in Biz Lab.
-3.  **Strategic Alignment Score:** Each product component shows alignment percentage with current strategic priorities.
-4.  **Cross-Section Search:** Single search query returns results from both Biz Lab AND Products Lab with relevance scoring.
-5.  **"Bridge Documents":** Automatically generated docs that summarize connections between strategy and product (e.g., "How Our Indonesia Strategy Maps to Product Work").
+**Key Features:**
+- **Contextual Suggestions:** Viewing Indonesia market analysis suggests related WhatsApp Integration experiment
+- **Reverse Suggestions:** Working on pricing component suggests reading Pricing Psychology Research
+- **Alignment Scores:** Products show alignment percentage with current strategic priorities
+- **Cross-Section Search:** Single `Cmd+K` query returns results from both sections
+- **Bridge Documents:** Auto-generated summaries mapping strategy to product work
 
-**Actions:**
-1.  **`View Cross-Section Context`:** From any doc, toggle sidebar to show related docs from the other section.
-2.  **`Jump to Implementation`:** From strategy doc, quick-jump to product components implementing this strategy.
-3.  **`Jump to Strategy`:** From product component, quick-jump to the business strategy that motivated it.
-4.  **`Generate Bridge Doc`:** Auto-create summary document showing strategy-to-product mapping.
-
-**Integrations:**
-1.  **Unified Recommendation Engine:** Collaborative filtering algorithm considers activity across both Biz Lab and Products Lab.
-2.  **Cross-Section Embeddings:** OpenAI embeddings generated for both strategy docs and product docs for semantic similarity.
-3.  **Smart Tagging:** AI detects when Biz Lab strategy mentions product concepts and suggests appropriate Products Lab tags.
-4.  **Context-Aware Command Palette:** `Cmd+K` search shows relevant results from both sections with section badges.
-
-**Recommendation Example:**
-```
-Currently Viewing: /biz/market/indonesia-customer-research.md
-→ Smart Recommendations (Cross-Section):
-   📊 Biz Lab: "WhatsApp Usage Patterns in Indonesia SMEs" (Related Market Research)
-   🧪 Products Lab: "WhatsApp Integration Experiment" (Implementation)
-   🎨 Products Lab: "Indonesian Color Preferences Study" (Related Experiment)
-```
+**Example:** Viewing Indonesia Customer Research → Suggestions: WhatsApp Usage Patterns (Biz Lab), WhatsApp Integration Experiment (Products Lab), Indonesian Color Preferences (Products Lab)
 
 ---
 
 ### 8.5 Unified Task & Workflow Management
 
-**Purpose:** Single task management system that spans both strategic planning and product execution.
+**Single task management system spanning strategic planning and product execution.**
 
-**Features:**
-1.  **Cross-Section Task Lists:** Tasks can originate from Biz Lab (e.g., "Research competitor pricing") or Products Lab (e.g., "Build pricing component").
-2.  **Strategic-to-Execution Pipeline:** Strategy tasks automatically create downstream product tasks when approved.
-3.  **Blocked Dependencies:** Product tasks can be blocked by strategic decisions (e.g., "Can't build pricing page until pricing strategy is approved").
-4.  **Unified Priority Queue:** Mission Control "My Focus" shows both strategic and product tasks in priority order.
-5.  **Cross-Partner Assignments:** Tasks can be assigned across sections (e.g., "Marketing Partner: Validate pricing in Biz Lab" → "Product Partner: Implement in Products Lab").
+**Key Features:**
+- **Cross-Section Tasks:** Tasks originate from either Biz Lab strategies or Products Lab experiments
+- **Strategic-to-Execution Pipeline:** Approved strategy tasks auto-create downstream product tasks
+- **Blocked Dependencies:** Product tasks can be blocked by pending strategic decisions
+- **Unified Priority Queue:** Mission Control shows both strategic and product tasks together
+- **Cross-Partner Assignments:** Tasks assigned across sections with full context
 
-**Actions:**
-1.  **`Create Downstream Task`:** From Biz Lab strategy, create linked task in Products Lab with strategic context.
-2.  **`Mark Dependency`:** Flag a product task as blocked by a strategic decision awaiting approval.
-3.  **`View Task Lineage`:** See the chain from strategic goal → decision → product task → implementation.
-4.  **`Sync Status`:** When product task is completed, auto-update strategic doc's "Implementation Status" indicator.
-
-**Integrations:**
-1.  **Markdown Task Parser:** Scans `[ ]` items in both `/biz` and `/products` to build unified task graph.
-2.  **Task Dependency Engine:** Analyzes frontmatter and content to detect task dependencies across sections.
-3.  **Zustand Task Store:** Single state management for all tasks regardless of origin section.
-4.  **Pusher Task Sync:** Real-time updates when task status changes in either section.
-
-**Task Flow Example:**
-```
-Biz Lab: [ ] Finalize Indonesia pricing strategy
-   ↓ (Creates downstream task on approval)
-Products Lab: [ ] Build monthly pricing component for Indonesia market
-   ↓ (Creates validation task)
-Products Lab: [ ] A/B test pricing variations
-   ↓ (Results feed back)
-Biz Lab: [ ] Update pricing strategy with experiment learnings
-```
+**Example Flow:** Finalize Indonesia pricing strategy → Creates task "Build monthly pricing component" → Creates "A/B test pricing variations" → Results feed back to "Update pricing strategy with learnings"
 
 ---
 
-### 8.6 Technical Implementation: Cross-Section Architecture
+### 8.6 Technical Implementation
 
-**Purpose:** Technical foundation for seamless Biz Lab ↔ Products Lab integration.
-
-**Core Integration Points:**
-
-| Integration Layer | Technology | Latency Target | Data Flow |
-|------------------|------------|----------------|-----------|
-| **Cross-Section Linking** | Contentlayer + Unified Index | < 100ms | Bidirectional reference map |
-| **Real-time Sync** | Pusher WebSocket | < 500ms | Status updates across sections |
-| **Unified Search** | Fuse.js + Cross-Section Index | < 100ms | Single query, multi-section results |
-| **Task Management** | Zustand + File Watcher | < 200ms | Markdown tasks from both sections |
-| **Recommendation Engine** | Collaborative Filtering + OpenAI | < 2s | Cross-section suggestions |
-| **Decision Cascade** | Graph Algorithm + Frontmatter | < 1s | Impact visualization |
-
-**Cross-Section Event Bus:**
-```typescript
-// Unified event system for Biz Lab ↔ Products Lab communication
-class CrossSectionEventBus extends VaultEventBus {
-  // Biz Lab publishes product-relevant events
-  publishStrategyUpdate(strategy: StrategyDoc) {
-    const affectedProducts = this.findRelatedProducts(strategy)
-
-    affectedProducts.forEach(product => {
-      this.publish({
-        type: 'STRATEGY_UPDATE',
-        source: 'biz',
-        target: 'products',
-        payload: {
-          strategy: strategy.id,
-          affectedProduct: product.id,
-          changeType: 'strategy_approved',
-          actionRequired: true
-        }
-      })
-    })
-  }
-
-  // Products Lab publishes strategy-relevant events
-  publishExperimentResults(experiment: Experiment) {
-    const relatedStrategies = this.findRelatedStrategies(experiment)
-
-    relatedStrategies.forEach(strategy => {
-      this.publish({
-        type: 'EXPERIMENT_COMPLETED',
-        source: 'products',
-        target: 'biz',
-        payload: {
-          experiment: experiment.id,
-          results: experiment.conversionData,
-          strategicInsight: experiment.learnings,
-          suggestedAction: 'update_market_analysis'
-        }
-      })
-    })
-  }
-}
-```
-
-**Cross-Section Reference Map:**
-```typescript
-interface CrossSectionReference {
-  bizDoc: {
-    path: "/biz/gtm/indonesia-market-entry.md",
-    type: "strategy",
-    tags: ["#indonesia", "#market-entry", "#q1-2026"]
-  },
-  productDocs: [
-    {
-      path: "/products/components/pricing",
-      relationship: "implements",
-      status: "completed",
-      completionDate: "2026-01-15"
-    },
-    {
-      path: "/products/experiments/whatsapp-integration",
-      relationship: "validates",
-      status: "in_progress",
-      blockedBy: null
-    }
-  ],
-  sharedTags: ["#indonesia", "#q1-2026"],
-  lastSyncedAt: "2026-01-18T14:30:00Z"
-}
-```
-
-**Unified Indexing System:**
-```typescript
-// Build-time cross-section index
-function buildUnifiedIndex() {
-  const bizDocs = getAllBizDocs()
-  const productDocs = getAllProductDocs()
-
-  const index = {
-    crossReferences: [],
-    sharedTags: new Set(),
-    decisionImpactMap: new Map()
-  }
-
-  // Detect cross-references
-  bizDocs.forEach(bizDoc => {
-    const mentions = detectProductMentions(bizDoc.content)
-    mentions.forEach(mention => {
-      index.crossReferences.push({
-        from: bizDoc.path,
-        to: findProductDoc(mention),
-        type: 'mention',
-        context: extractContext(bizDoc, mention)
-      })
-    })
-  })
-
-  // Build decision impact map
-  decisions.forEach(decision => {
-    const bizImpact = findAffectedBizDocs(decision)
-    const productImpact = findAffectedProductDocs(decision)
-
-    index.decisionImpactMap.set(decision.id, {
-      bizDocs: bizImpact,
-      productDocs: productImpact,
-      totalImpact: bizImpact.length + productImpact.length
-    })
-  })
-
-  return index
-}
-```
-
-**See:**
-- `00-vault-overview-prd.md` Section 3.2 for Mission Control integration
-- `11-products-lab-prd.md` Section 16 for Products Lab's perspective on integration
+**See:** `specifications/biz-lab-system.md` �#6 for complete cross-section architecture including:
+- Cross-Section Event Bus (Pusher WebSocket)
+- Unified Reference Map (Contentlayer + custom indexing)
+- Cross-Section Search Index (Fuse.js integration)
+- Task Dependency Engine
+- Decision Impact Cascade visualization
 
 ---
 
@@ -616,67 +509,41 @@ function buildUnifiedIndex() {
 
 ### 4.1 Monorepo Structure
 
-**Location:** `/apps/vault` (Biz Lab is a section at `/biz` route)
-
-**Content Source:**
-* `/content/biz` (markdown files)
-* `/content/products` (product strategy docs)
-* Auto-syncs when you edit markdown files
+- **Location:** `/apps/vault/app/biz` (Biz Lab route within Vault)
+- **Content:** `/content/biz` markdown files
+- **Integration:** Seamless with Vault (shared layout, design tokens)
 
 ### 4.2 Tech Stack
 
-* **Framework:** Next.js 14 + `next-mdx-remote`
-* **Layout:** Shadcn UI (Side navigation + Typography)
-* **Content Source:** Auto-reads from symlinked directories
-* **Search:** Global Vault Search (`Cmd+K`)
-* **Styling:** Tailwind CSS (Shared Vault Design Tokens)
-
-**Key Features:**
-* Seamless integration with Vault (same layout, fonts, headers)
-* Fast MDX rendering
-* Mobile-responsive navigation (Sheet component)
-* Breadcrumbs and Table of Contents
+- **Framework:** Next.js 14 + custom MDX rendering
+- **UI:** Shadcn UI components
+- **Search:** Global Vault Command Palette (`Cmd+K`)
+- **Styling:** Tailwind CSS with shared design tokens
 
 ### 4.3 Deployment
 
-* **Domain:** `vault.klario-world.com/biz`
-* **Hosting:** Vercel (part of Vault app)
-* **Access Control:** Clerk (inherited from Vault session)
-* **Note:** Biz Lab is a **section** of Vault, not a standalone site
+- **Domain:** `vault.klario-world.com/biz`
+- **Hosting:** Vercel (part of Vault app)
+- **Access:** Clerk authentication (inherited from Vault session)
 
-**See:** `00-vault-overview-prd.md` for unified architecture details
+**See:**
+- `specifications/biz-lab-system.md` for technical implementation
+- `specifications/content-navigation.md` for MDX rendering system
+- `00-vault-overview-prd.md` �#4 for unified Vault architecture
 
 ---
 
 ## 5. Authentication & Access Control
 
-### 5.1 Clerk Integration
+**Biz Lab inherits authentication from Vault-level Clerk integration.**
 
-**Middleware Setup:** Inherited from Vault-level authentication
+**Access Levels:**
+- **Full Access:** View all Biz Lab documents
+- **No Access:** Redirected to access denied page
 
-**Access Control:**
-```typescript
-// Check if user has Biz Lab access
-import { currentUser } from '@clerk/nextjs'
+**User Management:** Via unified Vault admin panel at `/admin`
 
-export default async function BizLabPage() {
-  const user = await currentUser()
-  const hasAccess = user?.publicMetadata?.bizLabAccess === true
-
-  if (!hasAccess) {
-    return <div>Access Denied. Contact admin at accounts.klario.world</div>
-  }
-
-  return <div>Welcome to Biz Lab!</div>
-}
-```
-
-### 5.2 Access Levels
-
-* **Full Access:** Can view all Biz Lab documents
-* **No Access:** Redirected to access denied page
-
-**User Management:** Controlled via unified Vault admin panel at `/admin` route.
+**See:** `specifications/core-platform.md` �#4-5 for Clerk middleware and RBAC implementation
 
 ---
 
@@ -684,41 +551,17 @@ export default async function BizLabPage() {
 
 ## 6. Content Rendering System
 
-### 6.1 MDX Implementation
+**Custom MDX rendering with auto-generated navigation from `/content/biz` folder structure.**
 
-**Technology:** Custom MDX with `next-mdx-remote` and Shadcn UI
+**Key Features:**
+- **Frontmatter Support:** YAML metadata (title, readTime, status, tags)
+- **GitHub Flavored Markdown:** Tables, task lists, syntax highlighting
+- **Custom Components:** Interactive embedded elements
+- **Dark Mode Optimized:** Tailwind Typography plugin
 
-> **Note:** Originally planned for Nextra 3.0. Pivoted to custom implementation for:
-> - Greater design control
-> - Unified Vault design system
-> - Simplified build process
-> - Better TypeScript integration
+**Content Organization:** Folder structure → Automatic sidebar navigation
 
-### 6.2 Core Features
-
-* **Automatic Navigation:** Generated from `/content/biz` folder structure
-* **Frontmatter Support:** YAML metadata (title, readTime, status, tags, etc.)
-* **GitHub Flavored Markdown:** Tables, task lists, syntax highlighting
-* **Custom Components:** Embedded interactive elements
-* **Dark Mode Optimized:** Tailwind Typography plugin
-
-### 6.3 Content Organization
-
-```
-/content/biz/
-├── strategy/
-│   ├── market-analysis/
-│   │   ├── 01-market-research.md
-│   │   └── 02-cultural-context.md
-│   └── planning/
-│       └── product-portfolio-map.md
-├── products/
-└── financial/
-```
-
-**Becomes sidebar navigation automatically**
-
-**See:** `../specifications/content-navigation.md` for complete implementation specification
+**See:** `specifications/content-navigation.md` for complete MDX implementation
 
 ---
 
@@ -726,45 +569,28 @@ export default async function BizLabPage() {
 
 ### 7.1 Graph Visualization (F2)
 
-**Purpose:** Visual map of all Biz Lab documents showing relationships and connections.
+**Visual map of all Biz Lab documents with interactive relationships.**
 
-**Key Features:**
-* Force-directed graph with color-coded nodes (Strategy: Blue, Product: Orange, Financial: Green)
-* Interactive node clicking to navigate between docs
-* Search & filtering
-* 60 FPS performance with 100+ nodes
+- Force-directed graph with color-coded nodes
+- Interactive navigation via node clicking
+- Search & filtering capabilities
+- 60 FPS performance with 100+ nodes
 
-**Access:** 
-* "🗺️ Graph View" button in Biz Lab sidebar
-* Route: `/biz/graph`
+**Access:** "🗺️ Graph View" button in sidebar or `/biz/graph`
 
 **Status:** ✅ IMPLEMENTED (Sprint 1 - F2)
 
-### 7.2 View Modes & Floating Panels (F3)
+### 7.2 Floating Panels (F3)
 
-**Purpose:** Notion-style floating panels for document previews while browsing the graph
+**Notion-style document previews while browsing the graph.**
 
-**Key Features:**
-* Draggable overlay cards
-* Graph remains interactive (dimmed slightly)
-* Preview with "Read Full" link
-* Framer Motion animations
+- Draggable overlay cards with doc content
+- Graph remains interactive (dimmed background)
+- Framer Motion animations
 
 **Status:** ✅ IMPLEMENTED (Sprint 1 - F3)
 
-### 7.3 Search & Filtering
-
-**Built-in (No External Service Needed):**
-* Indexes all markdown files automatically
-* Search across headings, paragraphs, code blocks
-* Keyboard shortcut: `Cmd+K` or `Ctrl+K`
-* Fuzzy search with `fuse.js`
-
-**Integration:** Part of global Vault search system
-
-**See:** 
-- `../specifications/content-navigation.md` for F2/F3 complete specs
-- `00-vault-overview-prd.md` § 7.3 for global search
+**See:** `specifications/content-navigation.md` for graph visualization and floating panel implementation
 
 ---
 
@@ -772,7 +598,7 @@ export default async function BizLabPage() {
 
 ## 8. Interactive Features (Biz Lab-Specific)
 
-> **Note:** These enhancements are specific to Biz Lab document browsing. For cross-cutting Vault features (Mission Control, Achievements), see `00-vault-overview-prd.md` § 11.
+> **Note:** These enhancements are specific to Biz Lab document browsing. For cross-cutting Vault features (Mission Control, Achievements), see `00-vault-overview-prd.md` �#11.
 
 ### 8.1 Document Hover Previews
 
@@ -890,7 +716,7 @@ Awareness → Consideration → Trial → Purchase → Advocacy
 
 **Note:** This feature is cross-cutting and managed at Vault level.
 
-**See:** `00-vault-overview-prd.md` § 11.3 for complete specification
+**See:** `00-vault-overview-prd.md` �#11.3 for complete specification
 
 **Biz Lab Specific:**
 - Achievement: "Strategy Explorer" (read 10 strategy docs)
@@ -1432,4 +1258,14 @@ eventBus.publish({
   - **8.6 Technical Implementation:** CrossSectionEventBus, unified indexing system, decision impact maps with TypeScript implementations
 - **v0.2.2 PRODUCTION** (Ongoing) - Continuous refinement of strategic intelligence features and cross-section workflows
 
-**Last Updated:** January 18, 2026
+**Last Updated:** January 20, 2026
+
+**Related Specifications:**
+- `specifications/biz-lab-system.md` - Strategy Desk, Decision Governance, Strategic Brain, Cross-Section Integration
+- `specifications/content-navigation.md` - MDX rendering, Knowledge Graph, Floating Panels
+- `specifications/core-platform.md` - Platform infrastructure, authentication, deployment
+
+**Related PRDs:**
+- `00-vault-overview-prd.md` - Vault ecosystem overview
+- `11-products-lab-prd.md` - Products Lab integration
+

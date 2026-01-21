@@ -1,18 +1,76 @@
-# Upcoming Work: Sprint 3+
-**Future Feature Pipeline**
+# Upcoming Work: Implementation from Specs
 
 ---
 
 ## Overview
 
-After Sprint 2 (Intelligence & Immersion) completes, the following features represent potential Sprint 3+ work based on evolving business needs.
+**Current State:**
+- Sprint 1 (v0.1.0): ✅ Rapid Prototype (4.5h) - IMPLEMENTATION COMPLETE
+- Scattered Work: ✅ Specifications created (4h) - COMPLETE
+- **Reality Check:** All specs already exist in `docs/specifications/`
 
-**Status:** 📋 PLANNED (Not Scheduled)  
-**Priority:** TBD based on Sprint 2 outcomes
+**The Implementation (Sprint 2+): v0.2.0 → v1.0**
+Implementing features from existing specifications incrementally
+
+**What's Next:**
+We're currently scattered between Sprint 1 & 2. Sprint 2+ will formally begin when we start implementing features from the existing specifications in `docs/specifications/`.
 
 ---
 
-## Potential Features
+## Sprint 2+: Feature Implementation (v0.2.0 → v1.0)
+
+**Status:** ⏳ NEXT (Waiting to formally begin)
+**Reality:** All specifications exist - need to implement features not yet in v0.1.0
+**Dependencies:** None - can start implementing from existing specs
+
+### What Specs Exist:
+
+**In `docs/specifications/`:**
+- ✅ **core-platform.md** - Infrastructure (Auth, Navigation, Deployment)
+- ✅ **dashboard-system.md** - Mission Control Dashboard
+- ✅ **biz-lab-system.md** - Biz Lab (PRD 10)
+- ✅ **products-lab-system.md** - Products Lab (PRD 11)
+- ✅ **global-navigation-system.md** - Global Navigation (PRD 12)
+- ✅ **studio-tuner-system.md** - Studio Tuner (PRD 13)
+- ✅ **app-settings-system.md** - App Settings (PRD 14)
+- Plus: collaboration-features.md, design-foundation.md, interactive-ui.md
+
+### Implementation Status:
+
+| Specification | v0.1.0 Status | Next Steps |
+|---------------|---------------|------------|
+| **core-platform.md** | ✅ Mostly done | Polish infrastructure |
+| **dashboard-system.md** | 🔄 Basic version | Add widget system + gamification |
+| **biz-lab-system.md** | 🔄 Basic MDX | Add Strategic Brain + advanced features |
+| **products-lab-system.md** | ❌ Not built | Build from spec |
+| **global-navigation-system.md** | 🔄 Basic nav | Enhance command palette |
+| **studio-tuner-system.md** | ❌ Not built | Build from spec |
+| **app-settings-system.md** | ❌ Not built | Build from spec |
+
+### Approach:
+
+**Incremental Implementation:**
+- Start with highest-value features from specs
+- Release incrementally: v0.2.0, v0.4.0, v0.6.0, v0.8.0 → v1.0.0
+- Each release adds features from specifications
+- Prioritize based on user needs
+
+**Success Criteria:**
+- All features from specifications implemented
+- v1.0.0 production-ready
+- Zero technical debt from v0.1.0
+
+---
+
+## Sprint 7+: Advanced Features (Post v1.0)
+
+**Status:** ⏳ WAITING (After v1.0)
+
+After v1.0 completes, Sprint 7+ focuses on advanced features beyond the core rebuild (v1.x releases).
+
+---
+
+## Post-v1.0 Features (Sprint 7+)
 
 ### Admin & Team Management
 
@@ -36,28 +94,28 @@ After Sprint 2 (Intelligence & Immersion) completes, the following features repr
 
 ### Advanced UX Enhancements
 
-#### F13: Enhanced Visualization
+#### Enhanced Visualization (Post-v1.0)
 - **3D Knowledge Graph**: WebGL-based for large datasets (>500 nodes)
 - **Timeline View**: Chronological document browser
 - **Heatmap Analytics**: Show most-read sections
 
-**Dependencies:** F2 Knowledge Graph stable
+**Dependencies:** Biz Lab Knowledge Graph stable
 
-#### F14: Collaboration Features
+#### Collaboration Features (Post-v1.0)
 - **Comments & Annotations**: Inline document feedback
 - **Shared Workspaces**: Team collaboration zones
 - **Version History**: Track document changes
 
 **Dependencies:** Multi-user adoption
 
-#### F15: AI Integration
+#### AI Integration (Post-v1.0)
 - **Smart Summaries**: Auto-generate doc summaries
 - **Intelligent Tagging**: ML-based topic detection
 - **Predictive Search**: Anticipate user needs
 
 **Dependencies:** Sufficient data corpus
 
-**See:** `../specifications/f13-f14-f15-future.md` for complete feature specifications
+**See:** `future-features.md` for complete feature specifications
 
 ---
 
@@ -122,40 +180,41 @@ After Sprint 2 (Intelligence & Immersion) completes, the following features repr
 
 ---
 
-## Sprint 3 Planning Checklist
+## Sprint Planning Checklist
 
-**When Sprint 2 completes:**
+**Before starting each sprint:**
 
-- [ ] Review Sprint 2 outcomes and learnings
-- [ ] Collect user feedback (Operations Partner)
-- [ ] Evaluate technical debt
-- [ ] Assess performance metrics
-- [ ] Prioritize Sprint 3 features using decision framework
-- [ ] Update this file with confirmed Sprint 3 scope
+- [ ] Review previous sprint outcomes
+- [ ] Collect user feedback
+- [ ] Evaluate technical decisions
+- [ ] Assess architecture adherence
+- [ ] Confirm specifications complete
+- [ ] Update roadmap with actual progress
 
 ---
 
-## Long-Term Vision (6-12 Months)
+## Vault Development Roadmap
 
-### Phase 1: Foundation (Complete ✅)
-- Internal research vault
-- Basic gamification
-- Knowledge graph
+### Sprint 1: Rapid Prototype (v0.1.0) ✅ COMPLETE (4.5h)
+- Proved concepts work
+- Functional MVP (not in production)
 
-### Phase 2: Intelligence (Sprint 2 ⏳)
-- Decision support
-- Personalization
-- Automation
+### Scattered Work: Specifications ✅ COMPLETE (4h)
+- Comprehensive specs created for all features
+- Ready for implementation
 
-### Phase 3: Collaboration (Future 📋)
-- Multi-user workflows
-- Real-time sync
-- Advanced analytics
+### Sprint 2+: Feature Implementation (TBD) → v1.0
+Implementing features from existing specifications:
+- **Sprint 2+ (v0.2.0+):** Implement missing features from specs ⏳ NEXT
 
-### Phase 4: AI-Augmented (Future 📋)
-- Predictive insights
-- Auto-documentation
-- Smart recommendations v2
+**Result:** Production-ready v1.0 🎉
+
+### Sprint 7+: Advanced Features (v1.x) ⏳ WAITING
+After v1.0:
+- Enhanced visualizations
+- AI integration
+- Advanced collaboration
+- Performance optimizations
 
 ---
 
@@ -168,6 +227,7 @@ After Sprint 2 (Intelligence & Immersion) completes, the following features repr
 
 ---
 
-**Last Updated:** January 15, 2026  
-**Next Review:** After Sprint 2 completion  
-**See Also:** `current-sprint.md`, `sprint-archive.md`, `../STATUS.md`
+**Last Updated:** January 21, 2026
+**Next Review:** After Sprint 2+ starts formally
+**Current State:** Scattered between Sprint 1 & 2 - Sprint 2+ not yet started
+**See Also:** `current-sprint.md` (current state), `sprint-archive.md` (Sprint 1 + scattered work), `future-features.md` (advanced features)

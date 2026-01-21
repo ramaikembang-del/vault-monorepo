@@ -112,7 +112,7 @@ export function DynamicNavbar() {
         { label: "Dashboard", path: "/", icon: LayoutDashboard },
         { label: "Products Lab", path: "/products", icon: CreditCard },
         { label: "Biz Lab", path: "/biz", icon: Map },
-        { label: "Admin Panel", path: "/admin", icon: Settings },
+        { label: "Settings", path: "/settings", icon: Settings },
     ];
 
     if (!mounted) return null;

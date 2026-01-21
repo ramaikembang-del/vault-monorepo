@@ -86,74 +86,125 @@
 - **Left Column (Interactive Stack):** "My Focus" + "Team Pulse" vertically stacked.
 - **Right Column (Status):** "Mission Status" (Full height).
 
-*   **⚡ My Focus (Personal Action) - [Left Col, Top]**
-    *   **Your Focus Today:**
-        *   *Features:* Displays Pinned Tasks (Active Sprint), Active Drafts (Unsaved), Assigned Reviews, and "Overdue" alerts.
-        *   *Actions:* **Check off** tasks (updates `.md`), **Click** to resume drafting, **Drag** to reorder priorities.
-        *   *Integration:* Reads `docs/tasks/*.md`, queries Local Storage (Biz Lab Quick Pad), checks `reviewStatus` in `biz/*.md`.
-    *   **Smart Recommendations:**
-        *   *Features:* Context-aware "Next Read", "Topic" tags, Read Time estimates, and "Strategy Priority" badges.
-        *   *Actions:* **"Start Reading"** (Biz deep link), **"Save for Later"** (Bookmark), **"Dismiss"**.
-        *   *Integration:* User Metadata `docsRead`, `biz/` content tags (`targetMarket`, `kpis`), and Contentlayer reading time.
-    *   **Quick Actions:**
-        *   *Features:* One-click shortcuts, "Recent Actions" history.
-        *   *Actions:*
-            *   **"New Strategy Doc"** (Opens `/biz/new?template=strategy`).
-            *   **"Log Decision"** (Opens `/biz/new?template=decision`).
-            *   **"Request Review"** (Sets `needs_review: true` in frontmatter).
-        *   *Integration:* Deep links to Biz templates, File Mutation API, and User Activity Log.
+---
 
-*   **👥 Team Pulse (Collaboration) - [Left Col, Bottom]**
-    *   **Partner Activity Stream:**
-        *   *Features:* Real-time edit feed, "Online Now" dots, and "Viewing: [Doc Name]" status.
-        *   *Actions:* **"Jump to Doc"** (Join session), **"Reply"** (to comment), **"React"**.
-        *   *Integration:* Clerk Presence (Biz routing), Pusher (WebSocket events), and `docsRead` metadata tracker.
-    *   **Review Queue:**
-        *   *Features:* Inbound requests (Partner 1 -> Partner 2), Outbound status, "Stale" warnings.
-        *   *Actions:* **"Approve"**, **"Request Changes"**, **"Nudge"**.
-        *   *Integration:* Aggregates `needs_review: true` from all `.md` files in `/biz` and `/products`.
+#### 3.2.1 Mission Control Dashboard UI Mockup
 
-*   **📈 Mission Status (Big Picture) - [Right Col, Full Height]**
-    *   **Sprint Velocity:**
-        *   *Features:* Days Remaining countdown, Completed Points vs. Ideal.
-        *   *Integration:* Parses `sprint-X-active.md` and `biz/sprint-plan.md` templates.
-    *   **Interactive Portfolio Map:**
-        *   *Visuals:* Mermaid diagrams, Status Color-coding (Biz Blue, Product Orange).
-        *   *Interactions:* **Click** to Navigate to Biz doc, **Hover** for Strategy Metrics.
-        *   *Integration:* Visualizes `05-metrics-bundling-rationale.md` and common Biz/Product frontmatter.
-    *   **Achievement Tracker (Gamified Progress):**
-        *   *Features:* Progress bars, Streak counter, "Strategy Explorer" (Read 10+ docs) badge.
-        *   *Integration:* User Metadata `achievements`, Clerk Usage stats, and Biz Lab `readCount`.
-        *   *Visuals:* Progress bars + Confetti celebration on unlock.
-
-**B. Technical Implementation:**
-
-**Components:**
-- **Layout:** `components/dashboard/DashboardLayout.tsx` (CSS Grid)
-- **Widgets:**
-  - `MyFocusWidget.tsx` (Tasks/Recs)
-  - `TeamPulseWidget.tsx` (Activity Stream)
-  - `MissionStatusWidget.tsx` (Container for Map + Achievements)
-- **Visualizations:**
-  - Portfolio: `components/dashboard/PortfolioMap.tsx` (Mermaid)
-  - Charts: `recharts` for Velocity/Progress
-  - Celebration: `react-confetti`
-
-**Data Model:**
-```json
-{
-  "vaultProgress": {
-    "docsRead": ["biz/strategy/..."],
-    "achievements": ["strategy-explorer", "product-visionary"],
-    "readCount": 12,
-    "sprintProgress": { "week": 0, "docsCompleted": 5 }
-  }
-}
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ Mission Control Dashboard                                  [⚙️] │
+├──────────────────────────────┬──────────────────────────────────┤
+│ LEFT COLUMN                  │ RIGHT COLUMN                     │
+│ (Interactive Stack)          │ (Mission Status - Full Height)   │
+│                              │                                  │
+│ ┌──────────────────────────┐ │ ┌──────────────────────────────┐ │
+│ │ ⚡ MY FOCUS              │ │ │ 📈 MISSION STATUS            │ │
+│ │ ────────────────────────│ │ │ ────────────────────────────│ │
+│ │ 🎯 Your Focus Today:     │ │ │ Sprint Velocity              │ │
+│ │                          │ │ │                              │ │
+│ │ [✓] Review GTM Strategy  │ │ │ Week 2 - Day 3 of 14         │ │
+│ │ [ ] Finish Pricing Model │ │ │ ┌────────────────────────┐   │ │
+│ │ [ ] Approve Glass Card   │ │ │ │ ████████░░░░░░░░░░  45%│   │ │
+│ │     (Draft - Products)   │ │ │ └────────────────────────┘   │ │
+│ │                          │ │ │ Completed: 18 / 40 points    │ │
+│ │ 🔥 Overdue (1):          │ │ │ On track ✓                   │ │
+│ │ → Indonesia Market Entry │ │ │                              │ │
+│ │   (2 days overdue)       │ │ │ ────────────────────────────│ │
+│ │                          │ │ │ Portfolio Map                │ │
+│ └──────────────────────────┘ │ │                              │ │
+│                              │ │ ┌────────────────────────┐   │ │
+│ ┌──────────────────────────┐ │ │ │ 📊 STRATEGY (Blue)     │   │ │
+│ │ 💡 SMART RECOMMENDATIONS │ │ │ │ ├─ GTM Plan ✓         │   │ │
+│ │ ────────────────────────│ │ │ │ ├─ Pricing Model 🚧   │   │ │
+│ │                          │ │ │ │ └─ Market Entry ⏳    │   │ │
+│ │ 📄 Next Read:            │ │ │ │                        │   │ │
+│ │ → Competitive Analysis   │ │ │ │ 🎨 PRODUCTS (Orange)   │   │ │
+│ │   (15 min) #strategy     │ │ │ │ ├─ Glass Card ✓       │   │ │
+│ │   [Start Reading]        │ │ │ │ ├─ Pricing UI 🚧      │   │ │
+│ │                          │ │ │ │ └─ Button Comp ⏳     │   │ │
+│ │ 📄 Unread from Partner 2:│ │ │ └────────────────────────┘   │ │
+│ │ → Indonesia GTM Strategy │ │ │                              │ │
+│ │   (12 min) 🎯 High Pri   │ │ │ Click any item to navigate   │ │
+│ │   [Start Reading]        │ │ │                              │ │
+│ └──────────────────────────┘ │ │ ────────────────────────────│ │
+│                              │ │ Achievement Tracker          │ │
+│ ┌──────────────────────────┐ │ │                              │ │
+│ │ ⚡ QUICK ACTIONS         │ │ │ 🏆 Strategy Explorer         │ │
+│ │ ────────────────────────│ │ │ ┌────────────────────────┐   │ │
+│ │ [+ New Strategy Doc]     │ │ │ │ ████████░░  8/10 docs  │   │ │
+│ │ [+ Log Decision]         │ │ │ └────────────────────────┘   │ │
+│ │ [+ Request Review]       │ │ │ 2 more to unlock badge!      │ │
+│ │                          │ │ │                              │ │
+│ │ Recent Actions:          │ │ │ 🎨 Product Visionary         │ │
+│ │ • Created GTM (5m ago)   │ │ │ ┌────────────────────────┐   │ │
+│ │ • Reviewed Button (1h)   │ │ │ │ ██████████  5/5 exps ✓│   │ │
+│ └──────────────────────────┘ │ │ └────────────────────────┘   │ │
+│                              │ │ Unlocked! 🎉                 │ │
+│ ┌──────────────────────────┐ │ │                              │ │
+│ │ 👥 TEAM PULSE            │ │ │ 🔥 7-Day Streak              │ │
+│ │ ────────────────────────│ │ │ ┌────────────────────────┐   │ │
+│ │ 🟢 Partner 2 (Online)    │ │ │ │ M T W T F S S          │   │ │
+│ │ → Viewing: Glass Card    │ │ │ │ ✓ ✓ ✓ ✓ ✓ ✓ ✓          │   │ │
+│ │   Experiment             │ │ │ └────────────────────────┘   │ │
+│ │   [Jump to Doc]          │ │ │ Keep it going!               │ │
+│ │                          │ │ └──────────────────────────────┘ │
+│ │ Recent Activity:         │ │                                  │
+│ │ • Partner 2 created:     │ │                                  │
+│ │   Indonesia Market Entry │ │                                  │
+│ │   (15 min ago) 🔥        │ │                                  │
+│ │                          │ │                                  │
+│ │ • Partner 1 promoted:    │ │                                  │
+│ │   ButtonComponent        │ │                                  │
+│ │   (2 hours ago) ⭐       │ │                                  │
+│ │                          │ │                                  │
+│ │ [View All Activity]      │ │                                  │
+│ └──────────────────────────┘ │                                  │
+│                              │                                  │
+│ ┌──────────────────────────┐ │                                  │
+│ │ 📋 REVIEW QUEUE          │ │                                  │
+│ │ ────────────────────────│ │                                  │
+│ │ ⚠️ Inbound (2):          │ │                                  │
+│ │ • Glass Card Experiment  │ │                                  │
+│ │   from Partner 2         │ │                                  │
+│ │   [Approve] [Changes]    │ │                                  │
+│ │                          │ │                                  │
+│ │ • Pricing Strategy Doc   │ │                                  │
+│ │   from Partner 2         │ │                                  │
+│ │   [Approve] [Changes]    │ │                                  │
+│ │                          │ │                                  │
+│ │ Outbound (1):            │ │                                  │
+│ │ • GTM Strategy           │ │                                  │
+│ │   ⏳ Awaiting Partner 2  │ │                                  │
+│ │   [Nudge]                │ │                                  │
+│ └──────────────────────────┘ │                                  │
+└──────────────────────────────┴──────────────────────────────────┘
 ```
 
-**visuals:** Confetti celebration on unlock (uses `react-confetti`).
+**Layout Logic:**
+- **Left Column (40% width):** Interactive widgets requiring user action (check tasks, start reading, create docs, approve reviews, see team activity)
+- **Right Column (60% width):** Mission status visualization providing "big picture" context (sprint progress, portfolio health, gamified achievements)
+- **Vertical Flow:** Left column scrolls independently for multiple widgets; Right column provides persistent mission context
+- **2-Column Pattern:** This layout establishes the pattern that Strategy Desk and My Desk mirror for consistency
 
-**See:** `specifications/interactive-ui.md` for detailed UX Enhancement specs
+---
+
+**Widget Breakdown:**
+
+*   **⚡ My Focus (Personal Action) - [Left Col, Top]**
+    *   **Your Focus Today:** Pinned tasks, active drafts, assigned reviews, overdue alerts
+    *   **Smart Recommendations:** Context-aware "Next Read" suggestions based on reading history
+    *   **Quick Actions:** One-click shortcuts to create docs, log decisions, request reviews
+
+*   **👥 Team Pulse (Collaboration) - [Left Col, Bottom]**
+    *   **Partner Activity Stream:** Real-time partner activity feed with "Online Now" indicators
+    *   **Review Queue:** Inbound/outbound review requests with status tracking
+
+*   **📈 Mission Status (Big Picture) - [Right Col, Full Height]**
+    *   **Sprint Velocity:** Progress tracking with days remaining and completion percentage
+    *   **Interactive Portfolio Map:** Visual overview of all projects by category
+    *   **Achievement Tracker:** Gamified progress with badges and streak counters
+
+**See:** `specifications/dashboard-system.md` for complete technical implementation
 
 ### 3.3 Collaboration Features (Sprint 3+)
 
@@ -165,22 +216,21 @@
 - Visual indicators throughout UI
 
 **Partner Activity Feed:**
-- **Presence:** "Online Now" indicators (green dot) + Current active file.
-- **Actions:** Real-time edit stream with "Jump to Doc" and "Reply" to comments.
-- **Engagement:** Partner "Reactions" (Emoji) on activity items.
-- *Tech:* Clerk Webhooks + Pusher (WebSocket) for < 500ms latency.
+- Real-time presence indicators showing who's online and what they're viewing
+- Activity stream with "Jump to Doc" navigation
+- Partner reactions and engagement tracking
 
 **Review Workflows:**
-- **Status:** Inbound (Needs Review), Outbound (Awaiting), and "Stale" (>2 days) flags.
-- **Actions:** "Approve", "Request Changes", "Nudge" (resend notification), "Delegate".
-- **Integration:** Powered by `reviewStatus` frontmatter and file modification timestamps.
+- Inbound/outbound review queue management
+- "Approve", "Request Changes", and "Nudge" actions
+- Stale review alerts (>2 days)
 
 **Contribution Tracking:**
-- Metrics per partner (docs, experiments, reviews)
+- Metrics per partner (docs created, experiments, reviews)
 - Weekly contribution breakdown
 - Team achievements and milestones
 
-**See:** `specifications/collaboration-features.md` for complete details
+**See:** `specifications/collaboration-features.md` for complete implementation details
 
 ### 3.4 Section Integration
 
@@ -217,47 +267,29 @@
 
 ### 4.1 Monorepo Structure
 
-```
-/apps
- /marketing-site → pwbi.klario.website (public)
- /vault → vault.klario-world.com (internal)
- /app
- /products (Products Lab)
- /biz (Biz Lab - Custom MDX)
- ├── /settings   (User & App Settings)
- /components
- /shared (Vault navigation, dashboard)
-/packages
- /ui (Shared components)
- /design-tokens (Tailwind config)
-```
+Vault is built as part of a monorepo containing the marketing site, internal vault app, and shared packages.
+
+**Main Sections:**
+- `/apps/vault` → Main Vault application
+- `/packages/ui` → Shared UI components
+- `/packages/design-tokens` → Centralized design system
 
 ### 4.2 Tech Stack
 
 * **Framework:** Next.js 14 (App Router)
 * **Styling:** Tailwind CSS (shared design tokens)
-* **Authentication:** Clerk (single session across all tabs)
-* **State Management:** Zustand (Settings & Preferences)
-* **Real-time:** Pusher (WebSocket events for "Team Pulse")
+* **Authentication:** Clerk (role-based access control)
+* **State Management:** Zustand
+* **Real-time:** Pusher (WebSocket for Team Pulse)
 * **Search:** cmdk + fuse.js (Global Command Palette)
-* **Products Section:** Next.js + Shadcn UI
-* **Biz Section:** Custom MDX + Shadcn Layout
-* **Settings Section:** React Hook Form + Zod (Validation)
 
 ### 4.3 Deployment
 
 * **Domain:** `vault.klario-world.com`
 * **Hosting:** Vercel
-* **Access Control:** Clerk (role-based)
+* **Access Control:** Clerk metadata-based roles
 
-### 4.4 Core Dependencies
-```bash
-npm install framer-motion      # Animations
-npm install recharts           # Progress charts
-npm install react-confetti     # Achievement celebrations
-npm install pusher-js          # Real-time WebSocket client
-npm install cmdk fuse.js       # Global search
-```
+**See:** `specifications/core-platform.md` for complete architecture details
 
 ---
 
@@ -265,124 +297,53 @@ npm install cmdk fuse.js       # Global search
 
 ### 5.1 Unified Clerk Session
 
-**Single Login:**
-- User logs in at `vault.klario-world.com`
-- Session valid for all sections (/products, /biz, /settings)
+**Single Sign-On:**
+- User logs in once at `vault.klario-world.com`
+- Session valid for all sections (Products Lab, Biz Lab, Settings)
+- Role-based access control via Clerk metadata
 
-**User Metadata:**
- ```json
- {
-  "vaultAccess": true,
-  "vaultRole": "admin", // "admin", "editor", "viewer"
-  "sections": {
-  "products": true, // Controls access to Products Lab
-  "biz": true, // Controls access to Biz Lab
-  "settings": true // Controls access to Settings
-  }
- }
- ```
- 
- ### 5.2 Role-Based Permissions
- 
- > **Note:** `vaultRole` defines **capabilities** (e.g., Edit vs View), while `sections` metadata defines **scope** (e.g., Marketing Team only sees Biz Lab).
- 
- | Capability | Viewer | Editor | Partner (Admin) |
- | :--- | :--- | :--- | :--- |
- | **Products Lab** | View Experiments | Create/Deploy | Full Access |
- | **Biz Lab** | Read Strategy | Comment/Review | Full Access |
- | **Settings** | Personal Prefs | Personal Prefs | Audit + Defaults |
+### 5.2 Role-Based Permissions
 
- **Middleware:**
- ```typescript
- // apps/vault/middleware.ts
- import { authMiddleware } from '@clerk/nextjs'
+**Access Levels:**
+- **Admin (Partners):** Full access to all sections
+- **Editor:** Create/edit content, view all docs
+- **Viewer:** Read-only access to assigned sections
 
- export default authMiddleware({
-  publicRoutes: ['/sign-in', '/sign-up'],
-
-  afterAuth: async (auth, req) => {
-  const user = await currentUser()
-  const vaultAccess = user?.publicMetadata?.vaultAccess
-
-  if (!vaultAccess) {
-  return redirectToSignIn({ returnBackUrl: req.url })
-  }
-
-  // Check section-specific access
-  if (req.nextUrl.pathname.startsWith('/settings/audit')) {
-  const isAdmin = user?.publicMetadata?.vaultRole === 'admin'
-  if (!isAdmin) {
-  return new Response('Access Denied', { status: 403 })
-  }
-  }
-  }
-})
-```
+**User Metadata Structure:**
+- `vaultAccess`: Boolean flag for Vault access
+- `vaultRole`: User's role (admin, editor, viewer)
+- `sections`: Granular access per section
 
 ### 5.3 Initial Team Setup (2 Partners)
 
-**Configure via Clerk Dashboard:**
+**Both partners configured as admins via Clerk Dashboard:**
+- Partner 1 (Product & Strategy): Full access
+- Partner 2 (Marketing & Sales): Full access
+- Future team members: Role-based restrictions
 
-> [!NOTE]
-> **Team Management** (Adding users, assigning roles) is handled **only** through the Clerk Dashboard, not within the Vault app.
-
-1. Log in to https://dashboard.clerk.com
-2. Go to **Users** → select each partner
-3. Edit **Public Metadata**
-4. Configure as follows:
-
-**Partner 1 (Product & Strategy):**
-```json
-{
-  "vaultAccess": true,
-  "vaultRole": "admin",
-  "partnerName": "Partner 1",
-  "sections": {
-    "products": true,
-    "biz": true,
-    "settings": true
-  }
-}
-```
-
-**Partner 2 (Marketing & Sales):**
-```json
-{
-  "vaultAccess": true,
-  "vaultRole": "admin", 
-  "partnerName": "Partner 2",
-  "sections": {
-    "products": true,
-    "biz": true,
-    "settings": true
-  }
-}
-```
-
-**Note:** Both partners get full admin access. Future team members will have role-based restrictions.
+**See:** `specifications/core-platform.md` for Clerk integration and middleware implementation
 
 ---
 
 ## 6. Navigation UX
- 
+
  ### 6.1 Global Navigation System
- 
+
  **Primary Interface:**
- - **Floating Dock:** Vertical layout on Left (Desktop).
- - **Command Palette (Cmd+K):** Instant search and action execution.
- 
- > **Detailed Specification:** See `12-global-navigation-prd.md` for the complete implementation details.
- 
+ - **Floating Dock:** Persistent vertical navigation (Desktop)
+ - **Command Palette (Cmd+K):** Universal search and quick actions
+ - **Keyboard Shortcuts:** Fast navigation between sections
+
  ### 6.2 Key Shortcuts
- 
+
  - `Cmd+K` → Global Command Palette
- - `Cmd+1-4` → Quick Switch Tabs
+ - `Cmd+D` → Dashboard
+ - `Cmd+1` → Products Lab
+ - `Cmd+2` → Biz Lab
+ - `Cmd+3` → Settings
  - `Cmd+/` → Show Shortcuts Guide
- 
- **Active Tab State:**
- - Active tab highlighted (orange accent)
- - URL updates: `/products`, `/biz`, `/settings`
- - Browser back/forward works correctly
+
+**See:** `specifications/core-platform.md` for navigation implementation and `12-global-navigation-prd.md` for detailed PRD
 
 ---
 
@@ -426,36 +387,23 @@ npm install cmdk fuse.js       # Global search
 
 ## 8. Global Search
 
-### 8.1 Unified Search Bar
+### 8.1 Unified Command Palette
 
-**Location:** Top-right corner (all pages)
+**Access:** `Cmd+K` or `Ctrl+K` from any page
 
-**Scope:**
-- **Actions:** "New Strategy Doc", "Log Experiment", "Request Review" (Command Palette style)
-- **Products Lab:** Searches component names, experiments
-- **Biz Lab:** Searches doc content (FlexSearch/Fuse.js)
-- **Settings:** Searches audit logs
+**Search Scope:**
+- **Actions:** Create docs, log experiments, request reviews
+- **Products Lab:** Component names and experiments
+- **Biz Lab:** Strategy documents and content
+- **Settings:** Configuration and audit logs
 
-**Keyboard:** `Cmd+K` or `Ctrl+K` opens search modal
+**Features:**
+- Fuzzy search across all content
+- Grouped results by section
+- Keyboard navigation
+- < 500ms response time
 
-**Implementation:**
-- **Component:** `components/search/CommandMenu.tsx`
-- **Library:** `cmdk` (UI) + `fuse.js` (Fuzzy Search)
-- **Performance:** < 500ms response time
-- **Results:** Grouped by section (Actions, Biz Lab, Products Lab, Settings)
-
-**Results Format:**
-```
- Search: "new"
-
-Actions (2 results)
- - ✨ New Strategy Doc
- - 🧪 Log Experiment
-
-Biz Lab (3 results)
- - 02-new-pricing-strategy.md
- - competitive-battle-cards.md
-```
+**See:** `specifications/core-platform.md` for Command Menu implementation
 
 ---
 
@@ -575,4 +523,9 @@ This Vault Overview PRD orchestrates 3 detailed PRDs:
 
 ---
 
-**Last Updated:** January 18, 2026
+**Last Updated:** January 20, 2026
+
+**Related Specifications:**
+- `specifications/dashboard-system.md` - Mission Control Dashboard architecture
+- `specifications/core-platform.md` - Platform infrastructure & navigation
+- `specifications/collaboration-features.md` - Team collaboration implementation

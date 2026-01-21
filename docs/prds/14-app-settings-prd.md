@@ -6,6 +6,8 @@
 **Domain:** `vault.klario-world.com/settings`
 **Parent:** Clario Vault (see `00-vault-overview-prd.md`)
 
+> **Technical Implementation:** See `specifications/app-settings-system.md` for Workflow Profile Store (Zustand state management, profile switching), Collaboration Settings Store (Pusher WebSocket sync, partner presence), Cross-App Cascade Engine (synchronization rules, dependency graph), App-Specific Settings Stores (Products Lab, Biz Lab, Dashboard), Version History System (rollback, export/import), and Real-Time Sync (Pusher integration).
+
 ---
 
 # Part I: Foundation
@@ -123,6 +125,86 @@ interface WorkflowProfile {
 }
 ```
 
+**Example Setting UI:**
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Workflow Intelligence & Profiles                            │
+├─────────────────────────────────────────────────────────────┤
+│ 🟢 Currently Active: Focus Mode                             │
+│                                                             │
+│ Available Profiles:                                         │
+│                                                             │
+│   ● Focus Mode                  [✓ Active]                  │
+│     Deep work without interruptions                         │
+│     • Notifications: Off (except critical)                  │
+│     • Sidebars: Collapsed                                   │
+│     • Search: Current app only                              │
+│                                                             │
+│   ○ Collaboration Mode          [Activate]                  │
+│     Team coordination and shared work                       │
+│     • Notifications: All enabled                            │
+│     • Sidebars: Expanded                                    │
+│     • Search: All apps                                      │
+│                                                             │
+│   ○ Review Mode                 [Activate]                  │
+│     Document and experiment review workflow                 │
+│     • Review Queue: Prioritized                             │
+│     • Sidebars: Expanded                                    │
+│     • Notifications: Review-related only                    │
+│                                                             │
+│   ○ Strategy Planning Mode      [Activate]                  │
+│     Strategic thinking and planning                         │
+│     • Knowledge Graph: Visible                              │
+│     • Recent Docs: Pinned                                   │
+│     • Distractions: Minimized                               │
+│                                                             │
+│ [+ Create Custom Profile]                                   │
+│                                                             │
+│ ⏰ Auto-Switching Schedule:                                 │
+│   Focus Mode:           Mon-Fri 9:00am - 12:00pm           │
+│   Collaboration Mode:   Mon-Fri 1:00pm - 5:00pm            │
+│   [Edit Schedule]                                           │
+│                                                             │
+│ 🔔 Smart Suggestions:                                       │
+│   ☑ Suggest based on calendar events                       │
+│   ☑ Suggest based on time of day                           │
+│   ☐ Suggest based on task context                          │
+│                                                             │
+│ 💡 Integration Note: Profile changes apply instantly to    │
+│    Mission Control, Biz Lab, and Products Lab.             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Profile Switching Flow:**
+```mermaid
+graph TD
+    A[User Selects Profile] --> B{Manual or Auto?}
+    B -->|Manual| C[Immediate Switch]
+    B -->|Auto| D{Check Triggers}
+    D -->|Calendar Match| E[Suggest Profile]
+    D -->|Schedule Match| E
+    D -->|Context Match| E
+    E --> F{User Accepts?}
+    F -->|Yes| C
+    F -->|No| G[Keep Current]
+    C --> H[Save to History]
+    H --> I[Apply Settings]
+    I --> J[Update Mission Control]
+    I --> K[Update Biz Lab]
+    I --> L[Update Products Lab]
+    J --> M[Broadcast via WebSocket]
+    K --> M
+    L --> M
+    M --> N[Sync to Partner]
+```
+
+**See:** `specifications/app-settings-system.md` #1 for Workflow Profile Store (WorkflowProfile interface, default profiles, profile switching logic, auto-scheduling)
+
+**See Also:**
+- **Section 5:** Cross-App Synchronization Rules (cascade effects when switching profiles)
+- **Section 6:** Notification Intelligence System (profile-specific notification rules)
+- **Section 14:** Team Collaboration & Shared Configuration (shared profile enforcement)
+
 ---
 
 ## 4. Partner Collaboration Configuration
@@ -180,6 +262,76 @@ interface CollaborationSettings {
 }
 ```
 
+**Example Setting UI:**
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Partner Collaboration Configuration                         │
+├─────────────────────────────────────────────────────────────┤
+│ 👥 Working with: Partner 2                                  │
+│                                                             │
+│ Shared Team Settings (🔒 Enforced):                        │
+│   Experiment Template:    [Shadcn UI Default ▼] 🔒         │
+│   Graph Color Scheme:     [Category-Based ▼] 🔒            │
+│   Decision Approval:      [Both Required ▼] 🔒             │
+│                                                             │
+│   ℹ️ These settings apply to both partners and cannot be   │
+│      overridden individually.                               │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ Review Workflow & Auto-Assignment:                          │
+│                                                             │
+│   Biz Lab Strategies:                                       │
+│     Auto-assign to:       [Partner 1 ▼]                     │
+│     Notify on approval:   [☑] Partner 2                     │
+│     Priority level:       [● Urgent  ○ Normal]              │
+│                                                             │
+│   Products Lab Components:                                  │
+│     Auto-assign to:       [Partner 2 ▼]                     │
+│     Notify on approval:   [☑] Partner 1                     │
+│     Priority level:       [○ Urgent  ● Normal]              │
+│                                                             │
+│   Cross-Section Decisions:                                  │
+│     Approval required:    [● Both  ○ Either  ○ Any]         │
+│     Notify all partners:  [☑] On submission                 │
+│                           [☑] On approval                   │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ Presence & Activity Sharing:                                │
+│   [☑] Share which app I'm currently in                      │
+│   [☑] Share which document I'm viewing                      │
+│   [☑] Show when I'm actively editing                        │
+│   [☑] Hide my activity during Focus Mode                    │
+│                                                             │
+│   Partner Status: 🟢 Online in Biz Lab                      │
+│   Currently viewing: "2026 Strategy Overview"               │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ Notification Routing Rules:                                 │
+│                                                             │
+│   Strategy Approved        → Notify: Partner 2  (Urgent)    │
+│   Component Promoted       → Notify: Partner 1  (Normal)    │
+│   Experiment Results       → Notify: Both       (Urgent)    │
+│   Build Failed             → Notify: Both       (Critical)  │
+│   Document Updated         → Notify: Author     (Normal)    │
+│                                                             │
+│   [+ Add Custom Rule]                                       │
+│                                                             │
+│ 💡 Integration Note: Changes sync to partner via Pusher    │
+│    WebSocket and affect Review Queue assignments.          │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**See:** `specifications/app-settings-system.md` #2 for Collaboration Settings Store (CollaborationSettings interface, shared vs personal settings, review workflow auto-assignment, presence sharing, Pusher WebSocket integration)
+
+**See Also:**
+- **Section 3:** Workflow Intelligence & Profiles (profile-based collaboration modes)
+- **Section 6:** Notification Intelligence System (partner-aware notification routing)
+- **Section 14:** Team Collaboration & Shared Configuration (shared defaults and enforcement)
+- **Section 18.3:** Real-Time Partner Synchronization (technical implementation)
+
 ---
 
 ## 5. Cross-App Synchronization Rules
@@ -231,6 +383,123 @@ const cascadeRules = {
   }
 }
 ```
+
+**Example Setting UI:**
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Cross-App Synchronization Rules                             │
+├─────────────────────────────────────────────────────────────┤
+│ Configure how settings changes propagate across apps        │
+│                                                             │
+│ 🔗 Cascading Settings:                                      │
+│   [☑] Enable automatic synchronization                      │
+│   [☑] Show impact preview before applying                   │
+│   [☑] Ask confirmation for multi-app changes                │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ Active Cascade Rules:                                       │
+│                                                             │
+│   📢 Notifications (Mission Control)                        │
+│      ↓ Affects 2 other settings                            │
+│      • Biz Lab Quick Capture notifications                  │
+│      • Products Lab experiment completion alerts            │
+│      [Preview Impact]  [Edit Rule]                          │
+│                                                             │
+│   📝 Reading Font Size (Global)                             │
+│      ↓ Affects 2 other settings                            │
+│      • Biz Lab document font size                           │
+│      • Products Lab component docs font size                │
+│      [Preview Impact]  [Edit Rule]                          │
+│                                                             │
+│   🎨 Graph Color Scheme (Biz Lab)                           │
+│      ↓ Affects 1 other setting                             │
+│      • Mission Control portfolio map colors                 │
+│      [Preview Impact]  [Edit Rule]                          │
+│                                                             │
+│   [+ Add Custom Cascade Rule]                               │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ Conflict Resolution:                                        │
+│   When settings conflict, priority order:                   │
+│   1. [●] Workflow Profile    (highest priority)             │
+│   2. [●] Shared Team Default                                │
+│   3. [●] Personal Override   (lowest priority)              │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 📜 Version History (Last 10 changes):                       │
+│                                                             │
+│   Jan 19, 3:45pm - You changed font size                    │
+│   → Affected: Biz Lab, Products Lab                         │
+│   [Rollback]                                                │
+│                                                             │
+│   Jan 19, 2:30pm - Partner 2 changed graph colors           │
+│   → Affected: Mission Control                               │
+│   [Rollback]                                                │
+│                                                             │
+│   Jan 19, 11:15am - You switched to Focus Mode              │
+│   → Affected: All apps                                      │
+│   [Rollback]                                                │
+│                                                             │
+│   [View Full History]                                       │
+│                                                             │
+│ 💡 Integration Note: All changes sync in <500ms via        │
+│    WebSocket. Version history available for 24 hours.      │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Cascade Flow Diagram:**
+```mermaid
+graph TD
+    A[User Changes Setting] --> B{Cascade Enabled?}
+    B -->|No| C[Update Single Setting]
+    B -->|Yes| D[Check Dependency Graph]
+
+    D --> E{Has Dependencies?}
+    E -->|No| C
+    E -->|Yes| F[Show Impact Preview]
+
+    F --> G{User Confirms?}
+    G -->|No| H[Cancel Change]
+    G -->|Yes| I[Apply Primary Change]
+
+    I --> J[Save to Version History]
+    J --> K[Apply Cascade Rules]
+
+    K --> L[Update Mission Control]
+    K --> M[Update Biz Lab]
+    K --> N[Update Products Lab]
+
+    L --> O{Conflict?}
+    M --> O
+    N --> O
+
+    O -->|Yes| P[Resolve by Priority]
+    O -->|No| Q[Broadcast via WebSocket]
+
+    P --> R[Apply Resolution]
+    R --> Q
+
+    Q --> S[Sync to Partner]
+    Q --> T[Update UI]
+
+    C --> J
+
+    style F fill:#fff3cd
+    style P fill:#f8d7da
+    style Q fill:#d1ecf1
+```
+
+**See:** `specifications/app-settings-system.md` #3 for Cascade Rules & Synchronization Engine (CascadeRule interface, cascade middleware, change detection, dependency graph, conflict resolution)
+
+**See Also:**
+- **Section 3:** Workflow Intelligence & Profiles (profiles trigger cascades automatically)
+- **Section 4:** Partner Collaboration Configuration (shared settings propagation)
+- **Section 15:** Global Cross-App Preferences (global font size cascade example)
+- **Section 16:** Configuration Sync, Export & Reset (version history and rollback)
+- **Section 18.2:** State Management Architecture (Zustand middleware for cascades)
 
 ---
 
@@ -298,6 +567,90 @@ interface NotificationIntelligence {
   }
 }
 ```
+
+**Example Setting UI:**
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Notification Intelligence System                            │
+├─────────────────────────────────────────────────────────────┤
+│ 🧠 Smart notification delivery based on context & urgency   │
+│                                                             │
+│ Urgency Classification Rules:                               │
+│                                                             │
+│   🔴 Critical (Immediate delivery):                         │
+│   • Decision requires approval                              │
+│   • Build failed                                            │
+│   • Security alert                                          │
+│   [+ Add Event Type]                                        │
+│                                                             │
+│   🟡 Important (Deferred if in Focus Mode):                 │
+│   • Review requested                                        │
+│   • Experiment completed                                    │
+│   • Strategy approved                                       │
+│   [+ Add Event Type]                                        │
+│                                                             │
+│   🟢 Informational (Batched every hour):                    │
+│   • Document updated                                        │
+│   • Partner came online                                     │
+│   • Achievement unlocked                                    │
+│   [+ Add Event Type]                                        │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 🌙 Do Not Disturb Schedule:                                 │
+│   [☑] Enable automatic DND                                  │
+│                                                             │
+│   Weekdays:      [6:00 PM] to [9:00 AM]                     │
+│   Weekends:      [○ Same  ● All day  ○ Custom]              │
+│                                                             │
+│   Exceptions (always notify):                               │
+│   [☑] Critical alerts                                       │
+│   [☐] Partner messages                                      │
+│   [☐] Meeting reminders                                     │
+│                                                             │
+│   Current Status: 🌙 DND Active (until 9:00 AM tomorrow)    │
+│   [Temporarily Disable]                                     │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 📦 Notification Batching:                                   │
+│   [☑] Group similar notifications                           │
+│   Batch interval:     [Every hour ▼]                        │
+│   Max batch size:     [5 notifications]                     │
+│                                                             │
+│   Preview: "5 experiments completed" instead of 5 separate  │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 👥 Partner-Aware Routing:                                   │
+│   [☑] Respect partner's Focus Mode                          │
+│   [☑] Route to available partner when relevant              │
+│                                                             │
+│   Partner Status: 🟢 Partner 2 (Available)                  │
+│                   🔴 You (In Focus Mode)                     │
+│                                                             │
+│   Fallback Rules:                                           │
+│   • If Partner 1 unavailable → Route to Partner 2           │
+│   • If both unavailable → Queue for later                   │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ ⏸️ Quick Mute:                                              │
+│   [Mute 1 hour]  [Mute 4 hours]  [Mute until tomorrow]     │
+│                                                             │
+│ 💡 Integration Note: Works with Workflow Profiles -        │
+│    Focus Mode automatically enables smart delivery.        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**See:** `specifications/app-settings-system.md` #2 for Notification Intelligence implementation (urgency classification, smart delivery timing, batching rules, Pusher priority channels integration)
+**See:** `specifications/collaboration-features.md` for Team Pulse and notification routing architecture
+
+**See Also:**
+- **Section 3:** Workflow Intelligence & Profiles (Focus Mode affects notification delivery)
+- **Section 4:** Partner Collaboration Configuration (partner-aware routing rules)
+- **Section 12:** Notification & Achievement Preferences (dashboard notification settings)
+- **Section 18.3:** Real-Time Partner Synchronization (Pusher priority channels)
 
 ---
 
@@ -395,6 +748,9 @@ interface ExperimentWorkbenchSettings {
 └─────────────────────────────────────────────────────────────┘
 ```
 
+**See:** `specifications/app-settings-system.md` #4 for Products Lab Settings Store (ExperimentWorkbenchSettings interface, default templates, auto-save configuration, hot reload settings)
+**See:** `specifications/products-lab-system.md` for Component Workbench and Experiment Playground integration
+
 ---
 
 ## 8. Component Library & Documentation Preferences
@@ -458,6 +814,90 @@ interface ComponentLibrarySettings {
   }
 }
 ```
+
+**Example Setting UI:**
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Component Library & Documentation Preferences               │
+├─────────────────────────────────────────────────────────────┤
+│ Configure component previews, tokens, and documentation     │
+│                                                             │
+│ 🎬 Live Preview Controls:                                   │
+│   [☑] Hot reload on save                                    │
+│   [☐] Show grid overlay                                     │
+│   [☑] Responsive viewport simulation                        │
+│   [☐] Auto-open components in new tab                       │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 🎨 Design Token Visualizer:                                 │
+│   Default view:       [● All  ○ Colors  ○ Typography]       │
+│   [☑] Expand token categories by default                    │
+│   [☑] Show usage examples                                   │
+│                                                             │
+│   Preview:                                                  │
+│   ┌──────────────────────────────────────────────┐         │
+│   │ Colors (12)        ▼                         │         │
+│   │ • Primary:    #2563eb  [Used in 45 places]  │         │
+│   │ • Secondary:  #64748b  [Used in 23 places]  │         │
+│   │ Typography (8) ▼                             │         │
+│   │ Spacing (6)    ▼                             │         │
+│   └──────────────────────────────────────────────┘         │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 📖 Documentation Display:                                   │
+│   Font size:          [────●────] 16px                      │
+│   Syntax theme:       [GitHub Dark ▼]                       │
+│   Code sections:      [● Expanded  ○ Collapsed]             │
+│   [☑] Show table of contents                                │
+│                                                             │
+│   Preview:                                                  │
+│   ┌──────────────────────────────────────────────┐         │
+│   │ Button Component                             │         │
+│   │ ─────────────────                            │         │
+│   │ ## Props                                     │         │
+│   │ variant?: 'default' | 'outline' | 'ghost'    │         │
+│   │ size?: 'sm' | 'md' | 'lg'                    │         │
+│   │                                              │         │
+│   │ ## Usage                                     │         │
+│   │ ```tsx                                       │         │
+│   │ <Button variant="outline">Click me</Button> │         │
+│   │ ```                                          │         │
+│   └──────────────────────────────────────────────┘         │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 🔍 Component Search Scope:                                  │
+│   Search in:          [● All  ○ Local  ○ Shared Library]   │
+│   [☐] Include archived components                           │
+│                                                             │
+│   Stats: 156 total components (89 local, 67 shared)        │
+│                                                             │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 📤 Export Format Preferences:                               │
+│   Default format:     [React ▼]                             │
+│                       • React (JSX/TSX)                     │
+│                       • Vue (SFC)                           │
+│                       • HTML + CSS                          │
+│                       • Tailwind CSS                        │
+│   [☑] Include code comments                                 │
+│   [☑] Include TypeScript types                              │
+│                                                             │
+│ 💡 Integration Note: Documentation font size syncs with    │
+│    Global settings if cascade is enabled (see Section 15). │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**See:** `specifications/app-settings-system.md` #4 for Component Library Settings (ComponentLibrarySettings interface, live preview controls, token visualizer, export format preferences)
+**See:** `specifications/products-lab-system.md` for Design Token Browser and Component Library architecture
+
+**See Also:**
+- **Section 7:** Experiment Workbench Preferences (component creation settings)
+- **Section 10:** Strategic Document Reading & Workspace Preferences (reading mode sync)
+- **Section 15:** Global Cross-App Preferences (global font size cascade)
+- **Section 16:** Configuration Sync, Export & Reset (export format preferences)
 
 ---
 
@@ -1160,6 +1600,388 @@ interface GlobalCrossAppSettings {
 
 ---
 
+## 15.1 Developer Mode Settings
+
+**Dev-only features and advanced customization tools (this entire section only exists in development builds, not rendered in production).**
+
+**Features:**
+1. **Studio Tuner Visibility Toggle:** Show/hide the floating Studio Tuner window and its expand/collapse button - useful when you want to examine the UI without any Studio Tuner controls visible.
+2. **Dev Tools Panel Access:** Quick access to React DevTools, performance monitoring, and state inspection.
+3. **Debug Mode Toggle:** Enable verbose logging, error boundaries with stack traces, and API request/response logging.
+4. **Feature Flag Management:** Toggle experimental features for testing (e.g., new widgets, beta integrations).
+5. **Build Environment Indicator:** Visual badge showing current environment (dev/staging/production) in navbar.
+
+**Actions:**
+1. **`Show Studio Tuner`:** Toggle ON → Floating Studio Tuner window appears → Expand/collapse button visible → Access theme/layout/animation/accessibility controls.
+2. **`Hide Studio Tuner`:** Toggle OFF → Entire floating window hidden (including expand/collapse button) → Clean UI for examining layouts/themes without any Studio Tuner controls.
+3. **`Enable Debug Mode`:** Toggle → Console shows detailed logs → Error boundaries display stack traces → API calls logged to console.
+4. **`Toggle Feature Flags`:** Experimental Features → Check "New Knowledge Graph Beta" → Feature becomes available in Biz Lab → Uncheck to revert.
+5. **`View Build Info`:** Click environment badge → Modal shows: Build version, commit hash, NODE_ENV, feature flags status.
+
+**Integrations:**
+1. **Mission Control Impact:**
+    - Studio Tuner floating window appears over dashboard (when enabled)
+    - Dev mode badge appears in dashboard navbar (top-right corner)
+    - Debug mode logs all widget render cycles and state changes
+    - Feature flags control new dashboard widget visibility
+2. **Biz Lab Impact:**
+    - Studio Tuner floating window can customize document reading themes in real-time
+    - Debug mode shows Knowledge Graph rendering performance metrics
+    - Feature flags enable beta graph visualization modes
+3. **Products Lab Impact:**
+    - Studio Tuner floating window customizes component workbench themes live
+    - Debug mode logs experiment build processes and hot reload events
+    - Feature flags enable experimental framework support (Svelte, Vue beta)
+4. **Studio Tuner Impact:**
+    - Floating window with expand/collapse button (🎨) fixed to bottom-right of viewport
+    - When visibility toggle is OFF: Entire floating UI hidden for clean examination
+    - When visibility toggle is ON: Button visible → Click to expand/collapse full Studio Tuner panel
+5. **Settings Hub Impact:**
+    - Developer Mode settings page only exists in dev builds
+    - Toggle controls floating Studio Tuner window visibility globally
+    - Debug mode shows settings state tree in real-time
+    - Feature flags section only visible in developer mode settings
+
+**UI Configuration:**
+```typescript
+interface DeveloperModeSettings {
+  studioTuner: {
+    enabled: boolean; // Controls Settings sidebar visibility
+  };
+  devTools: {
+    reactDevTools: boolean;
+    performanceMonitor: boolean;
+    stateInspector: boolean;
+  };
+  debugMode: {
+    enabled: boolean;
+    verboseLogging: boolean;
+    showStackTraces: boolean;
+    logApiCalls: boolean;
+  };
+  featureFlags: {
+    [featureName: string]: boolean;
+    // Example flags:
+    newKnowledgeGraphBeta: boolean;
+    experimentalSvelteSupport: boolean;
+    advancedDashboardWidgets: boolean;
+  };
+  buildEnvironment: {
+    showIndicator: boolean;
+    indicatorPosition: 'navbar' | 'bottom-right' | 'hidden';
+  };
+}
+
+// Zustand store for developer settings (dev-only)
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+
+interface DeveloperSettingsStore {
+  settings: DeveloperModeSettings;
+
+  // Actions
+  toggleStudioTuner: () => void;
+  toggleDebugMode: () => void;
+  setFeatureFlag: (flag: string, enabled: boolean) => void;
+  resetDevSettings: () => void;
+}
+
+export const useDeveloperSettings = create<DeveloperSettingsStore>()(
+  persist(
+    (set, get) => ({
+      settings: {
+        studioTuner: {
+          enabled: false, // Disabled by default
+        },
+        devTools: {
+          reactDevTools: false,
+          performanceMonitor: false,
+          stateInspector: false,
+        },
+        debugMode: {
+          enabled: false,
+          verboseLogging: false,
+          showStackTraces: true,
+          logApiCalls: false,
+        },
+        featureFlags: {
+          newKnowledgeGraphBeta: false,
+          experimentalSvelteSupport: false,
+          advancedDashboardWidgets: false,
+        },
+        buildEnvironment: {
+          showIndicator: true,
+          indicatorPosition: 'navbar',
+        },
+      },
+
+      toggleStudioTuner: () => set((state) => ({
+        settings: {
+          ...state.settings,
+          studioTuner: {
+            enabled: !state.settings.studioTuner.enabled,
+          },
+        },
+      })),
+
+      toggleDebugMode: () => set((state) => ({
+        settings: {
+          ...state.settings,
+          debugMode: {
+            ...state.settings.debugMode,
+            enabled: !state.settings.debugMode.enabled,
+          },
+        },
+      })),
+
+      setFeatureFlag: (flag, enabled) => set((state) => ({
+        settings: {
+          ...state.settings,
+          featureFlags: {
+            ...state.settings.featureFlags,
+            [flag]: enabled,
+          },
+        },
+      })),
+
+      resetDevSettings: () => set(() => ({
+        settings: {
+          studioTuner: { enabled: false },
+          devTools: { reactDevTools: false, performanceMonitor: false, stateInspector: false },
+          debugMode: { enabled: false, verboseLogging: false, showStackTraces: true, logApiCalls: false },
+          featureFlags: {},
+          buildEnvironment: { showIndicator: true, indicatorPosition: 'navbar' },
+        },
+      })),
+    }),
+    {
+      name: 'vault-developer-settings',
+      version: 1,
+    }
+  )
+);
+```
+
+**Settings Page UI:**
+```typescript
+// app/(settings)/developer/page.tsx (only exists in dev builds)
+import { useDeveloperSettings } from '@/lib/store/developer-settings-store';
+
+export default function DeveloperSettingsPage() {
+  const { settings, toggleStudioTuner, toggleDebugMode, setFeatureFlag } = useDeveloperSettings();
+
+  return (
+    <div className="settings-page">
+      <h1 className="text-2xl font-bold">Developer Mode Settings</h1>
+      <p className="text-sm text-gray-600 mb-6">
+        Advanced customization and debugging tools
+      </p>
+
+      {/* Studio Tuner Visibility Toggle */}
+      <div className="setting-group">
+        <div className="flex items-center justify-between">
+          <div>
+            <label className="font-semibold">Show Studio Tuner Window</label>
+            <p className="text-sm text-gray-500">
+              Toggle visibility of the floating Studio Tuner window (including expand/collapse button).
+              Useful for examining UI without any customization controls visible.
+            </p>
+          </div>
+          <input
+            type="checkbox"
+            checked={settings.studioTuner.enabled}
+            onChange={toggleStudioTuner}
+            className="toggle"
+          />
+        </div>
+        {settings.studioTuner.enabled ? (
+          <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded">
+            <p className="text-sm text-blue-800">
+              👁️ Studio Tuner floating window is visible
+            </p>
+          </div>
+        ) : (
+          <div className="mt-2 p-3 bg-gray-50 border border-gray-200 rounded">
+            <p className="text-sm text-gray-600">
+              🙈 Studio Tuner completely hidden for clean UI examination
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Debug Mode */}
+      <div className="setting-group">
+        <div className="flex items-center justify-between">
+          <div>
+            <label className="font-semibold">Debug Mode</label>
+            <p className="text-sm text-gray-500">
+              Enable verbose logging, stack traces, and API request logging
+            </p>
+          </div>
+          <input
+            type="checkbox"
+            checked={settings.debugMode.enabled}
+            onChange={toggleDebugMode}
+            className="toggle"
+          />
+        </div>
+      </div>
+
+      {/* Feature Flags */}
+      <div className="setting-group">
+        <label className="font-semibold">Experimental Features</label>
+        <p className="text-sm text-gray-500 mb-3">
+          Enable beta features for testing (may be unstable)
+        </p>
+
+        <div className="space-y-2">
+          <div className="flex items-center justify-between p-2 border rounded">
+            <span className="text-sm">New Knowledge Graph (Beta)</span>
+            <input
+              type="checkbox"
+              checked={settings.featureFlags.newKnowledgeGraphBeta || false}
+              onChange={(e) => setFeatureFlag('newKnowledgeGraphBeta', e.target.checked)}
+              className="toggle-sm"
+            />
+          </div>
+          <div className="flex items-center justify-between p-2 border rounded">
+            <span className="text-sm">Experimental Svelte Support</span>
+            <input
+              type="checkbox"
+              checked={settings.featureFlags.experimentalSvelteSupport || false}
+              onChange={(e) => setFeatureFlag('experimentalSvelteSupport', e.target.checked)}
+              className="toggle-sm"
+            />
+          </div>
+          <div className="flex items-center justify-between p-2 border rounded">
+            <span className="text-sm">Advanced Dashboard Widgets</span>
+            <input
+              type="checkbox"
+              checked={settings.featureFlags.advancedDashboardWidgets || false}
+              onChange={(e) => setFeatureFlag('advancedDashboardWidgets', e.target.checked)}
+              className="toggle-sm"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Environment Info */}
+      <div className="setting-group">
+        <label className="font-semibold">Build Environment</label>
+        <div className="p-4 bg-gray-50 border rounded mt-2">
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span className="text-gray-600">Environment:</span>
+              <span className="ml-2 font-mono bg-green-100 text-green-800 px-2 py-0.5 rounded">
+                development
+              </span>
+            </div>
+            <div>
+              <span className="text-gray-600">Studio Tuner:</span>
+              <span className={`ml-2 font-mono px-2 py-0.5 rounded ${
+                settings.studioTuner.enabled
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-gray-100 text-gray-600'
+              }`}>
+                {settings.studioTuner.enabled ? 'Accessible' : 'Disabled'}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+**Studio Tuner Floating Window Integration:**
+```typescript
+// components/studio-tuner/FloatingStudioTuner.tsx
+import { useDeveloperSettings } from '@/lib/store/developer-settings-store';
+import { useState } from 'react';
+
+export function FloatingStudioTuner() {
+  const { settings } = useDeveloperSettings();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Don't render at all if hidden via Developer Mode settings
+  if (!settings.studioTuner.enabled) {
+    return null; // Completely hidden - no button, no window, clean UI
+  }
+
+  return (
+    <>
+      {/* Expand/Collapse Button (only visible when Studio Tuner is enabled) */}
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="fixed bottom-4 right-4 z-50 bg-primary text-white p-3 rounded-full shadow-lg"
+        title={isExpanded ? 'Collapse Studio Tuner' : 'Expand Studio Tuner'}
+      >
+        {isExpanded ? '✕' : '🎨'}
+      </button>
+
+      {/* Floating Studio Tuner Window */}
+      {isExpanded && (
+        <div className="fixed bottom-20 right-4 w-96 h-[600px] bg-white dark:bg-gray-900 rounded-lg shadow-2xl z-50 border border-gray-200">
+          <div className="p-4 h-full overflow-y-auto">
+            <h2 className="text-lg font-bold mb-4">🎨 Studio Tuner</h2>
+
+            {/* Theme Controls */}
+            <div className="mb-6">
+              <h3 className="font-semibold mb-2">Theme Studio</h3>
+              {/* Color pickers, theme presets, etc. */}
+            </div>
+
+            {/* Layout Controls */}
+            <div className="mb-6">
+              <h3 className="font-semibold mb-2">Layout Presets</h3>
+              {/* Layout configurations, navbar settings, etc. */}
+            </div>
+
+            {/* Animation Controls */}
+            <div className="mb-6">
+              <h3 className="font-semibold mb-2">Animation Control</h3>
+              {/* Speed multiplier, reduced motion, etc. */}
+            </div>
+
+            {/* Accessibility Controls */}
+            <div className="mb-6">
+              <h3 className="font-semibold mb-2">Accessibility</h3>
+              {/* High contrast, text scaling, etc. */}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+// In root layout (only in dev builds)
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <FloatingStudioTuner /> {/* Floating window + button */}
+      </body>
+    </html>
+  );
+}
+```
+
+**How It Works:**
+1. **Toggle ON (default):** Floating button visible in bottom-right → Click to expand Studio Tuner window → Access all customization controls
+2. **Toggle OFF:** Floating button completely hidden → Studio Tuner window inaccessible → Clean UI for examining layouts/themes
+3. **Use Case:** When testing responsive layouts or examining UI polish, turn OFF to see the interface without any dev tools visible
+4. **Production:** Entire `FloatingStudioTuner` component not included in production bundle
+
+**See Also:**
+- Section 16: Configuration Sync, Export & Reset (developer settings export)
+- Studio Tuner PRD: Complete theme/layout/animation/accessibility system (dev-only access)
+- Global Navigation PRD Section 5.5: Dynamic Floating Navbar (consumes Studio Tuner configs in dev)
+
+---
+
 ## 16. Configuration Sync, Export & Reset
 
 **Settings for backing up configurations, importing/exporting settings, and resetting to defaults.**
@@ -1326,6 +2148,15 @@ interface ExportedSettingsFormat {
 # Part VI: Technical Architecture
 
 ## 18. Technical Implementation
+
+**This section provides technical specifications for implementing features described in Sections 3-16.**
+
+**See Also:**
+- **Section 5:** Cross-App Synchronization Rules (cascade engine requirements)
+- **Section 4:** Partner Collaboration Configuration (Pusher WebSocket integration)
+- **Section 16:** Configuration Sync, Export & Reset (version history implementation)
+
+---
 
 ### 18.1 Tech Stack
 
@@ -1599,6 +2430,535 @@ export default function SettingsPage() {
 }
 ```
 
+---
+
+### 18.5 Settings Consumption Examples
+
+**How Mission Control, Biz Lab, and Products Lab components actually consume settings.**
+
+#### Mission Control Dashboard Widgets
+
+**Widget Visibility (Section 11):**
+```tsx
+// app/(dashboard)/page.tsx
+import { useDashboardSettings } from '@/lib/store/settings-store';
+
+export default function DashboardPage() {
+  const { widgets } = useDashboardSettings();
+
+  // Only render widgets that are in the active list
+  const activeWidgetIds = widgets.active.map(w => w.id);
+
+  return (
+    <div className="dashboard-grid">
+      {activeWidgetIds.includes('sprint-progress') && (
+        <SprintProgressWidget
+          size={widgets.active.find(w => w.id === 'sprint-progress')?.size}
+          refreshInterval={widgets.active.find(w => w.id === 'sprint-progress')?.settings?.refreshInterval}
+        />
+      )}
+
+      {activeWidgetIds.includes('achievements') && (
+        <AchievementsWidget />
+      )}
+
+      {activeWidgetIds.includes('portfolio-map') && (
+        <PortfolioMapWidget
+          colorScheme={widgets.charts.colorScheme}
+          chartType={widgets.charts.defaultType}
+        />
+      )}
+    </div>
+  );
+}
+```
+
+**Chart Preferences (Section 11):**
+```tsx
+// components/dashboard/PortfolioMapWidget.tsx
+import { useDashboardSettings } from '@/lib/store/settings-store';
+import { BarChart, LineChart, AreaChart, DonutChart } from 'recharts';
+
+export function PortfolioMapWidget() {
+  const { widgets } = useDashboardSettings();
+
+  // Use chart preferences from settings
+  const ChartComponent = {
+    'bar': BarChart,
+    'line': LineChart,
+    'area': AreaChart,
+    'donut': DonutChart,
+  }[widgets.charts.defaultType];
+
+  return (
+    <ChartComponent
+      data={portfolioData}
+      colors={getColorScheme(widgets.charts.colorScheme)}
+      animate={widgets.charts.animations}
+      showLegend={widgets.charts.showLegend === 'always'}
+    />
+  );
+}
+```
+
+**Quick Actions (Section 13):**
+```tsx
+// components/dashboard/QuickActionsPanel.tsx
+import { useQuickActionsSettings } from '@/lib/store/settings-store';
+
+export function QuickActionsPanel() {
+  const { pinnedActions, contextAwareActions } = useQuickActionsSettings();
+
+  return (
+    <div className="quick-actions">
+      {pinnedActions.map(action => (
+        <button
+          key={action.id}
+          onClick={() => executeAction(action.id)}
+          data-shortcut={action.shortcut}
+        >
+          <Icon name={action.icon} />
+          {action.label}
+        </button>
+      ))}
+
+      {contextAwareActions.enabled && (
+        <ContextualActions profile={getCurrentProfile()} />
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+#### Biz Lab Components
+
+**Knowledge Graph Visualization (Section 9):**
+```tsx
+// components/graph/GraphView.tsx
+import { useKnowledgeGraphSettings } from '@/lib/store/settings-store';
+import ForceGraph2D from 'react-force-graph-2d';
+
+export function GraphView({ data }) {
+  const { visualization, autoOpenBehavior, smartConnections } = useKnowledgeGraphSettings();
+
+  // Apply visualization settings to graph
+  const graphConfig = {
+    nodeRelSize: visualization.nodeSize === 'small' ? 4 :
+                 visualization.nodeSize === 'medium' ? 6 : 8,
+    linkCurvature: visualization.linkStyle === 'curved' ? 0.5 : 0,
+    d3AlphaDecay: visualization.physics.enabled ? 0.0228 : 1,
+    d3VelocityDecay: visualization.physics.enabled ? 0.4 : 1,
+    cooldownTime: visualization.physics.enabled ? 15000 : 0,
+  };
+
+  // Apply color scheme
+  const nodeColor = (node) => {
+    if (visualization.colorScheme === 'category') {
+      return getCategoryColor(node.category);
+    } else if (visualization.colorScheme === 'status') {
+      return getStatusColor(node.status);
+    } else if (visualization.colorScheme === 'priority') {
+      return getPriorityColor(node.priority);
+    }
+    return node.customColor;
+  };
+
+  // Handle node click based on auto-open settings
+  const handleNodeClick = (node) => {
+    if (autoOpenBehavior.onClick === 'floating-panel') {
+      openFloatingPanel(node, autoOpenBehavior.keepGraphVisible);
+    } else if (autoOpenBehavior.onClick === 'sidebar') {
+      openSidebar(node);
+    } else if (autoOpenBehavior.onClick === 'new-page') {
+      navigateToDocument(node.id);
+    } else {
+      showQuickPreview(node, autoOpenBehavior.previewDelay);
+    }
+  };
+
+  return (
+    <ForceGraph2D
+      graphData={data}
+      {...graphConfig}
+      nodeColor={nodeColor}
+      onNodeClick={handleNodeClick}
+      nodeCanvasObject={(node, ctx, globalScale) => {
+        // Render node with size from settings
+        drawNode(ctx, node, graphConfig.nodeRelSize);
+      }}
+    />
+  );
+}
+```
+
+**Document Reading Mode (Section 10):**
+```tsx
+// app/biz/[slug]/page.tsx
+import { useDocumentReadingSettings } from '@/lib/store/settings-store';
+
+export default function DocumentPage({ params }) {
+  const { readingMode, hoverPreviews, sidebarLayout } = useDocumentReadingSettings();
+
+  return (
+    <div className="document-layout">
+      {/* Sidebar visibility based on settings */}
+      <aside
+        className={cn(
+          "sidebar",
+          sidebarLayout.defaultState === 'collapsed' && "collapsed"
+        )}
+        style={{ width: sidebarLayout.width }}
+      >
+        <DocumentTree />
+      </aside>
+
+      {/* Document content with reading mode typography */}
+      <article
+        style={{
+          fontSize: `${readingMode.typography.fontSize}px`,
+          lineHeight: readingMode.typography.lineHeight,
+          maxWidth: `${readingMode.typography.columnWidth}px`,
+        }}
+      >
+        <MDXContent
+          components={{
+            a: (props) => (
+              <WikiLink
+                {...props}
+                enablePreview={hoverPreviews.enabled}
+                previewDelay={hoverPreviews.delayMs}
+                showMetadata={hoverPreviews.showMetadata}
+              />
+            )
+          }}
+        />
+
+        {/* Progress bar if enabled */}
+        {readingMode.behavior.showProgressBar && (
+          <ReadingProgressBar />
+        )}
+      </article>
+    </div>
+  );
+}
+```
+
+**Hover Previews (Section 10):**
+```tsx
+// components/biz/WikiLink.tsx
+import { useDocumentReadingSettings } from '@/lib/store/settings-store';
+import { HoverCard } from '@/components/ui/hover-card';
+
+export function WikiLink({ href, children, ...props }) {
+  const { hoverPreviews } = useDocumentReadingSettings();
+
+  if (!hoverPreviews.enabled) {
+    return <a href={href} {...props}>{children}</a>;
+  }
+
+  return (
+    <HoverCard openDelay={hoverPreviews.delayMs}>
+      <HoverCardTrigger asChild>
+        <a href={href} {...props}>{children}</a>
+      </HoverCardTrigger>
+      <HoverCardContent>
+        {hoverPreviews.showMetadata.title && <h3>{getDocTitle(href)}</h3>}
+        {hoverPreviews.showMetadata.readTime && <span>{getReadTime(href)} min read</span>}
+        {hoverPreviews.showMetadata.keyTakeaways && <ul>{getKeyTakeaways(href)}</ul>}
+        {hoverPreviews.showMetadata.lastModified && <time>{getLastModified(href)}</time>}
+      </HoverCardContent>
+    </HoverCard>
+  );
+}
+```
+
+---
+
+#### Products Lab Components
+
+**Experiment Workbench (Section 7):**
+```tsx
+// app/products/experiments/[id]/page.tsx
+import { useExperimentWorkbenchSettings } from '@/lib/store/settings-store';
+import { useEffect } from 'react';
+
+export default function ExperimentPage({ params }) {
+  const { defaultTemplate, autoSave, workbenchLayout, hotReload } = useExperimentWorkbenchSettings();
+
+  // Auto-save based on settings
+  useEffect(() => {
+    if (!autoSave.enabled) return;
+
+    const interval = setInterval(() => {
+      saveExperiment();
+      if (autoSave.showIndicator) {
+        showSaveIndicator();
+      }
+    }, autoSave.intervalSeconds * 1000);
+
+    return () => clearInterval(interval);
+  }, [autoSave.enabled, autoSave.intervalSeconds]);
+
+  // Save on blur if enabled
+  useEffect(() => {
+    if (!autoSave.onBlur) return;
+
+    const handleBlur = () => saveExperiment();
+    window.addEventListener('blur', handleBlur);
+    return () => window.removeEventListener('blur', handleBlur);
+  }, [autoSave.onBlur]);
+
+  return (
+    <div className="workbench-layout">
+      {/* Code editor with width from settings */}
+      <div
+        className="code-editor"
+        style={{ width: `${workbenchLayout.codeEditorWidthPercent}%` }}
+      >
+        <CodeEditor
+          defaultFramework={defaultTemplate.framework}
+          includeAnimations={defaultTemplate.includeAnimations}
+          hotReload={hotReload.enabled}
+        />
+      </div>
+
+      {/* Preview panel positioned based on settings */}
+      <div
+        className={cn(
+          "preview-panel",
+          `position-${workbenchLayout.previewPosition}`
+        )}
+      >
+        <LivePreview
+          showGrid={hotReload.showGridOverlay}
+          showBreakpoints={hotReload.showBreakpointIndicator}
+        />
+      </div>
+
+      {/* Console visibility based on settings */}
+      {workbenchLayout.consoleVisibility !== 'hidden' && (
+        <Console
+          autoHide={workbenchLayout.consoleVisibility === 'auto'}
+        />
+      )}
+    </div>
+  );
+}
+```
+
+**Component Library Documentation (Section 8):**
+```tsx
+// app/products/components/[slug]/page.tsx
+import { useComponentLibrarySettings } from '@/lib/store/settings-store';
+import { Shiki } from 'shiki';
+
+export default function ComponentDocPage({ params }) {
+  const { documentation, tokenVisualizer, livePreview } = useComponentLibrarySettings();
+
+  return (
+    <div className="component-docs">
+      {/* Token visualizer with settings */}
+      <TokenVisualizer
+        defaultView={tokenVisualizer.defaultView}
+        expandCategories={tokenVisualizer.expandCategories}
+        showUsageExamples={tokenVisualizer.showUsageExamples}
+      />
+
+      {/* Documentation with typography settings */}
+      <article
+        style={{
+          fontSize: `${documentation.fontSize}px`,
+        }}
+      >
+        <MDXContent
+          components={{
+            code: ({ children, className }) => (
+              <Shiki
+                code={children}
+                theme={documentation.syntaxTheme}
+                lang={getLanguage(className)}
+              />
+            ),
+            details: ({ children }) => (
+              <details
+                open={documentation.collapsibleSectionsDefault === 'expanded'}
+              >
+                {children}
+              </details>
+            )
+          }}
+        />
+
+        {/* Table of contents if enabled */}
+        {documentation.showTableOfContents && (
+          <TableOfContents />
+        )}
+      </article>
+
+      {/* Live preview with settings */}
+      <LiveComponentPreview
+        hotReload={livePreview.hotReload}
+        showGrid={livePreview.showGridOverlay}
+        responsiveViewports={livePreview.responsiveViewports}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+#### Workflow Profile Integration (Section 3)
+
+**Profile affects all apps simultaneously:**
+```tsx
+// lib/store/settings-store.ts
+switchProfile: (profileName) => {
+  const profile = get().workflowProfiles.find(p => p.name === profileName);
+  if (!profile) return;
+
+  // Apply to Mission Control
+  set({
+    dashboard: {
+      ...get().dashboard,
+      widgets: {
+        ...get().dashboard.widgets,
+        active: get().dashboard.widgets.active.filter(w =>
+          profile.settings.missionControl.widgetVisibility.includes(w.id)
+        ),
+      },
+      notifications: {
+        ...get().dashboard.notifications,
+        achievements: {
+          ...get().dashboard.notifications.achievements,
+          triggers: {
+            ...get().dashboard.notifications.achievements.triggers,
+            badgeUnlocked: profile.settings.missionControl.notifications.enabled,
+            milestoneReached: profile.settings.missionControl.notifications.enabled,
+          }
+        }
+      }
+    },
+
+    // Apply to Biz Lab
+    bizLab: {
+      ...get().bizLab,
+      documentReading: {
+        ...get().bizLab.documentReading,
+        sidebarLayout: {
+          ...get().bizLab.documentReading.sidebarLayout,
+          defaultState: profile.settings.bizLab.sidebarState,
+        }
+      }
+    },
+
+    // Apply to Products Lab
+    productsLab: {
+      ...get().productsLab,
+      experimentWorkbench: {
+        ...get().productsLab.experimentWorkbench,
+        hotReload: {
+          ...get().productsLab.experimentWorkbench.hotReload,
+          enabled: profile.settings.productsLab.hotReload,
+        },
+        workbenchLayout: {
+          ...get().productsLab.experimentWorkbench.workbenchLayout,
+          consoleVisibility: profile.settings.productsLab.console === 'visible'
+            ? 'always'
+            : profile.settings.productsLab.console === 'hidden'
+            ? 'hidden'
+            : 'auto',
+        }
+      }
+    },
+
+    activeProfile: profileName,
+  });
+
+  // Broadcast to partner via Pusher
+  broadcastProfileChange(profileName);
+}
+```
+
+**Components react to profile changes:**
+```tsx
+// components/dashboard/SprintProgressWidget.tsx
+import { useVaultSettings } from '@/lib/store/settings-store';
+
+export function SprintProgressWidget() {
+  const { activeProfile, dashboard } = useVaultSettings();
+
+  // Widget might not be visible in certain profiles
+  if (activeProfile === 'Focus Mode') {
+    const visibleWidgets = dashboard.widgets.active.map(w => w.id);
+    if (!visibleWidgets.includes('sprint-progress')) {
+      return null; // Hidden in Focus Mode
+    }
+  }
+
+  return <div>Sprint Progress...</div>;
+}
+```
+
+---
+
+#### Cross-App Cascade Example (Section 5)
+
+**Font size cascade from Global to Biz Lab and Products Lab:**
+```tsx
+// When user changes global font size
+const { updateSetting } = useVaultSettings();
+
+// This triggers cascade
+updateSetting('global.globalFontSizeCascade.masterFontSize', 18);
+
+// Cascade middleware automatically updates:
+// - bizLab.documentReading.readingMode.typography.fontSize → 18
+// - productsLab.componentLibrary.documentation.fontSize → 18
+
+// Components automatically re-render with new fontSize
+```
+
+**Cascade middleware implementation:**
+```tsx
+// lib/store/cascade-middleware.ts
+const applyCascadeRules = (prevState, newState, cascadeRules) => {
+  const changes = {};
+
+  // Check if global font size changed
+  if (newState.global.globalFontSizeCascade.masterFontSize !==
+      prevState.global.globalFontSizeCascade.masterFontSize) {
+
+    const newSize = newState.global.globalFontSizeCascade.masterFontSize;
+
+    // Cascade to Biz Lab
+    changes['bizLab.documentReading.readingMode.typography.fontSize'] = newSize;
+
+    // Cascade to Products Lab
+    changes['productsLab.componentLibrary.documentation.fontSize'] = newSize;
+  }
+
+  // Check if notification enabled changed
+  if (newState.dashboard.notifications.achievements.triggers.badgeUnlocked !==
+      prevState.dashboard.notifications.achievements.triggers.badgeUnlocked) {
+
+    const enabled = newState.dashboard.notifications.achievements.triggers.badgeUnlocked;
+
+    // Cascade to Biz Lab quick capture
+    changes['bizLab.documentReading.quickCapture.notifyOnSave'] = enabled;
+
+    // Cascade to Products Lab experiments
+    changes['productsLab.experimentWorkbench.autoSave.showIndicator'] = enabled;
+  }
+
+  return changes;
+};
+```
+
+---
+
 ## Approval Checklist
  
  ### Pre-Development Requirements
@@ -1618,12 +2978,35 @@ export default function SettingsPage() {
  - [ ] **UX:** Form "Save" states (loading/success) are visually clear.
  
  ---
- 
+
  **Status History:**
- - **v0.1.0 DRAFT** (Jan 13, 2026) - Initial App Settings concept.
- - **v0.1.1 REVIEW** (Jan 15, 2026) - Added user preference list.
- - **v0.1.2 APPROVED** (Jan 18, 2026) - Standardized for 2-Partner Vault.
- 
- ---
- 
- **Last Updated:** January 18, 2026
+ - **v0.1.0 DRAFT** (Jan 13, 2026) - Initial App Settings concept
+ - **v0.1.1 REVIEW** (Jan 15, 2026) - Added user preference list
+ - **v0.1.2 APPROVED** (Jan 18, 2026) - Standardized for 2-Partner Vault
+ - **v0.2.0 UPDATED** (Jan 20, 2026) - Added spec references and cross-integration details
+
+**Last Updated:** January 20, 2026
+
+**See Also:**
+
+**Core Specifications:**
+- `specifications/app-settings-system.md` - Complete technical implementation (Workflow Profiles, Collaboration Settings, Cascade Engine, App-Specific Stores, Version History, Pusher Sync)
+- `specifications/collaboration-features.md` - Team Pulse, Review Queue, Achievements, Partner Presence integration
+- `specifications/design-foundation.md` - Design tokens consumed by global font size cascade
+
+**App-Specific Integrations:**
+- `specifications/dashboard-system.md` - Widget configuration, notification preferences, quick actions customization
+- `specifications/products-lab-system.md` - Experiment Workbench preferences, Component Library settings, Design Token Browser
+- `specifications/biz-lab-system.md` - Knowledge Graph visualization, Strategic Brain preferences, Document Reading settings
+
+**Cross-Cutting Features:**
+- `specifications/global-navigation-system.md` - Command Palette scope, keyboard shortcuts customization
+- `specifications/studio-tuner-system.md` - Theme and Layout Preset integration with Workflow Profiles
+- `specifications/interactive-ui.md` - F4/F5 panel position control from Global Settings
+
+**Related PRDs:**
+- `00-vault-overview-prd.md` - Vault ecosystem overview
+- `10-biz-lab-prd.md` - Biz Lab features that consume settings
+- `11-products-lab-prd.md` - Products Lab features that consume settings
+- `12-global-navigation-prd.md` - Global navigation features that consume settings
+- `13-studio-tuner-prd.md` - Theme and layout customization that integrates with profiles
